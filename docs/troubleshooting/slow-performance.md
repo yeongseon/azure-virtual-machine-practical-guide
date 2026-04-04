@@ -37,6 +37,6 @@ graph TD
     Standardize on the "D-Series" or "E-Series" for most production workloads to avoid the performance variance inherent in "B-Series" burstable VMs.
 
 ## Sources
-- [Troubleshoot slow performance on Windows VM](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-performance-virtual-machine-linux-windows)
+- [Troubleshoot slow performance on Windows VM](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/linux/troubleshoot-performance-virtual-machine-linux-windows)
 - [Monitor Azure Virtual Machine performance](https://learn.microsoft.com/en-us/azure/virtual-machines/monitor-vm)
 - [How to use Azure Monitor to troubleshoot performance](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/monitor-azure-resource)

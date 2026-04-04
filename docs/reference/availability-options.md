@@ -29,6 +29,6 @@ graph TD
 ## Sources
 - [Availability options for Azure Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/availability)
 - [Availability sets overview](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview)
-- [Availability zones overview](https://learn.microsoft.com/en-us/azure/availability-zones/az-overview)
+- [Availability zones overview](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview)
 - [Virtual Machine Scale Sets overview](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview)
 - [Azure Site Recovery documentation](https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-overview)

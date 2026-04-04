@@ -35,4 +35,4 @@ graph TD
 - [Memory optimized virtual machine sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview)
 - [Storage optimized virtual machine sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview)
 - [GPU optimized virtual machine sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview)
-- [High performance computing VM sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes-hpc)
+- [High performance computing VM sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview#high-performance-compute)

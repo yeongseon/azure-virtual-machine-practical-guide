@@ -87,7 +87,7 @@ graph TD
 
 ## Sources
 
-- [Security best practices for Azure Virtual Machines](https://learn.microsoft.com/en-us/security/benchmark/azure-security-benchmark-v3)
+- [Security best practices for Azure Virtual Machines](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/virtual-machines-linux-security-baseline)
 - [Microsoft Defender for Cloud documentation](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction)
 - [How to use managed identities for Azure resources on an Azure VM](https://learn.microsoft.com/en-us/azure/entra/identity/managed-identities-azure-resources/how-to-use-vm-token)
 - [Trusted Launch for Azure virtual machines](https://learn.microsoft.com/en-us/azure/virtual-machines/trusted-launch)

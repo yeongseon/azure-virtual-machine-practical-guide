@@ -33,6 +33,6 @@ graph TD
 
 ## Sources
 
-- [Azure Virtual Network security overview](https://learn.microsoft.com/en-us/azure/virtual-network/security-overview)
+- [Azure Virtual Network security overview](https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview)
 - [What is Azure Bastion?](https://learn.microsoft.com/en-us/azure/bastion/bastion-overview)
 - [Accelerated Networking for Windows and Linux](https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview)

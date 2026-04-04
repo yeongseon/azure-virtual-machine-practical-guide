@@ -34,6 +34,6 @@ graph TD
     When a VM is unreachable, always check the **Boot Diagnostics** screenshot first. It will often reveal if the OS is stuck at a blue screen, a kernel panic, or a login prompt.
 
 ## Sources
-- [Troubleshoot Azure VM connectivity](https://learn.microsoft.com/en-us/azure/virtual-machines/troubleshooting/connectivity-overview)
+- [Troubleshoot Azure VM connectivity](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection)
 - [Azure VM Boot Diagnostics](https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics)
 - [Troubleshoot VM extension issues](https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/troubleshoot)
