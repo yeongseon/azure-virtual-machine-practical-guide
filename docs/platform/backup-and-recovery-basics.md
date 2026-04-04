@@ -39,9 +39,10 @@ graph LR
 !!! note
     A **Recovery Services vault** stores backup data and can be configured with locally-redundant (LRS), geo-redundant (GRS), or zone-redundant storage (ZRS), depending on scenario and region support.
 
-!!! tip "Related Pages"
-    - [Backup and Restore Operations](../operations/backup-restore.md)
-    - [Backup Failures Troubleshooting](../troubleshooting/backup-failures.md)
+## See Also
+
+- [Backup and Restore Operations](../operations/backup-restore.md)
+- [Backup Failures Troubleshooting](../troubleshooting/backup-failures.md)
 
 ## Sources
 - [Azure Backup overview](https://learn.microsoft.com/en-us/azure/backup/backup-overview)

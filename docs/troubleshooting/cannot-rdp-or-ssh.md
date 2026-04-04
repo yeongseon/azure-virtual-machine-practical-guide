@@ -37,8 +37,9 @@ graph TD
 !!! note
     Keep the local firewall enabled. Use Serial Console for inspection and Run Command for targeted, auditable RDP/SSH rule changes.
 
-!!! tip "Related Pages"
-    - [Connect to VM](../operations/connect-to-vm.md)
+## See Also
+
+- [Connect to VM](../operations/connect-to-vm.md)
 
 ## Sources
 - [Troubleshoot RDP connections to an Azure VM](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection)

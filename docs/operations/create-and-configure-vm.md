@@ -42,9 +42,10 @@ graph TD
     J --> K[VM Running]
 ```
 
-!!! tip "Related Pages"
-    - [How Azure VM Works](../platform/how-azure-vm-works.md)
-    - [Sizing and Image Selection Best Practices](../best-practices/sizing-and-image-selection.md)
+## See Also
+
+- [How Azure VM Works](../platform/how-azure-vm-works.md)
+- [Sizing and Image Selection Best Practices](../best-practices/sizing-and-image-selection.md)
 
 ## Sources
 

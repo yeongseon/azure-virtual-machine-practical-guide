@@ -36,9 +36,10 @@ graph TD
 !!! note
     Network Security Group (NSG) rules are processed by priority, where lower numbers have higher priority. Default rules exist to allow basic communication but can be overridden by custom rules.
 
-!!! tip "Related Pages"
-    - [Networking Best Practices](../best-practices/networking-best-practices.md)
-    - [DNS and Connectivity Troubleshooting](../troubleshooting/dns-and-connectivity-issues.md)
+## See Also
+
+- [Networking Best Practices](../best-practices/networking-best-practices.md)
+- [DNS and Connectivity Troubleshooting](../troubleshooting/dns-and-connectivity-issues.md)
 
 ## Sources
 - [Azure Virtual Network concepts](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview)

@@ -32,9 +32,10 @@ graph LR
 !!! warning
     Consolidate logs into a single Log Analytics workspace where possible. This simplifies querying and reduces the management overhead of multiple storage destinations.
 
-!!! tip "Related Pages"
-    - [Monitoring and Alerting Operations](../operations/monitoring-and-alerting.md)
-    - [Slow Performance Troubleshooting](../troubleshooting/slow-performance.md)
+## See Also
+
+- [Monitoring and Alerting Operations](../operations/monitoring-and-alerting.md)
+- [Slow Performance Troubleshooting](../troubleshooting/slow-performance.md)
 
 ## Sources
 - [Azure Monitor overview](https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview)

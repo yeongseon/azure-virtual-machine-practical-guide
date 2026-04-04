@@ -34,8 +34,9 @@ graph TD
 !!! tip
     Enable Boot Diagnostics on all VMs to get real-time screenshots of the boot process without needing an RDP or SSH connection. Boot Diagnostics uses managed storage by default.
 
-!!! tip "Related Pages"
-    - [Boot Diagnostics and Serial Console](../troubleshooting/boot-diagnostics-and-serial-console.md)
+## See Also
+
+- [Boot Diagnostics and Serial Console](../troubleshooting/boot-diagnostics-and-serial-console.md)
 
 ## Sources
 - [Troubleshoot Azure VM starting issues](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-vm-boot-error)

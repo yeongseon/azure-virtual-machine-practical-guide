@@ -43,9 +43,10 @@ graph TD
     MD --> H[Standard HDD\nLowest cost tier]
 ```
 
-!!! tip "Related Pages"
-    - [Disk and Storage Best Practices](../best-practices/disk-and-storage-best-practices.md)
-    - [Disk Performance Troubleshooting](../troubleshooting/disk-performance-issues.md)
+## See Also
+
+- [Disk and Storage Best Practices](../best-practices/disk-and-storage-best-practices.md)
+- [Disk Performance Troubleshooting](../troubleshooting/disk-performance-issues.md)
 
 ## Sources
 - [Azure managed disk types](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types)

@@ -36,8 +36,9 @@ graph TD
 !!! tip
     **Virtual Machine Scale Sets (VMSS)** allow you to create and manage a group of load-balanced VMs automatically.
 
-!!! tip "Related Pages"
-    - [Backup and DR Best Practices](../best-practices/backup-and-dr-best-practices.md)
+## See Also
+
+- [Backup and DR Best Practices](../best-practices/backup-and-dr-best-practices.md)
 
 ## Sources
 - [Azure VM availability options](https://learn.microsoft.com/en-us/azure/virtual-machines/availability)

@@ -81,9 +81,10 @@ graph TD
     BIM --> R[Integrity Result]
 ```
 
-!!! tip "Related Pages"
-    - [Identity and Access](../platform/identity-and-access.md)
-    - [Connect to VM](../operations/connect-to-vm.md)
+## See Also
+
+- [Identity and Access](../platform/identity-and-access.md)
+- [Connect to VM](../operations/connect-to-vm.md)
 
 ## Sources
 
