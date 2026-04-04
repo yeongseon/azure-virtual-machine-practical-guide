@@ -4,7 +4,7 @@ Azure provides several options to protect your virtual machines from hardware fa
 
 | Option | SLA | Scope | Protection Against | Cost Impact | When to Use |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Single VM (Premium SSD)** | 99.9% | Instance | Hardware failure | Base | Dev/Test, low criticality |
+| **Single VM (Premium SSD)** | 99.9% | Instance | No built-in redundancy; single-instance SLA only | Base | Dev/Test, low criticality |
 | **Availability Set** | 99.95% | Fault/update domains | Hardware/Update failures | Low | Legacy apps, no zone support |
 | **Availability Zone** | 99.99% | Data Center | Data center failure | Medium | High availability, primary production |
 | **VMSS** | 99.95% - 99.99% | Depends on topology (FD spread or multi-zone) | Large-scale failures | Variable | Auto-scaling workloads |

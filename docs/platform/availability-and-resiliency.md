@@ -6,7 +6,7 @@ To ensure high availability, Azure provides various tools and strategies to miti
 
 | Option | SLA | Protection Scope | Cost Impact |
 | --- | --- | --- | --- |
-| **Single VM** | 99.9% (Premium SSD) | Single rack/hardware failure. | Base cost |
+| **Single VM** | 99.9% (Premium SSD) | No built-in redundancy; single-instance SLA only. | Base cost |
 | **Availability Sets** | 99.95% | Fault and update domain faults. | No extra cost |
 | **Availability Zones** | 99.99% | Entire datacenter failure. | Potential data transfer cost |
 | **VMSS** | Depends on config | Automatic scaling and high availability. | Scale-out costs |
