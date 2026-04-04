@@ -5,9 +5,9 @@ Azure provides a comprehensive monitoring solution to track the health and perfo
 | Signal Category | Metric/Log Name | Source | Normal Range | Alert Threshold | Tool |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Compute** | Percentage CPU | Host | < 70% | > 85% for 15m | Azure Monitor |
-| **Memory** | Available Memory | Guest Agent | > 10% | < 5% | VM Insights |
+| **Memory** | Available Memory | Guest OS via AMA / VM Insights | > 10% | < 5% | VM Insights |
 | **Disk IO** | Data Disk IOPS | Host | Within SKU limit | > 90% of limit | Azure Monitor |
-| **Latency** | Disk Read/Write Latency | Host | < 10ms | > 50ms | VM Insights |
+| **Latency** | Disk Read/Write Latency | Host | Varies by disk tier | Sustained increase above baseline | VM Insights |
 | **Network** | Network In/Out | Host | Varies by size | > 90% of BW | Azure Monitor |
 | **Health** | VM Availability | Platform | 1 (Available) | < 1 | Resource Health |
 | **Diagnosis** | Boot Diagnostics | Serial/Store | Image/Text | "Failure" string | Serial Console |
@@ -33,4 +33,3 @@ graph LR
 - [Azure Monitor Logs overview](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-platform-logs)
 - [Azure Resource Health overview](https://learn.microsoft.com/en-us/azure/service-health/resource-health-overview)
 - [Azure VM boot diagnostics](https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics)
-- [VM Insights overview](https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-vm)

@@ -18,7 +18,7 @@ This section provides quick-reference tables, comparative overviews, and termino
 ```mermaid
 graph TD
     A[Availability Options] --> B[Single VM: 99.9% SLA with Premium SSD]
-    A --> C[Availability Set: 99.95% SLA / Rack Redundancy]
+    A --> C[Availability Set: 99.95% SLA / Fault-Domain Redundancy]
     A --> D[Availability Zone: 99.99% SLA / Datacenter Redundancy]
     A --> E[VMSS: Dynamic Scaling / Fleet Management]
 ```

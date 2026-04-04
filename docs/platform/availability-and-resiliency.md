@@ -13,7 +13,7 @@ To ensure high availability, Azure provides various tools and strategies to miti
 
 ## Availability Zone vs Availability Set Architecture
 
-Availability Zones are separate datacenters in one region. Availability Sets distribute VMs across fault and update domains inside a single datacenter.
+Availability Zones are separate datacenters in one region. Availability Sets distribute VMs across fault and update domains within a datacenter; they do not protect against full datacenter failures.
 
 ```mermaid
 graph TD

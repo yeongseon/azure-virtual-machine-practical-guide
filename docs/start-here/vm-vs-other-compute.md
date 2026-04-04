@@ -46,4 +46,3 @@ Use this table to decide if a VM is truly necessary or if it's overkill for your
 ## Sources
 
 - [Choose an Azure compute service](https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree)
-- [Compare Azure compute options](https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree)

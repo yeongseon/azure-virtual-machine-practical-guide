@@ -43,5 +43,4 @@ Alerts proactively notify you when metric thresholds are met or specific events 
 ## Sources
 
 - [Azure Monitor overview](https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview)
-- [Monitor virtual machines](https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-vm)
-- [VM Insights overview](https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-vm)
+- [Monitor virtual machines with Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-vm)

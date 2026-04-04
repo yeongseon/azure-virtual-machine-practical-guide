@@ -12,7 +12,7 @@ Diagnosing slow performance requires distinguishing between platform-level throt
 | Network | Network In/Out | Netstat / Resource Monitor | Use Accelerated Networking; upgrade VM series. |
 
 !!! note
-    Memory consumption is not automatically tracked by Azure host metrics. Enable the Log Analytics agent or Azure Monitor agent to collect guest-level memory statistics.
+    Memory consumption is not automatically tracked by Azure host metrics. Enable the Azure Monitor Agent (AMA) to collect guest-level memory statistics via VM Insights.
 
 ## Performance Optimization Flow
 
