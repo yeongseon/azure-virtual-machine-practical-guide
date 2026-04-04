@@ -34,6 +34,6 @@ graph TD
     Premium SSDs and Ultra Disks provide consistent IOPS. Standard HDDs/SSDs can experience high latency during peak usage.
 
 ## Sources
-- [Troubleshoot high CPU on Windows VMs](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-performance-bottlenecks-linux)
+- [Troubleshoot high CPU on Windows VMs](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-high-cpu-issues-azure-windows-vm)
 - [Troubleshoot high CPU on Linux VMs](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-performance-bottlenecks-linux)
 - [Understand VM disk throttling](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance-tiers)

@@ -6,7 +6,7 @@ Boot diagnostics and the serial console are critical for troubleshooting Azure V
 
 | Tool | Access Method | When to Use | Prerequisites |
 | :--- | :--- | :--- | :--- |
-| Boot Diagnostics | Azure Portal (Screenshot/Log) | Visualizing boot errors or hangs. | Managed Storage Account. |
+| Boot Diagnostics | Azure Portal (Screenshot/Log) | Visualizing boot errors or hangs. | Enabled by default (uses managed storage). |
 | Serial Console | Azure Portal (Interactive) | Direct CLI access without networking. | Boot Diagnostics enabled; Password or SSH Key. |
 | Activity Log | Azure Portal (Events) | Tracking platform-level start/stop events. | Azure Role-Based Access Control. |
 

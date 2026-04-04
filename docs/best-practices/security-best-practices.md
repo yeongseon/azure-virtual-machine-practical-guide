@@ -61,8 +61,8 @@ graph TD
 
 ## Trusted Launch
 
-!!! tip "Recommended for all new VMs"
-    Trusted Launch is available at no extra cost and should be enabled for all new VM deployments.
+!!! tip "Recommended for all new supported Gen2 VMs"
+    Trusted Launch is available at no extra cost and should be enabled for all new VM deployments where supported (Gen2 VMs with compatible images).
 
 | Feature | Description | Benefit |
 |---------|-------------|---------|

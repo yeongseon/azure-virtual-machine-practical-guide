@@ -32,7 +32,7 @@ graph TD
 ```
 
 !!! tip
-    Enable Boot Diagnostics (Managed Storage) on all VMs to get real-time screenshots of the boot process without needing an RDP or SSH connection.
+    Enable Boot Diagnostics on all VMs to get real-time screenshots of the boot process without needing an RDP or SSH connection. Boot Diagnostics uses managed storage by default.
 
 !!! tip "Related Pages"
     - [Boot Diagnostics and Serial Console](../troubleshooting/boot-diagnostics-and-serial-console.md)

@@ -8,7 +8,7 @@ Managing disks in Azure allows you to expand storage capacity or improve perform
 | :--- | :--- | :--- |
 | **Attach Data Disk** | No | `az vm disk attach` |
 | **Detach Data Disk** | Recommended | `az vm disk detach` |
-| **Expand Size** | Optional (Deallocate if OS disk) | `az disk update --size-gb 1024` |
+| **Expand Size** | Usually no (online resize supported for most managed disks) | `az disk update --size-gb 1024` |
 | **Change Tier** | Yes (Stop/Deallocate) | `az disk update --sku Premium_LRS` |
 
 ## Disk Management Workflow
@@ -17,7 +17,7 @@ Managing disks in Azure allows you to expand storage capacity or improve perform
 graph TD
     A[Identify Disk Need] --> B{Operation Type}
     B -->|New Storage| C[Attach Managed Disk]
-    B -->|More Space| D[Stop VM if OS Disk]
+    B -->|More Space| D[Resize Disk Online or Deallocate]
     B -->|Better Perf| E[Stop VM/Deallocate]
     D --> F[Resize in Portal/CLI]
     E --> G[Update SKU: Std to Prem]

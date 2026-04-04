@@ -35,4 +35,4 @@ graph LR
 ## Sources
 - [Managing Azure Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)
 - [How to Monitor Azure VMs](https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-vm)
-- [Update Management in Azure](https://learn.microsoft.com/en-us/azure/automation/update-management/overview)
+- [Update Management in Azure](https://learn.microsoft.com/en-us/azure/update-manager/overview)
