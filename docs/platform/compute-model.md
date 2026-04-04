@@ -38,5 +38,5 @@ The ACU concept provides a way to compare compute (CPU) performance across diffe
     Standard_A1 is the baseline (ACU = 100). Higher ACUs indicate greater performance per vCPU.
 
 ## Sources
-* [Sizes for virtual machines in Azure](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes)
-* [Azure Compute Unit (ACU)](https://learn.microsoft.com/en-us/azure/virtual-machines/acu)
+- [Sizes for virtual machines in Azure](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes)
+- [Azure Compute Unit (ACU)](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview)

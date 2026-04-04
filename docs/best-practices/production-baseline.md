@@ -48,6 +48,6 @@ graph LR
 
 ## Sources
 
-- [Azure Virtual Machines best practices](https://learn.microsoft.com/en-us/azure/virtual-machines/best-practices)
+- [Azure Virtual Machines best practices](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)
 - [Availability options for Azure Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/availability)
 - [Azure Managed Disks overview](https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview)

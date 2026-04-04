@@ -34,7 +34,10 @@ graph TD
 !!! tip
     Enable Boot Diagnostics (Managed Storage) on all VMs to get real-time screenshots of the boot process without needing an RDP or SSH connection.
 
+!!! tip "Related Pages"
+    - [Boot Diagnostics and Serial Console](../troubleshooting/boot-diagnostics-and-serial-console.md)
+
 ## Sources
-- [Troubleshoot Azure VM starting issues](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-vm-start-fails)
-- [Allocation failures when you create or resize VMs](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/allocation-failures)
+- [Troubleshoot Azure VM starting issues](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-vm-boot-error)
+- [Allocation failures when you create or resize VMs](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/allocation-failure)
 - [Understand boot diagnostics](https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics)

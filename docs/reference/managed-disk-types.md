@@ -28,8 +28,8 @@ graph TD
 
 ## Sources
 - [Azure managed disk types](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types)
-- [Standard HDD storage for Azure VMs](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-standard-hdd)
-- [Standard SSD storage for Azure VMs](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-standard-ssd)
+- [Standard HDD storage for Azure VMs](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#standard-hdd)
+- [Standard SSD storage for Azure VMs](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#standard-ssd)
 - [Premium SSD storage for Azure VMs](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd)
 - [Premium SSD v2 storage for Azure VMs](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd-v2)
 - [Ultra Disk storage for Azure VMs](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#ultra-disk)

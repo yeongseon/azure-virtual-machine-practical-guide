@@ -1,26 +1,40 @@
 # Azure Virtual Machine Practical Guide
 
-Azure VM의 플랫폼 동작 원리, 운영 가이드, 트러블슈팅을 MS Learn 기반으로 정리한 실전 가이드입니다.
+This practical guide covers Azure Virtual Machine platform internals, operational procedures, and troubleshooting techniques. It's designed for cloud engineers and architects who need to move beyond basic feature descriptions to real-world implementation and decision-making.
 
-## Sections
+## Navigation Hub
 
-| Section | Purpose |
-|---------|---------|
-| [Start Here](start-here/index.md) | VM이 뭔지, 언제 써야 하는지, 어디서부터 읽을지 |
-| [Platform](platform/index.md) | Azure VM의 동작 원리와 구성 요소 |
-| [Best Practices](best-practices/index.md) | 프로덕션 권장 설계와 운영 판단 기준 |
-| [Operations](operations/index.md) | 실제 운영 절차와 설정 가이드 |
-| [Troubleshooting](troubleshooting/index.md) | 증상 기반 진단과 해결 |
-| [Reference](reference/index.md) | 빠른 조회용 요약 테이블 |
+| Section | Description |
+|---------|-------------|
+| [Start Here](start-here/index.md) | Introduction to Azure VMs, use cases, and recommended learning paths. |
+| [Platform Fundamentals](platform/index.md) | Deep dive into how Azure VMs work, including compute, storage, and networking. |
+| [Best Practices](best-practices/index.md) | Production-ready guidance for architecture, security, and resiliency. |
+| [Operations](operations/index.md) | Practical guides for day-to-day management, monitoring, and maintenance. |
+| [Troubleshooting](troubleshooting/index.md) | Symptom-based diagnostic workflows and common resolution steps. |
+| [Reference](reference/index.md) | Quick-reference tables and direct links to Microsoft Learn sources. |
 
-## How This Guide Is Different
+## Guide Structure
 
-| MS Learn | This Guide |
-|----------|-----------|
-| Feature-by-feature descriptions | Decision-oriented structure |
-| Organized by product capability | Organized by operational thinking flow |
-| "What it does" | "When to use it, what breaks, how to fix it" |
-| Scattered troubleshooting | Symptom-based diagnosis with verification order |
+```mermaid
+graph TD
+    Start[Start Here] --> Platform[Platform Fundamentals]
+    Platform --> BP[Best Practices]
+    BP --> Ops[Operations]
+    Ops --> TS[Troubleshooting]
+    TS --> Ref[Reference]
+    
+    style Start fill:#f9f,stroke:#333,stroke-width:2px
+    style Ref fill:#bbf,stroke:#333,stroke-width:2px
+```
 
-!!! info "Content Source"
-    All content is grounded in official [Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/) documentation.
+!!! tip "How to Use This Guide"
+    If you're new to Azure, start with the **Platform Fundamentals** to understand the "Why" and "How" before moving to **Best Practices**. For those already running workloads, the **Troubleshooting** and **Operations** sections provide immediate value for maintenance.
+
+## Quick Links
+- [Virtual Machines Overview](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)
+- [VM Sizes and Types](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview)
+- [Azure Backup for VMs](https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction)
+
+## Sources
+- [Azure Virtual Machines Documentation](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)
+- [Azure Virtual Network Overview](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview)

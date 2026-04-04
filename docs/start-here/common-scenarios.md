@@ -55,6 +55,6 @@ When hosting a database on a VM, you must handle all administrative tasks that a
 
 ## Sources
 
-*   [Virtual machine sizes in Azure](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes)
-*   [N-tier architecture with SQL Server](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
-*   [Azure Bastion Documentation](https://learn.microsoft.com/en-us/azure/bastion/bastion-overview)
+- [Virtual machine sizes in Azure](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes)
+- [N-tier architecture with SQL Server](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+- [Azure Bastion Documentation](https://learn.microsoft.com/en-us/azure/bastion/bastion-overview)

@@ -36,6 +36,6 @@ graph TD
     Use Network Watcher Connection Troubleshoot to perform a comprehensive check of the entire network path between two endpoints.
 
 ## Sources
-- [Troubleshoot DNS resolution issues](https://learn.microsoft.com/en-us/azure/virtual-network/troubleshoot-dns-resolution)
+- [Troubleshoot DNS resolution issues](https://learn.microsoft.com/en-us/azure/dns/dns-troubleshoot)
 - [Troubleshoot VNet peering issues](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-troubleshoot-peering-issues)
 - [Network Watcher IP flow verify overview](https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-ip-flow-verify-overview)

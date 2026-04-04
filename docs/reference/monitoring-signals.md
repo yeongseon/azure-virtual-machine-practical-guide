@@ -28,9 +28,9 @@ graph LR
     The Azure Monitor Agent (AMA) replaces the legacy Log Analytics agent and provides enhanced security and flexibility for log collection.
 
 ## Sources
-- [Monitoring Azure virtual machines](https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-virtual-machines)
+- [Monitoring Azure virtual machines](https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-vm)
 - [Azure Monitor metrics overview](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-platform-metrics)
 - [Azure Monitor Logs overview](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-platform-logs)
 - [Azure Resource Health overview](https://learn.microsoft.com/en-us/azure/service-health/resource-health-overview)
 - [Azure VM boot diagnostics](https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics)
-- [VM Insights overview](https://learn.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-overview)
+- [VM Insights overview](https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-vm)

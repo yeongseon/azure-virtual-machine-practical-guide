@@ -14,21 +14,31 @@ Azure Virtual Network (VNet) is the fundamental building block for your private 
 | **Load Balancer** | Distributes incoming traffic across multiple VMs. | Region |
 | **Azure Bastion** | Provides secure RDP/SSH access without public IPs. | VNet |
 
-## Inbound Traffic Flow
+## Inbound and Outbound Traffic Flow
 
-Traffic originating from the internet passes through various layers before reaching the Virtual Machine interface.
+Inbound traffic is evaluated by NSGs before reaching the VM, and outbound traffic is evaluated before route-table-based egress. NSGs can be associated at both subnet and NIC levels.
 
 ```mermaid
 graph TD
     Internet((Internet)) --> PIP[Public IP]
-    PIP --> LB[Load Balancer]
-    LB --> NSG[NSG Rules]
-    NSG --> NIC[Network Interface Card]
+    PIP --> SNSG[Subnet NSG]
+    SNSG --> NNSG[NIC NSG]
+    NNSG --> NIC[Network Interface]
     NIC --> VM[Virtual Machine]
+
+    VM --> NIC
+    NIC --> NNSG
+    NNSG --> SNSG
+    SNSG --> UDR[Route Table]
+    UDR --> Internet
 ```
 
 !!! note
     Network Security Group (NSG) rules are processed by priority, where lower numbers have higher priority. Default rules exist to allow basic communication but can be overridden by custom rules.
+
+!!! tip "Related Pages"
+    - [Networking Best Practices](../best-practices/networking-best-practices.md)
+    - [DNS and Connectivity Troubleshooting](../troubleshooting/dns-and-connectivity-issues.md)
 
 ## Sources
 - [Azure Virtual Network concepts](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview)

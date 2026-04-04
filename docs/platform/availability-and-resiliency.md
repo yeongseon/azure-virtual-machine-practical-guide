@@ -11,18 +11,23 @@ To ensure high availability, Azure provides various tools and strategies to miti
 | **Availability Zones** | 99.99% | Entire datacenter failure. | Potential data transfer cost |
 | **VMSS** | Depends on config | Automatic scaling and high availability. | Scale-out costs |
 
-## Availability Zone Architecture
+## Availability Zone vs Availability Set Architecture
 
-Availability Zones are physically separate locations within each Azure region that provide redundancy.
+Availability Zones are separate datacenters in one region. Availability Sets distribute VMs across fault and update domains inside a single datacenter.
 
 ```mermaid
 graph TD
-    Region[Azure Region] --> AZ1[Availability Zone 1]
-    Region --> AZ2[Availability Zone 2]
-    Region --> AZ3[Availability Zone 3]
-    AZ1 --> VM1[VM Subnet 1]
-    AZ2 --> VM2[VM Subnet 2]
-    AZ3 --> VM3[VM Subnet 3]
+    Region[Azure Region]
+    Region --> AZ1[Zone 1 Datacenter]
+    Region --> AZ2[Zone 2 Datacenter]
+    Region --> AZ3[Zone 3 Datacenter]
+
+    Region --> DC1[Single Datacenter]
+    DC1 --> ASet[Availability Set]
+    ASet --> FD1[Fault Domain 1]
+    ASet --> FD2[Fault Domain 2]
+    ASet --> UD1[Update Domain 1]
+    ASet --> UD2[Update Domain 2]
 ```
 
 !!! note
@@ -30,6 +35,9 @@ graph TD
 
 !!! tip
     **Virtual Machine Scale Sets (VMSS)** allow you to create and manage a group of load-balanced VMs automatically.
+
+!!! tip "Related Pages"
+    - [Backup and DR Best Practices](../best-practices/backup-and-dr-best-practices.md)
 
 ## Sources
 - [Azure VM availability options](https://learn.microsoft.com/en-us/azure/virtual-machines/availability)

@@ -42,4 +42,4 @@ Maintenance configurations allow you to group multiple VMs and apply updates dur
 
 - [Azure Update Manager overview](https://learn.microsoft.com/en-us/azure/update-manager/overview)
 - [Update orchestration options](https://learn.microsoft.com/en-us/azure/virtual-machines/automatic-vm-guest-patching)
-- [Maintenance configurations](https://learn.microsoft.com/en-us/azure/update-manager/manage-vms-maintenance-configurations)
+- [Maintenance configurations](https://learn.microsoft.com/en-us/azure/update-manager/manage-updates-for-azure-vms)

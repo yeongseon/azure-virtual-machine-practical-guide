@@ -29,8 +29,12 @@ graph TD
 !!! warning
     Decreasing the size of an Azure disk is NOT supported. You must create a new smaller disk and migrate data.
 
+!!! note
+    Enable Encryption at Host to encrypt temp disk and disk caches.
+
 ## Sources
 
-* [Attach a data disk to a Windows VM](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/attach-managed-disk-portal)
-* [Expand virtual hard disks on a Linux VM](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks)
-* [Change the tier of a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-change-performance)
+- [Attach a data disk to a Windows VM](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/attach-managed-disk-portal)
+- [Expand virtual hard disks on a Linux VM](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks)
+- [Change the tier of a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-change-performance)
+- [Enable host-based encryption for disks](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-enable-host-based-encryption-portal)

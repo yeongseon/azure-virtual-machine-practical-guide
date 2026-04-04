@@ -31,6 +31,6 @@ flowchart TD
 
 ## Sources
 
-* [Resize a Windows VM](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/resize-vm)
-* [Redeploy virtual machine to new Azure node](https://learn.microsoft.com/en-us/azure/virtual-machines/redeploy-to-new-node)
-* [Resize a Linux VM with Azure CLI](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/resize-vm)
+- [Resize a Windows VM](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/resize-vm)
+- [Redeploy virtual machine to new Azure node](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/redeploy-to-new-node)
+- [Resize a Linux VM with Azure CLI](https://learn.microsoft.com/en-us/azure/virtual-machines/resize-vm)

@@ -38,6 +38,6 @@ graph TD
     Deallocating a VM stops compute charges, but storage costs for disks continue to accrue. Delete orphaned disks to avoid unnecessary expenses.
 
 ## Sources
-- [Cost optimization for Azure Virtual Machines](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/vm-cost-optimization)
+- [Cost optimization for Azure Virtual Machines](https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/cost-management-best-practices)
 - [Azure Advisor recommendations](https://learn.microsoft.com/en-us/azure/advisor/advisor-overview)
 - [Reserved Virtual Machine Instances](https://learn.microsoft.com/en-us/azure/virtual-machines/prepay-reserved-vm-instances)

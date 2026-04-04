@@ -29,6 +29,6 @@ graph TD
 
 ## Sources
 
-* [Create a snapshot of a virtual hard disk](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/snapshot-copy-managed-disk)
-* [Azure Compute Gallery overview](https://learn.microsoft.com/en-us/azure/virtual-machines/azure-compute-gallery)
-* [Capture a managed image of a generalized VM](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource)
+- [Create a snapshot of a virtual hard disk](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/snapshot-copy-managed-disk)
+- [Azure Compute Gallery overview](https://learn.microsoft.com/en-us/azure/virtual-machines/azure-compute-gallery)
+- [Capture a managed image of a generalized VM](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource)

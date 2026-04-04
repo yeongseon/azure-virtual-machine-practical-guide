@@ -1,14 +1,37 @@
 # Reference
 
-빠른 조회용 요약 테이블과 용어 설명입니다.
+This section provides quick-reference tables, comparative overviews, and terminology to help you find specific technical details without navigating through full conceptual documentation.
 
-## Documents
+## Section Contents
 
-| Document | What You'll Find |
-|----------|-----------------|
-| [VM Size Families](vm-size-families.md) | 각 size family 특징과 워크로드별 추천 |
-| [Managed Disk Types](managed-disk-types.md) | Disk 종류별 성능/비용 비교 |
-| [Availability Options](availability-options.md) | Single VM / AS / AZ / VMSS 비교 |
-| [Networking Components](networking-components.md) | VNet, subnet, NIC, NSG, LB, Bastion 요약 |
-| [Monitoring Signals](monitoring-signals.md) | Metrics, logs, diagnostics 어디서 보는지 |
-| [Glossary](glossary.md) | Azure VM 관련 용어 설명 |
+| Page | Description |
+|------|-------------|
+| [VM Size Families](vm-size-families.md) | High-level comparison of size families and workload-specific recommendations. |
+| [Managed Disk Types](managed-disk-types.md) | Performance metrics and cost comparisons across all Azure managed disk tiers. |
+| [Availability Options](availability-options.md) | Comparison matrix for Single VM, Availability Sets, Zones, and Scale Sets. |
+| [Networking Components](networking-components.md) | Summary of VNet, Subnet, NIC, NSG, Load Balancer, and Bastion roles. |
+| [Monitoring Signals](monitoring-signals.md) | Identification of metrics, logs, and diagnostics locations across the platform. |
+| [Glossary](glossary.md) | A collection of common Azure VM terminology and definitions. |
+
+## Quick Comparison: Availability vs Resiliency
+
+```mermaid
+graph TD
+    A[Availability Options] --> B[Single VM: 99.9% SLA with Premium SSD]
+    A --> C[Availability Set: 99.95% SLA / Rack Redundancy]
+    A --> D[Availability Zone: 99.99% SLA / Datacenter Redundancy]
+    A --> E[VMSS: Dynamic Scaling / Fleet Management]
+```
+
+!!! tip
+    Refer to the **VM Size Families** page before choosing a VM series, as different families (e.g., D-series vs. E-series) are optimized for specific vCPU-to-memory ratios.
+
+## Sources
+- [Azure Virtual Machines Documentation](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)
+- [Virtual Machine Sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview)
+- [Managed Disk Types](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types)
+- [Virtual Network Overview](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview)
+- [Azure Security Baselines](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/virtual-machines-linux-security-baseline)
+- [Monitor Azure Virtual Machines](https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-vm)
+- [Introduction to Azure Backup](https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction)
+- [Availability Options for VMs](https://learn.microsoft.com/en-us/azure/virtual-machines/availability)

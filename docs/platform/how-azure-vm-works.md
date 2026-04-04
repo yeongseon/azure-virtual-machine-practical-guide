@@ -31,5 +31,5 @@ Azure distributes VMs across fault domains (hardware racks) and update domains (
 | **Update Domain** | Logical group for planned maintenance | Software updates/Reboots |
 
 ## Sources
-* [Azure Virtual Machines Overview](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)
-* [Availability options for Azure Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/availability)
+- [Azure Virtual Machines Overview](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)
+- [Availability options for Azure Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/availability)

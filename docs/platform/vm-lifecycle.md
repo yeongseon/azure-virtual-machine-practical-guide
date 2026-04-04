@@ -40,5 +40,5 @@ Common maintenance and recovery operations for Azure Virtual Machines.
 | **Restart** | Reboots the Guest OS | Software updates or configuration changes |
 
 ## Sources
-* [Virtual machines lifecycle and states](https://learn.microsoft.com/en-us/azure/virtual-machines/states-lifecycle)
-* [Redeploy virtual machines to new Azure node](https://learn.microsoft.com/en-us/azure/virtual-machines/redeploy-to-new-node)
+- [Virtual machines lifecycle and states](https://learn.microsoft.com/en-us/azure/virtual-machines/states-billing)
+- [Redeploy virtual machines to new Azure node](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/redeploy-to-new-node)

@@ -30,9 +30,9 @@ graph TD
 
 ## Sources
 - [Azure virtual machine sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes)
-- [General purpose virtual machine sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes-general)
-- [Compute optimized virtual machine sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes-compute)
-- [Memory optimized virtual machine sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes-memory)
-- [Storage optimized virtual machine sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes-storage)
-- [GPU optimized virtual machine sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes-gpu)
+- [General purpose virtual machine sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview)
+- [Compute optimized virtual machine sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview)
+- [Memory optimized virtual machine sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview)
+- [Storage optimized virtual machine sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview)
+- [GPU optimized virtual machine sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview)
 - [High performance computing VM sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes-hpc)

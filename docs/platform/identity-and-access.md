@@ -8,7 +8,7 @@ Azure Role-Based Access Control (RBAC) helps you manage who has access to Azure 
 | --- | --- | --- |
 | **Owner** | Full access to all resources and management. | Subscription, Resource Group, Resource |
 | **Contributor** | Can create/manage all resource types but not grant access. | Subscription, Resource Group, Resource |
-| **VM Contributor** | Can manage VMs and their storage/networks. | Subscription, Resource Group, Resource |
+| **VM Contributor** | Can manage VM resources, but not virtual networks or storage accounts outside VM resource scope. | Subscription, Resource Group, Resource |
 | **Reader** | Can view existing resources but not modify. | Subscription, Resource Group, Resource |
 
 ## Managed Identity and Key Vault
@@ -29,7 +29,10 @@ graph LR
 !!! warning
     Just-In-Time (JIT) VM access reduces exposure to brute force attacks by providing controlled access only when needed.
 
+!!! note
+    RDP/SSH access does not require a public IP. Use Azure Bastion (recommended), VPN/ExpressRoute, or private IP connectivity from a connected network.
+
 ## Sources
 - [Azure RBAC built-in roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles)
 - [What are managed identities?](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview)
-- [JIT VM access](https://learn.microsoft.com/en-us/azure/defender-for-cloud/just-in-time-access-usage)
+- [JIT VM access](https://learn.microsoft.com/en-us/azure/defender-for-cloud/enable-just-in-time-access)

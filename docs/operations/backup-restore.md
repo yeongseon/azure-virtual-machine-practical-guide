@@ -7,7 +7,7 @@ Azure Backup provides a secure, reliable way to protect your Virtual Machines fr
 ```mermaid
 graph TD
     A[VM Workload] --> B{Azure Backup Agent/Extension}
-    B --> C[Recovery Services Vault]
+    B --> C[Recovery Services vault]
     C --> D[Initial Full Backup]
     D --> E[Daily Incremental Backups]
     E --> F{Restore Triggered}

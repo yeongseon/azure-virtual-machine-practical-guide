@@ -1,12 +1,31 @@
 # Start Here
 
-Azure VM을 처음 접하거나, 이 가이드를 어디서부터 읽을지 결정하는 섹션입니다.
+If you're new to Azure Virtual Machines or wondering where to begin with this guide, this section provides the necessary context and entry points. You'll learn the fundamental value of VMs in a cloud ecosystem and how they compare to other compute services.
 
-## Documents
+## Section Contents
 
-| Document | What You'll Learn |
-|----------|------------------|
-| [Overview](overview.md) | Azure VM이 무엇이고 IaaS에서의 위치 |
-| [Learning Path](learning-path.md) | 역할별 추천 읽기 순서 |
-| [VM vs Other Compute](vm-vs-other-compute.md) | App Service, Functions, Container Apps와의 비교 |
-| [Common Scenarios](common-scenarios.md) | VM이 적합한 대표 시나리오 |
+| Page | Description |
+|------|-------------|
+| [Overview](overview.md) | Understanding Azure VMs as Infrastructure as a Service (IaaS) and their core capabilities. |
+| [Learning Path](learning-path.md) | Tailored reading sequences based on your specific role (Architect, Admin, Developer). |
+| [VM vs Other Compute](vm-vs-other-compute.md) | How VMs compare to App Service, Azure Functions, and Azure Container Apps. |
+| [Common Scenarios](common-scenarios.md) | Practical real-world use cases where VMs are the optimal architectural choice. |
+
+## Why Virtual Machines?
+
+```mermaid
+graph LR
+    A[Traditional Infrastructure] --> B{Choose Cloud Model}
+    B -->|Control| C[IaaS: Azure VM]
+    B -->|Velocity| D[PaaS: App Service]
+    B -->|Efficiency| E[Serverless: Functions]
+    
+    style C fill:#0078d4,color:#fff
+```
+
+!!! note
+    Azure Virtual Machines offer the highest level of control and flexibility among Azure's compute options, making them ideal for legacy migrations and highly customized environments.
+
+## Sources
+- [Virtual Machines in Azure](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)
+- [Choosing an Azure Compute Service](https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree)

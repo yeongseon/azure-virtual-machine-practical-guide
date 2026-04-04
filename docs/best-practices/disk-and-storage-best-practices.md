@@ -1,13 +1,19 @@
 # Disk and Storage Best Practices
 
-Storage performance and data integrity depend on the selection of the correct disk tier and caching strategy. Separating operating system data from application data is a core architectural requirement.
+Storage performance and data integrity depend on matching disk type and caching behavior to workload patterns. Separate OS, data, logs, and temporary storage so each can be tuned independently.
 
 | Workload Type | Recommended Disk Tier | Caching Setting |
 | :--- | :--- | :--- |
 | OS Disk | Premium SSD (P6+) | ReadWrite |
-| Database Data | Ultra Disk or Premium SSD v2 | ReadOnly |
+| Database Data | Premium SSD (or higher) | ReadOnly (when read-heavy) |
 | Database Logs | Premium SSD | None (Disabled) |
-| Dev/Test Workloads | Standard SSD | ReadWrite |
+| Temp / Scratch | Temporary Disk or Data Disk | None or ReadOnly (workload dependent) |
+
+!!! warning
+    Do **not** apply host caching recommendations to **Ultra Disk** or **Premium SSD v2**. These disk types do not support host caching (`ReadOnly`/`ReadWrite`).
+
+!!! tip
+    Match disk type to workload. Ultra Disk and Premium SSD v2 provide high performance through their own performance architecture, without host caching settings.
 
 ## Disk Layout Best Practices
 
@@ -15,21 +21,13 @@ Structuring your storage with multiple disks prevents data loss during OS re-ima
 
 ```mermaid
 graph TD
-    VM[Virtual Machine]
-    VM --- OS[OS Disk - C:/]
-    VM --- DATA[Data Disk 1 - D:/]
-    VM --- LOGS[Data Disk 2 - L:/]
-    VM --- TEMP[Temporary Disk - E:/]
-    
-    subgraph "Persistent Storage"
-    OS
-    DATA
-    LOGS
-    end
-    
-    subgraph "Ephemeral Storage"
-    TEMP
-    end
+    A[Select Workload] --> B{Disk Type Ultra/Premium SSD v2?}
+    B -- Yes --> C[Skip Host Caching Decision]
+    B -- No --> D{Disk Role}
+    D -- OS Disk --> E[ReadWrite]
+    D -- DB Data --> F[ReadOnly]
+    D -- DB Logs --> G[None]
+    D -- Temp/Scratch --> H[None or ReadOnly]
 ```
 
 !!! note

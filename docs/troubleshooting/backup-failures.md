@@ -23,7 +23,7 @@ graph TD
     D -->|Yes| F{Data Transferred?}
     F -->|No| G[Check VNet/NSG Settings]
     F -->|Yes| H[Inspect Backup Policy]
-    G --> I[Check Recovery Services Vault Access]
+    G --> I[Check Recovery Services vault Access]
     I --> J[Validate Outbound Ports 443]
 ```
 

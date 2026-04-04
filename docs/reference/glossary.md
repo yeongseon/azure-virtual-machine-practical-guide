@@ -8,7 +8,7 @@ This glossary provides a quick reference for common Azure Virtual Machine terms 
 | **Availability Set** | A logical grouping of VMs that ensures they are spread across different hardware racks. | Fault Domain |
 | **Availability Zone** | Physically separate data centers within an Azure region. | SLA |
 | **Azure Bastion** | A service providing secure RDP and SSH access to VMs over SSL. | NSG |
-| **Azure Backup** | A service to back up and restore data from Azure VMs. | Recovery Services Vault |
+| **Azure Backup** | A service to back up and restore data from Azure VMs. | Recovery Services vault |
 | **Boot Diagnostics** | A feature that captures the console output and screenshots of a VM during startup. | Troubleshooting |
 | **Custom Script Extension** | A tool to download and run scripts on Azure VMs for post-deployment configuration. | VM Extension |
 | **Deallocate** | Stopping a VM and releasing its hardware resources to avoid compute charges. | Stopped |
@@ -23,7 +23,7 @@ This glossary provides a quick reference for common Azure Virtual Machine terms 
 | **Premium SSD** | High-performance SSD-based storage for I/O-intensive workloads. | Managed Disk |
 | **Public IP** | An IP address used for communication with resources outside the VNet. | Internet |
 | **RBAC** | Role-Based Access Control; manages access to Azure resources based on roles. | IAM |
-| **Recovery Services Vault** | A storage entity in Azure that holds data like backup copies and recovery points. | Azure Backup |
+| **Recovery Services vault** | A storage entity in Azure that holds data like backup copies and recovery points. | Azure Backup |
 | **Redeploy** | Moving a VM to a new Azure node to resolve hardware-related issues. | Troubleshooting |
 | **Reimage** | Reinstalling the operating system on a VM disk. | OS Disk |
 | **Serial Console** | A tool providing direct console access to a VM for troubleshooting boot issues. | Boot Diagnostics |

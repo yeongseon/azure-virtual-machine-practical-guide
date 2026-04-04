@@ -1,17 +1,38 @@
 # Operations
 
-실제 운영 절차와 설정 가이드를 다루는 섹션입니다.
+This section provides hands-on operational procedures and configuration guides for maintaining Azure Virtual Machines. It translates high-level concepts into the specific steps needed for day-to-day management.
 
-## Documents
+## Section Contents
 
-| Document | What You'll Learn |
-|----------|------------------|
-| [Create and Configure VM](create-and-configure-vm.md) | Portal/CLI/IaC 기준 주요 설정 포인트 |
-| [Connect to VM](connect-to-vm.md) | RDP/SSH, Bastion, 접속 문제 점검 |
-| [Manage Disks](manage-disks.md) | Disk 추가/분리, expansion, filesystem 작업 |
-| [Resize and Redeploy](resize-and-redeploy.md) | Resize 주의점, redeploy/reimage 차이 |
-| [Snapshots and Images](snapshots-and-images.md) | Snapshot, golden image, 운영 활용 |
-| [Backup and Restore](backup-restore.md) | Azure Backup 구성, restore, 사고 대응 |
-| [Patching](patching.md) | Patch orchestration, OS update 관리 |
-| [Monitoring and Alerting](monitoring-and-alerting.md) | Azure Monitor, guest metrics, alert 설계 |
-| [VMSS Basics](vmss-basics.md) | Scale Set 언제 고려할지, autoscale |
+| Page | Description |
+|------|-------------|
+| [Create and Configure VM](create-and-configure-vm.md) | Key configuration points for Portal, CLI, and Infrastructure as Code (IaC). |
+| [Connect to VM](connect-to-vm.md) | Accessing workloads via RDP/SSH, Bastion, and basic connectivity checks. |
+| [Manage Disks](manage-disks.md) | Adding/detaching disks, expanding capacity, and managing filesystems. |
+| [Resize and Redeploy](resize-and-redeploy.md) | Resizing constraints and when to use redeploy or reimage operations. |
+| [Snapshots and Images](snapshots-and-images.md) | Working with snapshots and golden images for operational recovery. |
+| [Backup and Restore](backup-restore.md) | Configuring Azure Backup, executing restores, and incident response. |
+| [Patching](patching.md) | Patch orchestration and systematic management of OS updates. |
+| [Monitoring and Alerting](monitoring-and-alerting.md) | Azure Monitor implementation, guest metrics, and alert design. |
+| [VMSS Basics](vmss-basics.md) | When to utilize Virtual Machine Scale Sets and configuring autoscaling. |
+
+## Operations Lifecycle
+
+```mermaid
+graph LR
+    A[Create] --> B[Connect]
+    B --> C[Configure]
+    C --> D[Monitor]
+    D --> E[Maintain]
+    E --> D
+    E --> F[Backup]
+    F --> D
+```
+
+!!! note
+    Regular monitoring of both platform metrics (Azure Monitor) and guest metrics is essential for proactive maintenance and performance tuning.
+
+## Sources
+- [Managing Azure Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)
+- [How to Monitor Azure VMs](https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-vm)
+- [Update Management in Azure](https://learn.microsoft.com/en-us/azure/automation/update-management/overview)
