@@ -7,7 +7,7 @@ Azure provides several options to protect your virtual machines from hardware fa
 | **Single VM (Premium SSD)** | 99.9% | Instance | Hardware failure | Base | Dev/Test, low criticality |
 | **Availability Set** | 99.95% | Rack | Hardware/Update failures | Low | Legacy apps, no zone support |
 | **Availability Zone** | 99.99% | Data Center | Data center failure | Medium | High availability, primary production |
-| **VMSS (Uniform)** | 99.95% - 99.99% | Multi-Zone | Large-scale failures | Variable | Auto-scaling workloads |
+| **VMSS** | 99.95% - 99.99% | Depends on topology (FD spread or multi-zone) | Large-scale failures | Variable | Auto-scaling workloads |
 | **Cross-Region (ASR)** | Variable | Region | Regional disaster | High | Disaster recovery, business continuity |
 
 ```mermaid

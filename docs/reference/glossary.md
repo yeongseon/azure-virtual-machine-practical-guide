@@ -12,7 +12,7 @@ This glossary provides a quick reference for common Azure Virtual Machine terms 
 | **Boot Diagnostics** | A feature that captures the console output and screenshots of a VM during startup. | Troubleshooting |
 | **Custom Script Extension** | A tool to download and run scripts on Azure VMs for post-deployment configuration. | VM Extension |
 | **Deallocate** | Stopping a VM and releasing its hardware resources to avoid compute charges. | Stopped |
-| **Ephemeral Disk** | A temporary disk that uses local storage on the host server; data is lost on deallocation. | OS Disk |
+| **Temporary Disk** | A local disk on the host server providing short-term storage; data is lost on stop/deallocate or host maintenance. Not a managed disk. | Ephemeral OS Disk |
 | **Fault Domain** | A group of VMs that share a common power source and network switch. | Availability Set |
 | **JIT Access** | Just-In-Time access; minimizes exposure to attacks by only opening ports when needed. | Defender for Cloud |
 | **Managed Disk** | A disk managed by Azure, simplifying storage account management. | Storage Account |

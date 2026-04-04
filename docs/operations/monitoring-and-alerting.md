@@ -7,7 +7,7 @@ Azure Monitor provides visibility into the performance, health, and availability
 ```mermaid
 graph TD
     A[Azure VM] --> B[Host Platform Metrics]
-    A --> C[Guest VM Insights Agent]
+    A --> C[Azure Monitor Agent]
     B --> D[Azure Monitor Metrics]
     C --> E[Log Analytics Workspace]
     D --> F[Alert Rules]
@@ -23,7 +23,7 @@ Collection methods vary based on the depth of visibility required for the worklo
 | Metric Type | Source | Example Metrics | Collection Method |
 | :--- | :--- | :--- | :--- |
 | **Platform Metrics** | Azure Host | CPU Percentage, Disk IOPS | Default (Host level) |
-| **Guest Metrics** | OS Agent | Memory used, Disk free space | Azure Monitor Agent |
+| **Guest Metrics** | Azure Monitor Agent (AMA) | Memory used, Disk free space | Azure Monitor Agent |
 | **Log Analytics** | OS Logs | Event Viewer, Syslog | Log Analytics Workspace |
 | **Dependency Map** | VM Insights | Network connections, ports | Dependency Agent |
 

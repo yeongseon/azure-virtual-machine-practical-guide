@@ -9,7 +9,7 @@ Azure offers several virtual machine size families, each tailored to specific wo
 | **Memory Optimized** | E, M | 2 - 416 | 16 GiB - 11,400 GiB | Relational databases, in-memory caches | High memory-to-vCPU ratio |
 | **Storage Optimized** | L | 2 - 80 | 16 GiB - 640 GiB | NoSQL databases, data warehousing | High local disk throughput and IOPS |
 | **GPU** | N, NC, ND | 6 - 112 | 28 GiB - 880 GiB | Graphics, video editing, deep learning | NVIDIA GPU acceleration |
-| **HPC** | H | 8 - 120 | 32 GiB - 440 GiB | Fluid dynamics, seismic processing | InfiniBand networking |
+| **HPC** | HB, HC, HX | 8 - 176 | 32 GiB - 1,400 GiB | Fluid dynamics, seismic processing | InfiniBand networking |
 
 ```mermaid
 graph TD
@@ -19,7 +19,7 @@ graph TD
     Workload -->|Database/In-Memory| MO[Memory Optimized - E/M Series]
     Workload -->|Large Data/NoSQL| SO[Storage Optimized - L Series]
     Workload -->|AI/ML/Graphics| GPU[GPU - N Series]
-    Workload -->|Scientific/Simulation| HPC[HPC - H Series]
+    Workload -->|Scientific/Simulation| HPC[HPC - HB/HC Series]
     GP --> Burst{Burstable?}
     Burst -->|Yes| B[B-Series]
     Burst -->|No| D[D-Series]

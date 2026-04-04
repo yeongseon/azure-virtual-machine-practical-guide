@@ -28,7 +28,7 @@ graph TD
 ```
 
 !!! tip "How to Use This Guide"
-    If you're new to Azure, start with the **Platform Fundamentals** to understand the "Why" and "How" before moving to **Best Practices**. For those already running workloads, the **Troubleshooting** and **Operations** sections provide immediate value for maintenance.
+    If you're new to Azure, start with **[Start Here](start-here/index.md)** for an overview and learning paths, then move to **Platform Fundamentals** to understand the "Why" and "How". For those already running workloads, the **Troubleshooting** and **Operations** sections provide immediate value for maintenance.
 
 ## Quick Links
 - [Virtual Machines Overview](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)

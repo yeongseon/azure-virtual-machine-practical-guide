@@ -9,7 +9,7 @@ Azure Backup failures usually stem from communication issues between the VM and 
 | UserErrorVmNotReady | VM agent not responding | Start/Update VM agent or restart VM |
 | ExtensionNotResponding | VMSnapshot extension failed | Reinstall extension and check disk IO |
 | UserErrorDiskLock | Resource lock on VM disk | Remove Azure resource locks from disk/group |
-| ConnectivityFailure | Blocked vault communication | Allow outbound access to Azure Backup IPs |
+| ConnectivityFailure | Blocked vault communication | Allow required outbound endpoints (service tags / FQDNs) over port 443 |
 | UserErrorSnapshotLimit | Excess managed snapshots | Delete old manual snapshots or increase limit |
 
 ## Backup Failure Logic

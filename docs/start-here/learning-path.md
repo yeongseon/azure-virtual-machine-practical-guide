@@ -45,6 +45,5 @@ If you're coming from a specific ecosystem, note these primary differences in VM
 
 ## Sources
 
-- [Windows virtual machines in Azure](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)
-- [Linux virtual machines in Azure](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)
+- [Azure Virtual Machines overview](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)
 - [Azure Bastion Documentation](https://learn.microsoft.com/en-us/azure/bastion/bastion-overview)

@@ -6,7 +6,7 @@ Azure Managed Disks have specific limits for Input/Output Operations Per Second 
 
 | Disk Tier | Max IOPS | Max Throughput | Typical Throttling Trigger |
 | :--- | :--- | :--- | :--- |
-| Standard HDD | 500 | 60 MB/s | Heavy sequential/random I/O. |
+| Standard HDD | 2,000 | 500 MB/s | Heavy sequential/random I/O. |
 | Standard SSD | 6,000 | 750 MB/s | Burst capacity depleted. |
 | Premium SSD | 20,000 | 900 MB/s | Consistent high-load exceeded. |
 | Ultra Disk | 160,000 | 4,000 MB/s | Configured limit reached. |

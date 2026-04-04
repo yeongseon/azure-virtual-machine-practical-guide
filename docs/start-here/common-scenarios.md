@@ -12,7 +12,7 @@ Virtual Machines are versatile and support a wide range of use cases from simple
 | **Database Host** | E-Series (Memory Optimized) | Disk IOPS, high availability |
 | **Bastion / Jumpbox** | B-Series (Small) | Restricted access, security hardening |
 | **CI/CD Build Agent** | D-Series / F-Series | Fast storage, agent installation |
-| **Legacy Apps** | D-Series (Legacy) | OS compatibility, static IPs |
+| **Legacy Apps** | D-Series / older Dv* generations | OS compatibility, static IPs |
 
 !!! warning
     For databases like SQL Server or PostgreSQL, consider Azure SQL Database or Azure Database for PostgreSQL first. They offer managed backups, patching, and high availability out of the box.

@@ -4,7 +4,7 @@ A robust production environment requires a foundational set of configurations to
 
 | Checklist Item | Why Required | Default Risk if Skipped |
 | :--- | :--- | :--- |
-| Availability Zones | Protects against datacenter failures by distributing VMs across physically separate locations. | Single point of failure if an entire datacenter goes offline. |
+| Availability Zones or Availability Sets | Use zones where supported; otherwise use Availability Sets or VMSS to distribute VMs across fault domains. | Single point of failure if an entire datacenter or rack goes offline. |
 | Managed Disks | Simplifies disk management and provides better reliability than unmanaged disks. | Limited scalability and higher risk of storage account throttling. |
 | Network Security Group | Controls inbound and outbound traffic to the VM at the network level. | VM exposed to unauthorized traffic and potential external attacks. |
 | Azure Monitor | Provides visibility into VM health, performance, and log data. | Inability to detect or troubleshoot performance bottlenecks or outages. |
