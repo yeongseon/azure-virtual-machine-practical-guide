@@ -1,0 +1,124 @@
+site_name: Azure Virtual Machine Practical Guide
+site_url: https://yeongseon.github.io/azure-virtual-machine-practical-guide/
+site_description: Azure VM practical guide — platform internals, operations, and troubleshooting grounded in MS Learn
+site_author: yeongseon
+
+repo_name: yeongseon/azure-virtual-machine-practical-guide
+repo_url: https://github.com/yeongseon/azure-virtual-machine-practical-guide
+
+theme:
+  name: material
+  language: en
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+
+plugins:
+  - search
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Start Here:
+    - start-here/index.md
+    - Overview: start-here/overview.md
+    - Learning Path: start-here/learning-path.md
+    - VM vs Other Compute: start-here/vm-vs-other-compute.md
+    - Common Scenarios: start-here/common-scenarios.md
+  - Platform:
+    - platform/index.md
+    - How Azure VM Works: platform/how-azure-vm-works.md
+    - Compute Model: platform/compute-model.md
+    - VM Lifecycle: platform/vm-lifecycle.md
+    - Disks and Storage: platform/disks-and-storage.md
+    - Networking Basics: platform/networking-basics.md
+    - Identity and Access: platform/identity-and-access.md
+    - Availability and Resiliency: platform/availability-and-resiliency.md
+    - Backup and Recovery Basics: platform/backup-and-recovery-basics.md
+  - Best Practices:
+    - best-practices/index.md
+    - Production Baseline: best-practices/production-baseline.md
+    - Sizing and Image Selection: best-practices/sizing-and-image-selection.md
+    - Networking: best-practices/networking-best-practices.md
+    - Disk and Storage: best-practices/disk-and-storage-best-practices.md
+    - Security: best-practices/security-best-practices.md
+    - Patching and Maintenance: best-practices/patching-and-maintenance-best-practices.md
+    - Monitoring: best-practices/monitoring-best-practices.md
+    - Backup and DR: best-practices/backup-and-dr-best-practices.md
+    - Cost Optimization: best-practices/cost-optimization-best-practices.md
+    - Common Anti-Patterns: best-practices/common-anti-patterns.md
+  - Operations:
+    - operations/index.md
+    - Create and Configure VM: operations/create-and-configure-vm.md
+    - Connect to VM: operations/connect-to-vm.md
+    - Manage Disks: operations/manage-disks.md
+    - Resize and Redeploy: operations/resize-and-redeploy.md
+    - Snapshots and Images: operations/snapshots-and-images.md
+    - Backup and Restore: operations/backup-restore.md
+    - Patching: operations/patching.md
+    - Monitoring and Alerting: operations/monitoring-and-alerting.md
+    - VMSS Basics: operations/vmss-basics.md
+  - Troubleshooting:
+    - troubleshooting/index.md
+    - VM Won't Start: troubleshooting/vm-wont-start.md
+    - Cannot RDP or SSH: troubleshooting/cannot-rdp-or-ssh.md
+    - Boot Diagnostics and Serial Console: troubleshooting/boot-diagnostics-and-serial-console.md
+    - Slow Performance: troubleshooting/slow-performance.md
+    - Disk Performance Issues: troubleshooting/disk-performance-issues.md
+    - DNS and Connectivity Issues: troubleshooting/dns-and-connectivity-issues.md
+    - Extension Failures: troubleshooting/extension-failures.md
+    - Backup Failures: troubleshooting/backup-failures.md
+    - High CPU / Memory / Disk: troubleshooting/high-cpu-memory-disk.md
+  - Reference:
+    - reference/index.md
+    - VM Size Families: reference/vm-size-families.md
+    - Managed Disk Types: reference/managed-disk-types.md
+    - Availability Options: reference/availability-options.md
+    - Networking Components: reference/networking-components.md
+    - Monitoring Signals: reference/monitoring-signals.md
+    - Glossary: reference/glossary.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/yeongseon/azure-virtual-machine-practical-guide

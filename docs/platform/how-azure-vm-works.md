@@ -1,0 +1,35 @@
+# How Azure VM Works
+
+Azure Virtual Machines run on physical hardware managed by Microsoft, abstracted through a virtualization layer called a hypervisor.
+
+## Management vs Data Plane
+
+Azure separates administrative operations from actual workload traffic to ensure security and scalability.
+
+| Plane | Purpose | Examples |
+| :--- | :--- | :--- |
+| **Management Plane** | Resource orchestration and API interactions | ARM templates, CLI commands, Portal actions |
+| **Data Plane** | Actual workload traffic and application data | SSH/RDP traffic, SQL queries, Web requests |
+
+## Virtualization Architecture
+
+```mermaid
+graph TD
+    PH[Physical Host] --> Hyp[Hypervisor]
+    Hyp --> VM1[Guest VM 1]
+    Hyp --> VM2[Guest VM 2]
+    Hyp --> VM3[Guest VM 3]
+```
+
+## Fault and Update Domains
+
+Azure distributes VMs across fault domains (hardware racks) and update domains (groups for maintenance) to ensure high availability.
+
+| Concept | Description | Failure Scope |
+| :--- | :--- | :--- |
+| **Fault Domain** | Shared power source and network switch | Physical hardware failure |
+| **Update Domain** | Logical group for planned maintenance | Software updates/Reboots |
+
+## Sources
+* [Azure Virtual Machines Overview](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)
+* [Availability options for Azure Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/availability)

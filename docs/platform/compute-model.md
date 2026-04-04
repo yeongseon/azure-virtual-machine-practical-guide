@@ -1,0 +1,42 @@
+# Compute Model
+
+Azure offers diverse VM sizes optimized for different workloads, from general-purpose computing to high-performance GPUs.
+
+## VM Size Families
+
+Azure categorizes VM sizes to help you select the best performance/cost ratio for your specific use case.
+
+| Family | Series | Use Cases | Memory : vCPU Ratio |
+| :--- | :--- | :--- | :--- |
+| **General Purpose** | B, D, Dav, Dv2 | Testing, small/medium databases, web servers | Balanced |
+| **Compute Optimized** | F, Fsv2 | Batch processing, analytics, gaming | High vCPU |
+| **Memory Optimized** | E, Ev3, M | Relational databases, in-memory caches | High Memory |
+| **Storage Optimized** | Lsv2, Lsv3 | NoSQL, Big Data, large data warehousing | High Disk I/O |
+| **GPU** | N | Video editing, rendering, AI training | GPU/High Compute |
+
+## Naming Convention
+
+```mermaid
+graph LR
+    S[Standard] --- F[Family: D]
+    F --- v[vCPUs: 4]
+    v --- A[Add-ons: s]
+    A --- V[Version: v5]
+    
+    style S stroke:#333,stroke-width:2px
+    style F fill:#f9f,stroke:#333,stroke-width:2px
+    style v fill:#bbf,stroke:#333,stroke-width:2px
+    style A fill:#bfb,stroke:#333,stroke-width:2px
+    style V fill:#fbb,stroke:#333,stroke-width:2px
+```
+
+## Azure Compute Unit (ACU)
+
+The ACU concept provides a way to compare compute (CPU) performance across different Azure VM families.
+
+!!! note
+    Standard_A1 is the baseline (ACU = 100). Higher ACUs indicate greater performance per vCPU.
+
+## Sources
+* [Sizes for virtual machines in Azure](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes)
+* [Azure Compute Unit (ACU)](https://learn.microsoft.com/en-us/azure/virtual-machines/acu)
