@@ -2,6 +2,8 @@
 
 A robust production environment requires a foundational set of configurations to ensure availability, security, and recoverability. These core components form the minimum baseline for any Azure Virtual Machine deployment.
 
+## Baseline Checklist
+
 | Checklist Item | Why Required | Default Risk if Skipped |
 | :--- | :--- | :--- |
 | Availability Zones or Availability Sets | Use zones where supported; otherwise use Availability Sets or VMSS to distribute VMs across fault domains. | Single point of failure if an entire datacenter or rack goes offline. |

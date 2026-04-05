@@ -10,7 +10,7 @@ Understanding the difference between "Stopped" and "Deallocated" is crucial for 
 | :--- | :--- | :--- | :--- |
 | **Starting/Running** | Yes | Yes (Dynamic/Static) | Yes |
 | **Stopped** | Yes | Yes (Dynamic/Static) | Yes |
-| **Stopped (Deallocated)** | No | Dynamic IP released | Yes |
+| **Stopped (Deallocated)** | No | Private IP retained; dynamic public IP released; static public IP retained | Yes |
 | **Deleting** | No | No | Depends (Delete with VM) |
 
 ## State Transitions

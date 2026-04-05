@@ -6,7 +6,7 @@ Connectivity issues often stem from Network Security Group (NSG) misconfiguratio
 
 | Symptom | Check | Resolution |
 | :--- | :--- | :--- |
-| Connection timeout | NSG Inbound Rules | Allow TCP 3389 (RDP) or 22 (SSH). |
+| Connection timeout | NSG Inbound Rules | Allow TCP 3389/22 only from approved source IPs, or prefer Bastion/JIT for secure access. |
 | Connection refused | Guest OS Firewall Rules | Verify rules via Serial Console, then add specific allow rule only for required port. |
 | Access Denied | Credentials / VM Agent Status | Reset password or SSH key, then verify VM Agent health. |
 | Intermittent drops | Network Path | Check Route Table or NVA constraints. |

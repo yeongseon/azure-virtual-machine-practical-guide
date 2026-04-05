@@ -23,8 +23,6 @@ Securing Azure Virtual Machines involves a multi-layered approach ranging from n
 4. **Azure Disk Encryption (ADE) - migration only**
     - Scheduled for retirement on September 15, 2028; do not use for new VMs
 
-Azure Disk Encryption (ADE) is scheduled for retirement on September 15, 2028. Use Encryption at host for new VMs and migrate existing ADE-enabled VMs before the retirement date.
-
 ## Security Layers
 
 Modern cloud security relies on defense-in-depth, protecting your data through several concentric circles of control.

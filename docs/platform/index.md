@@ -33,7 +33,7 @@ graph TD
 ```
 
 !!! note
-    Understanding the distinction between "Stop" and "Deallocate" is crucial for cost management and resource allocation within the Azure platform.
+    Understanding the distinction between "Stop" and "Deallocate" is crucial for cost management and resource allocation within the Azure platform. See [VM Lifecycle](vm-lifecycle.md) for details.
 
 ## Sources
 - [Azure VM Architecture](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)
