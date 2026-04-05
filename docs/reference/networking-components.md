@@ -8,7 +8,7 @@ Azure networking components provide the foundation for virtual machine communica
 | **Subnet** | Network segmentation | VNet | Address range, Delegation | Range too small for scale |
 | **NIC** | VM network interface | Subnet | IP (Static/Dynamic) | Modifying within OS only |
 | **NSG** | Traffic filter (L4) | Subnet/NIC | Security rules (Prioritized) | Rule priority overlaps |
-| **Public IP** | Internet connectivity | Region | SKU (Standard/Basic) | Not using Standard for zones |
+| **Public IP** | Internet connectivity | Region | SKU (Standard only; Basic retired 2025-09-30) | Zone-redundant by default |
 | **Load Balancer** | L4 traffic distribution | VNet | Health probes, Rules | Forgetting health probe rules |
 | **App Gateway** | L7 load balancing | VNet | WAF, Backend pools | Complex certificate setup |
 | **Azure Bastion** | Secure RDP/SSH access | VNet | Subnet naming requirement | Using too small a subnet |

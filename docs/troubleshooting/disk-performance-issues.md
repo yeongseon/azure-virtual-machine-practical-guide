@@ -9,7 +9,7 @@ Azure Managed Disks have specific limits for Input/Output Operations Per Second 
 | Standard HDD | 2,000 | 500 MB/s | Heavy sequential/random I/O. |
 | Standard SSD | 6,000 | 750 MB/s | Burst capacity depleted. |
 | Premium SSD | 20,000 | 900 MB/s | Consistent high-load exceeded. |
-| Ultra Disk | 160,000 | 4,000 MB/s | Configured limit reached. |
+| Ultra Disk | 400,000 | 10,000 MB/s | Configured limit reached. |
 
 !!! warning
     Disk throughput is limited by both the disk performance and the VM size throughput limit. A Premium SSD can only reach its full potential if the VM size supports it.

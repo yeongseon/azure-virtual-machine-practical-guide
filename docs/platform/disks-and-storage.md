@@ -14,7 +14,7 @@ Azure VM storage uses managed disks with different latency, IOPS, and throughput
 
 | Tier | IOPS (Max) | Throughput (Max) | Typical Profile |
 | :--- | :--- | :--- | :--- |
-| **Ultra Disk** | Up to 160,000 | Up to 4,000 MB/s | Highest performance, low latency |
+| **Ultra Disk** | Up to 400,000 | Up to 10,000 MB/s | Highest performance, low latency |
 | **Premium SSD v2** | Up to 80,000 | Up to 1,200 MB/s | High performance, flexible provisioning |
 | **Premium SSD** | Up to tier limit | Up to tier limit | Production transactional workloads |
 | **Standard SSD/HDD** | Lower | Lower | Cost-optimized general workloads |

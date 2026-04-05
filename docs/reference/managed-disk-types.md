@@ -8,7 +8,7 @@ Azure managed disks offer different performance levels and features. Choosing th
 | **Standard SSD** | 32 TiB | 6,000 | 750 MB/s | Single-digit ms | Web servers, lightly used apps | Low |
 | **Premium SSD** | 32 TiB | 20,000 | 900 MB/s | Single-digit ms | Production, performance-sensitive | Medium |
 | **Premium SSD v2** | 64 TiB | 80,000 | 1,200 MB/s | < 1ms | SQL Server, Oracle, NoSQL | Medium-High |
-| **Ultra Disk** | 64 TiB | 160,000 | 4,000 MB/s | < 1ms | SAP HANA, transaction-heavy DBs | High |
+| **Ultra Disk** | 64 TiB | 400,000 | 10,000 MB/s | < 1ms | SAP HANA, transaction-heavy DBs | High |
 
 ```mermaid
 graph TD
