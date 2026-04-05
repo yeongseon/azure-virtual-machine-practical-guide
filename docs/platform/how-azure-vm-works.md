@@ -23,7 +23,7 @@ graph TD
 
 ## Fault and Update Domains
 
-Azure distributes VMs across fault domains (hardware racks) and update domains (groups for maintenance) to ensure high availability.
+When you place VMs in an Availability Set, Azure assigns each VM to a fault domain and update domain. Single VMs are not automatically distributed for high availability.
 
 | Concept | Description | Failure Scope |
 | :--- | :--- | :--- |
