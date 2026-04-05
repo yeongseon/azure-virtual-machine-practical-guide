@@ -4,7 +4,7 @@ Azure managed disks offer different performance levels and features. Choosing th
 
 | Disk Type | Max Size | Max IOPS | Max Throughput | Latency | Use Case | Cost Tier |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Standard HDD** | 32 TiB | 2,000 | 500 MB/s | Higher and more variable than SSD | Backup, non-critical | Lowest |
+| **Standard HDD** | 32 TiB | 2,000 (up to 3,000 with performance plus) | 500 MB/s | Higher and more variable than SSD | Backup, non-critical | Lowest |
 | **Standard SSD** | 32 TiB | 6,000 | 750 MB/s | Single-digit ms | Web servers, lightly used apps | Low |
 | **Premium SSD** | 32 TiB | 20,000 | 900 MB/s | Single-digit ms | Production, performance-sensitive | Medium |
 | **Premium SSD v2** | 64 TiB | 80,000 | 1,200 MB/s | < 1ms | SQL Server, Oracle, NoSQL | Medium-High |

@@ -11,7 +11,7 @@ Azure provides various tools to capture data at different layers of the infrastr
 | **Platform** | Azure Monitor Metrics | CPU percentage, Disk IOPS, Network In/Out. |
 | **Guest OS** | Azure Monitor Agent | System logs, Application logs, performance counters. |
 | **Diagnostic** | Boot Diagnostics | Serial console output and VM screenshots for troubleshooting. |
-| **Analysis** | VM Insights | Dependency maps and detailed health performance metrics. |
+| **Analysis** | Azure Monitor / VM insights | Performance views, guest metrics, and logs. |
 
 ## Data Flow and Alerting
 

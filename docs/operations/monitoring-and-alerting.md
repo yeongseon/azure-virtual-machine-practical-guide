@@ -25,7 +25,6 @@ Collection methods vary based on the depth of visibility required for the worklo
 | **Platform Metrics** | Azure Host | CPU Percentage, Disk IOPS | Default (Host level) |
 | **Guest Metrics** | Azure Monitor Agent (AMA) | Memory used, Disk free space | Azure Monitor Agent |
 | **Log Analytics** | OS Logs | Event Viewer, Syslog | Log Analytics Workspace |
-| **Dependency Map** | VM Insights | Network connections, ports | Dependency Agent |
 
 ## Alert Configuration
 
@@ -38,7 +37,7 @@ Alerts proactively notify you when metric thresholds are met or specific events 
     Action Groups are shared resources. Modifying an action group affects all alerts that use it.
 
 !!! tip
-    Enable VM Insights to get visual maps of network dependencies between your virtual machines.
+    Enable VM insights to collect guest metrics and logs via Azure Monitor Agent.
 
 ## Sources
 

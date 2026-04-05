@@ -8,9 +8,9 @@ Azure categorizes VM sizes to help you select the best performance/cost ratio fo
 
 | Family | Series | Use Cases | Memory : vCPU Ratio |
 | :--- | :--- | :--- | :--- |
-| **General Purpose** | B, D, Dav, Dv2 | Testing, small/medium databases, web servers | Balanced |
+| **General Purpose** | B, Dsv7/Dasv7, Dsv6/Dasv6, Dv5 | Testing, small/medium databases, web servers | Balanced |
 | **Compute Optimized** | F, Fsv2 | Batch processing, analytics, gaming | High vCPU |
-| **Memory Optimized** | E, Ev3, M | Relational databases, in-memory caches | High Memory |
+| **Memory Optimized** | Esv7/Easv7, Esv6/Easv6, Ev5, M | Relational databases, in-memory caches | High Memory |
 | **Storage Optimized** | Lsv2, Lsv3 | NoSQL, Big Data, large data warehousing | High Disk I/O |
 | **GPU** | N | Video editing, rendering, AI training | GPU/High Compute |
 

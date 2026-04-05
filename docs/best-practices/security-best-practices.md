@@ -20,11 +20,10 @@ Securing Azure Virtual Machines involves a multi-layered approach ranging from n
     - Recommended when you need comprehensive disk-path encryption
 3. **Confidential Disk Encryption**
     - For highest-security workloads that require confidential computing protections
-4. **Azure Disk Encryption (ADE)**
-    - Legacy/guest-level option for specific compliance requirements
+4. **Azure Disk Encryption (ADE) - migration only**
+    - Scheduled for retirement on September 15, 2028; do not use for new VMs
 
-!!! warning
-    Azure Disk Encryption (ADE) is being superseded for most new deployments. Prefer **SSE (with CMK when needed)** and/or **Encryption at Host** for new VM designs.
+Azure Disk Encryption (ADE) is scheduled for retirement on September 15, 2028. Use Encryption at host for new VMs and migrate existing ADE-enabled VMs before the retirement date.
 
 ## Security Layers
 
