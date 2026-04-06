@@ -53,6 +53,12 @@ When hosting a database on a VM, you must handle all administrative tasks that a
 | HA / DR | High | Requires Configuration |
 | Cost | Predictable | Dynamic |
 
+## See Also
+
+- [VM vs Other Compute Options](vm-vs-other-compute.md)
+- [Production Baseline](../best-practices/production-baseline.md)
+- [VM Size Families](../reference/vm-size-families.md)
+
 ## Sources
 
 - [Virtual machine sizes in Azure](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes)

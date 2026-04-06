@@ -46,7 +46,7 @@ graph TD
 ## See Also
 
 - [Disk and Storage Best Practices](../best-practices/disk-and-storage-best-practices.md)
-- [Disk Performance Troubleshooting](../troubleshooting/disk-performance-issues.md)
+- [Disk Performance Troubleshooting](../troubleshooting/playbooks/performance/disk-performance-issues.md)
 
 ## Sources
 - [Azure managed disk types](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types)

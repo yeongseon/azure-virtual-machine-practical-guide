@@ -41,6 +41,12 @@ graph TD
 !!! warning
     Regularly test your backups. A backup is only valuable if it can be restored. Schedule quarterly restore drills for all production workloads.
 
+## See Also
+
+- [Backup and Restore](../operations/backup-restore.md)
+- [Snapshots and Images](../operations/snapshots-and-images.md)
+- [Backup Failures](../troubleshooting/playbooks/boot-disk/backup-failures.md)
+
 ## Sources
 - [Azure Backup documentation](https://learn.microsoft.com/en-us/azure/backup/backup-overview)
 - [Azure Site Recovery documentation](https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-overview)

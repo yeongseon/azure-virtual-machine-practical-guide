@@ -47,6 +47,12 @@ graph TD
 !!! tip
     Use Scheduled Events to receive notifications about upcoming maintenance, allowing your application to gracefully shut down or failover.
 
+## See Also
+
+- [Patching](../operations/patching.md)
+- [Snapshots and Images](../operations/snapshots-and-images.md)
+- [Backup and DR Best Practices](backup-and-dr-best-practices.md)
+
 ## Sources
 - [Azure Update Manager documentation](https://learn.microsoft.com/en-us/azure/update-manager/overview)
 - [Maintenance and updates for virtual machines in Azure](https://learn.microsoft.com/en-us/azure/virtual-machines/maintenance-and-updates)

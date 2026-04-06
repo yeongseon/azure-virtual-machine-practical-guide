@@ -32,6 +32,12 @@ graph LR
 !!! note
     RDP/SSH access does not require a public IP. Use Azure Bastion (recommended), VPN/ExpressRoute, or private IP connectivity from a connected network.
 
+## See Also
+
+- [Connect to VM](../operations/connect-to-vm.md)
+- [Production Baseline](../best-practices/production-baseline.md)
+- [Glossary](../reference/glossary.md)
+
 ## Sources
 - [Azure RBAC built-in roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles)
 - [What are managed identities?](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview)

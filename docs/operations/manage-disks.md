@@ -32,6 +32,12 @@ graph TD
 !!! note
     Enable Encryption at Host to encrypt temp disk and disk caches.
 
+## See Also
+
+- [Managed Disk Types](../reference/managed-disk-types.md)
+- [Snapshots and Images](snapshots-and-images.md)
+- [Disk and Storage Best Practices](../best-practices/disk-and-storage-best-practices.md)
+
 ## Sources
 
 - [Attach a data disk to a Windows VM](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/attach-managed-disk-portal)

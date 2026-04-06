@@ -27,6 +27,12 @@ graph TD
 !!! note
     Azure Hybrid Benefit allows you to use your existing on-premises Windows Server or SQL Server licenses on Azure, significantly reducing the hourly cost of your virtual machines.
 
+## See Also
+
+- [Compute Model](../platform/compute-model.md)
+- [VM Size Families](../reference/vm-size-families.md)
+- [Cost Optimization Best Practices](cost-optimization-best-practices.md)
+
 ## Sources
 
 - [Virtual machine sizes in Azure](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes)

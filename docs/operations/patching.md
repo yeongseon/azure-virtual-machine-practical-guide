@@ -38,6 +38,12 @@ Maintenance configurations allow you to group multiple VMs and apply updates dur
 !!! tip
     Use "Assess Now" to get immediate visibility into any new vulnerabilities released since the last scheduled assessment.
 
+## See Also
+
+- [Patching and Maintenance Best Practices](../best-practices/patching-and-maintenance-best-practices.md)
+- [Snapshots and Images](snapshots-and-images.md)
+- [Backup and Restore](backup-restore.md)
+
 ## Sources
 
 - [Azure Update Manager overview](https://learn.microsoft.com/en-us/azure/update-manager/overview)

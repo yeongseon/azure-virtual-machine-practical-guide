@@ -41,6 +41,12 @@ Azure Backup handles infrastructure management, allowing you to focus on protect
 !!! tip
     Use Cross Region Restore (CRR) to recover VMs in a secondary paired region for disaster recovery scenarios.
 
+## See Also
+
+- [Backup and DR Best Practices](../best-practices/backup-and-dr-best-practices.md)
+- [Backup Failures](../troubleshooting/playbooks/boot-disk/backup-failures.md)
+- [Snapshots and Images](snapshots-and-images.md)
+
 ## Sources
 
 - [About Azure VM backup](https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction)

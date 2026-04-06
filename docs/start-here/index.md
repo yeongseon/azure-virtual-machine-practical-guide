@@ -26,6 +26,12 @@ graph LR
 !!! note
     Azure Virtual Machines offer the highest level of control and flexibility among Azure's compute options, making them ideal for legacy migrations and highly customized environments.
 
+## See Also
+
+- [Azure VM Overview](overview.md)
+- [Learning Path](learning-path.md)
+- [Common VM Scenarios](common-scenarios.md)
+
 ## Sources
 - [Virtual Machines in Azure](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)
 - [Choosing an Azure Compute Service](https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree)

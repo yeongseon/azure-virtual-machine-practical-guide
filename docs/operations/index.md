@@ -32,6 +32,12 @@ graph LR
 !!! note
     Regular monitoring of both platform metrics (Azure Monitor) and guest metrics is essential for proactive maintenance and performance tuning.
 
+## See Also
+
+- [Connect to VM](connect-to-vm.md)
+- [Monitoring and Alerting](monitoring-and-alerting.md)
+- [Patching](patching.md)
+
 ## Sources
 - [Managing Azure Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)
 - [How to Monitor Azure VMs](https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-vm)

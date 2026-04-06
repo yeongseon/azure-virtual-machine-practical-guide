@@ -31,6 +31,12 @@ graph LR
 !!! note
     Azure Bastion requires a dedicated subnet named `AzureBastionSubnet` with at least a `/26` address space.
 
+## See Also
+
+- [Networking Basics](../platform/networking-basics.md)
+- [Networking Best Practices](../best-practices/networking-best-practices.md)
+- [DNS and Connectivity Issues](../troubleshooting/playbooks/connectivity/dns-and-connectivity-issues.md)
+
 ## Sources
 - [Azure Virtual Network overview](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview)
 - [Network security groups overview](https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview)

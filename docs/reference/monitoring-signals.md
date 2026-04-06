@@ -27,6 +27,12 @@ graph LR
 !!! note
     The Azure Monitor Agent (AMA) replaces the legacy Log Analytics agent and provides enhanced security and flexibility for log collection.
 
+## See Also
+
+- [Monitoring and Alerting](../operations/monitoring-and-alerting.md)
+- [Slow Performance](../troubleshooting/playbooks/performance/slow-performance.md)
+- [Production Baseline](../best-practices/production-baseline.md)
+
 ## Sources
 - [Monitoring Azure virtual machines](https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-vm)
 - [Azure Monitor metrics overview](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-platform-metrics)

@@ -30,6 +30,12 @@ When you place VMs in an Availability Set, Azure assigns each VM to a fault doma
 | **Fault Domain** | Shared power source and network switch | Physical hardware failure |
 | **Update Domain** | Logical group for planned maintenance | Software updates/Reboots |
 
+## See Also
+
+- [Compute Model](compute-model.md)
+- [VM Lifecycle](vm-lifecycle.md)
+- [Availability Options](../reference/availability-options.md)
+
 ## Sources
 - [Azure Virtual Machines Overview](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)
 - [Availability options for Azure Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/availability)

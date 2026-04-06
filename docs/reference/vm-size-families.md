@@ -28,6 +28,12 @@ graph TD
 !!! note
     The B-series is ideal for workloads that don't need full CPU performance continuously. These VMs build up credits during idle periods and burst when needed.
 
+## See Also
+
+- [Compute Model](../platform/compute-model.md)
+- [Sizing and Image Selection](../best-practices/sizing-and-image-selection.md)
+- [Common VM Scenarios](../start-here/common-scenarios.md)
+
 ## Sources
 - [Azure virtual machine sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes)
 - [Sizes for virtual machines in Azure](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview)

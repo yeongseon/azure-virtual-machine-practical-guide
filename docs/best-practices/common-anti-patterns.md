@@ -34,6 +34,12 @@ graph TD
 !!! warning
     Public IP addresses assigned directly to VMs increase the attack surface. Use a Load Balancer or Application Gateway to mediate traffic.
 
+## See Also
+
+- [Production Baseline](production-baseline.md)
+- [Networking Best Practices](networking-best-practices.md)
+- [Sizing and Image Selection](sizing-and-image-selection.md)
+
 ## Sources
 - [Azure Virtual Machines availability options](https://learn.microsoft.com/en-us/azure/virtual-machines/availability)
 - [Manage network security groups](https://learn.microsoft.com/en-us/azure/virtual-network/manage-network-security-group)

@@ -32,6 +32,12 @@ graph TD
 !!! tip
     If the Serial Console shows a blank screen, try pressing "Enter" to refresh the login prompt or use the "Send NMI" button for Windows kernel debugging.
 
+## See Also
+
+- [VM Won't Start](vm-wont-start.md)
+- [Connect to VM](../operations/connect-to-vm.md)
+- [VM Lifecycle](../platform/vm-lifecycle.md)
+
 ## Sources
 - [How to use Azure boot diagnostics](https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics)
 - [Azure Serial Console for Windows](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/serial-console-windows)

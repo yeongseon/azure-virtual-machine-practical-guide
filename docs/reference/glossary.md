@@ -46,6 +46,12 @@ graph TD
 !!! note
     A VM in the **Stopped (Deallocated)** state does not incur compute charges, but you will still be charged for the associated disks and other resources.
 
+## See Also
+
+- [Platform Fundamentals](../platform/index.md)
+- [Networking Components](networking-components.md)
+- [Managed Disk Types](managed-disk-types.md)
+
 ## Sources
 - [Azure Virtual Machines documentation](https://learn.microsoft.com/en-us/azure/virtual-machines/)
 - [Azure managed disks overview](https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview)

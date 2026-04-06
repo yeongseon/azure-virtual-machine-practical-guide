@@ -33,6 +33,12 @@ graph TD
 !!! note
     The temporary disk is for ephemeral data only and is located on the physical host server. Data on this disk is lost during VM deallocation or maintenance events.
 
+## See Also
+
+- [Manage Disks](../operations/manage-disks.md)
+- [Managed Disk Types](../reference/managed-disk-types.md)
+- [Disk Performance Issues](../troubleshooting/playbooks/performance/disk-performance-issues.md)
+
 ## Sources
 
 - [Select a disk type for Azure IaaS VMs](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types)

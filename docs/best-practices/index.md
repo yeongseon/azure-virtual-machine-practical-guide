@@ -38,6 +38,12 @@ graph TD
 !!! tip
     Always separate your OS and Data disks. Keeping data on separate managed disks simplifies backups, migrations, and resizing operations.
 
+## See Also
+
+- [Production Baseline](production-baseline.md)
+- [Networking Best Practices](networking-best-practices.md)
+- [Backup and DR Best Practices](backup-and-dr-best-practices.md)
+
 ## Sources
 - [Azure Virtual Machine Security Baseline](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/virtual-machines-linux-security-baseline)
 - [Well-Architected Framework: Virtual Machines](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/virtual-machines)

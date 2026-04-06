@@ -39,6 +39,12 @@ Autoscale rules determine how the environment adapts to changes in workload or t
 !!! tip
     Use Flexible mode to combine Spot and Pay-As-You-Go instances in the same scale set to optimize costs.
 
+## See Also
+
+- [Compute Model](../platform/compute-model.md)
+- [Monitoring and Alerting](monitoring-and-alerting.md)
+- [Availability Options](../reference/availability-options.md)
+
 ## Sources
 
 - [What are Virtual Machine Scale Sets?](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview)

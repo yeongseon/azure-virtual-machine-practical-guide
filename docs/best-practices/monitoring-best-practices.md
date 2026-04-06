@@ -35,7 +35,7 @@ graph LR
 ## See Also
 
 - [Monitoring and Alerting Operations](../operations/monitoring-and-alerting.md)
-- [Slow Performance Troubleshooting](../troubleshooting/slow-performance.md)
+- [Slow Performance Troubleshooting](../troubleshooting/playbooks/performance/slow-performance.md)
 
 ## Sources
 - [Azure Monitor overview](https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview)

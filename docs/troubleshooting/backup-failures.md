@@ -33,6 +33,12 @@ graph TD
 !!! tip
     Use the "Backup Pre-check" in the Azure portal to identify potential configuration issues before the next scheduled job runs.
 
+## See Also
+
+- [Backup and Restore](../operations/backup-restore.md)
+- [Backup and DR Best Practices](../best-practices/backup-and-dr-best-practices.md)
+- [Extension Failures](extension-failures.md)
+
 ## Sources
 - [Troubleshoot Azure VM backup failures](https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-troubleshoot)
 - [Troubleshoot VM Agent and extensions](https://learn.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout)

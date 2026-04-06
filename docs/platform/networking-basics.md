@@ -39,7 +39,7 @@ graph TD
 ## See Also
 
 - [Networking Best Practices](../best-practices/networking-best-practices.md)
-- [DNS and Connectivity Troubleshooting](../troubleshooting/dns-and-connectivity-issues.md)
+- [DNS and Connectivity Troubleshooting](../troubleshooting/playbooks/connectivity/dns-and-connectivity-issues.md)
 
 ## Sources
 - [Azure Virtual Network concepts](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview)

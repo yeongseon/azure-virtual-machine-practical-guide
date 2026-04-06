@@ -26,6 +26,12 @@ graph TD
 !!! warning
     Availability Sets only protect against failures within a single data center. For protection against data center outages, you must use Availability Zones.
 
+## See Also
+
+- [Availability and Resiliency](../platform/availability-and-resiliency.md)
+- [VMSS Basics](../operations/vmss-basics.md)
+- [Production Baseline](../best-practices/production-baseline.md)
+
 ## Sources
 - [Availability options for Azure Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/availability)
 - [Availability sets overview](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview)

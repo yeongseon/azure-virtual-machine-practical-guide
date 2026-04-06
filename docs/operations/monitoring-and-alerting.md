@@ -39,6 +39,12 @@ Alerts proactively notify you when metric thresholds are met or specific events 
 !!! tip
     Enable VM insights to collect guest metrics and logs via Azure Monitor Agent.
 
+## See Also
+
+- [Monitoring Signals](../reference/monitoring-signals.md)
+- [Production Baseline](../best-practices/production-baseline.md)
+- [Slow Performance](../troubleshooting/playbooks/performance/slow-performance.md)
+
 ## Sources
 
 - [Azure Monitor overview](https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview)

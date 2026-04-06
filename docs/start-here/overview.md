@@ -44,6 +44,12 @@ Azure manages the underlying physical infrastructure, while you handle everythin
 - **Included:** Practical configuration, deployment, security, and maintenance of Azure VMs.
 - **Excluded:** Azure Kubernetes Service (AKS) deep dives, App Service dev-ops, or non-compute services.
 
+## See Also
+
+- [VM vs Other Compute Options](vm-vs-other-compute.md)
+- [Platform Fundamentals](../platform/index.md)
+- [Best Practices](../best-practices/index.md)
+
 ## Sources
 
 - [Azure Virtual Machines Overview](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)

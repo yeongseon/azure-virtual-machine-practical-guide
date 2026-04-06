@@ -42,7 +42,7 @@ graph LR
 ## See Also
 
 - [Backup and Restore Operations](../operations/backup-restore.md)
-- [Backup Failures Troubleshooting](../troubleshooting/backup-failures.md)
+- [Backup Failures Troubleshooting](../troubleshooting/playbooks/boot-disk/backup-failures.md)
 
 ## Sources
 - [Azure Backup overview](https://learn.microsoft.com/en-us/azure/backup/backup-overview)

@@ -39,6 +39,12 @@ Common maintenance and recovery operations for Azure Virtual Machines.
 | **Reimage** | Reinstalls the OS disk | Corrupted OS or configuration reset |
 | **Restart** | Reboots the Guest OS | Software updates or configuration changes |
 
+## See Also
+
+- [How Azure VM Works](how-azure-vm-works.md)
+- [Resize and Redeploy](../operations/resize-and-redeploy.md)
+- [Cost Optimization Best Practices](../best-practices/cost-optimization-best-practices.md)
+
 ## Sources
 - [Virtual machines lifecycle and states](https://learn.microsoft.com/en-us/azure/virtual-machines/states-billing)
 - [Redeploy virtual machines to new Azure node](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/redeploy-to-new-node)

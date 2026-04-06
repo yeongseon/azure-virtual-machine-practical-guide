@@ -31,6 +31,12 @@ graph TD
 !!! warning
     Never open RDP (3389) or SSH (22) directly to the internet via Network Security Groups (NSGs).
 
+## See Also
+
+- [Connect to VM](../operations/connect-to-vm.md)
+- [Networking Components](../reference/networking-components.md)
+- [DNS and Connectivity Issues](../troubleshooting/playbooks/connectivity/dns-and-connectivity-issues.md)
+
 ## Sources
 
 - [Azure Virtual Network security overview](https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview)

@@ -29,6 +29,12 @@ flowchart TD
 !!! note
     When resizing, if the current host does not support the new SKU, the VM must be Deallocated (Stopped) first to release hardware resources.
 
+## See Also
+
+- [VM Lifecycle](../platform/vm-lifecycle.md)
+- [Slow Performance](../troubleshooting/playbooks/performance/slow-performance.md)
+- [Sizing and Image Selection](../best-practices/sizing-and-image-selection.md)
+
 ## Sources
 
 - [Resize a Windows VM](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/resize-vm)

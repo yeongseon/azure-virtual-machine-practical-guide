@@ -43,6 +43,12 @@ If you're coming from a specific ecosystem, note these primary differences in VM
 !!! tip
     Use the Azure Bastion service to avoid exposing management ports (RDP/SSH) directly to the public internet.
 
+## See Also
+
+- [Azure VM Overview](overview.md)
+- [VM vs Other Compute Options](vm-vs-other-compute.md)
+- [Platform Fundamentals](../platform/index.md)
+
 ## Sources
 
 - [Azure Virtual Machines overview](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)

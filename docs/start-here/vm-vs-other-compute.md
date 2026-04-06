@@ -43,6 +43,12 @@ Use this table to decide if a VM is truly necessary or if it's overkill for your
 !!! warning
     Running a single web app on a VM means you are responsible for OS patching, firewall rules, and web server configuration. App Service handles these for you automatically.
 
+## See Also
+
+- [Azure VM Overview](overview.md)
+- [Common VM Scenarios](common-scenarios.md)
+- [Common Anti-Patterns](../best-practices/common-anti-patterns.md)
+
 ## Sources
 
 - [Choose an Azure compute service](https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree)

@@ -33,6 +33,12 @@ graph TD
 !!! tip
     The VM Agent must be in a "Ready" state before extensions can be successfully provisioned or updated.
 
+## See Also
+
+- [Create and Configure VM](../operations/create-and-configure-vm.md)
+- [Monitoring and Alerting](../operations/monitoring-and-alerting.md)
+- [Backup Failures](backup-failures.md)
+
 ## Sources
 - [Troubleshoot Azure VM extension failures](https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/troubleshoot)
 - [Custom Script Extension for Windows](https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows)

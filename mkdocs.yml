@@ -6,6 +6,17 @@ site_author: yeongseon
 repo_name: yeongseon/azure-virtual-machine-practical-guide
 repo_url: https://github.com/yeongseon/azure-virtual-machine-practical-guide
 
+exclude_docs: |
+  troubleshooting/backup-failures.md
+  troubleshooting/boot-diagnostics-and-serial-console.md
+  troubleshooting/cannot-rdp-or-ssh.md
+  troubleshooting/disk-performance-issues.md
+  troubleshooting/dns-and-connectivity-issues.md
+  troubleshooting/extension-failures.md
+  troubleshooting/high-cpu-memory-disk.md
+  troubleshooting/slow-performance.md
+  troubleshooting/vm-wont-start.md
+
 theme:
   name: material
   language: en
@@ -124,15 +135,30 @@ nav:
     - VMSS Basics: operations/vmss-basics.md
   - Troubleshooting:
     - troubleshooting/index.md
-    - VM Won't Start: troubleshooting/vm-wont-start.md
-    - Cannot RDP or SSH: troubleshooting/cannot-rdp-or-ssh.md
-    - Boot Diagnostics and Serial Console: troubleshooting/boot-diagnostics-and-serial-console.md
-    - Slow Performance: troubleshooting/slow-performance.md
-    - Disk Performance Issues: troubleshooting/disk-performance-issues.md
-    - DNS and Connectivity Issues: troubleshooting/dns-and-connectivity-issues.md
-    - Extension Failures: troubleshooting/extension-failures.md
-    - Backup Failures: troubleshooting/backup-failures.md
-    - High CPU / Memory / Disk: troubleshooting/high-cpu-memory-disk.md
+    - troubleshooting/quick-diagnosis-cards.md
+    - troubleshooting/architecture-overview.md
+    - troubleshooting/decision-tree.md
+    - troubleshooting/mental-model.md
+    - troubleshooting/evidence-map.md
+    - First 10 Minutes:
+      - troubleshooting/first-10-minutes/index.md
+      - troubleshooting/first-10-minutes/connectivity.md
+      - troubleshooting/first-10-minutes/performance.md
+      - troubleshooting/first-10-minutes/boot.md
+    - Playbooks:
+      - troubleshooting/playbooks/index.md
+      - Connectivity:
+        - troubleshooting/playbooks/connectivity/cannot-rdp-or-ssh.md
+        - troubleshooting/playbooks/connectivity/dns-and-connectivity-issues.md
+        - troubleshooting/playbooks/connectivity/extension-failures.md
+      - Performance:
+        - troubleshooting/playbooks/performance/slow-performance.md
+        - troubleshooting/playbooks/performance/high-cpu-memory-disk.md
+        - troubleshooting/playbooks/performance/disk-performance-issues.md
+      - Boot and Disk:
+        - troubleshooting/playbooks/boot-disk/vm-wont-start.md
+        - troubleshooting/playbooks/boot-disk/boot-diagnostics-and-serial-console.md
+        - troubleshooting/playbooks/boot-disk/backup-failures.md
   - Reference:
     - reference/index.md
     - VM Size Families: reference/vm-size-families.md
