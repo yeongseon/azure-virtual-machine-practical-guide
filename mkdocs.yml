@@ -1,22 +1,29 @@
 site_name: Azure Virtual Machine Practical Guide
 site_url: https://yeongseon.github.io/azure-virtual-machine-practical-guide/
-site_description: Azure VM practical guide — platform internals, operations, and troubleshooting grounded in MS Learn
+site_description: Azure VM practical guide — platform internals, operations, and troubleshooting
+  grounded in MS Learn
 site_author: yeongseon
-
 repo_name: yeongseon/azure-virtual-machine-practical-guide
 repo_url: https://github.com/yeongseon/azure-virtual-machine-practical-guide
+exclude_docs: 'troubleshooting/backup-failures.md
 
-exclude_docs: |
-  troubleshooting/backup-failures.md
   troubleshooting/boot-diagnostics-and-serial-console.md
+
   troubleshooting/cannot-rdp-or-ssh.md
+
   troubleshooting/disk-performance-issues.md
+
   troubleshooting/dns-and-connectivity-issues.md
+
   troubleshooting/extension-failures.md
+
   troubleshooting/high-cpu-memory-disk.md
+
   troubleshooting/slow-performance.md
+
   troubleshooting/vm-wont-start.md
 
+  '
 theme:
   name: material
   language: en
@@ -26,42 +33,38 @@ theme:
   icon:
     repo: fontawesome/brands/github
   palette:
-    - scheme: default
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-    - scheme: slate
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
+  - scheme: default
+    primary: indigo
+    accent: indigo
+    toggle:
+      icon: material/brightness-7
+      name: Switch to dark mode
+  - scheme: slate
+    primary: indigo
+    accent: indigo
+    toggle:
+      icon: material/brightness-4
+      name: Switch to light mode
   features:
-    - navigation.tabs
-    - navigation.sections
-    - navigation.expand
-    - navigation.top
-    - navigation.indexes
-    - search.suggest
-    - search.highlight
-    - content.code.copy
-    - content.code.annotate
-    - content.tabs.link
-
+  - navigation.tabs
+  - navigation.sections
+  - navigation.expand
+  - navigation.top
+  - navigation.indexes
+  - search.suggest
+  - search.highlight
+  - content.code.copy
+  - content.code.annotate
+  - content.tabs.link
 extra_css:
-  - stylesheets/extra.css
-
+- stylesheets/extra.css
 extra_javascript:
-  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
-  - javascripts/mermaid-zoom.js
-
+- https://unpkg.com/mermaid@10/dist/mermaid.min.js
+- javascripts/mermaid-zoom.js
 plugins:
-  - search
-  - minify:
-      minify_html: true
-
+- search
+- minify:
+    minify_html: true
 validation:
   nav:
     omitted_files: warn
@@ -70,105 +73,115 @@ validation:
     anchors: warn
     absolute_links: warn
     unrecognized_links: warn
-
 markdown_extensions:
-  - admonition
-  - pymdownx.details
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-  - pymdownx.tabbed:
-      alternate_style: true
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.mark
-  - attr_list
-  - md_in_html
-  - pymdownx.emoji
-  - tables
-  - toc:
-      permalink: true
-
+- admonition
+- pymdownx.details
+- pymdownx.superfences:
+    custom_fences:
+    - name: mermaid
+      class: mermaid
+- pymdownx.tabbed:
+    alternate_style: true
+- pymdownx.highlight:
+    anchor_linenums: true
+- pymdownx.inlinehilite
+- pymdownx.snippets
+- pymdownx.mark
+- attr_list
+- md_in_html
+- pymdownx.emoji
+- tables
+- toc:
+    permalink: true
 nav:
-  - Home: index.md
-  - Start Here:
-    - start-here/index.md
-    - Overview: start-here/overview.md
-    - Learning Path: start-here/learning-path.md
-    - VM vs Other Compute: start-here/vm-vs-other-compute.md
-    - Common Scenarios: start-here/common-scenarios.md
-  - Platform:
-    - platform/index.md
-    - How Azure VM Works: platform/how-azure-vm-works.md
-    - Compute Model: platform/compute-model.md
-    - VM Lifecycle: platform/vm-lifecycle.md
-    - Disks and Storage: platform/disks-and-storage.md
-    - Networking Basics: platform/networking-basics.md
-    - Identity and Access: platform/identity-and-access.md
-    - Availability and Resiliency: platform/availability-and-resiliency.md
-    - Backup and Recovery Basics: platform/backup-and-recovery-basics.md
-  - Best Practices:
-    - best-practices/index.md
-    - Production Baseline: best-practices/production-baseline.md
-    - Sizing and Image Selection: best-practices/sizing-and-image-selection.md
-    - Networking: best-practices/networking-best-practices.md
-    - Disk and Storage: best-practices/disk-and-storage-best-practices.md
-    - Security: best-practices/security-best-practices.md
-    - Patching and Maintenance: best-practices/patching-and-maintenance-best-practices.md
-    - Monitoring: best-practices/monitoring-best-practices.md
-    - Backup and DR: best-practices/backup-and-dr-best-practices.md
-    - Cost Optimization: best-practices/cost-optimization-best-practices.md
-    - Common Anti-Patterns: best-practices/common-anti-patterns.md
-  - Operations:
-    - operations/index.md
-    - Create and Configure VM: operations/create-and-configure-vm.md
-    - Connect to VM: operations/connect-to-vm.md
-    - Manage Disks: operations/manage-disks.md
-    - Resize and Redeploy: operations/resize-and-redeploy.md
-    - Snapshots and Images: operations/snapshots-and-images.md
-    - Backup and Restore: operations/backup-restore.md
-    - Patching: operations/patching.md
-    - Monitoring and Alerting: operations/monitoring-and-alerting.md
-    - VMSS Basics: operations/vmss-basics.md
-  - Troubleshooting:
-    - troubleshooting/index.md
-    - troubleshooting/quick-diagnosis-cards.md
-    - troubleshooting/architecture-overview.md
-    - troubleshooting/decision-tree.md
-    - troubleshooting/mental-model.md
-    - troubleshooting/evidence-map.md
-    - First 10 Minutes:
-      - troubleshooting/first-10-minutes/index.md
-      - troubleshooting/first-10-minutes/connectivity.md
-      - troubleshooting/first-10-minutes/performance.md
-      - troubleshooting/first-10-minutes/boot.md
-    - Playbooks:
-      - troubleshooting/playbooks/index.md
-      - Connectivity:
-        - troubleshooting/playbooks/connectivity/cannot-rdp-or-ssh.md
-        - troubleshooting/playbooks/connectivity/dns-and-connectivity-issues.md
-        - troubleshooting/playbooks/connectivity/extension-failures.md
-      - Performance:
-        - troubleshooting/playbooks/performance/slow-performance.md
-        - troubleshooting/playbooks/performance/high-cpu-memory-disk.md
-        - troubleshooting/playbooks/performance/disk-performance-issues.md
-      - Boot and Disk:
-        - troubleshooting/playbooks/boot-disk/vm-wont-start.md
-        - troubleshooting/playbooks/boot-disk/boot-diagnostics-and-serial-console.md
-        - troubleshooting/playbooks/boot-disk/backup-failures.md
-  - Reference:
-    - reference/index.md
-    - VM Size Families: reference/vm-size-families.md
-    - Managed Disk Types: reference/managed-disk-types.md
-    - Availability Options: reference/availability-options.md
-    - Networking Components: reference/networking-components.md
-    - Monitoring Signals: reference/monitoring-signals.md
-    - Glossary: reference/glossary.md
-
+- Home: index.md
+- Start Here:
+  - start-here/index.md
+  - Overview: start-here/overview.md
+  - Learning Path: start-here/learning-path.md
+  - VM vs Other Compute: start-here/vm-vs-other-compute.md
+  - Common Scenarios: start-here/common-scenarios.md
+- Platform:
+  - platform/index.md
+  - How Azure VM Works: platform/how-azure-vm-works.md
+  - Compute Model: platform/compute-model.md
+  - VM Lifecycle: platform/vm-lifecycle.md
+  - Disks and Storage: platform/disks-and-storage.md
+  - Networking Basics: platform/networking-basics.md
+  - Identity and Access: platform/identity-and-access.md
+  - Availability and Resiliency: platform/availability-and-resiliency.md
+  - Backup and Recovery Basics: platform/backup-and-recovery-basics.md
+- Best Practices:
+  - best-practices/index.md
+  - Production Baseline: best-practices/production-baseline.md
+  - Sizing and Image Selection: best-practices/sizing-and-image-selection.md
+  - Networking: best-practices/networking-best-practices.md
+  - Disk and Storage: best-practices/disk-and-storage-best-practices.md
+  - Security: best-practices/security-best-practices.md
+  - Patching and Maintenance: best-practices/patching-and-maintenance-best-practices.md
+  - Monitoring: best-practices/monitoring-best-practices.md
+  - Backup and DR: best-practices/backup-and-dr-best-practices.md
+  - Cost Optimization: best-practices/cost-optimization-best-practices.md
+  - Common Anti-Patterns: best-practices/common-anti-patterns.md
+- Operations:
+  - operations/index.md
+  - Create and Configure VM: operations/create-and-configure-vm.md
+  - Connect to VM: operations/connect-to-vm.md
+  - Manage Disks: operations/manage-disks.md
+  - Resize and Redeploy: operations/resize-and-redeploy.md
+  - Snapshots and Images: operations/snapshots-and-images.md
+  - Backup and Restore: operations/backup-restore.md
+  - Patching: operations/patching.md
+  - Monitoring and Alerting: operations/monitoring-and-alerting.md
+  - VMSS Basics: operations/vmss-basics.md
+- Tutorials:
+  - tutorials/index.md
+  - Lab Guides:
+    - tutorials/lab-guides/index.md
+    - tutorials/lab-guides/lab-01-highly-available-vm-deployment.md
+    - tutorials/lab-guides/lab-02-disk-encryption-and-backup.md
+    - tutorials/lab-guides/lab-03-custom-script-extensions.md
+    - tutorials/lab-guides/lab-04-azure-bastion-jit-access.md
+    - tutorials/lab-guides/lab-05-vm-disaster-recovery-asr.md
+- Troubleshooting:
+  - troubleshooting/index.md
+  - troubleshooting/quick-diagnosis-cards.md
+  - troubleshooting/architecture-overview.md
+  - troubleshooting/decision-tree.md
+  - troubleshooting/mental-model.md
+  - troubleshooting/evidence-map.md
+  - First 10 Minutes:
+    - troubleshooting/first-10-minutes/index.md
+    - troubleshooting/first-10-minutes/connectivity.md
+    - troubleshooting/first-10-minutes/performance.md
+    - troubleshooting/first-10-minutes/boot.md
+  - Playbooks:
+    - troubleshooting/playbooks/index.md
+    - troubleshooting/playbooks/vm-boot-failures.md
+    - troubleshooting/playbooks/disk-performance-issues.md
+    - troubleshooting/playbooks/network-connectivity-issues.md
+    - troubleshooting/playbooks/rdp-ssh-connection-failures.md
+    - Connectivity:
+      - troubleshooting/playbooks/connectivity/cannot-rdp-or-ssh.md
+      - troubleshooting/playbooks/connectivity/dns-and-connectivity-issues.md
+      - troubleshooting/playbooks/connectivity/extension-failures.md
+    - Performance:
+      - troubleshooting/playbooks/performance/slow-performance.md
+      - troubleshooting/playbooks/performance/high-cpu-memory-disk.md
+      - troubleshooting/playbooks/performance/disk-performance-issues.md
+    - Boot and Disk:
+      - troubleshooting/playbooks/boot-disk/vm-wont-start.md
+      - troubleshooting/playbooks/boot-disk/boot-diagnostics-and-serial-console.md
+      - troubleshooting/playbooks/boot-disk/backup-failures.md
+- Reference:
+  - reference/index.md
+  - VM Size Families: reference/vm-size-families.md
+  - Managed Disk Types: reference/managed-disk-types.md
+  - Availability Options: reference/availability-options.md
+  - Networking Components: reference/networking-components.md
+  - Monitoring Signals: reference/monitoring-signals.md
+  - Glossary: reference/glossary.md
 extra:
   social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/yeongseon/azure-virtual-machine-practical-guide
+  - icon: fontawesome/brands/github
+    link: https://github.com/yeongseon/azure-virtual-machine-practical-guide

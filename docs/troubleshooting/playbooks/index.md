@@ -1,48 +1,48 @@
 # Playbooks
 
-These are the canonical VM troubleshooting playbooks. Each one follows the same structure: summary, competing hypotheses, evidence, validation, mitigations, and prevention.
+These are the canonical VM troubleshooting playbooks. Use the root playbooks first when you need scenario-driven guidance for the most common production failures, then branch into the nested library for older or more specialized flows.
 
-## Playbook map
+## Diagnostic Entry Map
 
 ```mermaid
-graph TD
-    A[Canonical playbooks] --> B[Connectivity]
-    A --> C[Performance]
-    A --> D[Boot and disk]
-    B --> B1[Cannot RDP or SSH]
-    B --> B2[DNS and Connectivity Issues]
-    B --> B3[Extension Failures]
-    C --> C1[Slow Performance]
-    C --> C2[High CPU / Memory / Disk]
-    C --> C3[Disk Performance Issues]
-    D --> D1[VM Won't Start]
-    D --> D2[Boot Diagnostics and Serial Console]
-    D --> D3[Backup Failures]
+flowchart TD
+    A[VM incident] --> B{Primary symptom}
+    B --> C[VM Boot Failures]
+    B --> D[Disk Performance Issues]
+    B --> E[Network Connectivity Issues]
+    B --> F[RDP and SSH Connection Failures]
+    B --> G[Specialized legacy playbooks]
 ```
 
-## Connectivity
+## Recommended First-Line Playbooks
 
-| Playbook | Symptom |
+| Playbook | When to use it |
 |---|---|
-| [Cannot RDP or SSH](connectivity/cannot-rdp-or-ssh.md) | Administrative connection timeout, refusal, or auth failure |
-| [DNS and Connectivity Issues](connectivity/dns-and-connectivity-issues.md) | Name resolution failure, route issue, or blocked east-west traffic |
-| [Extension Failures](connectivity/extension-failures.md) | VM extension or agent-driven action failed |
+| [VM Boot Failures](vm-boot-failures.md) | The VM does not complete boot or never becomes remotely usable. |
+| [Disk Performance Issues](disk-performance-issues.md) | Latency, queue depth, or throughput bottlenecks affect the workload. |
+| [Network Connectivity Issues](network-connectivity-issues.md) | East-west, north-south, or dependency traffic fails after network changes. |
+| [RDP and SSH Connection Failures](rdp-ssh-connection-failures.md) | Administrative sign-in or Bastion-based access fails. |
+| [Boot Diagnostics and Serial Console](boot-disk/boot-diagnostics-and-serial-console.md) | You need low-level evidence or recovery access after boot failure. |
 
-## Performance
+## Legacy / Specialized Playbooks
 
-| Playbook | Symptom |
-|---|---|
-| [Slow Performance](performance/slow-performance.md) | General slowness with uncertain bottleneck |
-| [High CPU / Memory / Disk](performance/high-cpu-memory-disk.md) | One resource is clearly exhausted or near exhaustion |
-| [Disk Performance Issues](performance/disk-performance-issues.md) | Disk latency, queue, IOPS, or throughput bottleneck |
+### Connectivity
 
-## Boot and disk
+- [Cannot RDP or SSH](connectivity/cannot-rdp-or-ssh.md)
+- [DNS and Connectivity Issues](connectivity/dns-and-connectivity-issues.md)
+- [Extension Failures](connectivity/extension-failures.md)
 
-| Playbook | Symptom |
-|---|---|
-| [VM Won't Start](boot-disk/vm-wont-start.md) | VM fails to power on or finish boot |
-| [Boot Diagnostics and Serial Console](boot-disk/boot-diagnostics-and-serial-console.md) | Need low-level boot evidence and console recovery |
-| [Backup Failures](boot-disk/backup-failures.md) | Azure Backup or snapshot-based protection failed |
+### Performance
+
+- [Slow Performance](performance/slow-performance.md)
+- [High CPU / Memory / Disk](performance/high-cpu-memory-disk.md)
+- [Nested Disk Performance Playbook](performance/disk-performance-issues.md)
+
+### Boot and Disk
+
+- [VM Won't Start](boot-disk/vm-wont-start.md)
+- [Boot Diagnostics and Serial Console](boot-disk/boot-diagnostics-and-serial-console.md)
+- [Backup Failures](boot-disk/backup-failures.md)
 
 ## See Also
 

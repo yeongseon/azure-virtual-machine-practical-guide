@@ -29,7 +29,9 @@ graph LR
 ```
 
 !!! note
-    Azure Bastion requires a dedicated subnet named `AzureBastionSubnet` with at least a `/26` address space.
+    Azure Bastion requires a dedicated subnet named `AzureBastionSubnet` with at least a `/26` address space for Basic, Standard, and Premium SKUs.
+
+    The Developer SKU is an exception: it uses shared infrastructure and does not require a dedicated subnet or public IP.
 
 ## See Also
 
