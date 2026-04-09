@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Cannot RDP or SSH
 
 Connectivity issues often stem from Network Security Group (NSG) misconfigurations, guest OS firewalls, or routing errors. Follow this guide to diagnose and resolve access failures.

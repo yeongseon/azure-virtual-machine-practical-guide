@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Common VM Scenarios
 
 Virtual Machines are versatile and support a wide range of use cases from simple development environments to complex enterprise architectures.

@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Backup Failures
 
 ## 1. Summary

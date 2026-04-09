@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Extension Failures
 
 Azure VM extensions are small applications that provide post-deployment configuration and automation tasks. If an extension fails to install or run, the VM provisioning state may change to "Failed".

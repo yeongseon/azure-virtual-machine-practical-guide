@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # VM Lifecycle
 
 The VM lifecycle describes the various states an Azure VM can transition through, each with distinct billing and resource implications.

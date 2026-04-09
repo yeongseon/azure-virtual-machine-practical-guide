@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Monitoring and Alerting
 
 Azure Monitor provides visibility into the performance, health, and availability of Virtual Machines. It collects metrics and logs from the platform host and the guest operating system.

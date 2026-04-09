@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Backup Failures
 
 Azure Backup failures usually stem from communication issues between the VM and the Recovery Services vault or disk snapshot errors. Identifying the error code is the first step in resolving backup disruptions.

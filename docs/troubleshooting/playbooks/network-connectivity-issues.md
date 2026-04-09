@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Network Connectivity Issues
 
 ## Symptoms

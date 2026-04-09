@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # VM Troubleshooting Mental Model
 
 The core VM troubleshooting habit is simple: classify the failure domain first, then collect disproving evidence before committing to a root cause.

@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Backup and DR Best Practices
 
 Backup and disaster recovery plans for Azure VMs fail when teams only configure policies but never prove restore speed, consistency, and network readiness.

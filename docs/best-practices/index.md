@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Best Practices
 
 Use this section as the production operating model for Azure Virtual Machines. It connects architecture choices, sizing, storage, networking, security, maintenance, observability, resiliency, and cost decisions into one repeatable review path.

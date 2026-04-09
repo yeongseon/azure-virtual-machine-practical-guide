@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # RDP and SSH Connection Failures
 
 ## Symptoms

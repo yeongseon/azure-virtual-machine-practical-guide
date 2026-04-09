@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Reference
 
 This section provides quick-reference tables, comparative overviews, and terminology to help you find specific technical details without navigating through full conceptual documentation.

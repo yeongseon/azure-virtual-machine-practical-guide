@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Manage Disks
 
 Managing disks in Azure allows you to expand storage capacity or improve performance throughput. These operations can often be performed on running VMs with minimal disruption.

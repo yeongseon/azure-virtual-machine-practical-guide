@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Patching and Maintenance Best Practices
 
 Patching is not a monthly checkbox. For Azure VMs it is a scheduling, rollback, dependency, and evidence problem that must be handled like a production change event.

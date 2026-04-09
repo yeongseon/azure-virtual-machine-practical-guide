@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Slow Performance
 
 ## 1. Summary

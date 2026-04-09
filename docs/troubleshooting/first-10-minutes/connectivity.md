@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Connectivity Checklist
 
 Use this checklist during the first 10 minutes of incidents where RDP, SSH, DNS, routes, or extension operations fail.

@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # High CPU / Memory / Disk
 
 ## 1. Summary

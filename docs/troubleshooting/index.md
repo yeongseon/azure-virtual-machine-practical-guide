@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Troubleshooting
 
 Hypothesis-driven troubleshooting for Azure Virtual Machines: classify the symptom, collect the right evidence, then move into a canonical playbook.

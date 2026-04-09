@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Platform Fundamentals
 
 This section explores the core operating principles of the Azure Virtual Machine platform. We focus on how the infrastructure behaves and the underlying components that power your virtualized workloads.

@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Start Here
 
 If you're new to Azure Virtual Machines or wondering where to begin with this guide, this section provides the necessary context and entry points. You'll learn the fundamental value of VMs in a cloud ecosystem and how they compare to other compute services.

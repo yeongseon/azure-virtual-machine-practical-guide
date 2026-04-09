@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Learning Path
 
 This guide supports different technical roles and backgrounds. Choose your entry point based on your goals and the operating system you're more comfortable with.

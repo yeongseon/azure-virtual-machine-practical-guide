@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Quick Diagnosis Cards
 
 Use these cards when you need to route a VM incident quickly without reading the full playbooks first.

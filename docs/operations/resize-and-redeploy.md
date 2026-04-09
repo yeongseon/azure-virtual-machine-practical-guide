@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Resize and Redeploy
 
 Resizing and redeploying allow you to resolve performance bottlenecks or host-level issues. Both operations trigger a VM reboot but serve different operational purposes.

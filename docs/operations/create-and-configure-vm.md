@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Create and Configure VM
 
 Azure virtual machines (VMs) provide on-demand, high-scale, secure, and virtualized computing resources. You can deploy VMs using various methods depending on your automation and management needs.

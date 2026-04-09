@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Boot Diagnostics and Serial Console
 
 ## 1. Summary

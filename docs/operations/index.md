@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Operations
 
 This section provides hands-on operational procedures and configuration guides for maintaining Azure Virtual Machines. It translates high-level concepts into the specific steps needed for day-to-day management.

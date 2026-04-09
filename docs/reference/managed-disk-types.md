@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Managed Disk Types
 
 Azure managed disks offer different performance levels and features. Choosing the right disk type depends on your workload's IOPS, throughput, and latency requirements.

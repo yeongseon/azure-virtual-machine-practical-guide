@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Boot Diagnostics and Serial Console
 
 Boot diagnostics and the serial console are critical for troubleshooting Azure VMs when standard network-based access (RDP/SSH) is unavailable. These tools provide visibility into the earliest stages of the virtual machine life cycle.

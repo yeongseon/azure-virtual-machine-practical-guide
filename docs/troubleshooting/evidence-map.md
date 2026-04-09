@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Evidence Map
 
 This evidence map shows what to collect first for each VM troubleshooting domain so investigations do not stall on low-value data.

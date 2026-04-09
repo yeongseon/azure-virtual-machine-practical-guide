@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Networking Best Practices
 
 VM networking decisions directly shape blast radius, operator access, east-west latency, and how quickly teams can prove or disprove connectivity incidents.

@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Lab 04: Azure Bastion and JIT Access
 
 Build a private administration path using Azure Bastion and Defender for Cloud Just-In-Time access instead of public management ports.

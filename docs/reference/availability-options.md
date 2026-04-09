@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Availability Options
 
 Azure provides several options to protect your virtual machines from hardware failures, network outages, and data center disasters. Use these mechanisms to meet your application's Service Level Agreement (SLA) requirements.

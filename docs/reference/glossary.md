@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Glossary
 
 This glossary provides a quick reference for common Azure Virtual Machine terms and concepts. Refer to these definitions to better understand the Azure compute platform.

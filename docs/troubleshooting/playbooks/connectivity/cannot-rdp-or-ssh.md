@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Cannot RDP or SSH
 
 ## 1. Summary

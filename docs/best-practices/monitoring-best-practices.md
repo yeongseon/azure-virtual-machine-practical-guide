@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Monitoring Best Practices
 
 Good VM monitoring ties guest and platform evidence together so engineers can answer three questions fast: is the host healthy, is the workload healthy, and which control changed first.

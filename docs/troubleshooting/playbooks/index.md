@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Playbooks
 
 These are the canonical VM troubleshooting playbooks. Use the root playbooks first when you need scenario-driven guidance for the most common production failures, then branch into the nested library for older or more specialized flows.

@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Compute Model
 
 Azure offers diverse VM sizes optimized for different workloads, from general-purpose computing to high-performance GPUs.

@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Disk Performance Issues
 
 ## 1. Summary

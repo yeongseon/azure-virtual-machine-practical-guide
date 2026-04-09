@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # VM Size Families
 
 Azure offers several virtual machine size families, each tailored to specific workload demands. Use these families to align your compute resources with your application's performance and cost requirements.

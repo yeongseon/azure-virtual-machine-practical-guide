@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # How Azure VM Works
 
 Azure Virtual Machines run on physical hardware managed by Microsoft, abstracted through a virtualization layer called a hypervisor.

@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Azure Virtual Machine Practical Guide
 
 This practical guide covers Azure Virtual Machine platform internals, operational procedures, and troubleshooting techniques. It's designed for cloud engineers and architects who need to move beyond basic feature descriptions to real-world implementation and decision-making.

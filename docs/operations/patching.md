@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Patching
 
 Azure Update Manager centralizes compliance tracking and deployment of operating system updates. It handles security, critical, and other patch categories across both Linux and Windows environments.

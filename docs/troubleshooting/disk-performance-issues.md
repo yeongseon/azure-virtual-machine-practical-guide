@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Disk Performance Issues
 
 Azure Managed Disks have specific limits for Input/Output Operations Per Second (IOPS) and throughput based on the disk tier and VM size. Throttling occurs when the workload exceeds either the individual disk cap or the VM-level aggregate cap.

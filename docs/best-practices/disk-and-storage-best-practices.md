@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Disk and Storage Best Practices
 
 Azure VM storage performance is never just about the disk SKU. Real outcomes depend on VM-level throughput ceilings, queue depth, caching mode, data layout, and recovery design.

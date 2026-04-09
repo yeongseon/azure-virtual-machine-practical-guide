@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Lab 03: Custom Script Extensions
 
 Use Custom Script Extension to bootstrap software safely, inspect extension state, and recover from common execution errors.

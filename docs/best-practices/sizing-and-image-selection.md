@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Sizing and Image Selection
 
 Right-sizing and image discipline prevent two common Azure VM failures: paying enterprise prices for idle compute and inheriting unstable platform images that are hard to patch or scale.

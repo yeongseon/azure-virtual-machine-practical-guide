@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # VM Troubleshooting Architecture Overview
 
 This page maps the Azure VM control plane, data plane, guest OS, and storage/network dependencies so you can place failures in the right layer before opening a playbook.

@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Snapshots and Images
 
 Capturing snapshots and managed images enables backup and rapid deployment workflows. Azure Compute Gallery provides a scalable way to share images across subscriptions.

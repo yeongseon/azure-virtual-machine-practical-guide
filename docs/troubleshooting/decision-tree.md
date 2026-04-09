@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Troubleshooting Decision Tree
 
 Use this page to route an observed VM symptom to the most relevant first-response checklist and canonical playbook.

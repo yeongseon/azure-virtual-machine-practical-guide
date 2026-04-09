@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Boot Checklist
 
 Use this checklist when the VM does not reach a healthy running state, standard admin access is unavailable, or backup recovery workflows are failing.

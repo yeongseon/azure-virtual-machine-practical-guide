@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Disks and Storage
 
 Azure VM storage uses managed disks with different latency, IOPS, and throughput characteristics. Correct disk type and caching choices are critical for both performance and durability.

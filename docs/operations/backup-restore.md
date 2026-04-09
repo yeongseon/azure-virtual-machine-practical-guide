@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Backup and Restore
 
 Azure Backup provides a secure, reliable way to protect your Virtual Machines from data loss and corruption. It uses Recovery Services vaults to store recovery points and manage backup policies.

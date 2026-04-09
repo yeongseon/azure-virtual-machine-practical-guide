@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # High CPU / Memory / Disk
 
 Performance degradation in Azure VMs is often caused by resource exhaustion. This guide details how to correlate Azure platform metrics with guest OS processes to resolve performance bottlenecks.

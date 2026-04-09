@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # VM Won't Start
 
 Azure Virtual Machines may fail to start due to host-level constraints, operating system boot errors, or configuration issues. Use the following diagnostic tools and resolution paths to restore service.

@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Cost Optimization Best Practices
 
 VM cost optimization works best when it is connected to sizing, scheduling, disk choices, and workload criticality rather than treated as a one-time Reserved Instance purchase.

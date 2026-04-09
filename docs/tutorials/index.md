@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Tutorials
 
 Hands-on tutorials show how to apply Azure VM design and operational guidance in a controlled environment before you rely on the pattern in production.

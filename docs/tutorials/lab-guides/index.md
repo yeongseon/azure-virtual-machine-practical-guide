@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Lab Guides
 
 These labs convert Azure VM guidance into repeatable exercises. Use them to validate architecture decisions, train operators, and capture evidence you can compare against future incidents.

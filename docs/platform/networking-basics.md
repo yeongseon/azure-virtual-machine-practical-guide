@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Networking Basics
 
 Azure Virtual Network (VNet) is the fundamental building block for your private network in Azure. It enables Azure resources to securely communicate with each other, the internet, and on-premises networks.

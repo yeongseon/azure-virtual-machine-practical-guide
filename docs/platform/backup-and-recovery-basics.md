@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Backup and Recovery Basics
 
 Protecting your data from loss and corruption is crucial for enterprise workloads on Azure. Azure Backup and Site Recovery provide integrated disaster recovery and backup.

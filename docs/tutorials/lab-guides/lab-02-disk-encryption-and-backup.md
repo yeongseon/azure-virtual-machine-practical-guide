@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Lab 02: Disk Encryption and Backup
 
 Apply disk encryption controls, enable backup protection, and validate restore-readiness for a protected VM.

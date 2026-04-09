@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # VMSS Basics
 
 Virtual Machine Scale Sets (VMSS) allow you to create and manage a group of load-balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule.

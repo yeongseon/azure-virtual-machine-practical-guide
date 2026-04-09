@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Availability and Resiliency
 
 To ensure high availability, Azure provides various tools and strategies to mitigate failures, ranging from hardware faults to entire datacenter outages.

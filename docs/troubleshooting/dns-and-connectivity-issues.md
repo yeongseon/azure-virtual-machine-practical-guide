@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # DNS and Connectivity Issues
 
 Effective troubleshooting in Azure requires isolating issues between internal DNS resolution and the underlying network fabric. This guide maps common connectivity failures to their diagnostic tools and root causes.

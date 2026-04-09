@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Production Baseline
 
 A production baseline for Azure VMs is the minimum set of controls that reduces avoidable outages, security drift, and cost surprises before application-specific tuning starts.

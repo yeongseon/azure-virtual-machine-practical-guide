@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Performance Checklist
 
 Use this checklist when a VM is slow, saturated, intermittently timing out, or showing resource pressure.

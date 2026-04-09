@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # DNS and Connectivity Issues
 
 ## 1. Summary

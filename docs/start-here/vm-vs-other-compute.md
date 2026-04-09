@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # VM vs Other Compute Options
 
 Azure offers several ways to run your code. Choosing the right service depends on how much control you need and how you prefer to manage your application.

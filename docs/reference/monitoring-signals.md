@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Monitoring Signals
 
 Azure provides a comprehensive monitoring solution to track the health and performance of your virtual machines. These signals help you proactively identify and resolve issues before they impact your users.

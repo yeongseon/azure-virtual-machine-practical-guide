@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Security Best Practices
 
 Strong VM security comes from layering identity, network, host, and data protections so that one missed control does not become a full-environment incident.

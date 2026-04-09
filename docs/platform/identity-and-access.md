@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Identity and Access
 
 Azure Role-Based Access Control (RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.

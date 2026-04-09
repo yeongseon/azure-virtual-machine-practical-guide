@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Networking Components
 
 Azure networking components provide the foundation for virtual machine communication, security, and external access. Understanding their relationships is key to designing a scalable and secure VM infrastructure.

@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Extension Failures
 
 ## 1. Summary

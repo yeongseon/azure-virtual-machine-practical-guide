@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Azure VM Overview
 
 Azure Virtual Machines (VMs) provide on-demand, high-scale, and secure Infrastructure-as-a-Service (IaaS) compute. This service allows you to run virtualized environments in the cloud with complete control over the operating system and its configurations.

@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Common Anti-Patterns
 
 Most Azure VM incidents are not caused by exotic platform bugs. They are caused by repeated design shortcuts that quietly accumulate operational debt until the first change window or traffic spike.

@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Lab 01: Highly Available VM Deployment
 
 Deploy a zone-aware virtual machine baseline with options for Availability Zones and Virtual Machine Scale Sets so you can compare single-instance and scalable patterns.

@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # First 10 Minutes
 
 These checklists help you stabilize triage, collect the first evidence, and route to the correct VM playbook before making disruptive changes.

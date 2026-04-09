@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Connect to VM
 
 Connecting to Azure virtual machines requires specific protocols depending on the operating system and security requirements. Use Azure Bastion for the most secure, browser-based access without public IP addresses.

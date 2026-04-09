@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Lab 05: VM Disaster Recovery with Azure Site Recovery
 
 Configure Azure Site Recovery for a critical VM, run a test failover, and document the validation artifacts needed for a real DR event.

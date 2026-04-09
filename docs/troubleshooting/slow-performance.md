@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Slow Performance
 
 Diagnosing slow performance requires distinguishing between platform-level throttling and guest-level resource exhaustion. Correlate Azure Monitor metrics with internal operating system tools to identify the bottleneck.
