@@ -1,6 +1,18 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-playbooks-boot-disk-vm-wont-start-troubleshooting-decision-flow
+    type: flowchart
+    source: self-generated
+    description: Troubleshooting decision flow
+    based_on:
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-vm-boot-error
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/allocation-failure
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
 ---
 
 # VM Won't Start
@@ -14,6 +26,7 @@ The VM fails to enter a healthy running state, remains stuck at start, or repeat
 The same symptom can be caused by Azure allocation limits, guest boot corruption, disk attachment problems, or post-update OS failures.
 
 ### Troubleshooting decision flow
+<!-- diagram-id: troubleshooting-playbooks-boot-disk-vm-wont-start-troubleshooting-decision-flow -->
 ```mermaid
 graph TD
     A[VM won't start] --> B{Allocation or guest boot?}

@@ -1,6 +1,16 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-backup-failures-backup-failure-logic
+    type: flowchart
+    source: mslearn-adapted
+    description: Backup Failure Logic
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-troubleshoot
+    - https://learn.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout
+    - https://learn.microsoft.com/en-us/azure/backup/backup-support-matrix-iaas
 ---
 
 # Backup Failures
@@ -19,6 +29,7 @@ Azure Backup failures usually stem from communication issues between the VM and 
 
 ## Backup Failure Logic
 
+<!-- diagram-id: troubleshooting-backup-failures-backup-failure-logic -->
 ```mermaid
 graph TD
     A[Backup Job Failed] --> B{Agent Ready?}

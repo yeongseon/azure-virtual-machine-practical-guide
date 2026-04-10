@@ -1,3 +1,18 @@
+---
+content_sources:
+  diagrams:
+  - id: reference-validation-status-summary
+    type: pie
+    source: self-generated
+    description: Summary
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/availability
+    - https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
+---
+
 # Tutorial Validation Status
 
 This page tracks which lab guides have been validated against real Azure deployments. Each guide can be tested via **az-cli** (manual CLI commands) or **Bicep** (infrastructure as code). Guides not tested within 90 days are marked as stale.
@@ -14,6 +29,7 @@ This page tracks which lab guides have been validated against real Azure deploym
 | ❌ Failed | 0 |
 | ➖ Not tested | 5 |
 
+<!-- diagram-id: reference-validation-status-summary -->
 ```mermaid
 pie title Tutorial Validation Status
     "Not Tested" : 5
@@ -65,4 +81,3 @@ python3 scripts/generate_validation_status.py
 - [Tutorials](../tutorials/index.md)
 - [Lab Guides](../tutorials/lab-guides/index.md)
 - [VM Size Families](vm-size-families.md)
-

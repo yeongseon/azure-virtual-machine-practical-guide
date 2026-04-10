@@ -1,6 +1,17 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-first-10-minutes-performance-initial-response-flow
+    type: flowchart
+    source: self-generated
+    description: Initial response flow
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-virtual-machine
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-performance-bottlenecks-linux
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
 ---
 
 # Performance Checklist
@@ -9,6 +20,7 @@ Use this checklist when a VM is slow, saturated, intermittently timing out, or s
 
 ## Initial response flow
 
+<!-- diagram-id: troubleshooting-first-10-minutes-performance-initial-response-flow -->
 ```mermaid
 graph TD
     A[Performance symptom] --> B[Capture incident window]

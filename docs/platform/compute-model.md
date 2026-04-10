@@ -1,6 +1,15 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: platform-compute-model-naming-convention
+    type: flowchart
+    source: mslearn-adapted
+    description: Naming Convention
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview
 ---
 
 # Compute Model
@@ -21,6 +30,7 @@ Azure categorizes VM sizes to help you select the best performance/cost ratio fo
 
 ## Naming Convention
 
+<!-- diagram-id: platform-compute-model-naming-convention -->
 ```mermaid
 graph LR
     S[Standard] --- F[Family: D]

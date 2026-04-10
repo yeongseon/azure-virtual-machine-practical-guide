@@ -1,6 +1,16 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: reference-vm-size-families-vm-size-families
+    type: flowchart
+    source: mslearn-adapted
+    description: VM Size Families
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview#high-performance-compute
 ---
 
 # VM Size Families
@@ -16,6 +26,7 @@ Azure offers several virtual machine size families, each tailored to specific wo
 | **GPU** | N, NC, ND | 6 - 112 | 28 GiB - 880 GiB | Graphics, video editing, deep learning | NVIDIA GPU acceleration |
 | **HPC** | HB, HC, HX | 8 - 176 | 32 GiB - 1,400 GiB | Fluid dynamics, seismic processing | InfiniBand networking |
 
+<!-- diagram-id: reference-vm-size-families-vm-size-families -->
 ```mermaid
 graph TD
     Start([Start Selection]) --> Workload{Workload Type?}

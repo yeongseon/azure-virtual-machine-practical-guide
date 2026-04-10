@@ -1,6 +1,16 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: operations-resize-and-redeploy-operation-decision-tree
+    type: flowchart
+    source: mslearn-adapted
+    description: Operation Decision Tree
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/resize-vm
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/windows/redeploy-to-new-node-windows
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/linux/redeploy-to-new-node-linux
 ---
 
 # Resize and Redeploy
@@ -18,6 +28,7 @@ Resizing and redeploying allow you to resolve performance bottlenecks or host-le
 
 ## Operation Decision Tree
 
+<!-- diagram-id: operations-resize-and-redeploy-operation-decision-tree -->
 ```mermaid
 flowchart TD
     A[Performance Issue?] --> B{Cause?}
@@ -42,6 +53,7 @@ flowchart TD
 
 ## Sources
 
-- [Resize a Windows VM](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/resize-vm)
-- [Redeploy virtual machine to new Azure node](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/redeploy-to-new-node)
-- [Resize a Linux VM with Azure CLI](https://learn.microsoft.com/en-us/azure/virtual-machines/resize-vm)
+- [Resize a Windows VM](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/resize-vm)
+- [Redeploy Windows virtual machine to new Azure node](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/windows/redeploy-to-new-node-windows)
+- [Redeploy Linux virtual machine to new Azure node](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/linux/redeploy-to-new-node-linux)
+- [Resize a Linux VM with Azure CLI](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/resize-vm)

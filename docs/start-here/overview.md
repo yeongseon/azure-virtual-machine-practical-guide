@@ -1,6 +1,15 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: start-here-overview-resource-hierarchy
+    type: flowchart
+    source: mslearn-adapted
+    description: Resource Hierarchy
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
+    - https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility
 ---
 
 # Azure VM Overview
@@ -18,15 +27,17 @@ Azure Virtual Machines (VMs) provide on-demand, high-scale, and secure Infrastru
 
 ## Resource Hierarchy
 
+<!-- diagram-id: start-here-overview-resource-hierarchy -->
 ```mermaid
 graph TD
     Sub[Subscription] --> RG[Resource Group]
     RG --> VM[Virtual Machine]
     VM --> NIC[Network Interface]
-    VM --> OS[OS Disk]
+    VM --> OSD[OS Disk (Managed Disk)]
+    VM --> DSK[Data Disks (Managed Disks)]
+    NIC --> VNET[Virtual Network]
     NIC --> NSG[Network Security Group]
     NIC --> PIP[Public IP Address]
-    OS --> SA[Storage Account / Managed Disks]
 ```
 
 ## Shared Responsibility

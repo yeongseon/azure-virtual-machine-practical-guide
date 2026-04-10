@@ -1,6 +1,17 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-decision-tree-symptom-routing
+    type: flowchart
+    source: self-generated
+    description: Symptom routing
+    based_on:
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/troubleshooting/
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
 ---
 
 # Troubleshooting Decision Tree
@@ -9,6 +20,7 @@ Use this page to route an observed VM symptom to the most relevant first-respons
 
 ## Symptom routing
 
+<!-- diagram-id: troubleshooting-decision-tree-symptom-routing -->
 ```mermaid
 graph TD
     A[Symptom observed] --> B{Primary failure}

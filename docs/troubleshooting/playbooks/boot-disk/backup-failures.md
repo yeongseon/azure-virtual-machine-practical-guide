@@ -1,6 +1,18 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-playbooks-boot-disk-backup-failures-troubleshooting-decision-flow
+    type: flowchart
+    source: self-generated
+    description: Troubleshooting decision flow
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-troubleshoot
+    - https://learn.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout
+    - https://learn.microsoft.com/en-us/azure/backup/backup-support-matrix-iaas
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
 ---
 
 # Backup Failures
@@ -14,6 +26,7 @@ Azure Backup jobs fail for the VM, often with snapshot, VM agent, or communicati
 The failure is reported by Backup, but the root cause may live in the VM agent, VMSnapshot extension, disk lock state, or outbound communication path.
 
 ### Troubleshooting decision flow
+<!-- diagram-id: troubleshooting-playbooks-boot-disk-backup-failures-troubleshooting-decision-flow -->
 ```mermaid
 graph TD
     A[Backup failure] --> B{VM agent healthy?}

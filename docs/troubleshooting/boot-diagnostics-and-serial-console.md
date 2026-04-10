@@ -1,6 +1,16 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-boot-diagnostics-and-serial-console-diagnostic-tool-decision-flow
+    type: flowchart
+    source: mslearn-adapted
+    description: Diagnostic Tool Decision Flow
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/serial-console-windows
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/serial-console-linux
 ---
 
 # Boot Diagnostics and Serial Console
@@ -20,6 +30,7 @@ Boot diagnostics and the serial console are critical for troubleshooting Azure V
 
 ## Diagnostic Tool Decision Flow
 
+<!-- diagram-id: troubleshooting-boot-diagnostics-and-serial-console-diagnostic-tool-decision-flow -->
 ```mermaid
 graph TD
     A[Start Troubleshooting] --> B{Standard RDP/SSH?}

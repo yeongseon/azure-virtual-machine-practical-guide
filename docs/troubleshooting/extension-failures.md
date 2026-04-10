@@ -1,6 +1,16 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-extension-failures-extension-troubleshooting-flow
+    type: flowchart
+    source: mslearn-adapted
+    description: Extension Troubleshooting Flow
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/troubleshoot
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows
+    - https://learn.microsoft.com/en-us/azure/azure-monitor/agents/azure-monitor-agent-troubleshoot-windows-vm
 ---
 
 # Extension Failures
@@ -19,6 +29,7 @@ Azure VM extensions are small applications that provide post-deployment configur
 
 ## Extension Troubleshooting Flow
 
+<!-- diagram-id: troubleshooting-extension-failures-extension-troubleshooting-flow -->
 ```mermaid
 graph TD
     A[Extension Status: Failed] --> B{VM Agent Running?}
@@ -47,4 +58,4 @@ graph TD
 ## Sources
 - [Troubleshoot Azure VM extension failures](https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/troubleshoot)
 - [Custom Script Extension for Windows](https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows)
-- [Azure Monitor Agent troubleshooting](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/troubleshoot-agent-windows)
+- [Azure Monitor Agent troubleshooting](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/azure-monitor-agent-troubleshoot-windows-vm)

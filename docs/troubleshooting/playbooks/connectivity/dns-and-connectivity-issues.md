@@ -1,6 +1,18 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-playbooks-connectivity-dns-and-connectivity-issues-troubleshooting-decision-flow
+    type: flowchart
+    source: self-generated
+    description: Troubleshooting decision flow
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/dns/dns-troubleshoot
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-network/virtual-network-troubleshoot-peering-issues
+    - https://learn.microsoft.com/en-us/azure/network-watcher/ip-flow-verify-overview
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
 ---
 
 # DNS and Connectivity Issues
@@ -14,6 +26,7 @@ VMs cannot resolve names, reach private endpoints, or communicate across peered 
 DNS, NSG, UDR, peering, and guest-firewall problems can all present as the same application timeout.
 
 ### Troubleshooting decision flow
+<!-- diagram-id: troubleshooting-playbooks-connectivity-dns-and-connectivity-issues-troubleshooting-decision-flow -->
 ```mermaid
 graph TD
     A[Connectivity problem] --> B{Does DNS resolve?}

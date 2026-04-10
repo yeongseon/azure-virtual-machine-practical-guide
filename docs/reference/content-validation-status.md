@@ -1,3 +1,21 @@
+---
+content_sources:
+  diagrams:
+  - id: reference-content-validation-status-summary
+    type: pie
+    source: self-generated
+    description: Summary
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/availability
+    - https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview
+    - https://learn.microsoft.com/en-us/azure/reliability/reliability-virtual-machines
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
+---
+
 # Content Source Validation Status
 
 This page tracks the source validation status of all documentation content, including diagrams and text content. All content must be traceable to official Microsoft Learn documentation.
@@ -8,18 +26,20 @@ This page tracks the source validation status of all documentation content, incl
 
 | Content Type | Total | ✅ MSLearn Sourced | ⚠️ Self-Generated | ❌ No Source |
 |---|---:|---:|---:|---:|
-| Mermaid Diagrams | 89 | 0 | 0 | 89 |
+| Mermaid Diagrams | 90 | 50 | 40 | 0 |
 | Text Sections | — | — | — | — |
 
 !!! warning "Validation Required"
-    All 89 mermaid diagrams require source validation. Content without MSLearn sources must be either:
+    All mermaid diagrams now include source metadata. Self-generated diagrams remain acceptable only when they clearly cite the Microsoft Learn articles they were synthesized from.
     
     1. Linked to an official MSLearn URL, OR
     2. Marked as `self-generated` with clear justification
 
+<!-- diagram-id: reference-content-validation-status-summary -->
 ```mermaid
 pie title Content Source Status
-    "Not Validated" : 89
+    "MSLearn Adapted" : 50
+    "Self-Generated" : 40
 ```
 
 ## Validation Categories
@@ -36,11 +56,11 @@ pie title Content Source Status
 
 ### Diagram Validation Status
 
-#### Diagram Inventory (89 total)
+#### Diagram Inventory (90 total)
 
 | File | Diagrams | Source Type | MSLearn URL | Status |
 |---|---:|---|---|---|
-| All Mermaid diagrams | 89 | unknown | — | ❌ Not Validated |
+| All Mermaid diagrams | 90 | mixed (`mslearn-adapted`, `self-generated`) | See document frontmatter | ✅ Validated |
 
 ## How to Validate Content
 
@@ -114,7 +134,7 @@ Use these official sources for diagram validation:
 | VM Networking | https://learn.microsoft.com/en-us/azure/virtual-network/ |
 | VM Storage | https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types |
 | VM Backup | https://learn.microsoft.com/en-us/azure/backup/ |
-| VM Security | https://learn.microsoft.com/en-us/azure/virtual-machines/security-overview |
+| VM Security | https://learn.microsoft.com/en-us/azure/security/fundamentals/virtual-machines-overview |
 
 ## See Also
 

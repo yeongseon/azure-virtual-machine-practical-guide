@@ -1,6 +1,17 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: start-here-index-why-virtual-machines
+    type: flowchart
+    source: self-generated
+    description: Why Virtual Machines?
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
+    - https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
 ---
 
 # Start Here
@@ -18,6 +29,7 @@ If you're new to Azure Virtual Machines or wondering where to begin with this gu
 
 ## Why Virtual Machines?
 
+<!-- diagram-id: start-here-index-why-virtual-machines -->
 ```mermaid
 graph LR
     A[Traditional Infrastructure] --> B{Choose Cloud Model}

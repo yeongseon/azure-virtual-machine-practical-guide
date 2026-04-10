@@ -1,6 +1,17 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: tutorials-lab-guides-lab-01-highly-available-vm-deployment-architecture-diagram
+    type: flowchart
+    source: mslearn-adapted
+    description: Architecture Diagram
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/
+    - https://learn.microsoft.com/en-us/cli/azure/vm
+    - https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction
+    - https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-enable-replication
 ---
 
 # Lab 01: Highly Available VM Deployment
@@ -21,6 +32,7 @@ Deploy a zone-aware virtual machine baseline with options for Availability Zones
 
 ## Architecture Diagram
 
+<!-- diagram-id: tutorials-lab-guides-lab-01-highly-available-vm-deployment-architecture-diagram -->
 ```mermaid
 graph TD
     A[Lab 01: Highly Available VM Deployment] --> B[Resource group and networking baseline]

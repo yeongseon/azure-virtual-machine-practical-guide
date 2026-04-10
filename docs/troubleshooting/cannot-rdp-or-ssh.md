@@ -1,6 +1,16 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-cannot-rdp-or-ssh-connectivity-flowchart
+    type: flowchart
+    source: mslearn-adapted
+    description: Connectivity Flowchart
+    based_on:
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection
+    - https://learn.microsoft.com/en-us/azure/bastion/bastion-overview
 ---
 
 # Cannot RDP or SSH
@@ -21,6 +31,7 @@ Connectivity issues often stem from Network Security Group (NSG) misconfiguratio
 
 ## Connectivity Flowchart
 
+<!-- diagram-id: troubleshooting-cannot-rdp-or-ssh-connectivity-flowchart -->
 ```mermaid
 graph TD
     A[Connection Failed] --> B{IP Reachable?}

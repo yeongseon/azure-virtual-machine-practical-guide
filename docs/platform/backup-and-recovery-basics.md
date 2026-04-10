@@ -1,6 +1,16 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: platform-backup-and-recovery-basics-backup-architecture
+    type: flowchart
+    source: mslearn-adapted
+    description: Backup Architecture
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/backup/backup-overview
+    - https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-overview
+    - https://learn.microsoft.com/en-us/azure/reliability/overview
 ---
 
 # Backup and Recovery Basics
@@ -27,6 +37,7 @@ Protecting your data from loss and corruption is crucial for enterprise workload
 
 Azure Backup for Azure VMs uses VM backup extensions with policy-driven scheduling into a Recovery Services vault.
 
+<!-- diagram-id: platform-backup-and-recovery-basics-backup-architecture -->
 ```mermaid
 graph LR
     P[Backup Policy] --> J[Scheduled Backup Job]

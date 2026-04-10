@@ -1,6 +1,26 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-mental-model-classification-model
+    type: flowchart
+    source: self-generated
+    description: Classification model
+    based_on:
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/troubleshooting/
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
+  - id: troubleshooting-mental-model-investigation-rhythm
+    type: flowchart
+    source: self-generated
+    description: Investigation rhythm
+    based_on:
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/troubleshooting/
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
 ---
 
 # VM Troubleshooting Mental Model
@@ -9,6 +29,7 @@ The core VM troubleshooting habit is simple: classify the failure domain first, 
 
 ## Classification model
 
+<!-- diagram-id: troubleshooting-mental-model-classification-model -->
 ```mermaid
 flowchart TD
     A[Observed symptom] --> B{Failure domain}
@@ -38,6 +59,7 @@ flowchart TD
 
 ## Investigation rhythm
 
+<!-- diagram-id: troubleshooting-mental-model-investigation-rhythm -->
 ```mermaid
 graph LR
     A[Symptom] --> B[Hypotheses]

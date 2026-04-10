@@ -1,6 +1,17 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: tutorials-lab-guides-lab-04-azure-bastion-jit-access-architecture-diagram
+    type: flowchart
+    source: mslearn-adapted
+    description: Architecture Diagram
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/
+    - https://learn.microsoft.com/en-us/cli/azure/vm
+    - https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction
+    - https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-enable-replication
 ---
 
 # Lab 04: Azure Bastion and JIT Access
@@ -21,6 +32,7 @@ Build a private administration path using Azure Bastion and Defender for Cloud J
 
 ## Architecture Diagram
 
+<!-- diagram-id: tutorials-lab-guides-lab-04-azure-bastion-jit-access-architecture-diagram -->
 ```mermaid
 graph TD
     A[Lab 04: Azure Bastion and JIT Access] --> B[Resource group and networking baseline]

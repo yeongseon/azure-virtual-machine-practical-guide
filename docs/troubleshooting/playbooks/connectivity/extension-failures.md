@@ -1,6 +1,18 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-playbooks-connectivity-extension-failures-troubleshooting-decision-flow
+    type: flowchart
+    source: self-generated
+    description: Troubleshooting decision flow
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/troubleshoot
+    - https://learn.microsoft.com/en-us/azure/azure-monitor/agents/azure-monitor-agent-troubleshoot-windows-vm
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
 ---
 
 # Extension Failures
@@ -14,6 +26,7 @@ VM extension installation, update, or execution fails and provisioning state bec
 The visible failure is the extension, but the real cause is often the VM agent, outbound connectivity, OS support, or the extension payload itself.
 
 ### Troubleshooting decision flow
+<!-- diagram-id: troubleshooting-playbooks-connectivity-extension-failures-troubleshooting-decision-flow -->
 ```mermaid
 graph TD
     A[Extension failure] --> B{VM agent healthy?}
@@ -97,5 +110,5 @@ graph TD
 ## Sources
 
 - [Troubleshoot Azure VM extension failures](https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/troubleshoot)
-- [Azure Monitor Agent troubleshooting](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/troubleshoot-agent-windows)
+- [Azure Monitor Agent troubleshooting](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/azure-monitor-agent-troubleshoot-windows-vm)
 - [Custom Script Extension for Windows](https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows)

@@ -1,6 +1,16 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-slow-performance-performance-optimization-flow
+    type: flowchart
+    source: mslearn-adapted
+    description: Performance Optimization Flow
+    based_on:
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/linux/troubleshoot-performance-virtual-machine-linux-windows
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/monitor-vm
+    - https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/monitor-azure-resource
 ---
 
 # Slow Performance
@@ -21,6 +31,7 @@ Diagnosing slow performance requires distinguishing between platform-level throt
 
 ## Performance Optimization Flow
 
+<!-- diagram-id: troubleshooting-slow-performance-performance-optimization-flow -->
 ```mermaid
 graph TD
     A[Slow App Reported] --> B{CPU > 90%?}

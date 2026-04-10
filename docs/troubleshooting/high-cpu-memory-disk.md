@@ -1,6 +1,16 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-high-cpu-memory-disk-resource-usage-troubleshooting
+    type: flowchart
+    source: mslearn-adapted
+    description: Resource Usage Troubleshooting
+    based_on:
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/windows/troubleshoot-high-cpu-issues-azure-windows-vm
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-performance-bottlenecks-linux
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance-tiers
 ---
 
 # High CPU / Memory / Disk
@@ -19,6 +29,7 @@ Performance degradation in Azure VMs is often caused by resource exhaustion. Thi
 
 ## Resource Usage Troubleshooting
 
+<!-- diagram-id: troubleshooting-high-cpu-memory-disk-resource-usage-troubleshooting -->
 ```mermaid
 graph TD
     A[Performance Issue] --> B{CPU High?}

@@ -1,6 +1,17 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: tutorials-lab-guides-lab-03-custom-script-extensions-architecture-diagram
+    type: flowchart
+    source: mslearn-adapted
+    description: Architecture Diagram
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/
+    - https://learn.microsoft.com/en-us/cli/azure/vm
+    - https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction
+    - https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-enable-replication
 ---
 
 # Lab 03: Custom Script Extensions
@@ -21,6 +32,7 @@ Use Custom Script Extension to bootstrap software safely, inspect extension stat
 
 ## Architecture Diagram
 
+<!-- diagram-id: tutorials-lab-guides-lab-03-custom-script-extensions-architecture-diagram -->
 ```mermaid
 graph TD
     A[Lab 03: Custom Script Extensions] --> B[Resource group and networking baseline]

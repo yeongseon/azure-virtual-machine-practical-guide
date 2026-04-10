@@ -1,6 +1,17 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: operations-create-and-configure-vm-deployment-workflow
+    type: flowchart
+    source: mslearn-adapted
+    description: Deployment Workflow
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-cli
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks
 ---
 
 # Create and Configure VM
@@ -31,6 +42,7 @@ Azure virtual machines (VMs) provide on-demand, high-scale, secure, and virtuali
 
 ## Deployment Workflow
 
+<!-- diagram-id: operations-create-and-configure-vm-deployment-workflow -->
 ```mermaid
 graph TD
     A[Start Deployment] --> B{Select Method}

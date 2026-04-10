@@ -1,6 +1,17 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: tutorials-lab-guides-lab-05-vm-disaster-recovery-asr-architecture-diagram
+    type: flowchart
+    source: mslearn-adapted
+    description: Architecture Diagram
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/
+    - https://learn.microsoft.com/en-us/cli/azure/vm
+    - https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction
+    - https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-enable-replication
 ---
 
 # Lab 05: VM Disaster Recovery with Azure Site Recovery
@@ -21,6 +32,7 @@ Configure Azure Site Recovery for a critical VM, run a test failover, and docume
 
 ## Architecture Diagram
 
+<!-- diagram-id: tutorials-lab-guides-lab-05-vm-disaster-recovery-asr-architecture-diagram -->
 ```mermaid
 graph TD
     A[Lab 05: VM Disaster Recovery with Azure Site Recovery] --> B[Resource group and networking baseline]

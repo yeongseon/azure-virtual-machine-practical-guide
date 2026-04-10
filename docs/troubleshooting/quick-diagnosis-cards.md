@@ -1,6 +1,26 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-quick-diagnosis-cards-rapid-triage-map
+    type: flowchart
+    source: self-generated
+    description: Rapid triage map
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
+  - id: troubleshooting-quick-diagnosis-cards-escalation-rule
+    type: flowchart
+    source: self-generated
+    description: Escalation rule
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
 ---
 
 # Quick Diagnosis Cards
@@ -9,6 +29,7 @@ Use these cards when you need to route a VM incident quickly without reading the
 
 ## Rapid triage map
 
+<!-- diagram-id: troubleshooting-quick-diagnosis-cards-rapid-triage-map -->
 ```mermaid
 graph TD
     A[Rapid symptom check] --> B[Connectivity card]
@@ -42,6 +63,7 @@ graph TD
 
 ## Escalation rule
 
+<!-- diagram-id: troubleshooting-quick-diagnosis-cards-escalation-rule -->
 ```mermaid
 graph LR
     A[Card used] --> B[First 10 Minutes checklist]

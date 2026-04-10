@@ -1,6 +1,18 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: platform-index-azure-vm-architecture
+    type: flowchart
+    source: self-generated
+    description: Azure VM Architecture
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
 ---
 
 # Platform Fundamentals
@@ -22,6 +34,7 @@ This section explores the core operating principles of the Azure Virtual Machine
 
 ## Azure VM Architecture
 
+<!-- diagram-id: platform-index-azure-vm-architecture -->
 ```mermaid
 graph TD
     User(User/API) --> MP(Management Plane)

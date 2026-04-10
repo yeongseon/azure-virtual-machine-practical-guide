@@ -1,6 +1,18 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: reference-availability-options-availability-options
+    type: flowchart
+    source: mslearn-adapted
+    description: Availability Options
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/availability
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview
+    - https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview
+    - https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview
+    - https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-overview
 ---
 
 # Availability Options
@@ -15,6 +27,7 @@ Azure provides several options to protect your virtual machines from hardware fa
 | **VMSS** | 99.95% - 99.99% | Depends on topology (FD spread or multi-zone) | Large-scale failures | Variable | Auto-scaling workloads |
 | **Cross-Region (ASR)** | Variable | Region | Regional disaster | High | Disaster recovery, business continuity |
 
+<!-- diagram-id: reference-availability-options-availability-options -->
 ```mermaid
 graph TD
     Start([Start Selection]) --> Scale{Auto-scaling needed?}

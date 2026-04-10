@@ -1,6 +1,15 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: platform-how-azure-vm-works-virtualization-architecture
+    type: flowchart
+    source: mslearn-adapted
+    description: Virtualization Architecture
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/availability
 ---
 
 # How Azure VM Works
@@ -18,6 +27,7 @@ Azure separates administrative operations from actual workload traffic to ensure
 
 ## Virtualization Architecture
 
+<!-- diagram-id: platform-how-azure-vm-works-virtualization-architecture -->
 ```mermaid
 graph TD
     PH[Physical Host] --> Hyp[Hypervisor]

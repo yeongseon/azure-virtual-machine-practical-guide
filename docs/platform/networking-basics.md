@@ -1,6 +1,16 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: platform-networking-basics-inbound-and-outbound-traffic-flow
+    type: flowchart
+    source: mslearn-adapted
+    description: Inbound and Outbound Traffic Flow
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview
+    - https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview
+    - https://learn.microsoft.com/en-us/azure/bastion/bastion-overview
 ---
 
 # Networking Basics
@@ -23,6 +33,7 @@ Azure Virtual Network (VNet) is the fundamental building block for your private 
 
 Inbound traffic is evaluated by NSGs before reaching the VM, and outbound traffic is evaluated before route-table-based egress. NSGs can be associated at both subnet and NIC levels.
 
+<!-- diagram-id: platform-networking-basics-inbound-and-outbound-traffic-flow -->
 ```mermaid
 graph TD
     Internet((Internet)) --> PIP[Public IP]

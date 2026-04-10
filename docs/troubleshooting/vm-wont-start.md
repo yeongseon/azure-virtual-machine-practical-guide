@@ -1,6 +1,16 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-vm-wont-start-troubleshooting-flow
+    type: flowchart
+    source: mslearn-adapted
+    description: Troubleshooting Flow
+    based_on:
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-vm-boot-error
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/allocation-failure
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics
 ---
 
 # VM Won't Start
@@ -21,6 +31,7 @@ Azure Virtual Machines may fail to start due to host-level constraints, operatin
 
 ## Troubleshooting Flow
 
+<!-- diagram-id: troubleshooting-vm-wont-start-troubleshooting-flow -->
 ```mermaid
 graph TD
     A[Start VM Request] --> B{Success?}

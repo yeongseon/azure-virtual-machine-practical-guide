@@ -1,6 +1,16 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-dns-and-connectivity-issues-network-diagnostics-flow
+    type: flowchart
+    source: mslearn-adapted
+    description: Network Diagnostics Flow
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/dns/dns-troubleshoot
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-network/virtual-network-troubleshoot-peering-issues
+    - https://learn.microsoft.com/en-us/azure/network-watcher/ip-flow-verify-overview
 ---
 
 # DNS and Connectivity Issues
@@ -19,6 +29,7 @@ Effective troubleshooting in Azure requires isolating issues between internal DN
 
 ## Network Diagnostics Flow
 
+<!-- diagram-id: troubleshooting-dns-and-connectivity-issues-network-diagnostics-flow -->
 ```mermaid
 graph TD
     A[Start: Connectivity Issue] --> B{External or Internal?}

@@ -1,6 +1,23 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: reference-index-quick-comparison-availability-vs-resiliency
+    type: flowchart
+    source: self-generated
+    description: 'Quick Comparison: Availability vs Resiliency'
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types
+    - https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview
+    - https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/virtual-machines-linux-security-baseline
+    - https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-vm
+    - https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/availability
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
 ---
 
 # Reference
@@ -20,6 +37,7 @@ This section provides quick-reference tables, comparative overviews, and termino
 
 ## Quick Comparison: Availability vs Resiliency
 
+<!-- diagram-id: reference-index-quick-comparison-availability-vs-resiliency -->
 ```mermaid
 graph TD
     A[Availability Options] --> B[Single VM: 99.9% SLA with Premium SSD]

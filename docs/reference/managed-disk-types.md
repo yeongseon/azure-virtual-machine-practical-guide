@@ -1,6 +1,19 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: reference-managed-disk-types-managed-disk-types
+    type: flowchart
+    source: mslearn-adapted
+    description: Managed Disk Types
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#standard-hdd
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#standard-ssd
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd-v2
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#ultra-disk
 ---
 
 # Managed Disk Types
@@ -15,6 +28,7 @@ Azure managed disks offer different performance levels and features. Choosing th
 | **Premium SSD v2** | 64 TiB | 80,000 | 1,200 MB/s | < 1ms | SQL Server, Oracle, NoSQL | Medium-High |
 | **Ultra Disk** | 64 TiB | 400,000 | 10,000 MB/s | < 1ms | SAP HANA, transaction-heavy DBs | High |
 
+<!-- diagram-id: reference-managed-disk-types-managed-disk-types -->
 ```mermaid
 graph TD
     Start([Start Selection]) --> Latency{Sub-millisecond latency?}

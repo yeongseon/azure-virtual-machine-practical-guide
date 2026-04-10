@@ -1,6 +1,16 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: operations-backup-restore-backup-workflow
+    type: flowchart
+    source: mslearn-adapted
+    description: Backup Workflow
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction
+    - https://learn.microsoft.com/en-us/azure/backup/backup-azure-arm-restore-vms
+    - https://learn.microsoft.com/en-us/azure/backup/backup-azure-restore-files-from-vm
 ---
 
 # Backup and Restore
@@ -9,6 +19,7 @@ Azure Backup provides a secure, reliable way to protect your Virtual Machines fr
 
 ## Backup Workflow
 
+<!-- diagram-id: operations-backup-restore-backup-workflow -->
 ```mermaid
 graph TD
     A[VM Workload] --> B{Azure VM Backup Extension}

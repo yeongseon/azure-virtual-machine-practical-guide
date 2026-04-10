@@ -1,6 +1,18 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-playbooks-performance-high-cpu-memory-disk-troubleshooting-decision-flow
+    type: flowchart
+    source: self-generated
+    description: Troubleshooting decision flow
+    based_on:
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/windows/troubleshoot-high-cpu-issues-azure-windows-vm
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-performance-bottlenecks-linux
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance-tiers
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
 ---
 
 # High CPU / Memory / Disk
@@ -14,6 +26,7 @@ One core resource is clearly exhausted: CPU pinned high, memory nearly depleted,
 The visible hot resource is not always the originating cause; for example, disk stalls can drive CPU wait time and memory pressure can trigger disk paging.
 
 ### Troubleshooting decision flow
+<!-- diagram-id: troubleshooting-playbooks-performance-high-cpu-memory-disk-troubleshooting-decision-flow -->
 ```mermaid
 graph TD
     A[High resource usage] --> B{Which signal dominates?}

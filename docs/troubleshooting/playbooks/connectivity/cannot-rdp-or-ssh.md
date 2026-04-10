@@ -1,6 +1,18 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-playbooks-connectivity-cannot-rdp-or-ssh-troubleshooting-decision-flow
+    type: flowchart
+    source: self-generated
+    description: Troubleshooting decision flow
+    based_on:
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection
+    - https://learn.microsoft.com/en-us/azure/bastion/bastion-overview
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
 ---
 
 # Cannot RDP or SSH
@@ -14,6 +26,7 @@ RDP or SSH attempts time out, are refused, or fail after the VM appears to be ru
 The same symptom can come from NSG rules, routing, guest firewall, credentials, or a VM that never completed healthy boot.
 
 ### Troubleshooting decision flow
+<!-- diagram-id: troubleshooting-playbooks-connectivity-cannot-rdp-or-ssh-troubleshooting-decision-flow -->
 ```mermaid
 graph TD
     A[Cannot RDP or SSH] --> B{VM actually running?}

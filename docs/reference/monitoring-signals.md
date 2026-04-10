@@ -1,6 +1,18 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: reference-monitoring-signals-monitoring-signals
+    type: flowchart
+    source: mslearn-adapted
+    description: Monitoring Signals
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-vm
+    - https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-platform-metrics
+    - https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-platform-logs
+    - https://learn.microsoft.com/en-us/azure/service-health/resource-health-overview
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics
 ---
 
 # Monitoring Signals
@@ -18,6 +30,7 @@ Azure provides a comprehensive monitoring solution to track the health and perfo
 | **Diagnosis** | Boot Diagnostics | Serial/Store | Image/Text | "Failure" string | Serial Console |
 | **Audit** | Activity Log | Resource | Event log | Critical failures | Log Analytics |
 
+<!-- diagram-id: reference-monitoring-signals-monitoring-signals -->
 ```mermaid
 graph LR
     VM[Virtual Machine] -->|Host Metrics| Monitor[Azure Monitor]

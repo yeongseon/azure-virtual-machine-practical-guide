@@ -1,6 +1,16 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: operations-patching-update-management-flow
+    type: flowchart
+    source: mslearn-adapted
+    description: Update Management Flow
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/update-manager/overview
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/automatic-vm-guest-patching
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/maintenance-configurations
 ---
 
 # Patching
@@ -9,6 +19,7 @@ Azure Update Manager centralizes compliance tracking and deployment of operating
 
 ## Update Management Flow
 
+<!-- diagram-id: operations-patching-update-management-flow -->
 ```mermaid
 graph LR
     A[Azure Update Manager] --> B[Assess VM Compliance]
@@ -53,4 +64,4 @@ Maintenance configurations allow you to group multiple VMs and apply updates dur
 
 - [Azure Update Manager overview](https://learn.microsoft.com/en-us/azure/update-manager/overview)
 - [Update orchestration options](https://learn.microsoft.com/en-us/azure/virtual-machines/automatic-vm-guest-patching)
-- [Maintenance configurations](https://learn.microsoft.com/en-us/azure/update-manager/manage-updates-for-azure-vms)
+- [Maintenance configurations](https://learn.microsoft.com/en-us/azure/virtual-machines/maintenance-configurations)

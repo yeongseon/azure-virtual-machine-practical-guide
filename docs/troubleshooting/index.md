@@ -1,6 +1,26 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-index-how-this-section-works
+    type: flowchart
+    source: self-generated
+    description: How this section works
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
+  - id: troubleshooting-index-quick-routing-view
+    type: flowchart
+    source: self-generated
+    description: Quick Routing View
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
 ---
 
 # Troubleshooting
@@ -9,6 +29,7 @@ Hypothesis-driven troubleshooting for Azure Virtual Machines: classify the sympt
 
 ## How this section works
 
+<!-- diagram-id: troubleshooting-index-how-this-section-works -->
 ```mermaid
 graph TD
     A[Incident detected] --> B[Use quick diagnosis cards or decision tree]
@@ -49,6 +70,7 @@ graph TD
 
 ## Quick Routing View
 
+<!-- diagram-id: troubleshooting-index-quick-routing-view -->
 ```mermaid
 graph LR
     A[Observed symptom] --> B{Primary impact}

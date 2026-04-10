@@ -1,6 +1,16 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: operations-snapshots-and-images-golden-image-workflow
+    type: flowchart
+    source: mslearn-adapted
+    description: Golden Image Workflow
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/windows/snapshot-copy-managed-disk
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/azure-compute-gallery
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource
 ---
 
 # Snapshots and Images
@@ -18,6 +28,7 @@ Capturing snapshots and managed images enables backup and rapid deployment workf
 
 ## Golden Image Workflow
 
+<!-- diagram-id: operations-snapshots-and-images-golden-image-workflow -->
 ```mermaid
 graph TD
     A[Build Base VM] --> B[Configure Apps]

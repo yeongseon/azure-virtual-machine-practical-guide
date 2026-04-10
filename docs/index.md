@@ -1,6 +1,17 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: index-guide-structure
+    type: flowchart
+    source: self-generated
+    description: Guide Structure
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
+    - https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
 ---
 
 # Azure Virtual Machine Practical Guide
@@ -20,6 +31,7 @@ This practical guide covers Azure Virtual Machine platform internals, operationa
 
 ## Guide Structure
 
+<!-- diagram-id: index-guide-structure -->
 ```mermaid
 graph TD
     Start[Start Here] --> Platform[Platform Fundamentals]

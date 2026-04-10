@@ -1,6 +1,16 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-playbooks-index-diagnostic-entry-map
+    type: flowchart
+    source: self-generated
+    description: Diagnostic Entry Map
+    based_on:
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
 ---
 
 # Playbooks
@@ -9,6 +19,7 @@ These are the canonical VM troubleshooting playbooks. Use the root playbooks fir
 
 ## Diagnostic Entry Map
 
+<!-- diagram-id: troubleshooting-playbooks-index-diagnostic-entry-map -->
 ```mermaid
 flowchart TD
     A[VM incident] --> B{Primary symptom}

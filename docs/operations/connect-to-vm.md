@@ -1,6 +1,16 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: operations-connect-to-vm-connection-path-architecture
+    type: flowchart
+    source: mslearn-adapted
+    description: Connection Path Architecture
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/windows/connect-logon
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys
+    - https://learn.microsoft.com/en-us/azure/bastion/bastion-connect-vm-rdp
 ---
 
 # Connect to VM
@@ -18,6 +28,7 @@ Connecting to Azure virtual machines requires specific protocols depending on th
 
 ## Connection Path Architecture
 
+<!-- diagram-id: operations-connect-to-vm-connection-path-architecture -->
 ```mermaid
 graph LR
     User[User Laptop]

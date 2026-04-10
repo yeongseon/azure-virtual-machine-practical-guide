@@ -1,6 +1,20 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-playbooks-vm-boot-failures-symptoms
+    type: flowchart
+    source: self-generated
+    description: Symptoms
+    based_on:
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics
+    - https://learn.microsoft.com/en-us/azure/bastion/bastion-connect-vm-rdp-windows
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance
+    - https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
 ---
 
 # VM Boot Failures
@@ -11,6 +25,7 @@ hide:
 - The VM is deployed, but one part of the expected control plane or data path is failing.
 - You need a fast way to narrow the problem before making a risky change.
 
+<!-- diagram-id: troubleshooting-playbooks-vm-boot-failures-symptoms -->
 ```mermaid
 flowchart TD
     A[VM Boot Failures] --> B[Confirm current symptom and blast radius]

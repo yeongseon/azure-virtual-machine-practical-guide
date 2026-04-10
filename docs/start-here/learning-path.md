@@ -1,6 +1,17 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: start-here-learning-path-decision-guide
+    type: flowchart
+    source: self-generated
+    description: Decision Guide
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
+    - https://learn.microsoft.com/en-us/azure/bastion/bastion-overview
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
 ---
 
 # Learning Path
@@ -18,6 +29,7 @@ This guide supports different technical roles and backgrounds. Choose your entry
 
 ## Decision Guide
 
+<!-- diagram-id: start-here-learning-path-decision-guide -->
 ```mermaid
 graph TD
     Start[What are you trying to do?] --> Deploy[New VM deployment?]

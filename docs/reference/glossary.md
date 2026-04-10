@@ -1,6 +1,18 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: reference-glossary-glossary
+    type: flowchart
+    source: mslearn-adapted
+    description: Glossary
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview
+    - https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview
+    - https://learn.microsoft.com/en-us/azure/backup/backup-overview
+    - https://learn.microsoft.com/en-us/azure/role-based-access-control/overview
 ---
 
 # Glossary
@@ -37,6 +49,7 @@ This glossary provides a quick reference for common Azure Virtual Machine terms 
 | **Update Domain** | A group of VMs that can be rebooted at the same time during platform maintenance. | Availability Set |
 | **Ultra Disk** | The highest performance managed disk type with sub-millisecond latency. | Premium SSD v2 |
 
+<!-- diagram-id: reference-glossary-glossary -->
 ```mermaid
 graph TD
     User([User]) -->|Auth| IAM[RBAC / Managed Identity]

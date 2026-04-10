@@ -1,6 +1,19 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: reference-networking-components-networking-components
+    type: flowchart
+    source: mslearn-adapted
+    description: Networking Components
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview
+    - https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview
+    - https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-overview
+    - https://learn.microsoft.com/en-us/azure/bastion/bastion-overview
+    - https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways
+    - https://learn.microsoft.com/en-us/azure/private-link/private-link-overview
 ---
 
 # Networking Components
@@ -21,6 +34,7 @@ Azure networking components provide the foundation for virtual machine communica
 | **ExpressRoute** | Private dedicated circuit | Global | Peering type, Circuit BW | Complex BGP routing |
 | **Private Link** | Private service access | Subnet | Private endpoint, DNS | DNS resolution issues |
 
+<!-- diagram-id: reference-networking-components-networking-components -->
 ```mermaid
 graph LR
     User((User)) -->|Public IP| LB[Load Balancer]

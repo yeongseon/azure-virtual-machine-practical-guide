@@ -1,6 +1,18 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-first-10-minutes-connectivity-initial-response-flow
+    type: flowchart
+    source: self-generated
+    description: Initial response flow
+    based_on:
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection
+    - https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
 ---
 
 # Connectivity Checklist
@@ -9,6 +21,7 @@ Use this checklist during the first 10 minutes of incidents where RDP, SSH, DNS,
 
 ## Initial response flow
 
+<!-- diagram-id: troubleshooting-first-10-minutes-connectivity-initial-response-flow -->
 ```mermaid
 graph TD
     A[Connectivity symptom] --> B[Confirm VM power and provisioning state]

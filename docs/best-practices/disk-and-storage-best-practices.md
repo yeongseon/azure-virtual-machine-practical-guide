@@ -1,6 +1,24 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: best-practices-disk-and-storage-best-practices-why-this-matters
+    type: flowchart
+    source: mslearn-adapted
+    description: Why This Matters
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/windows/disks-enable-ultra-ssd
+    - https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/co-location
+    - https://learn.microsoft.com/en-us/azure/defender-for-cloud/just-in-time-access-overview
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/auto-shutdown-vm
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/availability
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/monitor-vm
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance
 ---
 
 # Disk and Storage Best Practices
@@ -19,6 +37,7 @@ Three themes show up repeatedly in Azure VM reviews:
 2. Security controls must be built into the management path, not added after an audit.
 3. Cost optimization should preserve recovery and performance objectives instead of undermining them.
 
+<!-- diagram-id: best-practices-disk-and-storage-best-practices-why-this-matters -->
 ```mermaid
 flowchart TD
     A[Disk performance decision map] --> B[Workload classification]
@@ -402,9 +421,9 @@ Practical cost review questions:
 - [Azure Managed Disks performance](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance)
 - [Enable Ultra Disk](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/disks-enable-ultra-ssd)
 - [Accelerated networking overview](https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview)
-- [Proximity placement groups overview](https://learn.microsoft.com/en-us/azure/virtual-network/proximity-placement-groups-overview)
+- [Proximity placement groups overview](https://learn.microsoft.com/en-us/azure/virtual-machines/co-location)
 - [Just-In-Time access](https://learn.microsoft.com/en-us/azure/defender-for-cloud/just-in-time-access-overview)
-- [Automate VM shutdown](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-automate-vm-shutdown)
+- [Automate VM shutdown](https://learn.microsoft.com/en-us/azure/virtual-machines/auto-shutdown-vm)
 - [Availability options](https://learn.microsoft.com/en-us/azure/virtual-machines/availability)
 - [Monitor virtual machines](https://learn.microsoft.com/en-us/azure/virtual-machines/monitor-vm)
-- [Host caching guidance](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-enable-host-cache)
+- [Host caching guidance](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance)

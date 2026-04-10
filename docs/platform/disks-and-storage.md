@@ -1,6 +1,15 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: platform-disks-and-storage-managed-disk-hierarchy
+    type: flowchart
+    source: mslearn-adapted
+    description: Managed Disk Hierarchy
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance#disk-caching
 ---
 
 # Disks and Storage
@@ -39,6 +48,7 @@ Azure VM storage uses managed disks with different latency, IOPS, and throughput
 
 ## Managed Disk Hierarchy
 
+<!-- diagram-id: platform-disks-and-storage-managed-disk-hierarchy -->
 ```mermaid
 graph TD
     MD[Managed Disk] --> U[Ultra Disk\nHighest performance tier]

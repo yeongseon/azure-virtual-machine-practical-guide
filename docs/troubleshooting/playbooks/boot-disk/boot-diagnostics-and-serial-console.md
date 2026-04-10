@@ -1,6 +1,18 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-playbooks-boot-disk-boot-diagnostics-and-serial-console-troubleshooting-decision-flow
+    type: flowchart
+    source: self-generated
+    description: Troubleshooting decision flow
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/serial-console-windows
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/serial-console-linux
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
 ---
 
 # Boot Diagnostics and Serial Console
@@ -14,6 +26,7 @@ Normal network-based administration is unavailable and you need low-level visibi
 Engineers often keep retrying RDP or SSH even though the only useful evidence now exists in Boot Diagnostics or the Serial Console.
 
 ### Troubleshooting decision flow
+<!-- diagram-id: troubleshooting-playbooks-boot-disk-boot-diagnostics-and-serial-console-troubleshooting-decision-flow -->
 ```mermaid
 graph TD
     A[Need low-level boot evidence] --> B{Need screenshot or console?}

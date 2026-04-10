@@ -1,6 +1,28 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-architecture-overview-failure-domain-overview
+    type: flowchart
+    source: self-generated
+    description: Failure-domain overview
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics
+    - https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-virtual-machine
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
+  - id: troubleshooting-architecture-overview-common-fault-chains
+    type: flowchart
+    source: self-generated
+    description: Common fault chains
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics
+    - https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-virtual-machine
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
 ---
 
 # VM Troubleshooting Architecture Overview
@@ -9,6 +31,7 @@ This page maps the Azure VM control plane, data plane, guest OS, and storage/net
 
 ## Failure-domain overview
 
+<!-- diagram-id: troubleshooting-architecture-overview-failure-domain-overview -->
 ```mermaid
 graph TD
     A[Azure control plane] --> B[Host / compute fabric]
@@ -43,6 +66,7 @@ graph TD
 
 ## Common fault chains
 
+<!-- diagram-id: troubleshooting-architecture-overview-common-fault-chains -->
 ```mermaid
 graph LR
     A[Boot issue] --> B[Cannot RDP or SSH]

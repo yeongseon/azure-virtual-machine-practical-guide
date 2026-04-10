@@ -1,6 +1,16 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-disk-performance-issues-disk-throttling-diagnosis-flow
+    type: flowchart
+    source: mslearn-adapted
+    description: Disk Throttling Diagnosis Flow
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-performance-bottlenecks-linux
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types
 ---
 
 # Disk Performance Issues
@@ -21,6 +31,7 @@ Azure Managed Disks have specific limits for Input/Output Operations Per Second 
 
 ## Disk Throttling Diagnosis Flow
 
+<!-- diagram-id: troubleshooting-disk-performance-issues-disk-throttling-diagnosis-flow -->
 ```mermaid
 graph TD
     A[Disk Latency High] --> B{Throughput > VM Cap?}

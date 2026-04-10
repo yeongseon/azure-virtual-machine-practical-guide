@@ -1,6 +1,16 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: platform-availability-and-resiliency-availability-zone-vs-availability-set-architecture
+    type: flowchart
+    source: mslearn-adapted
+    description: Availability Zone vs Availability Set Architecture
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/availability
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview
+    - https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview
 ---
 
 # Availability and Resiliency
@@ -20,6 +30,7 @@ To ensure high availability, Azure provides various tools and strategies to miti
 
 Availability Zones are separate datacenters in one region. Availability Sets distribute VMs across fault and update domains within a datacenter; they do not protect against full datacenter failures.
 
+<!-- diagram-id: platform-availability-and-resiliency-availability-zone-vs-availability-set-architecture -->
 ```mermaid
 graph TD
     Region[Azure Region]

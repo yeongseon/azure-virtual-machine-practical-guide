@@ -1,6 +1,18 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-first-10-minutes-boot-initial-response-flow
+    type: flowchart
+    source: self-generated
+    description: Initial response flow
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/serial-console-linux
+    - https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-troubleshoot
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
 ---
 
 # Boot Checklist
@@ -9,6 +21,7 @@ Use this checklist when the VM does not reach a healthy running state, standard 
 
 ## Initial response flow
 
+<!-- diagram-id: troubleshooting-first-10-minutes-boot-initial-response-flow -->
 ```mermaid
 graph TD
     A[Boot or recovery symptom] --> B[Check Activity Log and power state]

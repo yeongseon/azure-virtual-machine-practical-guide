@@ -1,6 +1,16 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: platform-identity-and-access-managed-identity-and-key-vault
+    type: flowchart
+    source: mslearn-adapted
+    description: Managed Identity and Key Vault
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles
+    - https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview
+    - https://learn.microsoft.com/en-us/azure/defender-for-cloud/enable-just-in-time-access
 ---
 
 # Identity and Access
@@ -20,6 +30,7 @@ Azure Role-Based Access Control (RBAC) helps you manage who has access to Azure 
 
 Managed identities provide an identity for applications to use when connecting to resources that support Microsoft Entra authentication.
 
+<!-- diagram-id: platform-identity-and-access-managed-identity-and-key-vault -->
 ```mermaid
 graph LR
     VM[Virtual Machine] --> MI[Managed Identity]

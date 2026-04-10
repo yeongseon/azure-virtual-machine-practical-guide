@@ -1,6 +1,16 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: platform-vm-lifecycle-state-transitions
+    type: state
+    source: mslearn-adapted
+    description: State Transitions
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/states-billing
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/windows/redeploy-to-new-node-windows
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/linux/redeploy-to-new-node-linux
 ---
 
 # VM Lifecycle
@@ -20,6 +30,7 @@ Understanding the difference between "Stopped" and "Deallocated" is crucial for 
 
 ## State Transitions
 
+<!-- diagram-id: platform-vm-lifecycle-state-transitions -->
 ```mermaid
 stateDiagram-v2
     [*] --> Creating
@@ -52,4 +63,5 @@ Common maintenance and recovery operations for Azure Virtual Machines.
 
 ## Sources
 - [Virtual machines lifecycle and states](https://learn.microsoft.com/en-us/azure/virtual-machines/states-billing)
-- [Redeploy virtual machines to new Azure node](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/redeploy-to-new-node)
+- [Redeploy Windows virtual machine to new Azure node](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/windows/redeploy-to-new-node-windows)
+- [Redeploy Linux virtual machine to new Azure node](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/linux/redeploy-to-new-node-linux)

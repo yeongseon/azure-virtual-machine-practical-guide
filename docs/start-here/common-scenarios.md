@@ -1,6 +1,16 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: start-here-common-scenarios-n-tier-architecture-example
+    type: flowchart
+    source: mslearn-adapted
+    description: N-Tier Architecture Example
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes
+    - https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/n-tier-sql-server
+    - https://learn.microsoft.com/en-us/azure/bastion/bastion-overview
 ---
 
 # Common VM Scenarios
@@ -26,6 +36,7 @@ Virtual Machines are versatile and support a wide range of use cases from simple
 
 This diagram illustrates how VMs are commonly organized into different security zones.
 
+<!-- diagram-id: start-here-common-scenarios-n-tier-architecture-example -->
 ```mermaid
 graph LR
     User[User Traffic] --> LB[Azure Load Balancer]

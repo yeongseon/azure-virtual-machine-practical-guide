@@ -1,6 +1,17 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: operations-manage-disks-disk-management-workflow
+    type: flowchart
+    source: mslearn-adapted
+    description: Disk Management Workflow
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/windows/attach-managed-disk-portal
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-change-performance
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-enable-host-based-encryption-portal
 ---
 
 # Manage Disks
@@ -18,6 +29,7 @@ Managing disks in Azure allows you to expand storage capacity or improve perform
 
 ## Disk Management Workflow
 
+<!-- diagram-id: operations-manage-disks-disk-management-workflow -->
 ```mermaid
 graph TD
     A[Identify Disk Need] --> B{Operation Type}

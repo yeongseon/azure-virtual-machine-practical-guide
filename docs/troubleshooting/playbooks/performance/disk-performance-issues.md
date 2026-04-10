@@ -1,6 +1,18 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-playbooks-performance-disk-performance-issues-troubleshooting-decision-flow
+    type: flowchart
+    source: self-generated
+    description: Troubleshooting decision flow
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-performance-bottlenecks-linux
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
 ---
 
 # Disk Performance Issues
@@ -14,6 +26,7 @@ Disk latency rises, queue depth builds, or workloads hit IOPS and throughput lim
 The limit may exist on the individual disk, the VM SKU aggregate cap, or the caching and workload pattern rather than the disk tier alone.
 
 ### Troubleshooting decision flow
+<!-- diagram-id: troubleshooting-playbooks-performance-disk-performance-issues-troubleshooting-decision-flow -->
 ```mermaid
 graph TD
     A[Disk performance issue] --> B{VM cap exceeded?}

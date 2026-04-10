@@ -1,6 +1,17 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-playbooks-performance-slow-performance-troubleshooting-decision-flow
+    type: flowchart
+    source: self-generated
+    description: Troubleshooting decision flow
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-virtual-machine
+    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-performance-bottlenecks-linux
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
 ---
 
 # Slow Performance
@@ -14,6 +25,7 @@ The VM feels slow, but the bottleneck is not immediately obvious from a single m
 CPU, memory, disk, network, burst credits, and guest process behavior can all create the same user-visible slowdown.
 
 ### Troubleshooting decision flow
+<!-- diagram-id: troubleshooting-playbooks-performance-slow-performance-troubleshooting-decision-flow -->
 ```mermaid
 graph TD
     A[Slow performance] --> B{One resource clearly dominant?}

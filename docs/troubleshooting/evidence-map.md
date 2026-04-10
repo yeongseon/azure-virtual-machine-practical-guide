@@ -1,6 +1,28 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: troubleshooting-evidence-map-evidence-flow
+    type: flowchart
+    source: self-generated
+    description: Evidence flow
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-virtual-machine
+    - https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview
+    - https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-troubleshoot
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
+  - id: troubleshooting-evidence-map-minimum-evidence-pack
+    type: flowchart
+    source: self-generated
+    description: Minimum evidence pack
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-virtual-machine
+    - https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview
+    - https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-troubleshoot
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
 ---
 
 # Evidence Map
@@ -9,6 +31,7 @@ This evidence map shows what to collect first for each VM troubleshooting domain
 
 ## Evidence flow
 
+<!-- diagram-id: troubleshooting-evidence-map-evidence-flow -->
 ```mermaid
 graph LR
     A[Symptom] --> B[Platform evidence]
@@ -40,6 +63,7 @@ graph LR
 
 ## Minimum evidence pack
 
+<!-- diagram-id: troubleshooting-evidence-map-minimum-evidence-pack -->
 ```mermaid
 graph TD
     A[Minimum evidence pack] --> B[What changed?]

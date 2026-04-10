@@ -1,12 +1,23 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: tutorials-lab-guides-index-lab-guides
+    type: flowchart
+    source: self-generated
+    description: Lab Guides
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/
+    justification: Synthesized for this guide from the referenced Microsoft Learn
+      documentation.
 ---
 
 # Lab Guides
 
 These labs convert Azure VM guidance into repeatable exercises. Use them to validate architecture decisions, train operators, and capture evidence you can compare against future incidents.
 
+<!-- diagram-id: tutorials-lab-guides-index-lab-guides -->
 ```mermaid
 flowchart TD
     A[Choose lab] --> B[Prepare prerequisites]

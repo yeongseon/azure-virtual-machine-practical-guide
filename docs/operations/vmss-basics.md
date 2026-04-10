@@ -1,6 +1,16 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: operations-vmss-basics-autoscale-architecture
+    type: flowchart
+    source: mslearn-adapted
+    description: Autoscale Architecture
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview
+    - https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes
+    - https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
 ---
 
 # VMSS Basics
@@ -9,6 +19,7 @@ Virtual Machine Scale Sets (VMSS) allow you to create and manage a group of load
 
 ## Autoscale Architecture
 
+<!-- diagram-id: operations-vmss-basics-autoscale-architecture -->
 ```mermaid
 graph TD
     A[User Traffic] --> B[Azure Load Balancer]

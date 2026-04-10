@@ -1,6 +1,15 @@
 ---
 hide:
-  - toc
+- toc
+content_sources:
+  diagrams:
+  - id: operations-monitoring-and-alerting-monitoring-architecture
+    type: flowchart
+    source: mslearn-adapted
+    description: Monitoring Architecture
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview
+    - https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-vm
 ---
 
 # Monitoring and Alerting
@@ -9,6 +18,7 @@ Azure Monitor provides visibility into the performance, health, and availability
 
 ## Monitoring Architecture
 
+<!-- diagram-id: operations-monitoring-and-alerting-monitoring-architecture -->
 ```mermaid
 graph TD
     A[Azure VM] --> B[Host Platform Metrics]
