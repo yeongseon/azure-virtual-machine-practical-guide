@@ -176,6 +176,7 @@ nav:
 - Reference:
   - reference/index.md
   - Validation Status: reference/validation-status.md
+  - Content Validation: reference/content-validation-status.md
   - VM Size Families: reference/vm-size-families.md
   - Managed Disk Types: reference/managed-disk-types.md
   - Availability Options: reference/availability-options.md

@@ -67,6 +67,47 @@ az vm create -g $RG -n $VM_NAME  # ❌ Don't do this
 | `$LOCATION` | Azure region | `koreacentral` |
 | `$SUBSCRIPTION_ID` | Subscription identifier placeholder | `<subscription-id>` |
 
+## Content Source Requirements
+
+### MSLearn-First Policy
+All content MUST be traceable to official Microsoft Learn documentation:
+
+- **Platform content** (`docs/platform/`): MUST have direct MSLearn source URLs
+- **Architecture diagrams**: MUST reference official Microsoft documentation
+- **Troubleshooting playbooks**: MAY synthesize MSLearn content with clear attribution
+- **Self-generated content**: MUST have justification explaining the source basis
+
+### Source Types
+| Type | Description | Allowed? |
+|---|---|---|
+| `mslearn` | Directly from Microsoft Learn | ✅ Required for platform content |
+| `mslearn-adapted` | MSLearn content adapted for this guide | ✅ With source URL |
+| `self-generated` | Original content for this guide | ⚠️ Requires justification |
+| `community` | From community sources | ❌ Not for core content |
+| `unknown` | Source not documented | ❌ Must be validated |
+
+### Diagram Source Documentation
+Every Mermaid diagram MUST have source metadata in frontmatter:
+
+```yaml
+content_sources:
+  diagrams:
+    - id: architecture-overview
+      type: flowchart
+      source: mslearn
+      mslearn_url: https://learn.microsoft.com/en-us/azure/virtual-machines/
+    - id: troubleshooting-flow
+      type: flowchart
+      source: self-generated
+      justification: "Synthesized from MSLearn articles for clarity"
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/
+```
+
+### Content Validation Tracking
+- See [Content Validation Status](docs/reference/content-validation-status.md) for current status
+- See [Validation Status](docs/reference/validation-status.md) for tutorial testing
+
 ### PII Removal (Quality Gate)
 
 **CRITICAL**: All CLI output examples MUST have PII removed.
