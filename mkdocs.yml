@@ -5,25 +5,6 @@ site_description: Azure VM practical guide — platform internals, operations, a
 site_author: yeongseon
 repo_name: yeongseon/azure-virtual-machine-practical-guide
 repo_url: https://github.com/yeongseon/azure-virtual-machine-practical-guide
-exclude_docs: 'troubleshooting/backup-failures.md
-
-  troubleshooting/boot-diagnostics-and-serial-console.md
-
-  troubleshooting/cannot-rdp-or-ssh.md
-
-  troubleshooting/disk-performance-issues.md
-
-  troubleshooting/dns-and-connectivity-issues.md
-
-  troubleshooting/extension-failures.md
-
-  troubleshooting/high-cpu-memory-disk.md
-
-  troubleshooting/slow-performance.md
-
-  troubleshooting/vm-wont-start.md
-
-  '
 theme:
   name: material
   language: en
