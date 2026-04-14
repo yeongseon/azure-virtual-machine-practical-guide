@@ -108,6 +108,26 @@ content_sources:
 - See [Content Validation Status](docs/reference/content-validation-status.md) for current status
 - See [Validation Status](docs/reference/validation-status.md) for tutorial testing
 
+### Text Content Validation
+
+Every non-tutorial document should include a `content_validation` block in frontmatter to track the verification status of its core claims.
+
+```yaml
+---
+content_sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/virtual-machines/...
+content_validation:
+  status: verified  # verified | pending_review | unverified
+  last_reviewed: 2026-04-12
+  reviewer: agent  # agent | human
+  core_claims:
+    - claim: "Azure VMs support multiple OS images"
+      source: https://learn.microsoft.com/azure/virtual-machines/overview
+      verified: true
+---
+```
+
 ### PII Removal (Quality Gate)
 
 **CRITICAL**: All CLI output examples MUST have PII removed.
@@ -253,12 +273,14 @@ Allowed types: `feat`, `fix`, `docs`, `chore`, `refactor`
 
 | Repository | Description |
 |---|---|
+| [azure-networking-practical-guide](https://github.com/yeongseon/azure-networking-practical-guide) | Azure Networking practical guide |
+| [azure-storage-practical-guide](https://github.com/yeongseon/azure-storage-practical-guide) | Azure Storage practical guide |
 | [azure-app-service-practical-guide](https://github.com/yeongseon/azure-app-service-practical-guide) | Azure App Service practical guide |
 | [azure-functions-practical-guide](https://github.com/yeongseon/azure-functions-practical-guide) | Azure Functions practical guide |
 | [azure-container-apps-practical-guide](https://github.com/yeongseon/azure-container-apps-practical-guide) | Azure Container Apps practical guide |
+| [azure-kubernetes-service-practical-guide](https://github.com/yeongseon/azure-kubernetes-service-practical-guide) | Azure Kubernetes Service (AKS) practical guide |
+| [azure-architecture-practical-guide](https://github.com/yeongseon/azure-architecture-practical-guide) | Azure Architecture practical guide |
 | [azure-monitoring-practical-guide](https://github.com/yeongseon/azure-monitoring-practical-guide) | Azure Monitoring practical guide |
-| [azure-networking-practical-guide](https://github.com/yeongseon/azure-networking-practical-guide) | Azure Networking practical guide |
-| [azure-storage-practical-guide](https://github.com/yeongseon/azure-storage-practical-guide) | Azure Storage practical guide |
 
 ## Tutorial Validation Tracking
 
