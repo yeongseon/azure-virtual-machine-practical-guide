@@ -1,6 +1,4 @@
 ---
-hide:
-- toc
 content_sources:
   diagrams:
   - id: start-here-common-scenarios-n-tier-architecture-example

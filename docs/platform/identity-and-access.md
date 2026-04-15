@@ -1,6 +1,4 @@
 ---
-hide:
-- toc
 content_sources:
   diagrams:
   - id: platform-identity-and-access-managed-identity-and-key-vault

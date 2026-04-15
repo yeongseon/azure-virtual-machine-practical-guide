@@ -1,6 +1,4 @@
 ---
-hide:
-- toc
 content_sources:
   diagrams:
   - id: operations-create-and-configure-vm-deployment-workflow

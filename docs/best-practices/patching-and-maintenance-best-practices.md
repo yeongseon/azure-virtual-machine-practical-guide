@@ -1,6 +1,4 @@
 ---
-hide:
-- toc
 content_sources:
   diagrams:
   - id: best-practices-patching-and-maintenance-best-practices-why-this-matters

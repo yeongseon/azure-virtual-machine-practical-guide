@@ -1,6 +1,4 @@
 ---
-hide:
-- toc
 content_sources:
   diagrams:
   - id: troubleshooting-playbooks-boot-disk-vm-wont-start-troubleshooting-decision-flow

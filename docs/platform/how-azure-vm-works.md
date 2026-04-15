@@ -1,6 +1,4 @@
 ---
-hide:
-- toc
 content_sources:
   diagrams:
   - id: platform-how-azure-vm-works-virtualization-architecture

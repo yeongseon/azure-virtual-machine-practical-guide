@@ -1,6 +1,4 @@
 ---
-hide:
-- toc
 content_sources:
   diagrams:
   - id: best-practices-backup-and-dr-best-practices-why-this-matters

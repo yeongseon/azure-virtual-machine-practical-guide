@@ -1,6 +1,4 @@
 ---
-hide:
-- toc
 content_sources:
   diagrams:
   - id: troubleshooting-playbooks-performance-disk-performance-issues-troubleshooting-decision-flow

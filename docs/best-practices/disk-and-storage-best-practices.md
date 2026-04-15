@@ -1,6 +1,4 @@
 ---
-hide:
-- toc
 content_sources:
   diagrams:
   - id: best-practices-disk-and-storage-best-practices-why-this-matters

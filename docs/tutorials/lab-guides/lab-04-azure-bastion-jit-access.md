@@ -1,6 +1,4 @@
 ---
-hide:
-- toc
 content_sources:
   diagrams:
   - id: tutorials-lab-guides-lab-04-azure-bastion-jit-access-architecture-diagram

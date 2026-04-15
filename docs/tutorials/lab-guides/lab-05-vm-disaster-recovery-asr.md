@@ -1,6 +1,4 @@
 ---
-hide:
-- toc
 content_sources:
   diagrams:
   - id: tutorials-lab-guides-lab-05-vm-disaster-recovery-asr-architecture-diagram

@@ -1,6 +1,4 @@
 ---
-hide:
-- toc
 content_sources:
   diagrams:
   - id: platform-availability-and-resiliency-availability-zone-vs-availability-set-architecture

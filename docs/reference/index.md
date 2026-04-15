@@ -1,6 +1,4 @@
 ---
-hide:
-- toc
 content_sources:
   diagrams:
   - id: reference-index-quick-comparison-availability-vs-resiliency

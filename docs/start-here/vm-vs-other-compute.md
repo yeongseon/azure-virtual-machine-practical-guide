@@ -1,6 +1,4 @@
 ---
-hide:
-- toc
 content_sources:
   diagrams:
   - id: start-here-vm-vs-other-compute-compute-decision-flow

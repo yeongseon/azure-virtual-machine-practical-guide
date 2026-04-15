@@ -1,6 +1,4 @@
 ---
-hide:
-- toc
 content_sources:
   diagrams:
   - id: operations-snapshots-and-images-golden-image-workflow
