@@ -8,12 +8,22 @@ A practical guide covering Azure VM platform internals, operations, and troubles
 
 | Section | Description |
 |---------|-------------|
-| [Start Here](https://yeongseon.github.io/azure-virtual-machine-practical-guide/start-here/) | VM overview, comparison with other compute options, reading paths |
-| [Platform](https://yeongseon.github.io/azure-virtual-machine-practical-guide/platform/) | How Azure VMs work, components, lifecycle |
-| [Best Practices](https://yeongseon.github.io/azure-virtual-machine-practical-guide/best-practices/) | Production-ready design and operational guidelines |
-| [Operations](https://yeongseon.github.io/azure-virtual-machine-practical-guide/operations/) | Step-by-step operational procedures and configuration |
-| [Troubleshooting](https://yeongseon.github.io/azure-virtual-machine-practical-guide/troubleshooting/) | Symptom-based diagnosis and resolution |
-| [Reference](https://yeongseon.github.io/azure-virtual-machine-practical-guide/reference/) | Quick-lookup summary tables |
+| [Start Here](https://yeongseon.github.io/azure-virtual-machine-practical-guide/start-here/) | VM overview, comparison with other compute options, and common usage scenarios |
+| [Platform](https://yeongseon.github.io/azure-virtual-machine-practical-guide/platform/) | Deep dive into Azure VM internals: compute models, lifecycle, disks, and networking |
+| [Best Practices](https://yeongseon.github.io/azure-virtual-machine-practical-guide/best-practices/) | Production-ready design for sizing, security, patching, and cost optimization |
+| [Operations](https://yeongseon.github.io/azure-virtual-machine-practical-guide/operations/) | Day-2 execution guide for managing disks, snapshots, patching, and monitoring |
+| [Tutorials](https://yeongseon.github.io/azure-virtual-machine-practical-guide/tutorials/) | Hands-on lab guides for high availability, disk encryption, and disaster recovery |
+| [Troubleshooting](https://yeongseon.github.io/azure-virtual-machine-practical-guide/troubleshooting/) | Diagnosis playbooks for boot failures, connectivity issues, and performance bottlenecks |
+| [Reference](https://yeongseon.github.io/azure-virtual-machine-practical-guide/reference/) | Quick-lookup for VM size families, disk types, and availability options |
+
+## Tutorials
+
+Explore practical lab guides to master Azure VM management:
+- **HA Deployment**: Setting up highly available virtual machines
+- **Security & Backup**: Implementing disk encryption and automated backups
+- **Customization**: Automating configuration with custom script extensions
+- **Access Control**: Managing secure access with Azure Bastion and JIT
+- **Disaster Recovery**: Setting up VM replication with Azure Site Recovery (ASR)
 
 ## Quick Start
 
@@ -32,11 +42,12 @@ Visit `http://127.0.0.1:8000` to browse the documentation locally.
 
 ## Contributing
 
-Contributions welcome. Please ensure:
-- All CLI examples use long flags (`--resource-group`, not `-g`)
-- All documents include mermaid diagrams
-- All content references Microsoft Learn with source URLs
-- No PII in CLI output examples
+Contributions welcome! Please see our [Contributing Guide](https://yeongseon.github.io/azure-virtual-machine-practical-guide/contributing/) for:
+
+- Repository structure and content organization
+- Document templates and writing standards
+- Local development setup and build validation
+- Pull request process
 
 ## Related Projects
 
@@ -59,3 +70,4 @@ This is an independent community project. Not affiliated with or endorsed by Mic
 ## License
 
 [MIT](LICENSE)
+

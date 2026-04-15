@@ -165,6 +165,8 @@ nav:
   - Networking Components: reference/networking-components.md
   - Monitoring Signals: reference/monitoring-signals.md
   - Glossary: reference/glossary.md
+- Contributing:
+  - contributing/index.md
 extra:
   social:
   - icon: fontawesome/brands/github
