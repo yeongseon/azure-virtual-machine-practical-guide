@@ -23,7 +23,7 @@ Hands-on tutorials show how to apply Azure VM design and operational guidance in
 
 <!-- diagram-id: tutorials-index-what-you-will-find-here -->
 ```mermaid
-flowchart LR
+flowchart TD
     A[Plan] --> B[Deploy]
     B --> C[Validate]
     C --> D[Operate]

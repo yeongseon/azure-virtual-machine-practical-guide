@@ -70,7 +70,7 @@ graph TD
 
 <!-- diagram-id: troubleshooting-index-quick-routing-view -->
 ```mermaid
-graph LR
+graph TD
     A[Observed symptom] --> B{Primary impact}
     B -->|Cannot connect| C[Connectivity]
     B -->|Slow or saturated| D[Performance]

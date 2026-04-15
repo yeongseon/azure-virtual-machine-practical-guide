@@ -29,7 +29,7 @@ If you're new to Azure Virtual Machines or wondering where to begin with this gu
 
 <!-- diagram-id: start-here-index-why-virtual-machines -->
 ```mermaid
-graph LR
+graph TD
     A[Traditional Infrastructure] --> B{Choose Cloud Model}
     B -->|Control| C[IaaS: Azure VM]
     B -->|Velocity| D[PaaS: App Service]

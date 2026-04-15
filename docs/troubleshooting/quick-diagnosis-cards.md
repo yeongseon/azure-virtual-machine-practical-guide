@@ -63,7 +63,7 @@ graph TD
 
 <!-- diagram-id: troubleshooting-quick-diagnosis-cards-escalation-rule -->
 ```mermaid
-graph LR
+graph TD
     A[Card used] --> B[First 10 Minutes checklist]
     B --> C[Canonical playbook]
     C --> D[Collect evidence before changing config]

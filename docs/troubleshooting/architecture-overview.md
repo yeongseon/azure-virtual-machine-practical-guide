@@ -66,7 +66,7 @@ graph TD
 
 <!-- diagram-id: troubleshooting-architecture-overview-common-fault-chains -->
 ```mermaid
-graph LR
+graph TD
     A[Boot issue] --> B[Cannot RDP or SSH]
     B --> C[Need Boot Diagnostics / Serial Console]
     D[DNS or NSG issue] --> E[Cannot connect to VM or dependency]

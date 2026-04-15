@@ -34,7 +34,7 @@ Azure networking components provide the foundation for virtual machine communica
 
 <!-- diagram-id: reference-networking-components-networking-components -->
 ```mermaid
-graph LR
+graph TD
     User((User)) -->|Public IP| LB[Load Balancer]
     User -->|Secure Access| Bastion[Azure Bastion]
     LB -->|NIC| VM[Virtual Machine]

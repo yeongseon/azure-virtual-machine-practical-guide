@@ -28,7 +28,7 @@ Connecting to Azure virtual machines requires specific protocols depending on th
 
 <!-- diagram-id: operations-connect-to-vm-connection-path-architecture -->
 ```mermaid
-graph LR
+graph TD
     User[User Laptop]
     Internet((Public Internet))
     

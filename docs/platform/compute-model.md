@@ -30,7 +30,7 @@ Azure categorizes VM sizes to help you select the best performance/cost ratio fo
 
 <!-- diagram-id: platform-compute-model-naming-convention -->
 ```mermaid
-graph LR
+graph TD
     S[Standard] --- F[Family: D]
     F --- v[vCPUs: 4]
     v --- A[Add-ons: s]

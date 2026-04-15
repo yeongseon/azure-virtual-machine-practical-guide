@@ -30,7 +30,7 @@ Azure provides a comprehensive monitoring solution to track the health and perfo
 
 <!-- diagram-id: reference-monitoring-signals-monitoring-signals -->
 ```mermaid
-graph LR
+graph TD
     VM[Virtual Machine] -->|Host Metrics| Monitor[Azure Monitor]
     VM -->|Guest Logs/Metrics| Agent[AMA Agent]
     Agent -->|Store| LogA[Log Analytics]

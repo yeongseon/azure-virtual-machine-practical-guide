@@ -35,7 +35,7 @@ This section provides hands-on operational procedures and configuration guides f
 
 <!-- diagram-id: operations-index-operations-lifecycle -->
 ```mermaid
-graph LR
+graph TD
     A[Create] --> B[Connect]
     B --> C[Configure]
     C --> D[Monitor]

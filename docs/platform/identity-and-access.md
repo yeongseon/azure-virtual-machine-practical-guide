@@ -30,7 +30,7 @@ Managed identities provide an identity for applications to use when connecting t
 
 <!-- diagram-id: platform-identity-and-access-managed-identity-and-key-vault -->
 ```mermaid
-graph LR
+graph TD
     VM[Virtual Machine] --> MI[Managed Identity]
     MI --> AKV[Azure Key Vault]
     AKV --> Sec[Secrets/Certs]

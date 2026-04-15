@@ -59,7 +59,7 @@ flowchart TD
 
 <!-- diagram-id: troubleshooting-mental-model-investigation-rhythm -->
 ```mermaid
-graph LR
+graph TD
     A[Symptom] --> B[Hypotheses]
     B --> C[Collect evidence]
     C --> D[Disprove weak hypotheses]

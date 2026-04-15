@@ -19,7 +19,7 @@ Azure Update Manager centralizes compliance tracking and deployment of operating
 
 <!-- diagram-id: operations-patching-update-management-flow -->
 ```mermaid
-graph LR
+graph TD
     A[Azure Update Manager] --> B[Assess VM Compliance]
     B --> C{Missing Patches?}
     C -- Yes --> D[Update Policy]

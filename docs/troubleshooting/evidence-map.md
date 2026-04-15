@@ -31,7 +31,7 @@ This evidence map shows what to collect first for each VM troubleshooting domain
 
 <!-- diagram-id: troubleshooting-evidence-map-evidence-flow -->
 ```mermaid
-graph LR
+graph TD
     A[Symptom] --> B[Platform evidence]
     A --> C[Guest evidence]
     A --> D[Configuration evidence]

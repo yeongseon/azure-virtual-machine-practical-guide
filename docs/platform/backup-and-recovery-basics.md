@@ -37,7 +37,7 @@ Azure Backup for Azure VMs uses VM backup extensions with policy-driven scheduli
 
 <!-- diagram-id: platform-backup-and-recovery-basics-backup-architecture -->
 ```mermaid
-graph LR
+graph TD
     P[Backup Policy] --> J[Scheduled Backup Job]
     J --> V[VM Snapshot + Backup Extension]
     V --> R[Recovery Services vault]

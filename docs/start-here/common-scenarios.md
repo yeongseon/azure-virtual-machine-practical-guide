@@ -36,7 +36,7 @@ This diagram illustrates how VMs are commonly organized into different security 
 
 <!-- diagram-id: start-here-common-scenarios-n-tier-architecture-example -->
 ```mermaid
-graph LR
+graph TD
     User[User Traffic] --> LB[Azure Load Balancer]
     LB --> WebTier[Web Tier VMs]
     WebTier --> AppLB[Internal Load Balancer]
