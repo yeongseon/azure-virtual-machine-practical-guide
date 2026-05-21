@@ -1,142 +1,172 @@
 ---
 content_sources:
   diagrams:
-  - id: reference-content-validation-status-summary
-    type: pie
-    source: self-generated
-    description: Summary
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/availability
-    - https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview
-    - https://learn.microsoft.com/en-us/azure/reliability/reliability-virtual-machines
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    - id: content-validation-status-pie
+      type: pie
+      source: self-generated
+      justification: Auto-generated dashboard from repository frontmatter.
+content_validation:
+  status: verified
+  last_reviewed: "2026-05-22"
+  reviewer: ai-agent
+  core_claims:
+    - claim: "This dashboard is generated from content_validation frontmatter in this repository."
+      source: "scripts/generate_content_validation_status.py"
+      verified: true
+    - claim: "The repository content policy requires Microsoft Learn traceability for core Azure VM guidance."
+      source: "AGENTS.md"
+      verified: true
 ---
 
-# Content Source Validation Status
+# Content Validation Status
 
-This page tracks the source validation status of all documentation content, including diagrams and text content. All content must be traceable to official Microsoft Learn documentation.
+This page is generated from `content_validation` frontmatter across non-tutorial documentation. It distinguishes verified pages from pages that have metadata but still need text-level source review.
 
 ## Summary
 
-*Generated: 2026-04-10*
+*Generated: 2026-05-22*
 
-| Content Type | Total | ✅ MSLearn Sourced | ⚠️ Self-Generated | ❌ No Source |
-|---|---:|---:|---:|---:|
-| Mermaid Diagrams | 90 | 50 | 40 | 0 |
-| Text Sections | — | — | — | — |
+| Content Type | Total | Verified | Pending | Unverified | No Metadata |
+|---|---:|---:|---:|---:|---:|
+| Mermaid Diagrams | 81 | 81 | 0 | 0 | 0 |
+| Text Documents | 70 | 2 | 68 | 0 | 0 |
 
-!!! warning "Validation Required"
-    All mermaid diagrams now include source metadata. Self-generated diagrams remain acceptable only when they clearly cite the Microsoft Learn articles they were synthesized from.
-    
-    1. Linked to an official MSLearn URL, OR
-    2. Marked as `self-generated` with clear justification
-
-<!-- diagram-id: reference-content-validation-status-summary -->
+<!-- diagram-id: content-validation-status-pie -->
 ```mermaid
-pie title Content Source Status
-    "MSLearn Adapted" : 50
-    "Self-Generated" : 40
+pie title Text Document Validation Status
+    "Verified" : 2
+    "Pending Review" : 68
 ```
 
-## Validation Categories
+## By Section
 
-### Source Types
+### Root
 
-| Type | Description | Allowed? |
-|---|---|---|
-| `mslearn` | Content directly from or based on Microsoft Learn | ✅ Yes |
-| `mslearn-adapted` | MSLearn content adapted for this guide | ✅ Yes (with source URL) |
-| `self-generated` | Original content created for this guide | ⚠️ Requires justification |
-| `community` | From community sources (Stack Overflow, GitHub) | ❌ Not for core content |
-| `unknown` | Source not documented | ❌ Must be validated |
+| Document | Sources | Status | Claims | Last Reviewed |
+|---|---|---|---:|---|
+| [Index](../index.md) | yes | Pending Review | 0/2 | 2026-05-22 |
 
-### Diagram Validation Status
+### Start Here
 
-#### Diagram Inventory (90 total)
+| Document | Sources | Status | Claims | Last Reviewed |
+|---|---|---|---:|---|
+| [Common Scenarios](../start-here/common-scenarios.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Index](../start-here/index.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Learning Path](../start-here/learning-path.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Overview](../start-here/overview.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Vm Vs Other Compute](../start-here/vm-vs-other-compute.md) | yes | Pending Review | 0/2 | 2026-05-22 |
 
-| File | Diagrams | Source Type | MSLearn URL | Status |
-|---|---:|---|---|---|
-| All Mermaid diagrams | 90 | mixed (`mslearn-adapted`, `self-generated`) | See document frontmatter | ✅ Validated |
+### Platform
 
-## How to Validate Content
+| Document | Sources | Status | Claims | Last Reviewed |
+|---|---|---|---:|---|
+| [Availability And Resiliency](../platform/availability-and-resiliency.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Backup And Recovery Basics](../platform/backup-and-recovery-basics.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Compute Model](../platform/compute-model.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Disks And Storage](../platform/disks-and-storage.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [How Azure Vm Works](../platform/how-azure-vm-works.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Identity And Access](../platform/identity-and-access.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Index](../platform/index.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Networking Basics](../platform/networking-basics.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Vm Lifecycle](../platform/vm-lifecycle.md) | yes | Pending Review | 0/2 | 2026-05-22 |
 
-### Step 1: Add Source Metadata to Frontmatter
+### Best Practices
 
-Add `content_sources` to the document's YAML frontmatter:
+| Document | Sources | Status | Claims | Last Reviewed |
+|---|---|---|---:|---|
+| [Backup And Dr Best Practices](../best-practices/backup-and-dr-best-practices.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Common Anti Patterns](../best-practices/common-anti-patterns.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Cost Optimization Best Practices](../best-practices/cost-optimization-best-practices.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Disk And Storage Best Practices](../best-practices/disk-and-storage-best-practices.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Index](../best-practices/index.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Monitoring Best Practices](../best-practices/monitoring-best-practices.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Networking Best Practices](../best-practices/networking-best-practices.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Patching And Maintenance Best Practices](../best-practices/patching-and-maintenance-best-practices.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Production Baseline](../best-practices/production-baseline.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Security Best Practices](../best-practices/security-best-practices.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Sizing And Image Selection](../best-practices/sizing-and-image-selection.md) | yes | Pending Review | 0/2 | 2026-05-22 |
 
-```yaml
----
-title: How Azure Virtual Machines Work
-content_sources:
-  diagrams:
-    - id: architecture-overview
-      type: flowchart
-      source: mslearn
-      mslearn_url: https://learn.microsoft.com/en-us/azure/virtual-machines/
-      description: "Azure VM architecture overview"
-    - id: request-flow
-      type: sequence
-      source: self-generated
-      justification: "Synthesized from multiple MSLearn articles for clarity"
-      based_on:
-        - https://learn.microsoft.com/en-us/azure/virtual-machines/
-  text:
-    - section: "## Summary"
-      source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/en-us/azure/virtual-machines/
----
-```
+### Operations
 
-### Step 2: Mark Diagram Blocks with IDs
+| Document | Sources | Status | Claims | Last Reviewed |
+|---|---|---|---:|---|
+| [Backup Restore](../operations/backup-restore.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Connect To Vm](../operations/connect-to-vm.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Create And Configure Vm](../operations/create-and-configure-vm.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Index](../operations/index.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Manage Disks](../operations/manage-disks.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Monitoring And Alerting](../operations/monitoring-and-alerting.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Patching](../operations/patching.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Resize And Redeploy](../operations/resize-and-redeploy.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Snapshots And Images](../operations/snapshots-and-images.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Vmss Basics](../operations/vmss-basics.md) | yes | Pending Review | 0/2 | 2026-05-22 |
 
-Add an HTML comment before each mermaid block to identify it:
+### Troubleshooting
 
-```markdown
-<!-- diagram-id: architecture-overview -->
-```mermaid
-flowchart TD
-    A[Client] --> B[Azure VM]
-```
-```
+| Document | Sources | Status | Claims | Last Reviewed |
+|---|---|---|---:|---|
+| [Architecture Overview](../troubleshooting/architecture-overview.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Decision Tree](../troubleshooting/decision-tree.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Evidence Map](../troubleshooting/evidence-map.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Boot](../troubleshooting/first-10-minutes/boot.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Connectivity](../troubleshooting/first-10-minutes/connectivity.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Index](../troubleshooting/first-10-minutes/index.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Performance](../troubleshooting/first-10-minutes/performance.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Index](../troubleshooting/index.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Mental Model](../troubleshooting/mental-model.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Backup Failures](../troubleshooting/playbooks/boot-disk/backup-failures.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Boot Diagnostics And Serial Console](../troubleshooting/playbooks/boot-disk/boot-diagnostics-and-serial-console.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Vm Wont Start](../troubleshooting/playbooks/boot-disk/vm-wont-start.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Cannot Rdp Or Ssh](../troubleshooting/playbooks/connectivity/cannot-rdp-or-ssh.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Dns And Connectivity Issues](../troubleshooting/playbooks/connectivity/dns-and-connectivity-issues.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Extension Failures](../troubleshooting/playbooks/connectivity/extension-failures.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Disk Performance Issues](../troubleshooting/playbooks/disk-performance-issues.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Index](../troubleshooting/playbooks/index.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Network Connectivity Issues](../troubleshooting/playbooks/network-connectivity-issues.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Disk Performance Issues](../troubleshooting/playbooks/performance/disk-performance-issues.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [High Cpu Memory Disk](../troubleshooting/playbooks/performance/high-cpu-memory-disk.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Slow Performance](../troubleshooting/playbooks/performance/slow-performance.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Rdp Ssh Connection Failures](../troubleshooting/playbooks/rdp-ssh-connection-failures.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Vm Boot Failures](../troubleshooting/playbooks/vm-boot-failures.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Quick Diagnosis Cards](../troubleshooting/quick-diagnosis-cards.md) | yes | Pending Review | 0/2 | 2026-05-22 |
 
-### Step 3: Run Validation Script
+### Reference
 
-```bash
-python3 scripts/validate_content_sources.py
-```
+| Document | Sources | Status | Claims | Last Reviewed |
+|---|---|---|---:|---|
+| [Availability Options](../reference/availability-options.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Content Validation Status](../reference/content-validation-status.md) | yes | Verified | 2/2 | 2026-05-22 |
+| [Glossary](../reference/glossary.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Index](../reference/index.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Managed Disk Types](../reference/managed-disk-types.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Monitoring Signals](../reference/monitoring-signals.md) | yes | Pending Review | 0/2 | 2026-05-22 |
+| [Networking Components](../reference/networking-components.md) | yes | Pending Review | 0/3 | 2026-05-22 |
+| [Validation Status](../reference/validation-status.md) | yes | Verified | 2/2 | 2026-05-22 |
+| [Vm Size Families](../reference/vm-size-families.md) | yes | Pending Review | 0/2 | 2026-05-22 |
 
-### Step 4: Update This Page
+### Contributing
+
+| Document | Sources | Status | Claims | Last Reviewed |
+|---|---|---|---:|---|
+| [Index](../contributing/index.md) | no | Pending Review | 0/2 | 2026-05-22 |
+
+## How to Update
+
+Add or update `content_validation` in a document's YAML frontmatter, then regenerate this page:
 
 ```bash
 python3 scripts/generate_content_validation_status.py
 ```
 
-## Validation Rules
-
-!!! danger "Mandatory Rules"
-    1. **Platform diagrams** (`docs/platform/`) MUST have MSLearn sources
-    2. **Architecture diagrams** MUST reference official Microsoft documentation
-    3. **Troubleshooting flowcharts** MAY be self-generated if they synthesize MSLearn content
-    4. **Self-generated content** MUST have `justification` field explaining the source basis
-
-## Official MSLearn Architecture References
-
-Use these official sources for diagram validation:
-
-| Topic | MSLearn URL |
+| Field | Meaning |
 |---|---|
-| Azure Virtual Machines Overview | https://learn.microsoft.com/en-us/azure/virtual-machines/ |
-| VM Sizes | https://learn.microsoft.com/en-us/azure/virtual-machines/sizes |
-| VM Networking | https://learn.microsoft.com/en-us/azure/virtual-network/ |
-| VM Storage | https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types |
-| VM Backup | https://learn.microsoft.com/en-us/azure/backup/ |
-| VM Security | https://learn.microsoft.com/en-us/azure/security/fundamentals/virtual-machines-overview |
+| `status` | `verified`, `pending_review`, or `unverified` |
+| `last_reviewed` | Date when the claims were last checked |
+| `core_claims` | The factual claims tracked for source validation |
 
 ## See Also
 
-- [Tutorial Validation Status](validation-status.md)
-- [Reference Index](index.md)
+- [Validation Status](validation-status.md)
+- [VM Size Families](vm-size-families.md)
+- [Networking Components](networking-components.md)
+

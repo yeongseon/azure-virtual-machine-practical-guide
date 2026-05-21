@@ -7,6 +7,19 @@ content_sources:
     description: Compute Decision Flow
     based_on:
     - https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree
+content_validation:
+  status: pending_review
+  last_reviewed: '2026-05-22'
+  reviewer: ai-agent
+  core_claims:
+  - claim: This document has source metadata and is queued for text-level Microsoft
+      Learn verification.
+    source: https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree
+    verified: false
+  - claim: Core Azure VM guidance on this page should remain traceable to the listed
+      sources before it is marked verified.
+    source: https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree
+    verified: false
 ---
 
 # VM vs Other Compute Options
@@ -31,11 +44,11 @@ flowchart TD
     Start[Start: New Compute Resource?] --> Control{Need OS access or custom runtime?}
     Control -- Yes --> VM[Virtual Machine]
     Control -- No --> Container{Container-based?}
-    
+
     Container -- No --> Web{Web App?}
     Web -- Yes --> AppS[App Service]
     Web -- No --> Func[Azure Functions]
-    
+
     Container -- Yes --> Scale{High orchestration needs?}
     Scale -- Yes --> AKS[Azure Kubernetes Service]
     Scale -- No --> ACA[Container Apps]

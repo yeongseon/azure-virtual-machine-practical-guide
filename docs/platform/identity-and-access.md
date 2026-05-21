@@ -9,6 +9,19 @@ content_sources:
     - https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles
     - https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview
     - https://learn.microsoft.com/en-us/azure/defender-for-cloud/enable-just-in-time-access
+content_validation:
+  status: pending_review
+  last_reviewed: '2026-05-22'
+  reviewer: ai-agent
+  core_claims:
+  - claim: This document has source metadata and is queued for text-level Microsoft
+      Learn verification.
+    source: https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles
+    verified: false
+  - claim: Core Azure VM guidance on this page should remain traceable to the listed
+      sources before it is marked verified.
+    source: https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles
+    verified: false
 ---
 
 # Identity and Access

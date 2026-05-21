@@ -13,6 +13,19 @@ content_sources:
     - https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview
     justification: Synthesized for this guide from the referenced Microsoft Learn
       documentation.
+content_validation:
+  status: pending_review
+  last_reviewed: '2026-05-22'
+  reviewer: ai-agent
+  core_claims:
+  - claim: This document has source metadata and is queued for text-level Microsoft
+      Learn verification.
+    source: https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
+    verified: false
+  - claim: Core Azure VM guidance on this page should remain traceable to the listed
+      sources before it is marked verified.
+    source: https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
+    verified: false
 ---
 
 # VM Boot Failures
@@ -64,26 +77,71 @@ Boot diagnostics, serial console, extension state, OS disk health, and recovery 
 1. **Review VM instance view**
 
     ```bash
-    az vm get-instance-view             --resource-group $RG             --name $VM_NAME             --output json
+    az vm get-instance-view \
+        --resource-group $RG \
+        --name $VM_NAME \
+        --output json
     ```
+
+    | Element | Purpose |
+    |---|---|
+    | `$RG` | Resource group containing the VM resources. |
+    | `$VM_NAME` | Target virtual machine name. |
+    | `--resource-group` | Scopes the command to the intended resource group. |
+    | `--name` | Identifies the resource being created, read, updated, or deleted. |
+    | `--output` | Controls the output format for logs, scripts, or human review. |
+    | Expected result | Command succeeds and returns the requested Azure resource state or operation result. |
 
 2. **Review boot diagnostics settings**
 
     ```bash
-    az vm boot-diagnostics get-boot-log             --resource-group $RG             --name $VM_NAME
+    az vm boot-diagnostics get-boot-log \
+        --resource-group $RG \
+        --name $VM_NAME
     ```
+
+    | Element | Purpose |
+    |---|---|
+    | `$RG` | Resource group containing the VM resources. |
+    | `$VM_NAME` | Target virtual machine name. |
+    | `--resource-group` | Scopes the command to the intended resource group. |
+    | `--name` | Identifies the resource being created, read, updated, or deleted. |
+    | Expected result | Command succeeds and returns the requested Azure resource state or operation result. |
 
 3. **Review NIC effective security rules**
 
     ```bash
-    az network nic list-effective-nsg             --resource-group $RG             --name $NIC_NAME             --output json
+    az network nic list-effective-nsg \
+        --resource-group $RG \
+        --name $NIC_NAME \
+        --output json
     ```
+
+    | Element | Purpose |
+    |---|---|
+    | `$RG` | Resource group containing the VM resources. |
+    | `$NIC_NAME` | Network interface attached to the VM. |
+    | `--resource-group` | Scopes the command to the intended resource group. |
+    | `--name` | Identifies the resource being created, read, updated, or deleted. |
+    | `--output` | Controls the output format for logs, scripts, or human review. |
+    | Expected result | Command succeeds and returns the requested Azure resource state or operation result. |
 
 4. **Review recent platform changes**
 
     ```bash
-    az monitor activity-log list             --resource-group $RG             --offset 24h             --output table
+    az monitor activity-log list \
+        --resource-group $RG \
+        --offset 24h \
+        --output table
     ```
+
+    | Element | Purpose |
+    |---|---|
+    | `$RG` | Resource group containing the VM resources. |
+    | `--resource-group` | Scopes the command to the intended resource group. |
+    | `--offset` | Controls the activity log lookback window. |
+    | `--output` | Controls the output format for logs, scripts, or human review. |
+    | Expected result | Command succeeds and returns the requested Azure resource state or operation result. |
 
 ## 5. Evidence to Collect
 
@@ -128,10 +186,29 @@ Heartbeat
 ### 5.2 CLI Investigation
 
 ```bash
-az vm show     --resource-group $RG     --name $VM_NAME     --query "{powerState:powerState,vmSize:hardwareProfile.vmSize,priority:priority,provisioningState:provisioningState}"     --output json
+az vm show \
+    --resource-group $RG \
+    --name $VM_NAME \
+    --query "{powerState:powerState,vmSize:hardwareProfile.vmSize,priority:priority,provisioningState:provisioningState}" \
+    --output json
 
-az network nic show     --resource-group $RG     --name $NIC_NAME     --query "{ipConfigs:ipConfigurations[].privateIPAddress,acceleratedNetworking:enableAcceleratedNetworking,networkSecurityGroup:networkSecurityGroup.id}"     --output json
+az network nic show \
+    --resource-group $RG \
+    --name $NIC_NAME \
+    --query "{ipConfigs:ipConfigurations[].privateIPAddress,acceleratedNetworking:enableAcceleratedNetworking,networkSecurityGroup:networkSecurityGroup.id}" \
+    --output json
 ```
+
+| Element | Purpose |
+|---|---|
+| `$RG` | Resource group containing the VM resources. |
+| `$VM_NAME` | Target virtual machine name. |
+| `$NIC_NAME` | Network interface attached to the VM. |
+| `--resource-group` | Scopes the command to the intended resource group. |
+| `--name` | Identifies the resource being created, read, updated, or deleted. |
+| `--query` | Filters the response so operators capture only the needed evidence. |
+| `--output` | Controls the output format for logs, scripts, or human review. |
+| Expected result | Command succeeds and returns the requested Azure resource state or operation result. |
 
 Interpretation:
 
@@ -219,10 +296,26 @@ Step-by-step resolution:
 CLI commands commonly used during fixes:
 
 ```bash
-az vm run-command invoke     --resource-group $RG     --name $VM_NAME     --command-id RunShellScript     --scripts "sudo systemctl status walinuxagent"
+az vm run-command invoke \
+    --resource-group $RG \
+    --name $VM_NAME \
+    --command-id RunShellScript \
+    --scripts "sudo systemctl status walinuxagent"
 
-az vm restart     --resource-group $RG     --name $VM_NAME
+az vm restart \
+    --resource-group $RG \
+    --name $VM_NAME
 ```
+
+| Element | Purpose |
+|---|---|
+| `$RG` | Resource group containing the VM resources. |
+| `$VM_NAME` | Target virtual machine name. |
+| `--resource-group` | Scopes the command to the intended resource group. |
+| `--name` | Identifies the resource being created, read, updated, or deleted. |
+| `--command-id` | Azure CLI option used to scope or shape the operation. |
+| `--scripts` | Azure CLI option used to scope or shape the operation. |
+| Expected result | Command succeeds and returns the requested Azure resource state or operation result. |
 
 ## 9. Prevention
 

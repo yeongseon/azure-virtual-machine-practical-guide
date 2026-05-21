@@ -10,6 +10,14 @@ content_sources:
     - https://learn.microsoft.com/en-us/cli/azure/vm
     - https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction
     - https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-enable-replication
+validation:
+  az_cli:
+    last_tested: null
+    cli_version: null
+    result: not_tested
+  bicep:
+    last_tested: null
+    result: not_tested
 ---
 
 # Lab 02: Disk Encryption and Backup
@@ -55,10 +63,34 @@ graph TD
 ### Step 1: Create the resource group and network baseline
 
 ```bash
-az group create     --name $RG     --location $LOCATION     --output json
+az group create \
+    --name $RG \
+    --location $LOCATION \
+    --output json
 
-az network vnet create     --resource-group $RG     --name $VNET_NAME     --address-prefixes 10.40.0.0/16     --subnet-name $SUBNET_NAME     --subnet-prefixes 10.40.1.0/24     --output json
+az network vnet create \
+    --resource-group $RG \
+    --name $VNET_NAME \
+    --address-prefixes 10.40.0.0/16 \
+    --subnet-name $SUBNET_NAME \
+    --subnet-prefixes 10.40.1.0/24 \
+    --output json
 ```
+
+| Element | Purpose |
+|---|---|
+| `$RG` | Resource group containing the VM resources. |
+| `$LOCATION` | Azure region for regional resource discovery or creation. |
+| `$VNET_NAME` | Virtual network used by the VM workload. |
+| `$SUBNET_NAME` | Subnet used by the VM workload. |
+| `--name` | Identifies the resource being created, read, updated, or deleted. |
+| `--location` | Selects the Azure region for regional resources or SKU lookup. |
+| `--output` | Controls the output format for logs, scripts, or human review. |
+| `--resource-group` | Scopes the command to the intended resource group. |
+| `--address-prefixes` | Azure CLI option used to scope or shape the operation. |
+| `--subnet-name` | Azure CLI option used to scope or shape the operation. |
+| `--subnet-prefixes` | Azure CLI option used to scope or shape the operation. |
+| Expected result | Command succeeds and returns the requested Azure resource state or operation result. |
 
 Expected outcome:
 
@@ -68,37 +100,97 @@ Expected outcome:
 ### Step 2: Deploy the base VM
 
 ```bash
-az vm create     --resource-group $RG     --name $VM_NAME     --image Ubuntu2204     --size Standard_D4s_v5     --admin-username azureuser     --generate-ssh-keys     --vnet-name $VNET_NAME     --subnet $SUBNET_NAME     --public-ip-sku Standard     --storage-sku Premium_LRS     --output json
+az vm create \
+    --resource-group $RG \
+    --name $VM_NAME \
+    --image Ubuntu2204 \
+    --size Standard_D4s_v5 \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --vnet-name $VNET_NAME \
+    --subnet $SUBNET_NAME \
+    --public-ip-sku Standard \
+    --storage-sku Premium_LRS \
+    --output json
 ```
+
+| Element | Purpose |
+|---|---|
+| `$RG` | Resource group containing the VM resources. |
+| `$VM_NAME` | Target virtual machine name. |
+| `$VNET_NAME` | Virtual network used by the VM workload. |
+| `$SUBNET_NAME` | Subnet used by the VM workload. |
+| `--resource-group` | Scopes the command to the intended resource group. |
+| `--name` | Identifies the resource being created, read, updated, or deleted. |
+| `--image` | Selects the marketplace image for the VM OS. |
+| `--size` | Selects CPU, memory, disk, and network capacity envelope. |
+| `--admin-username` | Configures the initial administrative account. |
+| `--generate-ssh-keys` | Creates or reuses SSH keys for Linux VM access. |
+| `--vnet-name` | Places the VM NIC in the specified virtual network. |
+| `--subnet` | Places the VM NIC in the specified subnet. |
+| Expected result | Command succeeds and returns the requested Azure resource state or operation result. |
 
 Expected outcome:
 
 - The VM deploys with Premium SSD-backed storage and a predictable network baseline.
 - You have enough CPU, memory, and NIC capability to test the scenario without using a tiny burstable SKU.
 
-### Step 3: Apply the lab-specific configuration
+### Step 3: Enable protection evidence for disk and backup controls
 
-Use this step to apply the feature under test and document why it matters for production.
+This lab focuses on proving that data protection is visible from Azure control-plane evidence before relying on the VM for stateful workloads.
 
 ```bash
-az vm show     --resource-group $RG     --name $VM_NAME     --query "{name:name,vmSize:hardwareProfile.vmSize,zone:zones,storageProfile:storageProfile.osDisk.managedDisk.storageAccountType}"     --output json
+az vm encryption show \
+    --resource-group $RG \
+    --name $VM_NAME \
+    --output json
+
+az backup protection check-vm \
+    --resource-group $RG \
+    --vm $VM_NAME \
+    --output json
 ```
+
+| Element | Purpose |
+|---|---|
+| `$RG` | Resource group containing the VM resources. |
+| `$VM_NAME` | Target virtual machine name. |
+| `--resource-group` | Scopes the command to the intended resource group. |
+| `--name` | Identifies the resource being created, read, updated, or deleted. |
+| `--output` | Controls the output format for logs, scripts, or human review. |
+| `--vm` | Azure CLI option used to scope or shape the operation. |
+| Expected result | Command succeeds and returns the requested Azure resource state or operation result. |
 
 Recommended operator notes:
 
 - Capture the command output in your lab log.
-- Record any prerequisites unique to your region, vault, or security policy.
+- Record prerequisites unique to the target region, vault, or security policy.
 - If the feature depends on another Azure service, confirm that dependency before continuing.
-
 ### Step 4: Validate the scenario end to end
 
 Run both control-plane and workload validation so the result is useful during a real incident or audit.
 
 ```bash
-az vm get-instance-view     --resource-group $RG     --name $VM_NAME     --output json
+az vm get-instance-view \
+    --resource-group $RG \
+    --name $VM_NAME \
+    --output json
 
-az monitor activity-log list     --resource-group $RG     --offset 2h     --output table
+az monitor activity-log list \
+    --resource-group $RG \
+    --offset 2h \
+    --output table
 ```
+
+| Element | Purpose |
+|---|---|
+| `$RG` | Resource group containing the VM resources. |
+| `$VM_NAME` | Target virtual machine name. |
+| `--resource-group` | Scopes the command to the intended resource group. |
+| `--name` | Identifies the resource being created, read, updated, or deleted. |
+| `--output` | Controls the output format for logs, scripts, or human review. |
+| `--offset` | Controls the activity log lookback window. |
+| Expected result | Command succeeds and returns the requested Azure resource state or operation result. |
 
 ### Step 5: Optional operational hardening
 
@@ -118,12 +210,30 @@ Use the following validation checklist before marking the lab complete:
 ## Cleanup Instructions
 
 ```bash
-az vm delete     --resource-group $RG     --name $VM_NAME     --yes
+az vm delete \
+    --resource-group $RG \
+    --name $VM_NAME \
+    --yes
 
-az network nic delete     --resource-group $RG     --name "${VM_NAME}VMNic"
+az network nic delete \
+    --resource-group $RG \
+    --name "${VM_NAME}VMNic"
 
-az group delete     --name $RG     --yes     --no-wait
+az group delete \
+    --name $RG \
+    --yes \
+    --no-wait
 ```
+
+| Element | Purpose |
+|---|---|
+| `$RG` | Resource group containing the VM resources. |
+| `$VM_NAME` | Target virtual machine name. |
+| `--resource-group` | Scopes the command to the intended resource group. |
+| `--name` | Identifies the resource being created, read, updated, or deleted. |
+| `--yes` | Confirms a destructive command without an interactive prompt. |
+| `--no-wait` | Starts the operation and returns before Azure completes it. |
+| Expected result | Command succeeds and returns the requested Azure resource state or operation result. |
 
 Cleanup notes:
 

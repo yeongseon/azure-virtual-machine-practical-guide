@@ -9,6 +9,19 @@ content_sources:
     - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes
     - https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/n-tier-sql-server
     - https://learn.microsoft.com/en-us/azure/bastion/bastion-overview
+content_validation:
+  status: pending_review
+  last_reviewed: '2026-05-22'
+  reviewer: ai-agent
+  core_claims:
+  - claim: This document has source metadata and is queued for text-level Microsoft
+      Learn verification.
+    source: https://learn.microsoft.com/en-us/azure/virtual-machines/sizes
+    verified: false
+  - claim: Core Azure VM guidance on this page should remain traceable to the listed
+      sources before it is marked verified.
+    source: https://learn.microsoft.com/en-us/azure/virtual-machines/sizes
+    verified: false
 ---
 
 # Common VM Scenarios
@@ -42,7 +55,7 @@ graph TD
     WebTier --> AppLB[Internal Load Balancer]
     AppLB --> AppTier[App Tier VMs]
     AppTier --> DBTier[Database VMs]
-    
+
     subgraph "VNet"
         subgraph "Public Subnet"
             WebTier

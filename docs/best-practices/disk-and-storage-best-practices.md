@@ -1,427 +1,127 @@
 ---
 content_sources:
   diagrams:
-  - id: best-practices-disk-and-storage-best-practices-why-this-matters
+  - id: best-practices-disk-and-storage-best-practices-practice-flow
     type: flowchart
     source: mslearn-adapted
-    description: Why This Matters
+    description: Disk performance and recovery
     based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/windows/disks-enable-ultra-ssd
-    - https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/co-location
-    - https://learn.microsoft.com/en-us/azure/defender-for-cloud/just-in-time-access-overview
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/auto-shutdown-vm
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/availability
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/monitor-vm
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types
+    - https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction
+content_validation:
+  status: pending_review
+  last_reviewed: '2026-05-22'
+  reviewer: ai-agent
+  core_claims:
+  - claim: This document has source metadata and is queued for text-level Microsoft
+      Learn verification.
+    source: https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview
+    verified: false
+  - claim: Core Azure VM guidance on this page should remain traceable to the listed
+      sources before it is marked verified.
+    source: https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview
+    verified: false
 ---
 
 # Disk and Storage Best Practices
 
-Azure VM storage performance is never just about the disk SKU. Real outcomes depend on VM-level throughput ceilings, queue depth, caching mode, data layout, and recovery design.
+Managed disk choices should be driven by latency, IOPS, throughput, caching, and recovery needs instead of only capacity.
 
 ## Why This Matters
 
-Disk tiering, caching, throughput planning, and storage recovery patterns. The real risk is that teams usually notice weak VM design only after a deployment freeze, region capacity issue, security review, or performance incident.
+A database VM shows intermittent latency because disk type, VM throughput cap, and host caching were never reviewed together.
 
-**Real-world scenario**: A transactional workload shows erratic latency during peak periods even after moving to Premium SSD, so the team needs a broader storage design review.
-
-Three themes show up repeatedly in Azure VM reviews:
-
-1. Compute, storage, and network limits interact more than teams expect.
-2. Security controls must be built into the management path, not added after an audit.
-3. Cost optimization should preserve recovery and performance objectives instead of undermining them.
-
-<!-- diagram-id: best-practices-disk-and-storage-best-practices-why-this-matters -->
+<!-- diagram-id: best-practices-disk-and-storage-best-practices-practice-flow -->
 ```mermaid
 flowchart TD
-    A[Disk performance decision map] --> B[Workload classification]
-    B --> C[VM family and disk decision]
-    C --> D[Network and security controls]
-    D --> E[Monitoring and backup baseline]
-    E --> F[Cost review and governance]
-    F --> G[Operational validation]
+    A[Classify workload] --> B[Select VM controls]
+    B --> C[Apply topic-specific guardrails]
+    C --> D[Validate with Azure evidence]
+    D --> E[Record owner and review outcome]
 ```
-
-!!! info "Design principle"
-    Optimize Azure VMs as a full stack: guest workload, VM SKU, disks, network path, and operational controls. Improving only one layer rarely fixes recurring incidents.
-
-## Prerequisites
-
-- Azure subscription with permission to read and change compute, network, and monitoring resources
-- Existing resource group and virtual network for the workload
-- Azure CLI signed in with variables prepared:
-    - `RG`
-    - `VM_NAME`
-    - `LOCATION`
-    - `NIC_NAME`
-    - `NSG_NAME`
-    - `DISK_NAME`
-- Team agreement on workload criticality, recovery target, and approved maintenance window
 
 ## Recommended Practices
 
-### Practice 1: Establish workload-specific sizing guardrails
+### 1. Separate OS and data paths
 
-Why: Azure VM incidents often start with mismatched expectations between the workload profile and the infrastructure envelope.
-How: Document expected concurrency, memory footprint, disk behavior, failover design, and operator access before standardizing the deployment pattern.
-Validation: Review Azure Monitor metrics, guest telemetry, and change records together rather than relying on one signal source.
+**Why:** The OS disk should not carry unpredictable application write pressure.
 
-#### Workload sizing recommendations
+**How:** Place data, logs, and temp-heavy paths on dedicated managed disks with workload-appropriate caching.
 
-| Workload type | Recommended VM families | Guidance |
-|---|---|---|
-| Stateless web/API tier | Dsv5 or Dasv5 | Balanced CPU and memory for general web/API loads; pair with accelerated networking and Premium SSD. |
-| Memory-heavy middleware | Esv5 or Easv5 | Higher RAM per core for Java, caching, and analytics middleware where paging is expensive. |
-| High-performance database relay | M-series or Edsv5 | Use only where licensing and memory footprint justify large-memory SKUs; validate disk and network caps carefully. |
-| Batch and interruptible workers | Spot-capable Dsv5 / Fsv2 | Suitable for queues and render jobs that tolerate eviction and checkpoint often. |
-| Virtual desktop / jump host | B-series or Dsv5 | Burstable for low-duty admin hosts; use D-series when consistent remote responsiveness matters. |
+**Validation:** Disk layout maps each application path to a managed disk and cache setting.
 
-Use memory-to-core ratio, expected IOPS, and aggregate network bandwidth as first-class inputs.
+### 2. Match disk SKU to VM limits
 
-### CLI example: disk and storage best practices review
+**Why:** A premium disk cannot exceed the aggregate throughput and IOPS allowed by the VM size.
 
-```bash
-az vm show     --resource-group $RG     --name $VM_NAME     --query "{name:name,size:hardwareProfile.vmSize,zone:zones,security:securityProfile.securityType}"     --output json
+**How:** Check disk SKU limits and VM size limits together before increasing disk performance tier.
 
-az vm list-sizes     --location $LOCATION     --query "[?name=='Standard_D4s_v5' || name=='Standard_E4s_v5'].{name:name,numberOfCores:numberOfCores,memoryInMb:memoryInMb,maxDataDiskCount:maxDataDiskCount}"     --output table
+**Validation:** Metric evidence shows whether the bottleneck is disk, VM, or guest queue depth.
 
-az vm update     --resource-group $RG     --name $VM_NAME     --set tags.reviewArea=disk-performance-resilience tags.owner=platform-team     --output json
-```
+### 3. Design snapshots and backup separately
 
-Sample output:
+**Why:** Snapshots are point-in-time disk copies; backup provides policy, retention, and restore workflow.
 
-```json
-{
-  "name": "vm-app-001",
-  "size": "Standard_D4s_v5",
-  "zone": [
-    "1"
-  ],
-  "security": "TrustedLaunch"
-}
-```
+**How:** Use snapshots for short-lived operational checkpoints and Azure Backup for recovery objectives.
 
-Operational note:
+**Validation:** Restore testing proves that the retained data can boot or attach as expected.
 
-- Re-run the same validation after major changes such as resizing, disk migration, subnet moves, image changes, or patching policy updates.
-- Capture before and after evidence so future responders can distinguish regressions from steady-state behavior.
-
-### Practice 2: Separate OS, data, and recovery concerns
-
-Why: Azure VM incidents often start with mismatched expectations between the workload profile and the infrastructure envelope.
-How: Document expected concurrency, memory footprint, disk behavior, failover design, and operator access before standardizing the deployment pattern.
-Validation: Review Azure Monitor metrics, guest telemetry, and change records together rather than relying on one signal source.
-
-#### Disk performance optimization
-
-- Put the OS on its own managed disk and keep high-write or data-intensive paths on dedicated data disks.
-- Use **Premium SSD** for predictable production latency and **Ultra Disk** when the workload needs tunable high IOPS and throughput with low latency.
-- Validate whether host caching helps or harms the workload; transaction log and write-heavy data paths often need `None`.
-- Align disk choices with VM-level throughput limits so expensive storage is not bottlenecked by the VM SKU.
-
-| Disk option | Best fit | Operations note |
-|---|---|---|
-| Premium SSD | General production OS and data disks | Good default for stable latency and broad regional support. |
-| Premium SSD v2 | Elastic IOPS and throughput tuning | Useful when performance requirements vary and you want finer-grained tuning. |
-| Ultra Disk | High-end database and latency-sensitive data tiers | Review availability, no host caching support, and application write pattern before adoption. |
-
-### CLI example: disk and storage best practices review
+### CLI review example
 
 ```bash
-az vm show     --resource-group $RG     --name $VM_NAME     --query "{name:name,size:hardwareProfile.vmSize,zone:zones,security:securityProfile.securityType}"     --output json
+az vm show \
+    --resource-group $RG \
+    --name $VM_NAME \
+    --query "{name:name,size:hardwareProfile.vmSize,zone:zones,security:securityProfile.securityType}" \
+    --output json
 
-az vm list-sizes     --location $LOCATION     --query "[?name=='Standard_D4s_v5' || name=='Standard_E4s_v5'].{name:name,numberOfCores:numberOfCores,memoryInMb:memoryInMb,maxDataDiskCount:maxDataDiskCount}"     --output table
+az vm list-sizes \
+    --location $LOCATION \
+    --query "[?name=='Standard_D4s_v5' || name=='Standard_E4s_v5'].{name:name,cores:numberOfCores,memory:memoryInMb,maxDataDiskCount:maxDataDiskCount}" \
+    --output table
 
-az vm update     --resource-group $RG     --name $VM_NAME     --set tags.reviewArea=disk-performance-resilience tags.owner=platform-team     --output json
+az vm update \
+    --resource-group $RG \
+    --name $VM_NAME \
+    --set tags.reviewArea=disk-and-storage-best-practices tags.owner=platform-team \
+    --output json
 ```
 
-Sample output:
-
-```json
-{
-  "name": "vm-app-001",
-  "size": "Standard_D4s_v5",
-  "zone": [
-    "1"
-  ],
-  "security": "TrustedLaunch"
-}
-```
-
-Operational note:
-
-- Re-run the same validation after major changes such as resizing, disk migration, subnet moves, image changes, or patching policy updates.
-- Capture before and after evidence so future responders can distinguish regressions from steady-state behavior.
-
-### Practice 3: Design network boundaries before deployment
-
-Why: Azure VM incidents often start with mismatched expectations between the workload profile and the infrastructure envelope.
-How: Document expected concurrency, memory footprint, disk behavior, failover design, and operator access before standardizing the deployment pattern.
-Validation: Review Azure Monitor metrics, guest telemetry, and change records together rather than relying on one signal source.
-
-#### Network acceleration and placement
-
-- Enable **accelerated networking** on supported sizes to reduce jitter and host CPU overhead for packet processing.
-- Use **proximity placement groups** when low-latency communication between tightly coupled tiers matters more than flexible placement.
-- Keep management access private through Bastion, VPN, or ExpressRoute instead of internet-exposed management ports.
-- Validate effective routes, NSG intent, and DNS before the cutover window.
-
-### CLI example: disk and storage best practices review
-
-```bash
-az vm show     --resource-group $RG     --name $VM_NAME     --query "{name:name,size:hardwareProfile.vmSize,zone:zones,security:securityProfile.securityType}"     --output json
-
-az vm list-sizes     --location $LOCATION     --query "[?name=='Standard_D4s_v5' || name=='Standard_E4s_v5'].{name:name,numberOfCores:numberOfCores,memoryInMb:memoryInMb,maxDataDiskCount:maxDataDiskCount}"     --output table
-
-az vm update     --resource-group $RG     --name $VM_NAME     --set tags.reviewArea=disk-performance-resilience tags.owner=platform-team     --output json
-```
-
-Sample output:
-
-```json
-{
-  "name": "vm-app-001",
-  "size": "Standard_D4s_v5",
-  "zone": [
-    "1"
-  ],
-  "security": "TrustedLaunch"
-}
-```
-
-Operational note:
-
-- Re-run the same validation after major changes such as resizing, disk migration, subnet moves, image changes, or patching policy updates.
-- Capture before and after evidence so future responders can distinguish regressions from steady-state behavior.
-
-### Practice 4: Harden privileged access paths with JIT
-
-Why: Azure VM incidents often start with mismatched expectations between the workload profile and the infrastructure envelope.
-How: Document expected concurrency, memory footprint, disk behavior, failover design, and operator access before standardizing the deployment pattern.
-Validation: Review Azure Monitor metrics, guest telemetry, and change records together rather than relying on one signal source.
-
-#### Security hardening controls
-
-- Apply least-privilege NSGs and use **Application Security Groups** to express workload intent instead of IP sprawl.
-- Enable **Just-In-Time access** for RDP and SSH where Defender for Cloud is in use.
-- Prefer managed identity over embedded credentials for workload-to-Azure access.
-- Use Trusted Launch, Secure Boot, and vTPM on supported images and Gen2 sizes.
-
-### CLI example: disk and storage best practices review
-
-```bash
-az vm show     --resource-group $RG     --name $VM_NAME     --query "{name:name,size:hardwareProfile.vmSize,zone:zones,security:securityProfile.securityType}"     --output json
-
-az vm list-sizes     --location $LOCATION     --query "[?name=='Standard_D4s_v5' || name=='Standard_E4s_v5'].{name:name,numberOfCores:numberOfCores,memoryInMb:memoryInMb,maxDataDiskCount:maxDataDiskCount}"     --output table
-
-az vm update     --resource-group $RG     --name $VM_NAME     --set tags.reviewArea=disk-performance-resilience tags.owner=platform-team     --output json
-```
-
-Sample output:
-
-```json
-{
-  "name": "vm-app-001",
-  "size": "Standard_D4s_v5",
-  "zone": [
-    "1"
-  ],
-  "security": "TrustedLaunch"
-}
-```
-
-Operational note:
-
-- Re-run the same validation after major changes such as resizing, disk migration, subnet moves, image changes, or patching policy updates.
-- Capture before and after evidence so future responders can distinguish regressions from steady-state behavior.
-
-### Practice 5: Instrument capacity and recovery from day one
-
-Why: Azure VM incidents often start with mismatched expectations between the workload profile and the infrastructure envelope.
-How: Document expected concurrency, memory footprint, disk behavior, failover design, and operator access before standardizing the deployment pattern.
-Validation: Review Azure Monitor metrics, guest telemetry, and change records together rather than relying on one signal source.
-
-#### Monitoring, recovery, and proof
-
-- Collect platform metrics, guest metrics, boot diagnostics, and activity logs into a common operational view.
-- Test backup restore, serial console access, and extension recovery before calling the platform ready.
-- Alert on sustained symptoms such as disk latency, heartbeat gaps, failed backups, and denied management access.
-
-### CLI example: disk and storage best practices review
-
-```bash
-az vm show     --resource-group $RG     --name $VM_NAME     --query "{name:name,size:hardwareProfile.vmSize,zone:zones,security:securityProfile.securityType}"     --output json
-
-az vm list-sizes     --location $LOCATION     --query "[?name=='Standard_D4s_v5' || name=='Standard_E4s_v5'].{name:name,numberOfCores:numberOfCores,memoryInMb:memoryInMb,maxDataDiskCount:maxDataDiskCount}"     --output table
-
-az vm update     --resource-group $RG     --name $VM_NAME     --set tags.reviewArea=disk-performance-resilience tags.owner=platform-team     --output json
-```
-
-Sample output:
-
-```json
-{
-  "name": "vm-app-001",
-  "size": "Standard_D4s_v5",
-  "zone": [
-    "1"
-  ],
-  "security": "TrustedLaunch"
-}
-```
-
-Operational note:
-
-- Re-run the same validation after major changes such as resizing, disk migration, subnet moves, image changes, or patching policy updates.
-- Capture before and after evidence so future responders can distinguish regressions from steady-state behavior.
-
-### Practice 6: Use cost controls that match workload criticality
-
-Why: Azure VM incidents often start with mismatched expectations between the workload profile and the infrastructure envelope.
-How: Document expected concurrency, memory footprint, disk behavior, failover design, and operator access before standardizing the deployment pattern.
-Validation: Review Azure Monitor metrics, guest telemetry, and change records together rather than relying on one signal source.
-
-#### Cost optimization without self-sabotage
-
-- Use **Reserved Instances** or **Savings Plans** for stable 24x7 production fleets only after rightsizing.
-- Use **Spot VMs** for interruptible batch, CI, or non-critical workers with checkpointing.
-- Apply **auto-shutdown** to development, training, and break-glass environments where deallocation is acceptable.
-- Review unattached disks, oversized NIC-enabled gateways, and forgotten jump hosts monthly.
-
-### CLI example: disk and storage best practices review
-
-```bash
-az vm show     --resource-group $RG     --name $VM_NAME     --query "{name:name,size:hardwareProfile.vmSize,zone:zones,security:securityProfile.securityType}"     --output json
-
-az vm list-sizes     --location $LOCATION     --query "[?name=='Standard_D4s_v5' || name=='Standard_E4s_v5'].{name:name,numberOfCores:numberOfCores,memoryInMb:memoryInMb,maxDataDiskCount:maxDataDiskCount}"     --output table
-
-az vm update     --resource-group $RG     --name $VM_NAME     --set tags.reviewArea=disk-performance-resilience tags.owner=platform-team     --output json
-```
-
-Sample output:
-
-```json
-{
-  "name": "vm-app-001",
-  "size": "Standard_D4s_v5",
-  "zone": [
-    "1"
-  ],
-  "security": "TrustedLaunch"
-}
-```
-
-Operational note:
-
-- Re-run the same validation after major changes such as resizing, disk migration, subnet moves, image changes, or patching policy updates.
-- Capture before and after evidence so future responders can distinguish regressions from steady-state behavior.
+| Element | Purpose |
+|---|---|
+| `$RG` | Resource group containing the VM resources. |
+| `$VM_NAME` | Target virtual machine name. |
+| `$LOCATION` | Azure region for regional resource discovery or creation. |
+| `--resource-group` | Scopes the command to the intended resource group. |
+| `--name` | Identifies the resource being created, read, updated, or deleted. |
+| `--query` | Filters the response so operators capture only the needed evidence. |
+| `--output` | Controls the output format for logs, scripts, or human review. |
+| `--location` | Selects the Azure region for regional resources or SKU lookup. |
+| `--set` | Updates one or more resource properties or tags. |
+| Expected result | Command succeeds and returns the requested Azure resource state or operation result. |
 
 ## Common Mistakes / Anti-Patterns
 
-### Anti-Pattern 1: Sizing by vCPU count alone
-
-**What happens**: Teams compare only CPU and ignore memory-to-core ratio, premium storage needs, and aggregate disk or network caps.
-
-**Why it is wrong**: It hides the real bottleneck or expands risk in a way that is expensive to reverse during an incident.
-
-**Correct approach**: Choose VM families based on workload profile and validate with guest plus Azure Monitor metrics.
-
-```bash
-az vm show \
-    --resource-group $RG \
-    --name $VM_NAME \
-    --query "{size:hardwareProfile.vmSize,priority:priority,evictionPolicy:evictionPolicy,provisioningState:provisioningState}" \
-    --output json
-```
-
-### Anti-Pattern 2: Public management ports as the default
-
-**What happens**: Opening 3389 or 22 on internet-facing NICs turns every scanning event into an operations problem.
-
-**Why it is wrong**: It hides the real bottleneck or expands risk in a way that is expensive to reverse during an incident.
-
-**Correct approach**: Route administration through Azure Bastion, VPN, or ExpressRoute and pair with JIT policies.
-
-```bash
-az vm show \
-    --resource-group $RG \
-    --name $VM_NAME \
-    --query "{size:hardwareProfile.vmSize,priority:priority,evictionPolicy:evictionPolicy,provisioningState:provisioningState}" \
-    --output json
-```
-
-### Anti-Pattern 3: Treating Premium SSD as a universal fix
-
-**What happens**: Latency incidents continue because the VM SKU or caching mode is the bottleneck, not the disk label.
-
-**Why it is wrong**: It hides the real bottleneck or expands risk in a way that is expensive to reverse during an incident.
-
-**Correct approach**: Review disk SKU, host caching, queue depth, and VM aggregate throughput together.
-
-```bash
-az vm show \
-    --resource-group $RG \
-    --name $VM_NAME \
-    --query "{size:hardwareProfile.vmSize,priority:priority,evictionPolicy:evictionPolicy,provisioningState:provisioningState}" \
-    --output json
-```
-
-### Anti-Pattern 4: Buying reservations before rightsizing
-
-**What happens**: Teams commit to waste by reserving oversized machines that should have been redesigned or deallocated.
-
-**Why it is wrong**: It hides the real bottleneck or expands risk in a way that is expensive to reverse during an incident.
-
-**Correct approach**: Rightsize first, then commit reserved capacity only for stable, always-on workloads.
-
-```bash
-az vm show \
-    --resource-group $RG \
-    --name $VM_NAME \
-    --query "{size:hardwareProfile.vmSize,priority:priority,evictionPolicy:evictionPolicy,provisioningState:provisioningState}" \
-    --output json
-```
+- Treating a VM as only a compute resource while ignoring disk, network, identity, and recovery controls.
+- Reusing a proof-of-concept SKU, image, or public access path in production without a fresh review.
+- Marking the design complete without captured Azure evidence and an owner for follow-up changes.
 
 ## Validation Checklist
 
-- [ ] Workload type is documented and mapped to an approved VM family
-- [ ] Disk tier, caching mode, and VM aggregate limits were reviewed together
-- [ ] Accelerated networking and proximity placement needs were evaluated
-- [ ] NSG, ASG, JIT, and identity controls were validated against the admin path
-- [ ] Reserved, Spot, and auto-shutdown decisions align to workload criticality
-- [ ] Backup, restore, and monitoring evidence exists for the current deployment
-
-## Cost Impact
-
-Good VM practice usually lowers cost by reducing overprovisioning and unnecessary public exposure, but some controls intentionally add spend. Bastion, Premium SSD, backup retention, and Azure Monitor are justified when they reduce outage and recovery cost. The right optimization target is **cost per reliable service outcome**, not the lowest compute bill.
-
-Practical cost review questions:
-
-- Does this workload truly need 24x7 uptime or can it deallocate outside business hours?
-- Are Premium SSD or Ultra Disk sized for peak demand, or are they hiding poor query patterns?
-- Are reserved purchases aligned to stable demand, or would a Savings Plan preserve more flexibility?
-- Did security or operations teams create long-lived jump hosts that should now be replaced with Bastion or ephemeral access patterns?
+- [ ] Workload owner, criticality, and support model are recorded.
+- [ ] VM size, disk tier, network path, access model, and recovery controls match the workload objective.
+- [ ] Azure CLI or portal evidence is captured after the change.
+- [ ] Exceptions are documented with an expiration date or follow-up issue.
 
 ## See Also
 
-- [Sizing and Image Selection](sizing-and-image-selection.md)
-- [Manage Disks](../operations/manage-disks.md)
-- [Managed Disk Types](../reference/managed-disk-types.md)
+- [Production Baseline](production-baseline.md)
+- [Operations](../operations/index.md)
+- [Troubleshooting](../troubleshooting/index.md)
 
 ## Sources
 
-- [Azure VM overview](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)
-- [Azure VM sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes)
-- [Azure Managed Disks performance](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance)
-- [Enable Ultra Disk](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/disks-enable-ultra-ssd)
-- [Accelerated networking overview](https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview)
-- [Proximity placement groups overview](https://learn.microsoft.com/en-us/azure/virtual-machines/co-location)
-- [Just-In-Time access](https://learn.microsoft.com/en-us/azure/defender-for-cloud/just-in-time-access-overview)
-- [Automate VM shutdown](https://learn.microsoft.com/en-us/azure/virtual-machines/auto-shutdown-vm)
-- [Availability options](https://learn.microsoft.com/en-us/azure/virtual-machines/availability)
-- [Monitor virtual machines](https://learn.microsoft.com/en-us/azure/virtual-machines/monitor-vm)
-- [Host caching guidance](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance)
+- [Managed Disks Overview](https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview)
+- [Disks Types](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types)
+- [Backup Azure Vms Introduction](https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction)

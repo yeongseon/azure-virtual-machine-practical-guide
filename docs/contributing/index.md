@@ -1,3 +1,19 @@
+---
+content_validation:
+  status: pending_review
+  last_reviewed: '2026-05-22'
+  reviewer: ai-agent
+  core_claims:
+  - claim: This document has source metadata and is queued for text-level Microsoft
+      Learn verification.
+    source: https://learn.microsoft.com/en-us/azure/virtual-machines/overview
+    verified: false
+  - claim: Core Azure VM guidance on this page should remain traceable to the listed
+      sources before it is marked verified.
+    source: https://learn.microsoft.com/en-us/azure/virtual-machines/overview
+    verified: false
+---
+
 # Contributing
 
 Thank you for your interest in contributing to Azure Virtual Machine Practical Guide!
@@ -114,11 +130,27 @@ Brief introduction
 ### CLI Commands
 ```bash
 # ALWAYS use long flags for readability
-az vm create --resource-group $RG --name $VM_NAME --image $IMAGE --location $LOCATION
+az vm create \
+    --resource-group $RG \
+    --name $VM_NAME \
+    --image $IMAGE \
+    --location $LOCATION
 
 # NEVER use short flags in documentation
 az vm create -g $RG -n $VM_NAME  # ❌ Don't do this
 ```
+
+| Element | Purpose |
+|---|---|
+| `$RG` | Resource group containing the VM resources. |
+| `$VM_NAME` | Target virtual machine name. |
+| `$IMAGE` | Environment variable supplied by the operator before running the command. |
+| `$LOCATION` | Azure region for regional resource discovery or creation. |
+| `--resource-group` | Scopes the command to the intended resource group. |
+| `--name` | Identifies the resource being created, read, updated, or deleted. |
+| `--image` | Selects the marketplace image for the VM OS. |
+| `--location` | Selects the Azure region for regional resources or SKU lookup. |
+| Expected result | Command succeeds and returns the requested Azure resource state or operation result. |
 
 ### Variables
 | Variable | Description | Example |

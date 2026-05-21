@@ -1,66 +1,123 @@
 ---
 content_sources:
   diagrams:
-  - id: operations-vmss-basics-autoscale-architecture
+  - id: operations-vmss-basics-runbook-flow
     type: flowchart
     source: mslearn-adapted
-    description: Autoscale Architecture
+    description: Runbook flow
     based_on:
     - https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview
     - https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes
-    - https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
+    - https://learn.microsoft.com/en-us/cli/azure/vmss
+content_validation:
+  status: pending_review
+  last_reviewed: '2026-05-22'
+  reviewer: ai-agent
+  core_claims:
+  - claim: This document has source metadata and is queued for text-level Microsoft
+      Learn verification.
+    source: https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview
+    verified: false
+  - claim: Core Azure VM guidance on this page should remain traceable to the listed
+      sources before it is marked verified.
+    source: https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview
+    verified: false
 ---
 
 # VMSS Basics
 
-Virtual Machine Scale Sets (VMSS) allow you to create and manage a group of load-balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule.
+Use this runbook to inspect and operate Virtual Machine Scale Sets used for repeatable VM capacity.
 
-## Autoscale Architecture
+## Prerequisites
 
-<!-- diagram-id: operations-vmss-basics-autoscale-architecture -->
+- Azure CLI is installed and authenticated with the target subscription.
+- Required variables are set before commands are run: `RG`, `VM_NAME`, and any resource-specific names in the command tables.
+- The operator has permission to read and change the VM, disks, network interfaces, and monitoring resources involved in the procedure.
+- A maintenance window and rollback owner are identified for production changes.
+
+## When to Use
+
+A stateless worker tier needs controlled scale-out with consistent images and health checks.
+
+<!-- diagram-id: operations-vmss-basics-runbook-flow -->
 ```mermaid
-graph TD
-    A[User Traffic] --> B[Azure Load Balancer]
-    B --> C[VMSS Instance 1]
-    B --> D[VMSS Instance 2]
-    E[Autoscale Engine] -- Monitors --> F[Azure Monitor Metrics]
-    F -- Triggers --> E
-    E -- Action --> G[Scale Out / In]
-    G --> H[Update Capacity]
+flowchart TD
+    A[Confirm prerequisites] --> B[Capture pre-change evidence]
+    B --> C[Run operation]
+    C --> D[Verify Azure state]
+    D --> E[Record rollback or follow-up]
 ```
 
-## Scaling Modes Comparison
+## Procedure
 
-VMSS provides two distinct orchestration modes to balance consistency with flexibility.
+1. Confirm whether the scale set uses flexible or uniform orchestration mode.
+2. Review instance count, upgrade policy, health model, and image version before scaling.
+3. Scale in small steps and validate application health after each change.
+4. Keep image and extension changes separate from capacity-only changes where possible.
 
-| Feature | Uniform Mode | Flexible Mode |
-| :--- | :--- | :--- |
-| **VM Consistency** | Identical (Image-based) | Mix of images, sizes, and spot |
-| **Instance Count** | Up to 1,000 | Up to 1,000 |
-| **Fault Domain** | Managed by scale set | Managed by Azure platform |
-| **Use Case** | Stateless web farms | Large scale distributed workloads |
+### Command sequence
 
-## Scaling Rules
+```bash
+az vmss show \
+    --resource-group $RG \
+    --name $VMSS_NAME \
+    --query "{name:name,sku:sku.name,capacity:sku.capacity,orchestration:orchestrationMode}" \
+    --output json
 
-Autoscale rules determine how the environment adapts to changes in workload or time.
+az vmss scale \
+    --resource-group $RG \
+    --name $VMSS_NAME \
+    --new-capacity 3 \
+    --output json
+```
 
-!!! note
-    Uniform mode is best for workloads where every node performs exactly the same task.
+| Element | Purpose |
+|---|---|
+| `$RG` | Resource group containing the VM resources. |
+| `$VMSS_NAME` | Virtual Machine Scale Set name. |
+| `--resource-group` | Scopes the command to the intended resource group. |
+| `--name` | Identifies the resource being created, read, updated, or deleted. |
+| `--query` | Filters the response so operators capture only the needed evidence. |
+| `--output` | Controls the output format for logs, scripts, or human review. |
+| `--new-capacity` | Azure CLI option used to scope or shape the operation. |
+| Expected result | Command succeeds and returns the requested Azure resource state or operation result. |
 
-!!! warning
-    Autoscale rules should have a "cool-down" period to prevent "flapping" (repeated scaling actions in a short time).
+## Verification
 
-!!! tip
-    Use Flexible mode to combine Spot and Pay-As-You-Go instances in the same scale set to optimize costs.
+```bash
+az vmss list-instances \
+    --resource-group $RG \
+    --name $VMSS_NAME \
+    --query "[].{name:name,provisioningState:provisioningState}" \
+    --output table
+```
+
+| Element | Purpose |
+|---|---|
+| `$RG` | Resource group containing the VM resources. |
+| `$VMSS_NAME` | Virtual Machine Scale Set name. |
+| `--resource-group` | Scopes the command to the intended resource group. |
+| `--name` | Identifies the resource being created, read, updated, or deleted. |
+| `--query` | Filters the response so operators capture only the needed evidence. |
+| `--output` | Controls the output format for logs, scripts, or human review. |
+| Expected result | Command succeeds and returns the requested Azure resource state or operation result. |
+
+Confirm that the Azure output and guest/application checks match the intended post-change state.
+
+## Rollback / Troubleshooting
+
+- If the command fails, capture the error, Activity Log entry, and current resource state before retrying.
+- If guest health is degraded after the change, revert to the documented previous size, disk setting, access rule, or restore point.
+- Escalate when Azure reports regional capacity, unsupported SKU, policy denial, or backup/replication lock conflicts.
 
 ## See Also
 
-- [Compute Model](../platform/compute-model.md)
-- [Monitoring and Alerting](monitoring-and-alerting.md)
-- [Availability Options](../reference/availability-options.md)
+- [Production Baseline](../best-practices/production-baseline.md)
+- [Monitoring Best Practices](../best-practices/monitoring-best-practices.md)
+- [Troubleshooting Playbooks](../troubleshooting/playbooks/index.md)
 
 ## Sources
 
-- [What are Virtual Machine Scale Sets?](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview)
-- [Orchestration modes](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes)
-- [Autoscale overview](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview)
+- [Overview](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview)
+- [Virtual Machine Scale Sets Orchestration Modes](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes)
+- [Vmss](https://learn.microsoft.com/en-us/cli/azure/vmss)

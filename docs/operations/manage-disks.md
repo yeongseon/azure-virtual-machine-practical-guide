@@ -1,61 +1,124 @@
 ---
 content_sources:
   diagrams:
-  - id: operations-manage-disks-disk-management-workflow
+  - id: operations-manage-disks-runbook-flow
     type: flowchart
     source: mslearn-adapted
-    description: Disk Management Workflow
+    description: Runbook flow
     based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/windows/attach-managed-disk-portal
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-change-performance
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-enable-host-based-encryption-portal
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types
+    - https://learn.microsoft.com/en-us/cli/azure/disk
+content_validation:
+  status: pending_review
+  last_reviewed: '2026-05-22'
+  reviewer: ai-agent
+  core_claims:
+  - claim: This document has source metadata and is queued for text-level Microsoft
+      Learn verification.
+    source: https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview
+    verified: false
+  - claim: Core Azure VM guidance on this page should remain traceable to the listed
+      sources before it is marked verified.
+    source: https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview
+    verified: false
 ---
 
 # Manage Disks
 
-Managing disks in Azure allows you to expand storage capacity or improve performance throughput. These operations can often be performed on running VMs with minimal disruption.
+Use this runbook to inspect, attach, resize, snapshot, or tune managed disks safely.
 
-## Disk Operation Matrix
+## Prerequisites
 
-| Operation | Downtime Required | CLI Command Example |
-| :--- | :--- | :--- |
-| **Attach Data Disk** | No | `az vm disk attach` |
-| **Detach Data Disk** | Recommended | `az vm disk detach` |
-| **Expand Size** | Usually no (online resize supported for most managed disks) | `az disk update --size-gb 1024` |
-| **Change Tier** | Yes (Stop/Deallocate) | `az disk update --sku Premium_LRS` |
+- Azure CLI is installed and authenticated with the target subscription.
+- Required variables are set before commands are run: `RG`, `VM_NAME`, and any resource-specific names in the command tables.
+- The operator has permission to read and change the VM, disks, network interfaces, and monitoring resources involved in the procedure.
+- A maintenance window and rollback owner are identified for production changes.
 
-## Disk Management Workflow
+## When to Use
 
-<!-- diagram-id: operations-manage-disks-disk-management-workflow -->
+A VM needs more data capacity or throughput, and the operator must avoid changing the wrong disk or exceeding VM limits.
+
+<!-- diagram-id: operations-manage-disks-runbook-flow -->
 ```mermaid
-graph TD
-    A[Identify Disk Need] --> B{Operation Type}
-    B -->|New Storage| C[Attach Managed Disk]
-    B -->|More Space| D[Resize Disk Online or Deallocate]
-    B -->|Better Perf| E[Stop VM/Deallocate]
-    D --> F[Resize in Portal/CLI]
-    E --> G[Update SKU: Std to Prem]
-    F --> H[Extend File System in OS]
-    C --> H
-    H --> I[Operation Complete]
+flowchart TD
+    A[Confirm prerequisites] --> B[Capture pre-change evidence]
+    B --> C[Run operation]
+    C --> D[Verify Azure state]
+    D --> E[Record rollback or follow-up]
 ```
 
-!!! warning
-    Decreasing the size of an Azure disk is NOT supported. You must create a new smaller disk and migrate data.
+## Procedure
 
-!!! note
-    Enable Encryption at Host to encrypt temp disk and disk caches.
+1. Map OS and data disks before making changes.
+2. Check VM size throughput limits and disk SKU limits together.
+3. Snapshot important disks before risky resizing or caching changes.
+4. Validate guest OS disk visibility and application health after the Azure-side change.
+
+### Command sequence
+
+```bash
+az vm show \
+    --resource-group $RG \
+    --name $VM_NAME \
+    --query "storageProfile.dataDisks[].{name:name,lun:lun,size:diskSizeGb,caching:caching,sku:managedDisk.storageAccountType}" \
+    --output table
+
+az disk show \
+    --resource-group $RG \
+    --name $DISK_NAME \
+    --query "{name:name,size:diskSizeGB,sku:sku.name,provisioningState:provisioningState}" \
+    --output json
+```
+
+| Element | Purpose |
+|---|---|
+| `$RG` | Resource group containing the VM resources. |
+| `$VM_NAME` | Target virtual machine name. |
+| `$DISK_NAME` | Managed disk being inspected or changed. |
+| `--resource-group` | Scopes the command to the intended resource group. |
+| `--name` | Identifies the resource being created, read, updated, or deleted. |
+| `--query` | Filters the response so operators capture only the needed evidence. |
+| `--output` | Controls the output format for logs, scripts, or human review. |
+| Expected result | Command succeeds and returns the requested Azure resource state or operation result. |
+
+## Verification
+
+```bash
+az monitor metrics list \
+    --resource $DISK_NAME \
+    --metric "Disk Read Operations/Sec" \
+    --interval PT5M \
+    --aggregation Average \
+    --output table
+```
+
+| Element | Purpose |
+|---|---|
+| `$DISK_NAME` | Managed disk being inspected or changed. |
+| `--resource` | Azure CLI option used to scope or shape the operation. |
+| `--metric` | Selects the Azure Monitor metric being queried. |
+| `--interval` | Sets metric aggregation interval. |
+| `--aggregation` | Sets metric aggregation function. |
+| `--output` | Controls the output format for logs, scripts, or human review. |
+| Expected result | Command succeeds and returns the requested Azure resource state or operation result. |
+
+Confirm that the Azure output and guest/application checks match the intended post-change state.
+
+## Rollback / Troubleshooting
+
+- If the command fails, capture the error, Activity Log entry, and current resource state before retrying.
+- If guest health is degraded after the change, revert to the documented previous size, disk setting, access rule, or restore point.
+- Escalate when Azure reports regional capacity, unsupported SKU, policy denial, or backup/replication lock conflicts.
 
 ## See Also
 
-- [Managed Disk Types](../reference/managed-disk-types.md)
-- [Snapshots and Images](snapshots-and-images.md)
-- [Disk and Storage Best Practices](../best-practices/disk-and-storage-best-practices.md)
+- [Production Baseline](../best-practices/production-baseline.md)
+- [Monitoring Best Practices](../best-practices/monitoring-best-practices.md)
+- [Troubleshooting Playbooks](../troubleshooting/playbooks/index.md)
 
 ## Sources
 
-- [Attach a data disk to a Windows VM](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/attach-managed-disk-portal)
-- [Expand virtual hard disks on a Linux VM](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks)
-- [Change the tier of a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-change-performance)
-- [Enable host-based encryption for disks](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-enable-host-based-encryption-portal)
+- [Managed Disks Overview](https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview)
+- [Disks Types](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types)
+- [Disk](https://learn.microsoft.com/en-us/cli/azure/disk)

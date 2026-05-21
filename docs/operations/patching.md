@@ -1,65 +1,121 @@
 ---
 content_sources:
   diagrams:
-  - id: operations-patching-update-management-flow
+  - id: operations-patching-runbook-flow
     type: flowchart
     source: mslearn-adapted
-    description: Update Management Flow
+    description: Runbook flow
     based_on:
     - https://learn.microsoft.com/en-us/azure/update-manager/overview
     - https://learn.microsoft.com/en-us/azure/virtual-machines/automatic-vm-guest-patching
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/maintenance-configurations
+    - https://learn.microsoft.com/en-us/cli/azure/vm
+content_validation:
+  status: pending_review
+  last_reviewed: '2026-05-22'
+  reviewer: ai-agent
+  core_claims:
+  - claim: This document has source metadata and is queued for text-level Microsoft
+      Learn verification.
+    source: https://learn.microsoft.com/en-us/azure/update-manager/overview
+    verified: false
+  - claim: Core Azure VM guidance on this page should remain traceable to the listed
+      sources before it is marked verified.
+    source: https://learn.microsoft.com/en-us/azure/update-manager/overview
+    verified: false
 ---
 
 # Patching
 
-Azure Update Manager centralizes compliance tracking and deployment of operating system updates. It handles security, critical, and other patch categories across both Linux and Windows environments.
+Use this runbook to assess and apply guest OS patches with controlled maintenance evidence.
 
-## Update Management Flow
+## Prerequisites
 
-<!-- diagram-id: operations-patching-update-management-flow -->
+- Azure CLI is installed and authenticated with the target subscription.
+- Required variables are set before commands are run: `RG`, `VM_NAME`, and any resource-specific names in the command tables.
+- The operator has permission to read and change the VM, disks, network interfaces, and monitoring resources involved in the procedure.
+- A maintenance window and rollback owner are identified for production changes.
+
+## When to Use
+
+A VM fleet must receive security updates while avoiding unplanned reboot impact.
+
+<!-- diagram-id: operations-patching-runbook-flow -->
 ```mermaid
-graph TD
-    A[Azure Update Manager] --> B[Assess VM Compliance]
-    B --> C{Missing Patches?}
-    C -- Yes --> D[Update Policy]
-    D --> E[Schedule Maintenance]
-    E --> F[Deploy Updates]
-    F --> G[Confirm Compliance]
-    C -- No --> B
+flowchart TD
+    A[Confirm prerequisites] --> B[Capture pre-change evidence]
+    B --> C[Run operation]
+    C --> D[Verify Azure state]
+    D --> E[Record rollback or follow-up]
 ```
 
-## Patch Orchestration Modes
+## Procedure
 
-Orchestration modes define how Azure manages the timing and execution of update installations.
+1. Confirm patch ownership and maintenance window for the VM.
+2. Run assessment before installing updates and review pending reboot state.
+3. Patch a canary or non-production VM before production waves.
+4. Validate application health and Azure Monitor signals after reboot.
 
-| Orchestration Mode | Control Level | Description | Use Case |
-| :--- | :--- | :--- | :--- |
-| **Automatic by OS** | Low | OS handles scheduling autonomously | Dev/Test or simple VMs |
-| **Automatic by Platform** | High | Azure schedules based on policy | Critical production workloads |
-| **Manual** | Full | Admin triggers updates via API/Portal | Complex cluster environments |
+### Command sequence
 
-## Update Policies
+```bash
+az vm assess-patches \
+    --resource-group $RG \
+    --name $VM_NAME \
+    --output json
 
-Maintenance configurations allow you to group multiple VMs and apply updates during predefined time windows.
+az vm install-patches \
+    --resource-group $RG \
+    --name $VM_NAME \
+    --maximum-duration PT2H \
+    --reboot-setting IfRequired \
+    --output json
+```
 
-!!! note
-    Azure Update Manager does not store update data itself. It uses the native OS update mechanisms like Windows Update or APT/YUM.
+| Element | Purpose |
+|---|---|
+| `$RG` | Resource group containing the VM resources. |
+| `$VM_NAME` | Target virtual machine name. |
+| `--resource-group` | Scopes the command to the intended resource group. |
+| `--name` | Identifies the resource being created, read, updated, or deleted. |
+| `--output` | Controls the output format for logs, scripts, or human review. |
+| `--maximum-duration` | Azure CLI option used to scope or shape the operation. |
+| `--reboot-setting` | Azure CLI option used to scope or shape the operation. |
+| Expected result | Command succeeds and returns the requested Azure resource state or operation result. |
 
-!!! warning
-    Some updates require a system reboot. Configure maintenance windows to include enough time for post-patch restarts.
+## Verification
 
-!!! tip
-    Use "Assess Now" to get immediate visibility into any new vulnerabilities released since the last scheduled assessment.
+```bash
+az vm get-instance-view \
+    --resource-group $RG \
+    --name $VM_NAME \
+    --output json
+```
+
+| Element | Purpose |
+|---|---|
+| `$RG` | Resource group containing the VM resources. |
+| `$VM_NAME` | Target virtual machine name. |
+| `--resource-group` | Scopes the command to the intended resource group. |
+| `--name` | Identifies the resource being created, read, updated, or deleted. |
+| `--output` | Controls the output format for logs, scripts, or human review. |
+| Expected result | Command succeeds and returns the requested Azure resource state or operation result. |
+
+Confirm that the Azure output and guest/application checks match the intended post-change state.
+
+## Rollback / Troubleshooting
+
+- If the command fails, capture the error, Activity Log entry, and current resource state before retrying.
+- If guest health is degraded after the change, revert to the documented previous size, disk setting, access rule, or restore point.
+- Escalate when Azure reports regional capacity, unsupported SKU, policy denial, or backup/replication lock conflicts.
 
 ## See Also
 
-- [Patching and Maintenance Best Practices](../best-practices/patching-and-maintenance-best-practices.md)
-- [Snapshots and Images](snapshots-and-images.md)
-- [Backup and Restore](backup-restore.md)
+- [Production Baseline](../best-practices/production-baseline.md)
+- [Monitoring Best Practices](../best-practices/monitoring-best-practices.md)
+- [Troubleshooting Playbooks](../troubleshooting/playbooks/index.md)
 
 ## Sources
 
-- [Azure Update Manager overview](https://learn.microsoft.com/en-us/azure/update-manager/overview)
-- [Update orchestration options](https://learn.microsoft.com/en-us/azure/virtual-machines/automatic-vm-guest-patching)
-- [Maintenance configurations](https://learn.microsoft.com/en-us/azure/virtual-machines/maintenance-configurations)
+- [Overview](https://learn.microsoft.com/en-us/azure/update-manager/overview)
+- [Automatic Vm Guest Patching](https://learn.microsoft.com/en-us/azure/virtual-machines/automatic-vm-guest-patching)
+- [Vm](https://learn.microsoft.com/en-us/cli/azure/vm)
