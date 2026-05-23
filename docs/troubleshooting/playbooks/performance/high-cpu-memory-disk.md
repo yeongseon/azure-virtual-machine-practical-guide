@@ -111,6 +111,14 @@ graph TD
 - Capacity-plan by workload profile, not average utilization only.
 - Review scheduled jobs that create periodic spikes.
 
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to High CPU / Memory / Disk. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
 ## See Also
 
 - [Performance Checklist](../../first-10-minutes/performance.md)

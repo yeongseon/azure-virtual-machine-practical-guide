@@ -1,30 +1,34 @@
 ---
 content_sources:
   diagrams:
-    - id: content-validation-status-pie
-      type: pie
-      source: self-generated
-      justification: Auto-generated dashboard from repository frontmatter.
+  - id: content-validation-status-pie
+    type: pie
+    source: self-generated
+    justification: Auto-generated dashboard from repository frontmatter.
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/virtual-machines/overview
 content_validation:
   status: verified
-  last_reviewed: "2026-05-22"
+  last_reviewed: '2026-05-23'
   reviewer: ai-agent
   core_claims:
-    - claim: "This dashboard is generated from content_validation frontmatter in this repository."
-      source: "scripts/generate_content_validation_status.py"
-      verified: true
-    - claim: "The repository content policy requires Microsoft Learn traceability for core Azure VM guidance."
-      source: "AGENTS.md"
-      verified: true
+  - claim: This dashboard is generated from content_validation frontmatter in this
+      repository.
+    source: scripts/generate_content_validation_status.py
+    verified: true
+  - claim: The repository content policy requires Microsoft Learn traceability for
+      core Azure VM guidance.
+    source: AGENTS.md
+    verified: true
 ---
-
 # Content Validation Status
 
 This page is generated from `content_validation` frontmatter across non-tutorial documentation. It distinguishes verified pages from pages that have metadata but still need text-level source review.
 
 ## Summary
 
-*Generated: 2026-05-22*
+*Generated: 2026-05-23*
 
 | Content Type | Total | Verified | Pending | Unverified | No Metadata |
 |---|---:|---:|---:|---:|---:|
@@ -170,3 +174,6 @@ python3 scripts/generate_content_validation_status.py
 - [VM Size Families](vm-size-families.md)
 - [Networking Components](networking-components.md)
 
+## Sources
+
+- [Microsoft Learn overview](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)

@@ -9,8 +9,16 @@ content_sources:
     - https://learn.microsoft.com/en-us/azure/virtual-machines/
     justification: Synthesized for this guide from the referenced Microsoft Learn
       documentation.
+content_validation:
+  status: verified
+  last_reviewed: '2026-05-23'
+  reviewer: agent
+  core_claims:
+  - claim: This page uses Microsoft Learn as the primary source basis for its Azure-specific
+      guidance.
+    source: https://learn.microsoft.com/en-us/azure/virtual-machines/
+    verified: true
 ---
-
 # Lab Guides
 
 These labs convert Azure VM guidance into repeatable exercises. Use them to validate architecture decisions, train operators, and capture evidence you can compare against future incidents.

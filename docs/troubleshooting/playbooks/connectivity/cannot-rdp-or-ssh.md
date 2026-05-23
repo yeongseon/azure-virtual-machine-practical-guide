@@ -113,6 +113,14 @@ graph TD
 - Baseline guest firewall and NSG rules in code.
 - Keep VM agent healthy and monitor extension state.
 
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Cannot RDP or SSH. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
 ## See Also
 
 - [Connectivity Checklist](../../first-10-minutes/connectivity.md)

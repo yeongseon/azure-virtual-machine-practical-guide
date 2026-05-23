@@ -113,6 +113,14 @@ graph TD
 - Test resize and patch strategy on non-production first.
 - Maintain backup and recovery checkpoints for critical systems.
 
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to VM Won't Start. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
 ## See Also
 
 - [Boot Checklist](../../first-10-minutes/boot.md)

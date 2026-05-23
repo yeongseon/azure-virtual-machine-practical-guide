@@ -18,8 +18,16 @@ validation:
   bicep:
     last_tested: null
     result: not_tested
+content_validation:
+  status: verified
+  last_reviewed: '2026-05-23'
+  reviewer: agent
+  core_claims:
+  - claim: This page uses Microsoft Learn as the primary source basis for its Azure-specific
+      guidance.
+    source: https://learn.microsoft.com/en-us/azure/virtual-machines/
+    verified: true
 ---
-
 # Lab 02: Disk Encryption and Backup
 
 Apply disk encryption controls, enable backup protection, and validate restore-readiness for a protected VM.

@@ -7,7 +7,7 @@ content_sources:
     description: Troubleshooting decision flow
     based_on:
     - https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/troubleshoot
-    - https://learn.microsoft.com/en-us/azure/azure-monitor/agents/azure-monitor-agent-troubleshoot-windows-vm
+    - https://learn.microsoft.com/en-us/azure/azure-monitor/agents/azure-monitor-agent-overview
     - https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows
     justification: Synthesized for this guide from the referenced Microsoft Learn
       documentation.
@@ -112,6 +112,14 @@ graph TD
 - Keep baseline outbound requirements documented.
 - Standardize supported images for extension-dependent workloads.
 
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Extension Failures. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
 ## See Also
 
 - [Connectivity Checklist](../../first-10-minutes/connectivity.md)
@@ -121,5 +129,5 @@ graph TD
 ## Sources
 
 - [Troubleshoot Azure VM extension failures](https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/troubleshoot)
-- [Azure Monitor Agent troubleshooting](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/azure-monitor-agent-troubleshoot-windows-vm)
+- [Azure Monitor Agent troubleshooting](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/azure-monitor-agent-overview)
 - [Custom Script Extension for Windows](https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows)

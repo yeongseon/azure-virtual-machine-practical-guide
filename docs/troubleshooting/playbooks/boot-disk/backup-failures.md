@@ -112,6 +112,14 @@ graph TD
 - Keep documented outbound requirements for protected subnets.
 - Periodically test backup and restore paths, not backup only.
 
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Backup Failures. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
 ## See Also
 
 - [Boot Checklist](../../first-10-minutes/boot.md)

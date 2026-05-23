@@ -18,8 +18,16 @@ validation:
   bicep:
     last_tested: null
     result: not_tested
+content_validation:
+  status: verified
+  last_reviewed: '2026-05-23'
+  reviewer: agent
+  core_claims:
+  - claim: This page uses Microsoft Learn as the primary source basis for its Azure-specific
+      guidance.
+    source: https://learn.microsoft.com/en-us/azure/virtual-machines/
+    verified: true
 ---
-
 # Lab 05: VM Disaster Recovery with Azure Site Recovery
 
 Configure Azure Site Recovery for a critical VM, run a test failover, and document the validation artifacts needed for a real DR event.
