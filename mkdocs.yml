@@ -80,7 +80,7 @@ nav:
 - Start Here:
   - start-here/index.md
   - Overview: start-here/overview.md
-  - Learning Path: start-here/learning-path.md
+  - Learning Paths: start-here/learning-paths.md
   - VM vs Other Compute: start-here/vm-vs-other-compute.md
   - Common Scenarios: start-here/common-scenarios.md
 - Platform:

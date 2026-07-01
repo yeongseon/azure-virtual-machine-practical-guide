@@ -21,7 +21,7 @@ If you're new to Azure Virtual Machines or wondering where to begin with this gu
 | Page | Description |
 |------|-------------|
 | [Overview](overview.md) | Understanding Azure VMs as Infrastructure as a Service (IaaS) and their core capabilities. |
-| [Learning Path](learning-path.md) | Tailored reading sequences based on your specific role (Architect, Admin, Developer). |
+| [Learning Paths](learning-paths.md) | Tailored reading sequences based on your specific role (Architect, Admin, Developer). |
 | [VM vs Other Compute](vm-vs-other-compute.md) | How VMs compare to App Service, Azure Functions, and Azure Container Apps. |
 | [Common Scenarios](common-scenarios.md) | Practical real-world use cases where VMs are the optimal architectural choice. |
 
@@ -44,7 +44,7 @@ graph TD
 ## See Also
 
 - [Azure VM Overview](overview.md)
-- [Learning Path](learning-path.md)
+- [Learning Paths](learning-paths.md)
 - [Common VM Scenarios](common-scenarios.md)
 
 ## Sources
