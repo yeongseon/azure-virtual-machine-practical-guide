@@ -353,20 +353,20 @@ content_sources:
 
 ### Text Content Validation
 
-Every non-tutorial document should include a `content_validation` block in frontmatter to track the verification status of its core claims.
+Factual-claim documents include a `content_validation` block in frontmatter to track the verification status of their core claims. See `## Content Validation Scope` above for the required paths and out-of-scope paths.
 
 ```yaml
 ---
 content_sources:
   - type: mslearn-adapted
-    url: https://learn.microsoft.com/azure/virtual-machines/...
+    url: https://learn.microsoft.com/en-us/azure/virtual-machines/...
 content_validation:
   status: verified  # verified | pending_review | unverified
   last_reviewed: 2026-04-12
   reviewer: agent  # agent | human
   core_claims:
     - claim: "Azure VMs support multiple OS images"
-      source: https://learn.microsoft.com/azure/virtual-machines/overview
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/overview
       verified: true
 ---
 ```
