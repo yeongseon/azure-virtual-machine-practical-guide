@@ -1,10 +1,11 @@
 ---
+description: Diagram source metadata policy for the Azure Virtual Machines practical guide, and the CI tooling that keeps that metadata honest today.
 content_sources:
   diagrams:
   - id: reference-content-validation-status-summary
     type: pie
     source: self-generated
-    description: Summary
+    description: Summary of diagram source declarations as of the snapshot date below.
     based_on:
     - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
     - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview
@@ -12,28 +13,23 @@ content_sources:
     - https://learn.microsoft.com/en-us/azure/virtual-machines/availability
     - https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview
     - https://learn.microsoft.com/en-us/azure/reliability/reliability-virtual-machines
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    justification: Manually authored summary of repository diagram-source declarations. Not regenerated from live repo state.
 ---
 
 # Content Source Validation Status
 
-This page tracks the source validation status of all documentation content, including diagrams and text content. All content must be traceable to official Microsoft Learn documentation.
+This page describes how diagram and content sources are declared in this repository, and what tooling is available today to validate those declarations.
 
-## Summary
+!!! note "Current state"
+    Diagram-level source metadata (`content_sources.diagrams`) is used across the repository, and the tooling below runs in CI to keep that metadata honest. **Document-level `content_validation` metadata is not yet adopted in this repository** — the schema is documented in [AGENTS.md](https://github.com/yeongseon/azure-virtual-machine-practical-guide/blob/main/AGENTS.md) as an aspirational policy and is tracked as future work. Do not read the absence of `content_validation` blocks as a validation failure; read it as "not yet implemented."
 
-*Generated: 2026-04-10*
+## Diagram Inventory Snapshot
 
-| Content Type | Total | ✅ MSLearn Sourced | ⚠️ Self-Generated | ❌ No Source |
+*Snapshot date: 2026-04-10. Manually authored — this table does not update automatically when diagrams are added or reclassified.*
+
+| Content Type | Total | MSLearn Adapted | Self-Generated | No Source |
 |---|---:|---:|---:|---:|
 | Mermaid Diagrams | 90 | 50 | 40 | 0 |
-| Text Sections | — | — | — | — |
-
-!!! warning "Validation Required"
-    All mermaid diagrams now include source metadata. Self-generated diagrams remain acceptable only when they clearly cite the Microsoft Learn articles they were synthesized from.
-    
-    1. Linked to an official MSLearn URL, OR
-    2. Marked as `self-generated` with clear justification
 
 <!-- diagram-id: reference-content-validation-status-summary -->
 ```mermaid
@@ -42,101 +38,96 @@ pie title Content Source Status
     "Self-Generated" : 40
 ```
 
-## Validation Categories
+A text-sections row was previously shown on this page with placeholder dashes. It has been removed because no text-level `content_validation` metadata is currently enforced or inventoried.
 
-### Source Types
+## Source Type Policy
 
-| Type | Description | Allowed? |
+The `content_sources.diagrams[].source` field must be one of the three values below. These are the exact set accepted by `scripts/validate_content_sources.py` today; any other value causes CI to fail.
+
+| Type | Description | Additional requirement |
 |---|---|---|
-| `mslearn` | Content directly from or based on Microsoft Learn | ✅ Yes |
-| `mslearn-adapted` | MSLearn content adapted for this guide | ✅ Yes (with source URL) |
-| `self-generated` | Original content created for this guide | ⚠️ Requires justification |
-| `community` | From community sources (Stack Overflow, GitHub) | ❌ Not for core content |
-| `unknown` | Source not documented | ❌ Must be validated |
+| `mslearn` | Content directly from Microsoft Learn | `mslearn_url` OR a non-empty `based_on` list |
+| `mslearn-adapted` | Content adapted or synthesized from Microsoft Learn | `mslearn_url` OR a non-empty `based_on` list |
+| `self-generated` | Original content created for this guide | `justification` field |
 
-### Diagram Validation Status
+!!! note "Broader source vocabulary in AGENTS.md"
+    [AGENTS.md](https://github.com/yeongseon/azure-virtual-machine-practical-guide/blob/main/AGENTS.md) also references `community` and `unknown` source categories as part of the aspirational content-validation policy. Those values are **not** currently accepted by the validator on any Mermaid page in this repository; they belong to the same "not yet implemented" bucket as document-level `content_validation` metadata.
 
-#### Diagram Inventory (90 total)
+## How Diagram Sources Are Declared
 
-| File | Diagrams | Source Type | MSLearn URL | Status |
-|---|---:|---|---|---|
-| All Mermaid diagrams | 90 | mixed (`mslearn-adapted`, `self-generated`) | See document frontmatter | ✅ Validated |
-
-## How to Validate Content
-
-### Step 1: Add Source Metadata to Frontmatter
-
-Add `content_sources` to the document's YAML frontmatter:
+### Step 1: Add `content_sources` to the document frontmatter
 
 ```yaml
 ---
-title: How Azure Virtual Machines Work
 content_sources:
   diagrams:
-    - id: architecture-overview
+    - id: architecture
       type: flowchart
-      source: mslearn
-      mslearn_url: https://learn.microsoft.com/en-us/azure/virtual-machines/
-      description: "Azure VM architecture overview"
-    - id: request-flow
-      type: sequence
-      source: self-generated
-      justification: "Synthesized from multiple MSLearn articles for clarity"
-      based_on:
-        - https://learn.microsoft.com/en-us/azure/virtual-machines/
-  text:
-    - section: "## Summary"
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/en-us/azure/virtual-machines/
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
 ---
 ```
 
-### Step 2: Mark Diagram Blocks with IDs
-
-Add an HTML comment before each mermaid block to identify it:
+### Step 2: Mark each Mermaid block with its `diagram-id`
 
 ```markdown
-<!-- diagram-id: architecture-overview -->
-```mermaid
+<!-- diagram-id: architecture -->
+​```mermaid
 flowchart TD
-    A[Client] --> B[Azure VM]
-```
+    A --> B
+​```
 ```
 
-### Step 3: Run Validation Script
+### Step 3: Run the diagram source validator
 
 ```bash
 python3 scripts/validate_content_sources.py
 ```
 
-### Step 4: Update This Page
+This is the same validator that runs in the `Validate Content Sources` CI workflow.
 
-```bash
-python3 scripts/generate_content_validation_status.py
-```
+## Tooling Available in This Repository
 
-## Validation Rules
+The following scripts run against the repository today. There is no dashboard-generator script in this repository, so this page is maintained manually rather than being regenerated.
 
-!!! danger "Mandatory Rules"
-    1. **Platform diagrams** (`docs/platform/`) MUST have MSLearn sources
-    2. **Architecture diagrams** MUST reference official Microsoft documentation
-    3. **Troubleshooting flowcharts** MAY be self-generated if they synthesize MSLearn content
-    4. **Self-generated content** MUST have `justification` field explaining the source basis
+| Script | Purpose | Where it runs |
+|---|---|---|
+| `scripts/validate_content_sources.py` | Enforces that every Mermaid block has a `diagram-id` HTML comment and a matching `content_sources.diagrams[]` entry with a valid `source` value. | **Blocking** PR check (`Validate Content Sources`) |
+| `scripts/validate_mermaid_format.py` | Enforces Mermaid orientation rules and formatting conventions. | **Blocking** PR check (same workflow) |
+| `scripts/validate_mermaid_syntax.py` | Parses each Mermaid block to catch syntax errors before build. | **Blocking** PR check (same workflow) |
+| `scripts/validate_mslearn_urls.py` | Checks that Microsoft Learn URLs cited in `content_sources` are reachable. | **Reporting only:** runs on push to `main` with `continue-on-error`, not a blocking PR gate |
+| `scripts/generate_validation_status.py` | Regenerates `docs/reference/validation-status.md` — the **tutorial** validation dashboard, not this page. | Manual invocation by contributors |
 
-## Official MSLearn Architecture References
+There is intentionally no `scripts/generate_content_validation_status.py` in this repository. Earlier revisions of this page referenced one, which was misleading; this page is authored by hand.
 
-Use these official sources for diagram validation:
+## Validation Rules Enforced Today
 
-| Topic | MSLearn URL |
+!!! danger "Enforced in CI"
+    1. Every Mermaid block must have a `diagram-id` HTML comment.
+    2. Every declared `diagram-id` must have a matching `content_sources.diagrams[]` entry.
+    3. `mslearn-adapted` and `mslearn` diagrams must have either an `mslearn_url` field or a **non-empty** `based_on` list. The validator does **not** currently verify that every `based_on` URL points to `learn.microsoft.com`; that is a repository convention, not an enforced rule.
+    4. `self-generated` diagrams must include a `justification` field.
+    5. Mermaid syntax must parse successfully.
+
+## Official Microsoft Learn References
+
+Use these official sources when declaring diagram provenance:
+
+| Topic | Microsoft Learn URL |
 |---|---|
-| Azure Virtual Machines Overview | https://learn.microsoft.com/en-us/azure/virtual-machines/ |
-| VM Sizes | https://learn.microsoft.com/en-us/azure/virtual-machines/sizes |
-| VM Networking | https://learn.microsoft.com/en-us/azure/virtual-network/ |
-| VM Storage | https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types |
-| VM Backup | https://learn.microsoft.com/en-us/azure/backup/ |
-| VM Security | https://learn.microsoft.com/en-us/azure/security/fundamentals/virtual-machines-overview |
+| Azure Virtual Machines Overview | <https://learn.microsoft.com/en-us/azure/virtual-machines/> |
+| VM Sizes | <https://learn.microsoft.com/en-us/azure/virtual-machines/sizes> |
+| VM Networking | <https://learn.microsoft.com/en-us/azure/virtual-network/> |
+| VM Storage | <https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types> |
+| VM Backup | <https://learn.microsoft.com/en-us/azure/backup/> |
+| VM Security | <https://learn.microsoft.com/en-us/azure/security/fundamentals/virtual-machines-overview> |
 
 ## See Also
 
 - [Tutorial Validation Status](validation-status.md)
 - [Reference Index](index.md)
+
+## Sources
+
+- <https://learn.microsoft.com/en-us/azure/virtual-machines/>
