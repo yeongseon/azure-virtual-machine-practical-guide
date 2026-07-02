@@ -12,6 +12,7 @@ content_sources:
     - https://learn.microsoft.com/en-us/azure/bastion/bastion-overview
     - https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways
     - https://learn.microsoft.com/en-us/azure/private-link/private-link-overview
+    - https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses
 ---
 
 # Networking Components
@@ -24,7 +25,7 @@ Azure networking components provide the foundation for virtual machine communica
 | **Subnet** | Network segmentation | VNet | Address range, Delegation | Range too small for scale |
 | **NIC** | VM network interface | Subnet | IP (Static/Dynamic) | Modifying within OS only |
 | **NSG** | Traffic filter (L4) | Subnet/NIC | Security rules (Prioritized) | Rule priority overlaps |
-| **Public IP** | Internet connectivity | Region | SKU (Standard only; Basic retired 2025-09-30) | Zone-redundant by default |
+| **Public IP** | Internet connectivity | Region | SKU (Standard only; Basic retired 2025-09-30) | Zone behavior depends on region and SKU (non-zonal / zonal / zone-redundant) |
 | **Load Balancer** | L4 traffic distribution | VNet | Health probes, Rules | Forgetting health probe rules |
 | **App Gateway** | L7 load balancing | VNet | WAF, Backend pools | Complex certificate setup |
 | **Azure Bastion** | Secure RDP/SSH access | VNet | Subnet naming requirement | Using too small a subnet |
@@ -50,6 +51,9 @@ graph TD
 
     The Developer SKU is an exception: it uses shared infrastructure and does not require a dedicated subnet or public IP.
 
+!!! note "Standard public IP zone availability"
+    Standard SKU public IPs can be **zonal** (bound to a specific availability zone) or **zone-redundant** (spread across all zones in the region) when created in a region that supports availability zones. Standard **v2** IPs are always created as zone-redundant in AZ-enabled regions. In regions **without** availability zones, all public IPs are created as **non-zonal**. Once created, a public IP address cannot change its availability zone. Per the [current Microsoft Learn guidance](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses), formerly non-zonal Standard IPs in AZ-enabled regions are now zone-redundant by default.
+
 ## See Also
 
 - [Networking Basics](../platform/networking-basics.md)
@@ -63,3 +67,4 @@ graph TD
 - [Azure Bastion overview](https://learn.microsoft.com/en-us/azure/bastion/bastion-overview)
 - [Azure VPN Gateway overview](https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 - [Azure Private Link overview](https://learn.microsoft.com/en-us/azure/private-link/private-link-overview)
+- [Public IP addresses in Azure](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses)
