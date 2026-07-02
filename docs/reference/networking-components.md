@@ -24,7 +24,7 @@ Azure networking components provide the foundation for virtual machine communica
 | **Subnet** | Network segmentation | VNet | Address range, Delegation | Range too small for scale |
 | **NIC** | VM network interface | Subnet | IP (Static/Dynamic) | Modifying within OS only |
 | **NSG** | Traffic filter (L4) | Subnet/NIC | Security rules (Prioritized) | Rule priority overlaps |
-| **Public IP** | Internet connectivity | Region | SKU (Standard only; Basic retired 2025-09-30) | Zone-redundant by default |
+| **Public IP** | Internet connectivity | Region | SKU (Standard only; Basic retired 2025-09-30) | Zone behavior varies (regional / zonal / zone-redundant) |
 | **Load Balancer** | L4 traffic distribution | VNet | Health probes, Rules | Forgetting health probe rules |
 | **App Gateway** | L7 load balancing | VNet | WAF, Backend pools | Complex certificate setup |
 | **Azure Bastion** | Secure RDP/SSH access | VNet | Subnet naming requirement | Using too small a subnet |
@@ -49,6 +49,9 @@ graph TD
     Azure Bastion requires a dedicated subnet named `AzureBastionSubnet` with at least a `/26` address space for Basic, Standard, and Premium SKUs.
 
     The Developer SKU is an exception: it uses shared infrastructure and does not require a dedicated subnet or public IP.
+
+!!! note "Standard public IP zone availability"
+    Standard SKU public IPs can be created as **non-zonal**, **zonal** (bound to a specific availability zone), or **zone-redundant** (spread across all zones in a region). Zone-redundant behavior is only the default when the IP is created in a region that supports availability zones and the deployment does not specify a zone. Older or upgraded public IPs may remain non-zonal and do not automatically become zone-redundant.
 
 ## See Also
 
