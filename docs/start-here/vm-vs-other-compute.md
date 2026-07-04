@@ -58,7 +58,7 @@ Use this table to decide if a VM is truly necessary or if it's overkill for your
 ## See Also
 
 - [Azure VM Overview](overview.md)
-- [Common VM Scenarios](common-scenarios.md)
+- [Scenario Router](scenario-router.md)
 - [Common Anti-Patterns](../best-practices/common-anti-patterns.md)
 
 ## Sources

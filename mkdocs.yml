@@ -82,8 +82,8 @@ nav:
   - start-here/index.md
   - Overview: start-here/overview.md
   - Learning Paths: start-here/learning-paths.md
+  - Scenario Router: start-here/scenario-router.md
   - VM vs Other Compute: start-here/vm-vs-other-compute.md
-  - Common Scenarios: start-here/common-scenarios.md
 - Platform:
   - platform/index.md
   - How Azure VM Works: platform/how-azure-vm-works.md

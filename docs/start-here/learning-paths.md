@@ -51,7 +51,7 @@ Use this page to choose a reading path based on your role and goal. Each path is
 | Role | Goal | Time Budget | Start With |
 |---|---|---|---|
 | **Beginner** | Understand VMs and deploy your first one | 1-2 hours | [Overview](overview.md), [VM vs Other Compute](vm-vs-other-compute.md) |
-| **Operator** | Maintain, patch, and scale VMs day-to-day | 3-4 hours | [Common Scenarios](common-scenarios.md), [Operations Hub](../operations/index.md) |
+| **Operator** | Maintain, patch, and scale VMs day-to-day | 3-4 hours | [Scenario Router](scenario-router.md), [Operations Hub](../operations/index.md) |
 | **Architect** | Design VM topology, availability, and cost | 4-6 hours | [VM vs Other Compute](vm-vs-other-compute.md), [Best Practices Hub](../best-practices/index.md) |
 | **Troubleshooter** | Diagnose connectivity, boot, and performance issues | 2-4 hours + on-call reference | [Troubleshooting Hub](../troubleshooting/index.md), [Platform Hub](../platform/index.md) |
 
@@ -91,7 +91,7 @@ Read in order:
 
 1. [Overview](overview.md)
 2. [VM vs Other Compute](vm-vs-other-compute.md)
-3. [Common Scenarios](common-scenarios.md)
+3. [Scenario Router](scenario-router.md)
 4. [Platform Hub](../platform/index.md) — VM sizes, disks, images
 5. [Reference Hub](../reference/index.md) — CLI cheatsheet
 
@@ -125,7 +125,7 @@ flowchart TD
 
 Read in order:
 
-1. [Common Scenarios](common-scenarios.md)
+1. [Scenario Router](scenario-router.md)
 2. [Operations Hub](../operations/index.md) — patching, backups, scaling
 3. [Best Practices Hub](../best-practices/index.md) — production baseline
 4. [Platform Hub](../platform/index.md) — availability sets, availability zones
@@ -200,7 +200,7 @@ Read in order:
 1. [Troubleshooting Hub](../troubleshooting/index.md)
 2. [Platform Hub](../platform/index.md) — networking, disks, extensions
 3. [Operations Hub](../operations/index.md) — recovery workflows
-4. [Common Scenarios](common-scenarios.md)
+4. [Scenario Router](scenario-router.md)
 5. [Reference Hub](../reference/index.md) — diagnostic CLI reference
 
 ### Outcomes
@@ -232,7 +232,7 @@ Read in order:
 
 - [Azure VM Overview](overview.md)
 - [VM vs Other Compute Options](vm-vs-other-compute.md)
-- [Common Scenarios](common-scenarios.md)
+- [Scenario Router](scenario-router.md)
 - [Platform Hub](../platform/index.md)
 - [Operations Hub](../operations/index.md)
 - [Best Practices Hub](../best-practices/index.md)

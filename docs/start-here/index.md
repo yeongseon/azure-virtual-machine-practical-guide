@@ -23,7 +23,7 @@ If you're new to Azure Virtual Machines or wondering where to begin with this gu
 | [Overview](overview.md) | Understanding Azure VMs as Infrastructure as a Service (IaaS) and their core capabilities. |
 | [Learning Paths](learning-paths.md) | Tailored reading sequences based on your specific role (Architect, Admin, Developer). |
 | [VM vs Other Compute](vm-vs-other-compute.md) | How VMs compare to App Service, Azure Functions, and Azure Container Apps. |
-| [Common Scenarios](common-scenarios.md) | Practical real-world use cases where VMs are the optimal architectural choice. |
+| [Scenario Router](scenario-router.md) | Situation-to-destination router across plan, deploy, operate, and troubleshoot phases. |
 
 ## Why Virtual Machines?
 
@@ -45,7 +45,7 @@ graph TD
 
 - [Azure VM Overview](overview.md)
 - [Learning Paths](learning-paths.md)
-- [Common VM Scenarios](common-scenarios.md)
+- [Scenario Router](scenario-router.md)
 
 ## Sources
 - [Virtual Machines in Azure](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)

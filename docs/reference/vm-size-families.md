@@ -46,7 +46,7 @@ graph TD
 
 - [Compute Model](../platform/compute-model.md)
 - [Sizing and Image Selection](../best-practices/sizing-and-image-selection.md)
-- [Common VM Scenarios](../start-here/common-scenarios.md)
+- [Scenario Router](../start-here/scenario-router.md)
 
 ## Sources
 - [Azure virtual machine sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes)
