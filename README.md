@@ -2,6 +2,8 @@
 
 [English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md) | [简体中文](README.zh-CN.md)
 
+📘 Documentation site: <https://yeongseon.github.io/azure-virtual-machine-practical-guide/>
+
 A practical guide covering Azure VM platform internals, operations, and troubleshooting — grounded in MS Learn documentation.
 
 ## What's Inside
