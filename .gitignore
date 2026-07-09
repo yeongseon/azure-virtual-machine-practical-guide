@@ -1,1 +1,11 @@
 site/
+
+# Root-level debug/scratch screenshots (docs/assets/**/*.png stays legitimate)
+/*.png
+
+# Sisyphus (AI agent working files)
+.sisyphus/
+
+# Playwright MCP artifacts
+.playwright-mcp/
+.playwright-scripts/
