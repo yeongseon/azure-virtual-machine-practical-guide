@@ -82,6 +82,7 @@ nav:
   - start-here/index.md
   - Overview: start-here/overview.md
   - Learning Paths: start-here/learning-paths.md
+  - Repository Map: start-here/repository-map.md
   - Scenario Router: start-here/scenario-router.md
   - VM vs Other Compute: start-here/vm-vs-other-compute.md
 - Platform:
