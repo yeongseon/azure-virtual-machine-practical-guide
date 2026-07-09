@@ -142,7 +142,6 @@ nav:
   - Playbooks:
     - troubleshooting/playbooks/index.md
     - troubleshooting/playbooks/vm-boot-failures.md
-    - troubleshooting/playbooks/disk-performance-issues.md
     - troubleshooting/playbooks/network-connectivity-issues.md
     - troubleshooting/playbooks/rdp-ssh-connection-failures.md
     - Connectivity:
