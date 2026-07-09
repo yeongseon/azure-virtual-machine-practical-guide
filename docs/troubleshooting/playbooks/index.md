@@ -33,7 +33,7 @@ flowchart TD
 | Playbook | When to use it |
 |---|---|
 | [VM Boot Failures](vm-boot-failures.md) | The VM does not complete boot or never becomes remotely usable. |
-| [Disk Performance Issues](disk-performance-issues.md) | Latency, queue depth, or throughput bottlenecks affect the workload. |
+| [Disk Performance Issues](performance/disk-performance-issues.md) | Latency, queue depth, or throughput bottlenecks affect the workload. |
 | [Network Connectivity Issues](network-connectivity-issues.md) | East-west, north-south, or dependency traffic fails after network changes. |
 | [RDP and SSH Connection Failures](rdp-ssh-connection-failures.md) | Administrative sign-in or Bastion-based access fails. |
 | [Boot Diagnostics and Serial Console](boot-disk/boot-diagnostics-and-serial-console.md) | You need low-level evidence or recovery access after boot failure. |
@@ -50,7 +50,6 @@ flowchart TD
 
 - [Slow Performance](performance/slow-performance.md)
 - [High CPU / Memory / Disk](performance/high-cpu-memory-disk.md)
-- [Nested Disk Performance Playbook](performance/disk-performance-issues.md)
 
 ### Boot and Disk
 
