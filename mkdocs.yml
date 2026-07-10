@@ -47,6 +47,9 @@ plugins:
 - search
 - minify:
     minify_html: true
+- redirects:
+    redirect_maps:
+      troubleshooting/playbooks/disk-performance-issues.md: troubleshooting/playbooks/performance/disk-performance-issues.md
 validation:
   nav:
     omitted_files: warn
