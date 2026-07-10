@@ -15,6 +15,9 @@ content_sources:
 
 # Disk Performance Issues
 
+!!! note "Playbook consolidation"
+    Merged with the flat-URL variant `troubleshooting/playbooks/disk-performance-issues.md` on 2026-07-09 (PR #34). The subpath URL is now the sole home for this playbook; external references to the old flat URL are handled by an `mkdocs-redirects` HTTP-refresh page. This follow-up PR ports the disk-specific KQL queries that were originally in the flat-URL variant.
+
 ## 1. Summary
 
 ### Symptom
@@ -60,6 +63,44 @@ graph TD
 - Whether issue is read-heavy, write-heavy, or mixed.
 - Current caching settings on OS and data disks.
 - Whether Ultra Disk or Premium SSD v2 is involved.
+
+### 5.1 KQL Queries
+
+```kusto
+// Disk latency and throughput trend (requires VM Insights / azm.ms data collection rule)
+InsightsMetrics
+| where TimeGenerated > ago(6h)
+| where Namespace == "vm.azm.ms"
+| where Name in ("LogicalDiskAvgSecPerRead", "LogicalDiskAvgSecPerWrite", "LogicalDiskTransfersPerSec")
+| summarize AvgVal=avg(Val) by bin(TimeGenerated, 5m), Computer, Name
+| order by TimeGenerated asc
+```
+
+| Field | Interpretation |
+|---|---|
+| `TimeGenerated` | Incident sequence and correlation window. |
+| `Computer` | Confirms the signal belongs to the affected VM. |
+| `Name` / `AvgVal` | Distinguishes read-latency, write-latency, and transfer-rate saturation. |
+
+!!! tip "How to read this"
+    Compare these results with the last known healthy window. A change in shape matters more than a single absolute value.
+
+```kusto
+// Heartbeat plus incident correlation
+Heartbeat
+| where TimeGenerated > ago(6h)
+| summarize LastHeartbeat=max(TimeGenerated) by Computer, _ResourceId
+| join kind=leftouter (
+    AzureActivity
+    | where TimeGenerated > ago(6h)
+    | project ActivityTime=TimeGenerated, OperationNameValue, ResourceId
+  ) on $left._ResourceId == $right.ResourceId
+```
+
+| Field | Interpretation |
+|---|---|
+| `LastHeartbeat` | Rules out agent-side blackout as the perceived cause. |
+| `OperationNameValue` | Correlates a recent control-plane change with the onset of disk pain. |
 
 ## 6. Validation and Disproof by Hypothesis
 
