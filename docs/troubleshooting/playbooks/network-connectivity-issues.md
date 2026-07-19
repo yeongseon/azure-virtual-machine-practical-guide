@@ -67,11 +67,24 @@ NIC effective configuration, NSG and route review, DNS, accelerated networking, 
     az vm get-instance-view             --resource-group $RG             --name $VM_NAME             --output json
     ```
 
+| Command | Purpose |
+| --- | --- |
+| `az vm get-instance-view` | Retrieve the runtime instance view of the virtual machine. |
+| `--resource-group` | Resource group that contains the virtual machine. |
+| `--name` | Name of the virtual machine to inspect. |
+| `--output` | Output format for the response (JSON here). |
+
 2. **Review boot diagnostics settings**
 
     ```bash
     az vm boot-diagnostics get-boot-log             --resource-group $RG             --name $VM_NAME
     ```
+
+| Command | Purpose |
+| --- | --- |
+| `az vm boot-diagnostics get-boot-log` | Retrieve the serial boot log for the virtual machine. |
+| `--resource-group` | Resource group that contains the virtual machine. |
+| `--name` | Name of the virtual machine to inspect. |
 
 3. **Review NIC effective security rules**
 
@@ -79,11 +92,25 @@ NIC effective configuration, NSG and route review, DNS, accelerated networking, 
     az network nic list-effective-nsg             --resource-group $RG             --name $NIC_NAME             --output json
     ```
 
+| Command | Purpose |
+| --- | --- |
+| `az network nic list-effective-nsg` | List the effective NSG rules applied to a network interface. |
+| `--resource-group` | Resource group that contains the network interface. |
+| `--name` | Name of the network interface to inspect. |
+| `--output` | Output format for the response (JSON here). |
+
 4. **Review recent platform changes**
 
     ```bash
     az monitor activity-log list             --resource-group $RG             --offset 24h             --output table
     ```
+
+| Command | Purpose |
+| --- | --- |
+| `az monitor activity-log list` | List recent control-plane activity-log events. |
+| `--resource-group` | Resource group to scope activity-log events to. |
+| `--offset` | Look-back window for events (24h here). |
+| `--output` | Output format for the response (table here). |
 
 ## 5. Evidence to Collect
 
@@ -131,6 +158,19 @@ az vm show     --resource-group $RG     --name $VM_NAME     --query "{powerState
 
 az network nic show     --resource-group $RG     --name $NIC_NAME     --query "{ipConfigs:ipConfigurations[].privateIPAddress,acceleratedNetworking:enableAcceleratedNetworking,networkSecurityGroup:networkSecurityGroup.id}"     --output json
 ```
+
+| Command | Purpose |
+| --- | --- |
+| `az vm show` | Retrieve the current configuration of the virtual machine. |
+| `--resource-group` | Resource group that contains the virtual machine. |
+| `--name` | Name of the virtual machine to inspect. |
+| `--query` | JMESPath expression selecting power state, size, priority, and provisioning state. |
+| `--output` | Output format for the response (JSON here). |
+| `az network nic show` | Retrieve the configuration of a network interface. |
+| `--resource-group` | Resource group that contains the network interface. |
+| `--name` | Name of the network interface to inspect. |
+| `--query` | JMESPath expression selecting private IPs, accelerated networking, and NSG association. |
+| `--output` | Output format for the response (JSON here). |
 
 Interpretation:
 
@@ -222,6 +262,17 @@ az vm run-command invoke     --resource-group $RG     --name $VM_NAME     --comm
 
 az vm restart     --resource-group $RG     --name $VM_NAME
 ```
+
+| Command | Purpose |
+| --- | --- |
+| `az vm run-command invoke` | Run a shell script inside the guest OS of the VM. |
+| `--resource-group` | Resource group that contains the virtual machine. |
+| `--name` | Name of the virtual machine to target. |
+| `--command-id` | Built-in run-command identifier (RunShellScript). |
+| `--scripts` | Inline script to execute in the guest OS. |
+| `az vm restart` | Restart the virtual machine. |
+| `--resource-group` | Resource group that contains the virtual machine. |
+| `--name` | Name of the virtual machine to restart. |
 
 ## 9. Prevention
 
