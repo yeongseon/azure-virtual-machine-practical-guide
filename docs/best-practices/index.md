@@ -94,6 +94,23 @@ az vm list-sizes     --location $LOCATION     --query "[?name=='Standard_D4s_v5'
 az vm update     --resource-group $RG     --name $VM_NAME     --set tags.reviewArea=baseline-governance tags.owner=platform-team     --output json
 ```
 
+| Command | Purpose |
+| --- | --- |
+| `az vm show` | Retrieve the current configuration of a virtual machine. |
+| `--resource-group` | Resource group that contains the virtual machine. |
+| `--name` | Name of the virtual machine to inspect. |
+| `--query` | JMESPath expression selecting name, size, zone, and security type. |
+| `--output` | Output format for the response (JSON here). |
+| `az vm list-sizes` | List the VM sizes available in a region. |
+| `--location` | Azure region to list available VM sizes for. |
+| `--query` | JMESPath filter selecting matching sizes with core, memory, and data-disk limits. |
+| `--output` | Output format for the response (table here). |
+| `az vm update` | Update properties of an existing virtual machine. |
+| `--resource-group` | Resource group that contains the virtual machine. |
+| `--name` | Name of the virtual machine to update. |
+| `--set` | Set the review-area and owner tags (reviewArea=baseline-governance, owner=platform-team). |
+| `--output` | Output format for the response (JSON here). |
+
 Sample output:
 
 ```json
@@ -141,6 +158,23 @@ az vm list-sizes     --location $LOCATION     --query "[?name=='Standard_D4s_v5'
 az vm update     --resource-group $RG     --name $VM_NAME     --set tags.reviewArea=baseline-governance tags.owner=platform-team     --output json
 ```
 
+| Command | Purpose |
+| --- | --- |
+| `az vm show` | Retrieve the current configuration of a virtual machine. |
+| `--resource-group` | Resource group that contains the virtual machine. |
+| `--name` | Name of the virtual machine to inspect. |
+| `--query` | JMESPath expression selecting name, size, zone, and security type. |
+| `--output` | Output format for the response (JSON here). |
+| `az vm list-sizes` | List the VM sizes available in a region. |
+| `--location` | Azure region to list available VM sizes for. |
+| `--query` | JMESPath filter selecting matching sizes with core, memory, and data-disk limits. |
+| `--output` | Output format for the response (table here). |
+| `az vm update` | Update properties of an existing virtual machine. |
+| `--resource-group` | Resource group that contains the virtual machine. |
+| `--name` | Name of the virtual machine to update. |
+| `--set` | Set the review-area and owner tags (reviewArea=baseline-governance, owner=platform-team). |
+| `--output` | Output format for the response (JSON here). |
+
 Sample output:
 
 ```json
@@ -181,6 +215,23 @@ az vm list-sizes     --location $LOCATION     --query "[?name=='Standard_D4s_v5'
 
 az vm update     --resource-group $RG     --name $VM_NAME     --set tags.reviewArea=baseline-governance tags.owner=platform-team     --output json
 ```
+
+| Command | Purpose |
+| --- | --- |
+| `az vm show` | Retrieve the current configuration of a virtual machine. |
+| `--resource-group` | Resource group that contains the virtual machine. |
+| `--name` | Name of the virtual machine to inspect. |
+| `--query` | JMESPath expression selecting name, size, zone, and security type. |
+| `--output` | Output format for the response (JSON here). |
+| `az vm list-sizes` | List the VM sizes available in a region. |
+| `--location` | Azure region to list available VM sizes for. |
+| `--query` | JMESPath filter selecting matching sizes with core, memory, and data-disk limits. |
+| `--output` | Output format for the response (table here). |
+| `az vm update` | Update properties of an existing virtual machine. |
+| `--resource-group` | Resource group that contains the virtual machine. |
+| `--name` | Name of the virtual machine to update. |
+| `--set` | Set the review-area and owner tags (reviewArea=baseline-governance, owner=platform-team). |
+| `--output` | Output format for the response (JSON here). |
 
 Sample output:
 
@@ -223,6 +274,23 @@ az vm list-sizes     --location $LOCATION     --query "[?name=='Standard_D4s_v5'
 az vm update     --resource-group $RG     --name $VM_NAME     --set tags.reviewArea=baseline-governance tags.owner=platform-team     --output json
 ```
 
+| Command | Purpose |
+| --- | --- |
+| `az vm show` | Retrieve the current configuration of a virtual machine. |
+| `--resource-group` | Resource group that contains the virtual machine. |
+| `--name` | Name of the virtual machine to inspect. |
+| `--query` | JMESPath expression selecting name, size, zone, and security type. |
+| `--output` | Output format for the response (JSON here). |
+| `az vm list-sizes` | List the VM sizes available in a region. |
+| `--location` | Azure region to list available VM sizes for. |
+| `--query` | JMESPath filter selecting matching sizes with core, memory, and data-disk limits. |
+| `--output` | Output format for the response (table here). |
+| `az vm update` | Update properties of an existing virtual machine. |
+| `--resource-group` | Resource group that contains the virtual machine. |
+| `--name` | Name of the virtual machine to update. |
+| `--set` | Set the review-area and owner tags (reviewArea=baseline-governance, owner=platform-team). |
+| `--output` | Output format for the response (JSON here). |
+
 Sample output:
 
 ```json
@@ -262,6 +330,23 @@ az vm list-sizes     --location $LOCATION     --query "[?name=='Standard_D4s_v5'
 
 az vm update     --resource-group $RG     --name $VM_NAME     --set tags.reviewArea=baseline-governance tags.owner=platform-team     --output json
 ```
+
+| Command | Purpose |
+| --- | --- |
+| `az vm show` | Retrieve the current configuration of a virtual machine. |
+| `--resource-group` | Resource group that contains the virtual machine. |
+| `--name` | Name of the virtual machine to inspect. |
+| `--query` | JMESPath expression selecting name, size, zone, and security type. |
+| `--output` | Output format for the response (JSON here). |
+| `az vm list-sizes` | List the VM sizes available in a region. |
+| `--location` | Azure region to list available VM sizes for. |
+| `--query` | JMESPath filter selecting matching sizes with core, memory, and data-disk limits. |
+| `--output` | Output format for the response (table here). |
+| `az vm update` | Update properties of an existing virtual machine. |
+| `--resource-group` | Resource group that contains the virtual machine. |
+| `--name` | Name of the virtual machine to update. |
+| `--set` | Set the review-area and owner tags (reviewArea=baseline-governance, owner=platform-team). |
+| `--output` | Output format for the response (JSON here). |
 
 Sample output:
 
@@ -304,6 +389,23 @@ az vm list-sizes     --location $LOCATION     --query "[?name=='Standard_D4s_v5'
 az vm update     --resource-group $RG     --name $VM_NAME     --set tags.reviewArea=baseline-governance tags.owner=platform-team     --output json
 ```
 
+| Command | Purpose |
+| --- | --- |
+| `az vm show` | Retrieve the current configuration of a virtual machine. |
+| `--resource-group` | Resource group that contains the virtual machine. |
+| `--name` | Name of the virtual machine to inspect. |
+| `--query` | JMESPath expression selecting name, size, zone, and security type. |
+| `--output` | Output format for the response (JSON here). |
+| `az vm list-sizes` | List the VM sizes available in a region. |
+| `--location` | Azure region to list available VM sizes for. |
+| `--query` | JMESPath filter selecting matching sizes with core, memory, and data-disk limits. |
+| `--output` | Output format for the response (table here). |
+| `az vm update` | Update properties of an existing virtual machine. |
+| `--resource-group` | Resource group that contains the virtual machine. |
+| `--name` | Name of the virtual machine to update. |
+| `--set` | Set the review-area and owner tags (reviewArea=baseline-governance, owner=platform-team). |
+| `--output` | Output format for the response (JSON here). |
+
 Sample output:
 
 ```json
@@ -340,6 +442,14 @@ az vm show \
     --output json
 ```
 
+| Command | Purpose |
+| --- | --- |
+| `az vm show` | Retrieve the current configuration of a virtual machine. |
+| `--resource-group` | Resource group that contains the virtual machine. |
+| `--name` | Name of the virtual machine to inspect. |
+| `--query` | JMESPath expression selecting size, priority, eviction policy, and provisioning state. |
+| `--output` | Output format for the response (JSON here). |
+
 ### Anti-Pattern 2: Public management ports as the default
 
 **What happens**: Opening 3389 or 22 on internet-facing NICs turns every scanning event into an operations problem.
@@ -355,6 +465,14 @@ az vm show \
     --query "{size:hardwareProfile.vmSize,priority:priority,evictionPolicy:evictionPolicy,provisioningState:provisioningState}" \
     --output json
 ```
+
+| Command | Purpose |
+| --- | --- |
+| `az vm show` | Retrieve the current configuration of a virtual machine. |
+| `--resource-group` | Resource group that contains the virtual machine. |
+| `--name` | Name of the virtual machine to inspect. |
+| `--query` | JMESPath expression selecting size, priority, eviction policy, and provisioning state. |
+| `--output` | Output format for the response (JSON here). |
 
 ### Anti-Pattern 3: Treating Premium SSD as a universal fix
 
@@ -372,6 +490,14 @@ az vm show \
     --output json
 ```
 
+| Command | Purpose |
+| --- | --- |
+| `az vm show` | Retrieve the current configuration of a virtual machine. |
+| `--resource-group` | Resource group that contains the virtual machine. |
+| `--name` | Name of the virtual machine to inspect. |
+| `--query` | JMESPath expression selecting size, priority, eviction policy, and provisioning state. |
+| `--output` | Output format for the response (JSON here). |
+
 ### Anti-Pattern 4: Buying reservations before rightsizing
 
 **What happens**: Teams commit to waste by reserving oversized machines that should have been redesigned or deallocated.
@@ -387,6 +513,14 @@ az vm show \
     --query "{size:hardwareProfile.vmSize,priority:priority,evictionPolicy:evictionPolicy,provisioningState:provisioningState}" \
     --output json
 ```
+
+| Command | Purpose |
+| --- | --- |
+| `az vm show` | Retrieve the current configuration of a virtual machine. |
+| `--resource-group` | Resource group that contains the virtual machine. |
+| `--name` | Name of the virtual machine to inspect. |
+| `--query` | JMESPath expression selecting size, priority, eviction policy, and provisioning state. |
+| `--output` | Output format for the response (JSON here). |
 
 ## Validation Checklist
 

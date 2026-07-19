@@ -120,6 +120,14 @@ az vm create --resource-group $RG --name $VM_NAME --image $IMAGE --location $LOC
 az vm create -g $RG -n $VM_NAME  # ❌ Don't do this
 ```
 
+| Command | Purpose |
+| --- | --- |
+| `az vm create` | Create a virtual machine; this guide always uses long flag names for readability. |
+| `--resource-group` | Resource group for the virtual machine (long form of `-g`). |
+| `--name` | Name of the virtual machine (long form of `-n`). |
+| `--image` | Marketplace image or alias for the OS. |
+| `--location` | Azure region for the virtual machine. |
+
 ### Variables
 | Variable | Description | Example |
 |----------|-------------|---------|
