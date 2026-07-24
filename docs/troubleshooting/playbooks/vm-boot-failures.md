@@ -183,55 +183,55 @@ Interpretation:
 
 ### Hypothesis 1: Configuration drift or recent change
 
-**Proves if**: Evidence clearly shows the current state changed from the last healthy pattern in a way that explains the symptom.
+**Proves if**: The Activity Log records a change (resize, disk swap, NSG/route edit, or extension update) whose timestamp precedes the first failed signal.
 
-**Disproves if**: Control-plane, guest, and capacity evidence all remain healthy and consistent with baseline.
+**Disproves if**: No control-plane change is recorded in the incident window and the resource configuration matches the last-known-good baseline.
 
 Recommended validation steps:
 
-1. Compare Azure Activity Log against the incident start time.
-2. Compare current configuration with the approved landing zone pattern.
-3. Review the most recent guest evidence or boot or connection output.
-4. Re-test the original symptom after the smallest safe correction.
+1. Filter the Activity Log to this resource for the 24 hours before symptom onset.
+2. Diff the current configuration against the approved landing-zone template.
+3. Correlate the earliest recorded change with the first failed signal.
+4. Roll back the single suspected change and re-test the symptom.
 
 ### Hypothesis 2: Guest OS or service failure
 
-**Proves if**: Evidence clearly shows the current state changed from the last healthy pattern in a way that explains the symptom.
+**Proves if**: Boot diagnostics or serial console show a guest-level fault (kernel panic, failed fsck, stopped service, or full OS disk) while the platform reports the VM as running.
 
-**Disproves if**: Control-plane, guest, and capacity evidence all remain healthy and consistent with baseline.
+**Disproves if**: Boot diagnostics show a clean boot and the guest-agent heartbeat is healthy.
 
 Recommended validation steps:
 
-1. Compare Azure Activity Log against the incident start time.
-2. Compare current configuration with the approved landing zone pattern.
-3. Review the most recent guest evidence or boot or connection output.
-4. Re-test the original symptom after the smallest safe correction.
+1. Open the boot-diagnostics screenshot and serial log.
+2. Check the guest agent (heartbeat / waagent) status.
+3. Inspect the guest system and service logs for the failing unit.
+4. Repair in-guest (or from a rescue VM) and re-test the boot or login.
 
 ### Hypothesis 3: Capacity limit or SKU mismatch
 
-**Proves if**: Evidence clearly shows the current state changed from the last healthy pattern in a way that explains the symptom.
+**Proves if**: A start or resize returns an allocation or quota error, or metrics show the VM pinned at its SKU's CPU, disk, or network cap.
 
-**Disproves if**: Control-plane, guest, and capacity evidence all remain healthy and consistent with baseline.
+**Disproves if**: Allocation succeeds and utilization sits below the SKU's documented limits.
 
 Recommended validation steps:
 
-1. Compare Azure Activity Log against the incident start time.
-2. Compare current configuration with the approved landing zone pattern.
-3. Review the most recent guest evidence or boot or connection output.
-4. Re-test the original symptom after the smallest safe correction.
+1. Read the allocation or quota error from the start or resize attempt.
+2. Compare the observed draw against the SKU's core, IOPS, and bandwidth caps.
+3. Check regional and zonal capacity for the target size.
+4. Resize to an available SKU or request quota, then re-test.
 
 ### Hypothesis 4: Security control blocking the expected path
 
-**Proves if**: Evidence clearly shows the current state changed from the last healthy pattern in a way that explains the symptom.
+**Proves if**: An NSG rule, expired JIT grant, firewall, or route change denies the management or data path exactly where the symptom appears.
 
-**Disproves if**: Control-plane, guest, and capacity evidence all remain healthy and consistent with baseline.
+**Disproves if**: Effective NSG rules, routes, and JIT grants all permit the expected path and the block occurs elsewhere.
 
 Recommended validation steps:
 
-1. Compare Azure Activity Log against the incident start time.
-2. Compare current configuration with the approved landing zone pattern.
-3. Review the most recent guest evidence or boot or connection output.
-4. Re-test the original symptom after the smallest safe correction.
+1. Compute the effective security rules and routes for the NIC.
+2. Confirm JIT or Bastion access is currently granted.
+3. Trace the denied hop with IP Flow Verify or Connection Troubleshoot.
+4. Restore the least-privilege allow rule and re-test.
 
 ## 7. Likely Root Cause Patterns
 
