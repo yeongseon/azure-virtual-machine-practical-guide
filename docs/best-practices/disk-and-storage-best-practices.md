@@ -66,9 +66,9 @@ flowchart TD
 
 ### Practice 1: Establish workload-specific sizing guardrails
 
-Why: Azure VM incidents often start with mismatched expectations between the workload profile and the infrastructure envelope.
-How: Document expected concurrency, memory footprint, disk behavior, failover design, and operator access before standardizing the deployment pattern.
-Validation: Review Azure Monitor metrics, guest telemetry, and change records together rather than relying on one signal source.
+Why: Matching the VM family to concurrency, memory footprint, and IOPS profile prevents the mismatched-envelope incidents that dominate VM reviews.
+How: Treat memory-to-core ratio, expected IOPS, and aggregate network bandwidth as first-class inputs when standardizing the deployment pattern.
+Validation: Confirm the chosen family against guest telemetry and Azure Monitor metrics rather than a single signal.
 
 #### Workload sizing recommendations
 
@@ -82,56 +82,11 @@ Validation: Review Azure Monitor metrics, guest telemetry, and change records to
 
 Use memory-to-core ratio, expected IOPS, and aggregate network bandwidth as first-class inputs.
 
-### CLI example: disk and storage best practices review
-
-```bash
-az vm show     --resource-group $RG     --name $VM_NAME     --query "{name:name,size:hardwareProfile.vmSize,zone:zones,security:securityProfile.securityType}"     --output json
-
-az vm list-sizes     --location $LOCATION     --query "[?name=='Standard_D4s_v5' || name=='Standard_E4s_v5'].{name:name,numberOfCores:numberOfCores,memoryInMb:memoryInMb,maxDataDiskCount:maxDataDiskCount}"     --output table
-
-az vm update     --resource-group $RG     --name $VM_NAME     --set tags.reviewArea=disk-performance-resilience tags.owner=platform-team     --output json
-```
-
-| Command | Purpose |
-| --- | --- |
-| `az vm show` | Retrieve the current configuration of a virtual machine. |
-| `--resource-group` | Resource group that contains the virtual machine. |
-| `--name` | Name of the virtual machine to inspect. |
-| `--query` | JMESPath expression selecting name, size, zone, and security type. |
-| `--output` | Output format for the response (JSON here). |
-| `az vm list-sizes` | List the VM sizes available in a region. |
-| `--location` | Azure region to list available VM sizes for. |
-| `--query` | JMESPath filter selecting matching sizes with core, memory, and data-disk limits. |
-| `--output` | Output format for the response (table here). |
-| `az vm update` | Update properties of an existing virtual machine. |
-| `--resource-group` | Resource group that contains the virtual machine. |
-| `--name` | Name of the virtual machine to update. |
-| `--set` | Set the review-area and owner tags (reviewArea=disk-performance-resilience, owner=platform-team). |
-| `--output` | Output format for the response (JSON here). |
-
-Sample output:
-
-```json
-{
-  "name": "vm-app-001",
-  "size": "Standard_D4s_v5",
-  "zone": [
-    "1"
-  ],
-  "security": "TrustedLaunch"
-}
-```
-
-Operational note:
-
-- Re-run the same validation after major changes such as resizing, disk migration, subnet moves, image changes, or patching policy updates.
-- Capture before and after evidence so future responders can distinguish regressions from steady-state behavior.
-
 ### Practice 2: Separate OS, data, and recovery concerns
 
-Why: Azure VM incidents often start with mismatched expectations between the workload profile and the infrastructure envelope.
-How: Document expected concurrency, memory footprint, disk behavior, failover design, and operator access before standardizing the deployment pattern.
-Validation: Review Azure Monitor metrics, guest telemetry, and change records together rather than relying on one signal source.
+Why: Co-locating the OS and write-heavy data paths on one disk hides latency behind the VM SKU's aggregate throughput limits.
+How: Put the OS on its own managed disk, isolate high-write paths on dedicated data disks, and match the disk tier to VM throughput caps.
+Validation: Check host-caching mode and disk queue depth against the workload's actual write pattern.
 
 #### Disk performance optimization
 
@@ -146,56 +101,11 @@ Validation: Review Azure Monitor metrics, guest telemetry, and change records to
 | Premium SSD v2 | Elastic IOPS and throughput tuning | Useful when performance requirements vary and you want finer-grained tuning. |
 | Ultra Disk | High-end database and latency-sensitive data tiers | Review availability, no host caching support, and application write pattern before adoption. |
 
-### CLI example: disk and storage best practices review
-
-```bash
-az vm show     --resource-group $RG     --name $VM_NAME     --query "{name:name,size:hardwareProfile.vmSize,zone:zones,security:securityProfile.securityType}"     --output json
-
-az vm list-sizes     --location $LOCATION     --query "[?name=='Standard_D4s_v5' || name=='Standard_E4s_v5'].{name:name,numberOfCores:numberOfCores,memoryInMb:memoryInMb,maxDataDiskCount:maxDataDiskCount}"     --output table
-
-az vm update     --resource-group $RG     --name $VM_NAME     --set tags.reviewArea=disk-performance-resilience tags.owner=platform-team     --output json
-```
-
-| Command | Purpose |
-| --- | --- |
-| `az vm show` | Retrieve the current configuration of a virtual machine. |
-| `--resource-group` | Resource group that contains the virtual machine. |
-| `--name` | Name of the virtual machine to inspect. |
-| `--query` | JMESPath expression selecting name, size, zone, and security type. |
-| `--output` | Output format for the response (JSON here). |
-| `az vm list-sizes` | List the VM sizes available in a region. |
-| `--location` | Azure region to list available VM sizes for. |
-| `--query` | JMESPath filter selecting matching sizes with core, memory, and data-disk limits. |
-| `--output` | Output format for the response (table here). |
-| `az vm update` | Update properties of an existing virtual machine. |
-| `--resource-group` | Resource group that contains the virtual machine. |
-| `--name` | Name of the virtual machine to update. |
-| `--set` | Set the review-area and owner tags (reviewArea=disk-performance-resilience, owner=platform-team). |
-| `--output` | Output format for the response (JSON here). |
-
-Sample output:
-
-```json
-{
-  "name": "vm-app-001",
-  "size": "Standard_D4s_v5",
-  "zone": [
-    "1"
-  ],
-  "security": "TrustedLaunch"
-}
-```
-
-Operational note:
-
-- Re-run the same validation after major changes such as resizing, disk migration, subnet moves, image changes, or patching policy updates.
-- Capture before and after evidence so future responders can distinguish regressions from steady-state behavior.
-
 ### Practice 3: Design network boundaries before deployment
 
-Why: Azure VM incidents often start with mismatched expectations between the workload profile and the infrastructure envelope.
-How: Document expected concurrency, memory footprint, disk behavior, failover design, and operator access before standardizing the deployment pattern.
-Validation: Review Azure Monitor metrics, guest telemetry, and change records together rather than relying on one signal source.
+Why: Retrofitting segmentation after cutover turns every internet scanning event into an operations problem.
+How: Enable accelerated networking on supported sizes, keep management access private, and validate effective routes and NSG intent before the window.
+Validation: Confirm DNS, effective routes, and proximity-placement needs before the cutover.
 
 #### Network acceleration and placement
 
@@ -204,56 +114,11 @@ Validation: Review Azure Monitor metrics, guest telemetry, and change records to
 - Keep management access private through Bastion, VPN, or ExpressRoute instead of internet-exposed management ports.
 - Validate effective routes, NSG intent, and DNS before the cutover window.
 
-### CLI example: disk and storage best practices review
-
-```bash
-az vm show     --resource-group $RG     --name $VM_NAME     --query "{name:name,size:hardwareProfile.vmSize,zone:zones,security:securityProfile.securityType}"     --output json
-
-az vm list-sizes     --location $LOCATION     --query "[?name=='Standard_D4s_v5' || name=='Standard_E4s_v5'].{name:name,numberOfCores:numberOfCores,memoryInMb:memoryInMb,maxDataDiskCount:maxDataDiskCount}"     --output table
-
-az vm update     --resource-group $RG     --name $VM_NAME     --set tags.reviewArea=disk-performance-resilience tags.owner=platform-team     --output json
-```
-
-| Command | Purpose |
-| --- | --- |
-| `az vm show` | Retrieve the current configuration of a virtual machine. |
-| `--resource-group` | Resource group that contains the virtual machine. |
-| `--name` | Name of the virtual machine to inspect. |
-| `--query` | JMESPath expression selecting name, size, zone, and security type. |
-| `--output` | Output format for the response (JSON here). |
-| `az vm list-sizes` | List the VM sizes available in a region. |
-| `--location` | Azure region to list available VM sizes for. |
-| `--query` | JMESPath filter selecting matching sizes with core, memory, and data-disk limits. |
-| `--output` | Output format for the response (table here). |
-| `az vm update` | Update properties of an existing virtual machine. |
-| `--resource-group` | Resource group that contains the virtual machine. |
-| `--name` | Name of the virtual machine to update. |
-| `--set` | Set the review-area and owner tags (reviewArea=disk-performance-resilience, owner=platform-team). |
-| `--output` | Output format for the response (JSON here). |
-
-Sample output:
-
-```json
-{
-  "name": "vm-app-001",
-  "size": "Standard_D4s_v5",
-  "zone": [
-    "1"
-  ],
-  "security": "TrustedLaunch"
-}
-```
-
-Operational note:
-
-- Re-run the same validation after major changes such as resizing, disk migration, subnet moves, image changes, or patching policy updates.
-- Capture before and after evidence so future responders can distinguish regressions from steady-state behavior.
-
 ### Practice 4: Harden privileged access paths with JIT
 
-Why: Azure VM incidents often start with mismatched expectations between the workload profile and the infrastructure envelope.
-How: Document expected concurrency, memory footprint, disk behavior, failover design, and operator access before standardizing the deployment pattern.
-Validation: Review Azure Monitor metrics, guest telemetry, and change records together rather than relying on one signal source.
+Why: Standing RDP/SSH exposure and embedded credentials are the access paths incidents exploit first.
+How: Apply least-privilege NSGs with Application Security Groups, enable Just-In-Time access, prefer managed identity, and use Trusted Launch on Gen2 sizes.
+Validation: Review the administrative path against JIT policy and identity assignments.
 
 #### Security hardening controls
 
@@ -262,56 +127,11 @@ Validation: Review Azure Monitor metrics, guest telemetry, and change records to
 - Prefer managed identity over embedded credentials for workload-to-Azure access.
 - Use Trusted Launch, Secure Boot, and vTPM on supported images and Gen2 sizes.
 
-### CLI example: disk and storage best practices review
-
-```bash
-az vm show     --resource-group $RG     --name $VM_NAME     --query "{name:name,size:hardwareProfile.vmSize,zone:zones,security:securityProfile.securityType}"     --output json
-
-az vm list-sizes     --location $LOCATION     --query "[?name=='Standard_D4s_v5' || name=='Standard_E4s_v5'].{name:name,numberOfCores:numberOfCores,memoryInMb:memoryInMb,maxDataDiskCount:maxDataDiskCount}"     --output table
-
-az vm update     --resource-group $RG     --name $VM_NAME     --set tags.reviewArea=disk-performance-resilience tags.owner=platform-team     --output json
-```
-
-| Command | Purpose |
-| --- | --- |
-| `az vm show` | Retrieve the current configuration of a virtual machine. |
-| `--resource-group` | Resource group that contains the virtual machine. |
-| `--name` | Name of the virtual machine to inspect. |
-| `--query` | JMESPath expression selecting name, size, zone, and security type. |
-| `--output` | Output format for the response (JSON here). |
-| `az vm list-sizes` | List the VM sizes available in a region. |
-| `--location` | Azure region to list available VM sizes for. |
-| `--query` | JMESPath filter selecting matching sizes with core, memory, and data-disk limits. |
-| `--output` | Output format for the response (table here). |
-| `az vm update` | Update properties of an existing virtual machine. |
-| `--resource-group` | Resource group that contains the virtual machine. |
-| `--name` | Name of the virtual machine to update. |
-| `--set` | Set the review-area and owner tags (reviewArea=disk-performance-resilience, owner=platform-team). |
-| `--output` | Output format for the response (JSON here). |
-
-Sample output:
-
-```json
-{
-  "name": "vm-app-001",
-  "size": "Standard_D4s_v5",
-  "zone": [
-    "1"
-  ],
-  "security": "TrustedLaunch"
-}
-```
-
-Operational note:
-
-- Re-run the same validation after major changes such as resizing, disk migration, subnet moves, image changes, or patching policy updates.
-- Capture before and after evidence so future responders can distinguish regressions from steady-state behavior.
-
 ### Practice 5: Instrument capacity and recovery from day one
 
-Why: Azure VM incidents often start with mismatched expectations between the workload profile and the infrastructure envelope.
-How: Document expected concurrency, memory footprint, disk behavior, failover design, and operator access before standardizing the deployment pattern.
-Validation: Review Azure Monitor metrics, guest telemetry, and change records together rather than relying on one signal source.
+Why: Untested backup and recovery paths reveal their gaps only during the incident that needs them.
+How: Collect platform, guest, boot-diagnostic, and activity signals into one view, and test restore and serial-console access before go-live.
+Validation: Alert on sustained disk latency, heartbeat gaps, and failed backups.
 
 #### Monitoring, recovery, and proof
 
@@ -319,56 +139,11 @@ Validation: Review Azure Monitor metrics, guest telemetry, and change records to
 - Test backup restore, serial console access, and extension recovery before calling the platform ready.
 - Alert on sustained symptoms such as disk latency, heartbeat gaps, failed backups, and denied management access.
 
-### CLI example: disk and storage best practices review
-
-```bash
-az vm show     --resource-group $RG     --name $VM_NAME     --query "{name:name,size:hardwareProfile.vmSize,zone:zones,security:securityProfile.securityType}"     --output json
-
-az vm list-sizes     --location $LOCATION     --query "[?name=='Standard_D4s_v5' || name=='Standard_E4s_v5'].{name:name,numberOfCores:numberOfCores,memoryInMb:memoryInMb,maxDataDiskCount:maxDataDiskCount}"     --output table
-
-az vm update     --resource-group $RG     --name $VM_NAME     --set tags.reviewArea=disk-performance-resilience tags.owner=platform-team     --output json
-```
-
-| Command | Purpose |
-| --- | --- |
-| `az vm show` | Retrieve the current configuration of a virtual machine. |
-| `--resource-group` | Resource group that contains the virtual machine. |
-| `--name` | Name of the virtual machine to inspect. |
-| `--query` | JMESPath expression selecting name, size, zone, and security type. |
-| `--output` | Output format for the response (JSON here). |
-| `az vm list-sizes` | List the VM sizes available in a region. |
-| `--location` | Azure region to list available VM sizes for. |
-| `--query` | JMESPath filter selecting matching sizes with core, memory, and data-disk limits. |
-| `--output` | Output format for the response (table here). |
-| `az vm update` | Update properties of an existing virtual machine. |
-| `--resource-group` | Resource group that contains the virtual machine. |
-| `--name` | Name of the virtual machine to update. |
-| `--set` | Set the review-area and owner tags (reviewArea=disk-performance-resilience, owner=platform-team). |
-| `--output` | Output format for the response (JSON here). |
-
-Sample output:
-
-```json
-{
-  "name": "vm-app-001",
-  "size": "Standard_D4s_v5",
-  "zone": [
-    "1"
-  ],
-  "security": "TrustedLaunch"
-}
-```
-
-Operational note:
-
-- Re-run the same validation after major changes such as resizing, disk migration, subnet moves, image changes, or patching policy updates.
-- Capture before and after evidence so future responders can distinguish regressions from steady-state behavior.
-
 ### Practice 6: Use cost controls that match workload criticality
 
-Why: Azure VM incidents often start with mismatched expectations between the workload profile and the infrastructure envelope.
-How: Document expected concurrency, memory footprint, disk behavior, failover design, and operator access before standardizing the deployment pattern.
-Validation: Review Azure Monitor metrics, guest telemetry, and change records together rather than relying on one signal source.
+Why: Committing spend before rightsizing locks in waste and can undercut recovery objectives.
+How: Rightsize first, then apply Reservations or Savings Plans for stable fleets, Spot for interruptible workers, and auto-shutdown for dev and test.
+Validation: Re-review unattached disks and idle jump hosts monthly.
 
 #### Cost optimization without self-sabotage
 
@@ -377,7 +152,9 @@ Validation: Review Azure Monitor metrics, guest telemetry, and change records to
 - Apply **auto-shutdown** to development, training, and break-glass environments where deallocation is acceptable.
 - Review unattached disks, oversized NIC-enabled gateways, and forgotten jump hosts monthly.
 
-### CLI example: disk and storage best practices review
+### Verify the configuration
+
+Run the same read-back after any material change (resize, disk migration, subnet move, image or patch-policy update) and capture before/after evidence so responders can separate regressions from steady state.
 
 ```bash
 az vm show     --resource-group $RG     --name $VM_NAME     --query "{name:name,size:hardwareProfile.vmSize,zone:zones,security:securityProfile.securityType}"     --output json
@@ -428,97 +205,33 @@ Operational note:
 
 **What happens**: Teams compare only CPU and ignore memory-to-core ratio, premium storage needs, and aggregate disk or network caps.
 
-**Why it is wrong**: It hides the real bottleneck or expands risk in a way that is expensive to reverse during an incident.
+**Why it is wrong**: It masks the real constraint—memory-to-core ratio and disk or network caps—so the fix only arrives after the incident.
 
 **Correct approach**: Choose VM families based on workload profile and validate with guest plus Azure Monitor metrics.
-
-```bash
-az vm show \
-    --resource-group $RG \
-    --name $VM_NAME \
-    --query "{size:hardwareProfile.vmSize,priority:priority,evictionPolicy:evictionPolicy,provisioningState:provisioningState}" \
-    --output json
-```
-
-| Command | Purpose |
-| --- | --- |
-| `az vm show` | Retrieve the current configuration of a virtual machine. |
-| `--resource-group` | Resource group that contains the virtual machine. |
-| `--name` | Name of the virtual machine to inspect. |
-| `--query` | JMESPath expression selecting size, priority, eviction policy, and provisioning state. |
-| `--output` | Output format for the response (JSON here). |
 
 ### Anti-Pattern 2: Public management ports as the default
 
 **What happens**: Opening 3389 or 22 on internet-facing NICs turns every scanning event into an operations problem.
 
-**Why it is wrong**: It hides the real bottleneck or expands risk in a way that is expensive to reverse during an incident.
+**Why it is wrong**: It converts routine internet scanning into a standing intrusion surface that is expensive to close mid-incident.
 
 **Correct approach**: Route administration through Azure Bastion, VPN, or ExpressRoute and pair with JIT policies.
-
-```bash
-az vm show \
-    --resource-group $RG \
-    --name $VM_NAME \
-    --query "{size:hardwareProfile.vmSize,priority:priority,evictionPolicy:evictionPolicy,provisioningState:provisioningState}" \
-    --output json
-```
-
-| Command | Purpose |
-| --- | --- |
-| `az vm show` | Retrieve the current configuration of a virtual machine. |
-| `--resource-group` | Resource group that contains the virtual machine. |
-| `--name` | Name of the virtual machine to inspect. |
-| `--query` | JMESPath expression selecting size, priority, eviction policy, and provisioning state. |
-| `--output` | Output format for the response (JSON here). |
 
 ### Anti-Pattern 3: Treating Premium SSD as a universal fix
 
 **What happens**: Latency incidents continue because the VM SKU or caching mode is the bottleneck, not the disk label.
 
-**Why it is wrong**: It hides the real bottleneck or expands risk in a way that is expensive to reverse during an incident.
+**Why it is wrong**: It leaves the true bottleneck—the VM SKU cap or host-caching mode—in place while adding storage spend.
 
 **Correct approach**: Review disk SKU, host caching, queue depth, and VM aggregate throughput together.
-
-```bash
-az vm show \
-    --resource-group $RG \
-    --name $VM_NAME \
-    --query "{size:hardwareProfile.vmSize,priority:priority,evictionPolicy:evictionPolicy,provisioningState:provisioningState}" \
-    --output json
-```
-
-| Command | Purpose |
-| --- | --- |
-| `az vm show` | Retrieve the current configuration of a virtual machine. |
-| `--resource-group` | Resource group that contains the virtual machine. |
-| `--name` | Name of the virtual machine to inspect. |
-| `--query` | JMESPath expression selecting size, priority, eviction policy, and provisioning state. |
-| `--output` | Output format for the response (JSON here). |
 
 ### Anti-Pattern 4: Buying reservations before rightsizing
 
 **What happens**: Teams commit to waste by reserving oversized machines that should have been redesigned or deallocated.
 
-**Why it is wrong**: It hides the real bottleneck or expands risk in a way that is expensive to reverse during an incident.
+**Why it is wrong**: It commits budget to oversized capacity that should have been redesigned or deallocated first.
 
 **Correct approach**: Rightsize first, then commit reserved capacity only for stable, always-on workloads.
-
-```bash
-az vm show \
-    --resource-group $RG \
-    --name $VM_NAME \
-    --query "{size:hardwareProfile.vmSize,priority:priority,evictionPolicy:evictionPolicy,provisioningState:provisioningState}" \
-    --output json
-```
-
-| Command | Purpose |
-| --- | --- |
-| `az vm show` | Retrieve the current configuration of a virtual machine. |
-| `--resource-group` | Resource group that contains the virtual machine. |
-| `--name` | Name of the virtual machine to inspect. |
-| `--query` | JMESPath expression selecting size, priority, eviction policy, and provisioning state. |
-| `--output` | Output format for the response (JSON here). |
 
 ## Validation Checklist
 
