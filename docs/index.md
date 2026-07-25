@@ -1,15 +1,14 @@
 ---
 content_sources:
   diagrams:
-  - id: index-guide-structure
-    type: flowchart
-    source: self-generated
-    description: Guide Structure
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
-    - https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    - id: index-guide-structure
+      type: flowchart
+      source: self-generated
+      description: Guide Structure
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
+        - https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
 ---
 
 # Azure Virtual Machine Practical Guide

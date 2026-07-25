@@ -1,16 +1,29 @@
 ---
 content_sources:
   diagrams:
-  - id: platform-networking-basics-inbound-and-outbound-traffic-flow
-    type: flowchart
-    source: mslearn-adapted
-    description: Inbound and Outbound Traffic Flow
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview
-    - https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview
-    - https://learn.microsoft.com/en-us/azure/bastion/bastion-overview
+    - id: platform-networking-basics-inbound-and-outbound-traffic-flow
+      type: flowchart
+      source: mslearn-adapted
+      description: Inbound and Outbound Traffic Flow
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview
+        - https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview
+        - https://learn.microsoft.com/en-us/azure/bastion/bastion-overview
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: An Azure virtual network is the fundamental building block for private networks in Azure.
+      source: https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview
+      verified: true
+    - claim: Network security groups contain security rules that allow or deny inbound and outbound network traffic.
+      source: https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview
+      verified: true
+    - claim: Azure Bastion enables secure RDP and SSH connectivity to virtual machines over TLS from the Azure portal.
+      source: https://learn.microsoft.com/en-us/azure/bastion/bastion-overview
+      verified: true
 ---
-
 # Networking Basics
 
 Azure Virtual Network (VNet) is the fundamental building block for your private network in Azure. It enables Azure resources to securely communicate with each other, the internet, and on-premises networks.

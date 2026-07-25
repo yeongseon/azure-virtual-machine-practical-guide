@@ -1,14 +1,13 @@
 ---
 content_sources:
   diagrams:
-  - id: troubleshooting-playbooks-index-diagnostic-entry-map
-    type: flowchart
-    source: self-generated
-    description: Diagnostic Entry Map
-    based_on:
-    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    - id: troubleshooting-playbooks-index-diagnostic-entry-map
+      type: flowchart
+      source: self-generated
+      description: Diagnostic Entry Map
+      based_on:
+        - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
 ---
 
 # Playbooks

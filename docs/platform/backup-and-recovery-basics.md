@@ -1,16 +1,26 @@
 ---
 content_sources:
   diagrams:
-  - id: platform-backup-and-recovery-basics-backup-architecture
-    type: flowchart
-    source: mslearn-adapted
-    description: Backup Architecture
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/backup/backup-overview
-    - https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-overview
-    - https://learn.microsoft.com/en-us/azure/reliability/overview
+    - id: platform-backup-and-recovery-basics-backup-architecture
+      type: flowchart
+      source: mslearn-adapted
+      description: Backup Architecture
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/backup/backup-overview
+        - https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-overview
+        - https://learn.microsoft.com/en-us/azure/reliability/overview
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Azure Backup provides backup and restore capabilities for Azure resources and workloads.
+      source: https://learn.microsoft.com/en-us/azure/backup/backup-overview
+      verified: true
+    - claim: Azure Site Recovery helps keep business apps and workloads running during outages by replicating workloads to a secondary location.
+      source: https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-overview
+      verified: true
 ---
-
 # Backup and Recovery Basics
 
 Protecting your data from loss and corruption is crucial for enterprise workloads on Azure. Azure Backup and Site Recovery provide integrated disaster recovery and backup.

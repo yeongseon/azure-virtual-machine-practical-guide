@@ -1,13 +1,13 @@
 ---
 content_sources:
   diagrams:
-  - id: start-here-overview-resource-hierarchy
-    type: flowchart
-    source: mslearn-adapted
-    description: Resource Hierarchy
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
-    - https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility
+    - id: start-here-overview-resource-hierarchy
+      type: flowchart
+      source: mslearn-adapted
+      description: Resource Hierarchy
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
+        - https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility
 ---
 
 # Azure VM Overview

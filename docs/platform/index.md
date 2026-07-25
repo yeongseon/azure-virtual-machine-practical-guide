@@ -1,16 +1,15 @@
 ---
 content_sources:
   diagrams:
-  - id: platform-index-azure-vm-architecture
-    type: flowchart
-    source: self-generated
-    description: Azure VM Architecture
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    - id: platform-index-azure-vm-architecture
+      type: flowchart
+      source: self-generated
+      description: Azure VM Architecture
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
 ---
 
 # Platform Fundamentals

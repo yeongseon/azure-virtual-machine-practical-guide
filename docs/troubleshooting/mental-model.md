@@ -1,26 +1,34 @@
 ---
 content_sources:
   diagrams:
-  - id: troubleshooting-mental-model-classification-model
-    type: flowchart
-    source: self-generated
-    description: Classification model
-    based_on:
-    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/troubleshooting/
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
-  - id: troubleshooting-mental-model-investigation-rhythm
-    type: flowchart
-    source: self-generated
-    description: Investigation rhythm
-    based_on:
-    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/troubleshooting/
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    - id: troubleshooting-mental-model-classification-model
+      type: flowchart
+      source: self-generated
+      description: Classification model
+      based_on:
+        - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/troubleshooting/
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
+    - id: troubleshooting-mental-model-investigation-rhythm
+      type: flowchart
+      source: self-generated
+      description: Investigation rhythm
+      based_on:
+        - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/troubleshooting/
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Microsoft Learn maintains category-based troubleshooting guidance for Azure Virtual Machines.
+      source: https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
+      verified: true
+    - claim: The Azure portal includes troubleshooting tools and guided experiences for Azure virtual machines.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/troubleshooting/
+      verified: true
 ---
-
 # VM Troubleshooting Mental Model
 
 The core VM troubleshooting habit is simple: classify the failure domain first, then collect disproving evidence before committing to a root cause.

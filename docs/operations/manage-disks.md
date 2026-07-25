@@ -1,17 +1,27 @@
 ---
 content_sources:
   diagrams:
-  - id: operations-manage-disks-disk-management-workflow
-    type: flowchart
-    source: mslearn-adapted
-    description: Disk Management Workflow
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/windows/attach-managed-disk-portal
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-change-performance
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-enable-host-based-encryption-portal
+    - id: operations-manage-disks-disk-management-workflow
+      type: flowchart
+      source: mslearn-adapted
+      description: Disk Management Workflow
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/windows/attach-managed-disk-portal
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-change-performance
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-enable-host-based-encryption-portal
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Managed disks can be attached to Azure virtual machines as data disks.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/windows/attach-managed-disk-portal
+      verified: true
+    - claim: You can change the performance tier of a managed disk when the disk type supports performance tiers.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/disks-change-performance
+      verified: true
 ---
-
 # Manage Disks
 
 Managing disks in Azure allows you to expand storage capacity or improve performance throughput. These operations can often be performed on running VMs with minimal disruption.

@@ -1,16 +1,16 @@
 ---
+description: Tutorial validation coverage for Azure Virtual Machines lab guides, generated from validation frontmatter metadata.
 content_sources:
   diagrams:
-  - id: reference-validation-status-summary
-    type: pie
-    source: self-generated
-    description: Summary
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/availability
-    - https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    - id: reference-validation-status-summary
+      type: pie
+      source: self-generated
+      description: Summary of tutorial validation status across Azure VM lab guides.
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/availability
+        - https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview
+      justification: Auto-generated dashboard summarizing declared tutorial validation metadata.
 ---
 
 # Tutorial Validation Status
@@ -19,7 +19,7 @@ This page tracks which lab guides have been validated against real Azure deploym
 
 ## Summary
 
-*Generated: 2026-04-09*
+*Generated: 2026-07-25*
 
 | Metric | Count |
 |---|---:|
@@ -39,11 +39,11 @@ pie title Tutorial Validation Status
 
 | Lab Guide | az-cli | Bicep | Last Tested | Status |
 |---|---|---|---|---|
-| [Lab 01 Highly Available Vm Deployment](../tutorials/lab-guides/lab-01-highly-available-vm-deployment.md) | ➖ No Data | ➖ No Data | — | ➖ Not Tested |
-| [Lab 02 Disk Encryption And Backup](../tutorials/lab-guides/lab-02-disk-encryption-and-backup.md) | ➖ No Data | ➖ No Data | — | ➖ Not Tested |
-| [Lab 03 Custom Script Extensions](../tutorials/lab-guides/lab-03-custom-script-extensions.md) | ➖ No Data | ➖ No Data | — | ➖ Not Tested |
-| [Lab 04 Azure Bastion Jit Access](../tutorials/lab-guides/lab-04-azure-bastion-jit-access.md) | ➖ No Data | ➖ No Data | — | ➖ Not Tested |
-| [Lab 05 Vm Disaster Recovery Asr](../tutorials/lab-guides/lab-05-vm-disaster-recovery-asr.md) | ➖ No Data | ➖ No Data | — | ➖ Not Tested |
+| [Lab 01 Highly Available Vm Deployment](../tutorials/lab-guides/lab-01-highly-available-vm-deployment.md) | ➖ Not Tested | ➖ Not Tested | — | ➖ Not Tested |
+| [Lab 02 Disk Encryption And Backup](../tutorials/lab-guides/lab-02-disk-encryption-and-backup.md) | ➖ Not Tested | ➖ Not Tested | — | ➖ Not Tested |
+| [Lab 03 Custom Script Extensions](../tutorials/lab-guides/lab-03-custom-script-extensions.md) | ➖ Not Tested | ➖ Not Tested | — | ➖ Not Tested |
+| [Lab 04 Azure Bastion Jit Access](../tutorials/lab-guides/lab-04-azure-bastion-jit-access.md) | ➖ Not Tested | ➖ Not Tested | — | ➖ Not Tested |
+| [Lab 05 Vm Disaster Recovery Asr](../tutorials/lab-guides/lab-05-vm-disaster-recovery-asr.md) | ➖ Not Tested | ➖ Not Tested | — | ➖ Not Tested |
 
 ## How to Update
 
@@ -51,6 +51,8 @@ To mark a lab guide as validated, add a `validation` block to its YAML frontmatt
 
 ```yaml
 ---
+hide:
+  - toc
 validation:
   az_cli:
     last_tested: 2026-04-09
@@ -79,3 +81,4 @@ python3 scripts/generate_validation_status.py
 - [Tutorials](../tutorials/index.md)
 - [Lab Guides](../tutorials/lab-guides/index.md)
 - [VM Size Families](vm-size-families.md)
+

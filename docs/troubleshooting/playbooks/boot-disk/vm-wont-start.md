@@ -1,18 +1,27 @@
 ---
 content_sources:
   diagrams:
-  - id: troubleshooting-playbooks-boot-disk-vm-wont-start-troubleshooting-decision-flow
-    type: flowchart
-    source: self-generated
-    description: Troubleshooting decision flow
-    based_on:
-    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-vm-boot-error
-    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/allocation-failure
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    - id: troubleshooting-playbooks-boot-disk-vm-wont-start-troubleshooting-decision-flow
+      type: flowchart
+      source: self-generated
+      description: Troubleshooting decision flow
+      based_on:
+        - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-vm-boot-error
+        - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/allocation-failure
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Allocation failures occur when Azure cannot allocate the requested virtual machine resources.
+      source: https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/allocation-failure
+      verified: true
+    - claim: Boot diagnostics is a primary tool for collecting evidence about Azure VM boot problems.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics
+      verified: true
 ---
-
 # VM Won't Start
 
 ## 1. Summary

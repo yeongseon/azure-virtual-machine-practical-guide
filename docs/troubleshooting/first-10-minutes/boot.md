@@ -1,18 +1,27 @@
 ---
 content_sources:
   diagrams:
-  - id: troubleshooting-first-10-minutes-boot-initial-response-flow
-    type: flowchart
-    source: self-generated
-    description: Initial response flow
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics
-    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/serial-console-linux
-    - https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-troubleshoot
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    - id: troubleshooting-first-10-minutes-boot-initial-response-flow
+      type: flowchart
+      source: self-generated
+      description: Initial response flow
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics
+        - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/serial-console-linux
+        - https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-troubleshoot
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Boot diagnostics helps troubleshoot virtual machine boot issues by collecting console output and screenshots.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics
+      verified: true
+    - claim: Azure Serial Console provides text-based access for troubleshooting supported Azure virtual machines.
+      source: https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/serial-console-linux
+      verified: true
 ---
-
 # Boot Checklist
 
 Use this checklist when the VM does not reach a healthy running state, standard admin access is unavailable, or backup recovery workflows are failing.

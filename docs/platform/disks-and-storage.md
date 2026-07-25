@@ -1,15 +1,25 @@
 ---
 content_sources:
   diagrams:
-  - id: platform-disks-and-storage-managed-disk-hierarchy
-    type: flowchart
-    source: mslearn-adapted
-    description: Managed Disk Hierarchy
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance#disk-caching
+    - id: platform-disks-and-storage-managed-disk-hierarchy
+      type: flowchart
+      source: mslearn-adapted
+      description: Managed Disk Hierarchy
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance#disk-caching
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Azure offers managed disk types including Ultra Disk Storage, Premium SSD v2, Premium SSD, Standard SSD, and Standard HDD.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types
+      verified: true
+    - claim: Azure managed disk host caching supports None, ReadOnly, and ReadWrite modes.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance#disk-caching
+      verified: true
 ---
-
 # Disks and Storage
 
 Azure VM storage uses managed disks with different latency, IOPS, and throughput characteristics. Correct disk type and caching choices are critical for both performance and durability.

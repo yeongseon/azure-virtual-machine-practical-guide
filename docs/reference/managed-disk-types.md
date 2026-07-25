@@ -1,17 +1,17 @@
 ---
 content_sources:
   diagrams:
-  - id: reference-managed-disk-types-managed-disk-types
-    type: flowchart
-    source: mslearn-adapted
-    description: Managed Disk Types
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#standard-hdd
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#standard-ssd
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd-v2
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#ultra-disk
+    - id: reference-managed-disk-types-managed-disk-types
+      type: flowchart
+      source: mslearn-adapted
+      description: Managed Disk Types
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#standard-hdd
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#standard-ssd
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd-v2
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#ultra-disk
 ---
 
 # Managed Disk Types

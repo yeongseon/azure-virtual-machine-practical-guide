@@ -1,18 +1,27 @@
 ---
 content_sources:
   diagrams:
-  - id: troubleshooting-playbooks-connectivity-dns-and-connectivity-issues-troubleshooting-decision-flow
-    type: flowchart
-    source: self-generated
-    description: Troubleshooting decision flow
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/dns/dns-troubleshoot
-    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-network/virtual-network-troubleshoot-peering-issues
-    - https://learn.microsoft.com/en-us/azure/network-watcher/ip-flow-verify-overview
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    - id: troubleshooting-playbooks-connectivity-dns-and-connectivity-issues-troubleshooting-decision-flow
+      type: flowchart
+      source: self-generated
+      description: Troubleshooting decision flow
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/dns/dns-troubleshoot
+        - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-network/virtual-network-troubleshoot-peering-issues
+        - https://learn.microsoft.com/en-us/azure/network-watcher/ip-flow-verify-overview
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Azure DNS provides troubleshooting guidance for name resolution and DNS configuration issues.
+      source: https://learn.microsoft.com/en-us/azure/dns/dns-troubleshoot
+      verified: true
+    - claim: IP flow verify shows whether a packet is allowed or denied to or from a virtual machine.
+      source: https://learn.microsoft.com/en-us/azure/network-watcher/ip-flow-verify-overview
+      verified: true
 ---
-
 # DNS and Connectivity Issues
 
 ## 1. Summary

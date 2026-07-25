@@ -1,28 +1,36 @@
 ---
 content_sources:
   diagrams:
-  - id: troubleshooting-architecture-overview-failure-domain-overview
-    type: flowchart
-    source: self-generated
-    description: Failure-domain overview
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics
-    - https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-virtual-machine
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
-  - id: troubleshooting-architecture-overview-common-fault-chains
-    type: flowchart
-    source: self-generated
-    description: Common fault chains
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics
-    - https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-virtual-machine
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    - id: troubleshooting-architecture-overview-failure-domain-overview
+      type: flowchart
+      source: self-generated
+      description: Failure-domain overview
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics
+        - https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-virtual-machine
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
+    - id: troubleshooting-architecture-overview-common-fault-chains
+      type: flowchart
+      source: self-generated
+      description: Common fault chains
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics
+        - https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-virtual-machine
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Boot diagnostics captures serial log information and screenshots during virtual machine boot for troubleshooting.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics
+      verified: true
+    - claim: Azure Monitor can monitor virtual machines by collecting platform metrics and guest telemetry.
+      source: https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-virtual-machine
+      verified: true
 ---
-
 # VM Troubleshooting Architecture Overview
 
 This page maps the Azure VM control plane, data plane, guest OS, and storage/network dependencies so you can place failures in the right layer before opening a playbook.

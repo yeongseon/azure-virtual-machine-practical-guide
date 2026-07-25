@@ -1,16 +1,26 @@
 ---
 content_sources:
   diagrams:
-  - id: platform-identity-and-access-managed-identity-and-key-vault
-    type: flowchart
-    source: mslearn-adapted
-    description: Managed Identity and Key Vault
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles
-    - https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview
-    - https://learn.microsoft.com/en-us/azure/defender-for-cloud/enable-just-in-time-access
+    - id: platform-identity-and-access-managed-identity-and-key-vault
+      type: flowchart
+      source: mslearn-adapted
+      description: Managed Identity and Key Vault
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles
+        - https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview
+        - https://learn.microsoft.com/en-us/azure/defender-for-cloud/enable-just-in-time-access
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Managed identities provide Azure resources with an automatically managed identity in Microsoft Entra ID.
+      source: https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview
+      verified: true
+    - claim: Just-in-time VM access recommends keeping management ports closed until a user requests time-bound access.
+      source: https://learn.microsoft.com/en-us/azure/defender-for-cloud/enable-just-in-time-access
+      verified: true
 ---
-
 # Identity and Access
 
 Azure Role-Based Access Control (RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.

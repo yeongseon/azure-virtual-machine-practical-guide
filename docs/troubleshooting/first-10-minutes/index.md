@@ -1,14 +1,13 @@
 ---
 content_sources:
   diagrams:
-  - id: troubleshooting-first-10-minutes-index-triage-flow
-    type: flowchart
-    source: self-generated
-    description: Triage flow
-    based_on:
-    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    - id: troubleshooting-first-10-minutes-index-triage-flow
+      type: flowchart
+      source: self-generated
+      description: Triage flow
+      based_on:
+        - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
 ---
 
 # First 10 Minutes

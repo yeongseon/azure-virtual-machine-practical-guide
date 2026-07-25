@@ -1,20 +1,29 @@
 ---
 content_sources:
   diagrams:
-  - id: troubleshooting-playbooks-network-connectivity-issues-symptoms
-    type: flowchart
-    source: self-generated
-    description: Symptoms
-    based_on:
-    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics
-    - https://learn.microsoft.com/en-us/azure/bastion/bastion-connect-vm-rdp-windows
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance
-    - https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    - id: troubleshooting-playbooks-network-connectivity-issues-symptoms
+      type: flowchart
+      source: self-generated
+      description: Symptoms
+      based_on:
+        - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics
+        - https://learn.microsoft.com/en-us/azure/bastion/bastion-connect-vm-rdp-windows
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance
+        - https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Microsoft Learn maintains a troubleshooting hub for Azure Virtual Machines that includes connectivity scenarios.
+      source: https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
+      verified: true
+    - claim: Boot diagnostics can help determine whether an access failure is part of a broader boot or guest OS problem.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics
+      verified: true
 ---
-
 # Network Connectivity Issues
 
 ## Symptoms

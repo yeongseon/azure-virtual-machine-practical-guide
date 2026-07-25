@@ -1,18 +1,27 @@
 ---
 content_sources:
   diagrams:
-  - id: troubleshooting-playbooks-performance-high-cpu-memory-disk-troubleshooting-decision-flow
-    type: flowchart
-    source: self-generated
-    description: Troubleshooting decision flow
-    based_on:
-    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/windows/troubleshoot-high-cpu-issues-azure-windows-vm
-    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-performance-bottlenecks-linux
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance-tiers
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    - id: troubleshooting-playbooks-performance-high-cpu-memory-disk-troubleshooting-decision-flow
+      type: flowchart
+      source: self-generated
+      description: Troubleshooting decision flow
+      based_on:
+        - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/windows/troubleshoot-high-cpu-issues-azure-windows-vm
+        - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-performance-bottlenecks-linux
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance-tiers
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: High CPU troubleshooting on Azure Windows VMs focuses on identifying the process or service consuming CPU resources.
+      source: https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/windows/troubleshoot-high-cpu-issues-azure-windows-vm
+      verified: true
+    - claim: Disk throttling can occur when workload demand exceeds the IOPS or throughput available to the disk or VM.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance-tiers
+      verified: true
 ---
-
 # High CPU / Memory / Disk
 
 ## 1. Summary

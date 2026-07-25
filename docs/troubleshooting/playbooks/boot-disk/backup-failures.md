@@ -1,18 +1,27 @@
 ---
 content_sources:
   diagrams:
-  - id: troubleshooting-playbooks-boot-disk-backup-failures-troubleshooting-decision-flow
-    type: flowchart
-    source: self-generated
-    description: Troubleshooting decision flow
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-troubleshoot
-    - https://learn.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout
-    - https://learn.microsoft.com/en-us/azure/backup/backup-support-matrix-iaas
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    - id: troubleshooting-playbooks-boot-disk-backup-failures-troubleshooting-decision-flow
+      type: flowchart
+      source: self-generated
+      description: Troubleshooting decision flow
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-troubleshoot
+        - https://learn.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout
+        - https://learn.microsoft.com/en-us/azure/backup/backup-support-matrix-iaas
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Azure Backup publishes troubleshooting guidance for Azure virtual machine backup failures.
+      source: https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-troubleshoot
+      verified: true
+    - claim: Azure VM Backup has a documented support matrix that defines supported scenarios and limitations.
+      source: https://learn.microsoft.com/en-us/azure/backup/backup-support-matrix-iaas
+      verified: true
 ---
-
 # Backup Failures
 
 ## 1. Summary

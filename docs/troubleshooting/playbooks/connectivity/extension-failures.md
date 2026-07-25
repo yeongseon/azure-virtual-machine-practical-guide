@@ -1,18 +1,27 @@
 ---
 content_sources:
   diagrams:
-  - id: troubleshooting-playbooks-connectivity-extension-failures-troubleshooting-decision-flow
-    type: flowchart
-    source: self-generated
-    description: Troubleshooting decision flow
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/troubleshoot
-    - https://learn.microsoft.com/en-us/azure/azure-monitor/agents/azure-monitor-agent-troubleshoot-windows-vm
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    - id: troubleshooting-playbooks-connectivity-extension-failures-troubleshooting-decision-flow
+      type: flowchart
+      source: self-generated
+      description: Troubleshooting decision flow
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/troubleshoot
+        - https://learn.microsoft.com/en-us/azure/azure-monitor/agents/azure-monitor-agent-troubleshoot-windows-vm
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Azure VM extension troubleshooting includes checking Azure VM Agent health and outbound connectivity.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/troubleshoot
+      verified: true
+    - claim: Custom Script Extension for Windows downloads scripts to the virtual machine and runs them there.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows
+      verified: true
 ---
-
 # Extension Failures
 
 ## 1. Summary

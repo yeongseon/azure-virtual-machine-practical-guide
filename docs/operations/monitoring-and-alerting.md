@@ -1,15 +1,25 @@
 ---
 content_sources:
   diagrams:
-  - id: operations-monitoring-and-alerting-monitoring-architecture
-    type: flowchart
-    source: mslearn-adapted
-    description: Monitoring Architecture
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview
-    - https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-vm
+    - id: operations-monitoring-and-alerting-monitoring-architecture
+      type: flowchart
+      source: mslearn-adapted
+      description: Monitoring Architecture
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview
+        - https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-vm
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Azure Monitor collects and analyzes telemetry from Azure and on-premises environments.
+      source: https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview
+      verified: true
+    - claim: Azure Monitor can monitor virtual machines by using platform metrics, guest metrics, logs, and VM insights.
+      source: https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-vm
+      verified: true
 ---
-
 # Monitoring and Alerting
 
 Azure Monitor provides visibility into the performance, health, and availability of Virtual Machines. It collects metrics and logs from the platform host and the guest operating system.

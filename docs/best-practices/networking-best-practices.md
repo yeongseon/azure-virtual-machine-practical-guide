@@ -1,24 +1,37 @@
 ---
 content_sources:
   diagrams:
-  - id: best-practices-networking-best-practices-why-this-matters
-    type: flowchart
-    source: mslearn-adapted
-    description: Why This Matters
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/windows/disks-enable-ultra-ssd
-    - https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/co-location
-    - https://learn.microsoft.com/en-us/azure/defender-for-cloud/just-in-time-access-overview
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/auto-shutdown-vm
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/availability
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/monitor-vm
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance
+    - id: best-practices-networking-best-practices-why-this-matters
+      type: flowchart
+      source: mslearn-adapted
+      description: Why This Matters
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/windows/disks-enable-ultra-ssd
+        - https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/co-location
+        - https://learn.microsoft.com/en-us/azure/defender-for-cloud/just-in-time-access-overview
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/auto-shutdown-vm
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/availability
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/monitor-vm
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance
+content_validation:
+  status: pending_review
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Azure Virtual Machines sizes are grouped into categories optimized for different workload types.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/sizes
+      verified: true
+    - claim: Accelerated Networking reduces latency, jitter, and CPU utilization for supported virtual machines.
+      source: https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview
+      verified: true
+    - claim: Just-in-time VM access helps reduce exposure by allowing inbound management access only for approved ports, users, and time windows.
+      source: https://learn.microsoft.com/en-us/azure/defender-for-cloud/just-in-time-access-overview
+      verified: true
 ---
-
 # Networking Best Practices
 
 VM networking decisions directly shape blast radius, operator access, east-west latency, and how quickly teams can prove or disprove connectivity incidents.

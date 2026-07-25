@@ -1,16 +1,16 @@
 ---
 content_sources:
   diagrams:
-  - id: reference-glossary-glossary
-    type: flowchart
-    source: mslearn-adapted
-    description: Glossary
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview
-    - https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview
-    - https://learn.microsoft.com/en-us/azure/backup/backup-overview
-    - https://learn.microsoft.com/en-us/azure/role-based-access-control/overview
+    - id: reference-glossary-glossary
+      type: flowchart
+      source: mslearn-adapted
+      description: Glossary
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview
+        - https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview
+        - https://learn.microsoft.com/en-us/azure/backup/backup-overview
+        - https://learn.microsoft.com/en-us/azure/role-based-access-control/overview
 ---
 
 # Glossary

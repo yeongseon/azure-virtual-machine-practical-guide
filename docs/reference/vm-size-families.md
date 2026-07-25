@@ -1,14 +1,14 @@
 ---
 content_sources:
   diagrams:
-  - id: reference-vm-size-families-vm-size-families
-    type: flowchart
-    source: mslearn-adapted
-    description: VM Size Families
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview#high-performance-compute
+    - id: reference-vm-size-families-vm-size-families
+      type: flowchart
+      source: mslearn-adapted
+      description: VM Size Families
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview#high-performance-compute
 ---
 
 # VM Size Families

@@ -1,12 +1,12 @@
 ---
 content_sources:
   diagrams:
-  - id: start-here-vm-vs-other-compute-compute-decision-flow
-    type: flowchart
-    source: mslearn-adapted
-    description: Compute Decision Flow
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree
+    - id: start-here-vm-vs-other-compute-compute-decision-flow
+      type: flowchart
+      source: mslearn-adapted
+      description: Compute Decision Flow
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree
 ---
 
 # VM vs Other Compute Options

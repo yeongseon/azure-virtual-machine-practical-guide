@@ -1,24 +1,23 @@
 ---
 content_sources:
   diagrams:
-  - id: best-practices-index-why-this-matters
-    type: flowchart
-    source: self-generated
-    description: Why This Matters
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/windows/disks-enable-ultra-ssd
-    - https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/co-location
-    - https://learn.microsoft.com/en-us/azure/defender-for-cloud/just-in-time-access-overview
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/auto-shutdown-vm
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/availability
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/monitor-vm
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    - id: best-practices-index-why-this-matters
+      type: flowchart
+      source: self-generated
+      description: Why This Matters
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/windows/disks-enable-ultra-ssd
+        - https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/co-location
+        - https://learn.microsoft.com/en-us/azure/defender-for-cloud/just-in-time-access-overview
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/auto-shutdown-vm
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/availability
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/monitor-vm
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
 ---
 
 # Best Practices

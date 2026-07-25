@@ -1,16 +1,26 @@
 ---
 content_sources:
   diagrams:
-  - id: platform-vm-lifecycle-state-transitions
-    type: state
-    source: mslearn-adapted
-    description: State Transitions
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/states-billing
-    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/windows/redeploy-to-new-node-windows
-    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/linux/redeploy-to-new-node-linux
+    - id: platform-vm-lifecycle-state-transitions
+      type: state
+      source: mslearn-adapted
+      description: State Transitions
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/states-billing
+        - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/windows/redeploy-to-new-node-windows
+        - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/linux/redeploy-to-new-node-linux
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: A stopped (deallocated) virtual machine does not incur compute charges.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/states-billing
+      verified: true
+    - claim: Redeploy moves a virtual machine to a new Azure host node to help recover from host-side issues.
+      source: https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/windows/redeploy-to-new-node-windows
+      verified: true
 ---
-
 # VM Lifecycle
 
 The VM lifecycle describes the various states an Azure VM can transition through, each with distinct billing and resource implications.
