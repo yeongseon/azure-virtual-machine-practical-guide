@@ -61,9 +61,18 @@ graph TD
 ### Step 1: Create the resource group and network baseline
 
 ```bash
-az group create     --name $RG     --location $LOCATION     --output json
+az group create \
+    --name $RG \
+    --location $LOCATION \
+    --output json
 
-az network vnet create     --resource-group $RG     --name $VNET_NAME     --address-prefixes 10.40.0.0/16     --subnet-name $SUBNET_NAME     --subnet-prefixes 10.40.1.0/24     --output json
+az network vnet create \
+    --resource-group $RG \
+    --name $VNET_NAME \
+    --address-prefixes 10.40.0.0/16 \
+    --subnet-name $SUBNET_NAME \
+    --subnet-prefixes 10.40.1.0/24 \
+    --output json
 ```
 
 | Command | Purpose |
@@ -88,7 +97,18 @@ Expected outcome:
 ### Step 2: Deploy the base VM
 
 ```bash
-az vm create     --resource-group $RG     --name $VM_NAME     --image Ubuntu2204     --size Standard_D4s_v5     --admin-username azureuser     --generate-ssh-keys     --vnet-name $VNET_NAME     --subnet $SUBNET_NAME     --public-ip-sku Standard     --storage-sku Premium_LRS     --output json
+az vm create \
+    --resource-group $RG \
+    --name $VM_NAME \
+    --image Ubuntu2204 \
+    --size Standard_D4s_v5 \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --vnet-name $VNET_NAME \
+    --subnet $SUBNET_NAME \
+    --public-ip-sku Standard \
+    --storage-sku Premium_LRS \
+    --output json
 ```
 
 | Command | Purpose |
@@ -111,12 +131,17 @@ Expected outcome:
 - The VM deploys with Premium SSD-backed storage and a predictable network baseline.
 - You have enough CPU, memory, and NIC capability to test the scenario without using a tiny burstable SKU.
 
-### Step 3: Apply the lab-specific configuration
+### Step 3: Record the pre-hardening management exposure
 
-Use this step to apply the feature under test and document why it matters for production.
+Before you introduce Bastion or JIT, capture how the VM is currently exposed so you can prove the hardening change reduced the management attack surface.
 
 ```bash
-az vm show     --resource-group $RG     --name $VM_NAME     --query "{name:name,vmSize:hardwareProfile.vmSize,zone:zones,storageProfile:storageProfile.osDisk.managedDisk.storageAccountType}"     --output json
+az vm show \
+    --resource-group $RG \
+    --name $VM_NAME \
+    --show-details \
+    --query "{name:name,privateIps:privateIps,publicIps:publicIps,powerState:powerState}" \
+    --output json
 ```
 
 | Command | Purpose |
@@ -124,23 +149,30 @@ az vm show     --resource-group $RG     --name $VM_NAME     --query "{name:name,
 | `az vm show` | Retrieve the current configuration of the virtual machine. |
 | `--resource-group` | Resource group that contains the virtual machine. |
 | `--name` | Name of the virtual machine to inspect. |
-| `--query` | JMESPath expression selecting name, size, zone, and OS-disk storage type. |
+| `--show-details` | Include runtime details such as IP address information. |
+| `--query` | JMESPath expression selecting private IPs, public IPs, and power state. |
 | `--output` | Output format for the response (JSON here). |
 
 Recommended operator notes:
 
-- Capture the command output in your lab log.
-- Record any prerequisites unique to your region, vault, or security policy.
-- If the feature depends on another Azure service, confirm that dependency before continuing.
+- Record whether the VM currently has a public IP or any other direct management exposure.
+- Note the subnet and addressing assumptions you must preserve when you add Bastion.
+- Record which ports and approval duration you expect JIT to control in production.
 
 ### Step 4: Validate the scenario end to end
 
-Run both control-plane and workload validation so the result is useful during a real incident or audit.
+Run both control-plane and workload validation so you can compare the exposed baseline with the hardened access path after Bastion and JIT are in place.
 
 ```bash
-az vm get-instance-view     --resource-group $RG     --name $VM_NAME     --output json
+az vm get-instance-view \
+    --resource-group $RG \
+    --name $VM_NAME \
+    --output json
 
-az monitor activity-log list     --resource-group $RG     --offset 2h     --output table
+az monitor activity-log list \
+    --resource-group $RG \
+    --offset 2h \
+    --output table
 ```
 
 | Command | Purpose |
@@ -156,9 +188,9 @@ az monitor activity-log list     --resource-group $RG     --offset 2h     --outp
 
 ### Step 5: Optional operational hardening
 
-- Review whether the lab design should also use accelerated networking or proximity placement groups.
-- Review whether JIT access, ASGs, and backup retention should be part of the same deployment workflow.
-- Review whether Reserved Instances, Spot, or auto-shutdown affect the scenario economics.
+- Review whether Bastion, JIT, and NSG rules should be deployed together as one repeatable access pattern.
+- Review whether break-glass access requires different approval or logging requirements.
+- Review whether the VM should lose its public IP entirely after the lab proves the private path.
 
 ## Validation Steps
 
@@ -172,11 +204,19 @@ Use the following validation checklist before marking the lab complete:
 ## Cleanup Instructions
 
 ```bash
-az vm delete     --resource-group $RG     --name $VM_NAME     --yes
+az vm delete \
+    --resource-group $RG \
+    --name $VM_NAME \
+    --yes
 
-az network nic delete     --resource-group $RG     --name "${VM_NAME}VMNic"
+az network nic delete \
+    --resource-group $RG \
+    --name "${VM_NAME}VMNic"
 
-az group delete     --name $RG     --yes     --no-wait
+az group delete \
+    --name $RG \
+    --yes \
+    --no-wait
 ```
 
 | Command | Purpose |

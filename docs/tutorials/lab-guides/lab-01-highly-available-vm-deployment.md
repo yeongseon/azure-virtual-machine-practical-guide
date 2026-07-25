@@ -61,9 +61,18 @@ graph TD
 ### Step 1: Create the resource group and network baseline
 
 ```bash
-az group create     --name $RG     --location $LOCATION     --output json
+az group create \
+    --name $RG \
+    --location $LOCATION \
+    --output json
 
-az network vnet create     --resource-group $RG     --name $VNET_NAME     --address-prefixes 10.40.0.0/16     --subnet-name $SUBNET_NAME     --subnet-prefixes 10.40.1.0/24     --output json
+az network vnet create \
+    --resource-group $RG \
+    --name $VNET_NAME \
+    --address-prefixes 10.40.0.0/16 \
+    --subnet-name $SUBNET_NAME \
+    --subnet-prefixes 10.40.1.0/24 \
+    --output json
 ```
 
 | Command | Purpose |
@@ -88,7 +97,18 @@ Expected outcome:
 ### Step 2: Deploy the base VM
 
 ```bash
-az vm create     --resource-group $RG     --name $VM_NAME     --image Ubuntu2204     --size Standard_D4s_v5     --admin-username azureuser     --generate-ssh-keys     --vnet-name $VNET_NAME     --subnet $SUBNET_NAME     --public-ip-sku Standard     --storage-sku Premium_LRS     --output json
+az vm create \
+    --resource-group $RG \
+    --name $VM_NAME \
+    --image Ubuntu2204 \
+    --size Standard_D4s_v5 \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --vnet-name $VNET_NAME \
+    --subnet $SUBNET_NAME \
+    --public-ip-sku Standard \
+    --storage-sku Premium_LRS \
+    --output json
 ```
 
 | Command | Purpose |
@@ -111,12 +131,16 @@ Expected outcome:
 - The VM deploys with Premium SSD-backed storage and a predictable network baseline.
 - You have enough CPU, memory, and NIC capability to test the scenario without using a tiny burstable SKU.
 
-### Step 3: Apply the lab-specific configuration
+### Step 3: Capture the high-availability placement baseline
 
-Use this step to apply the feature under test and document why it matters for production.
+Before you compare a single VM with a more resilient pattern, record whether this instance is regional or zonal and capture the storage baseline you would need to reproduce on any redundant instance.
 
 ```bash
-az vm show     --resource-group $RG     --name $VM_NAME     --query "{name:name,vmSize:hardwareProfile.vmSize,zone:zones,storageProfile:storageProfile.osDisk.managedDisk.storageAccountType}"     --output json
+az vm show \
+    --resource-group $RG \
+    --name $VM_NAME \
+    --query "{name:name,vmSize:hardwareProfile.vmSize,zone:zones,storageProfile:storageProfile.osDisk.managedDisk.storageAccountType}" \
+    --output json
 ```
 
 | Command | Purpose |
@@ -129,18 +153,24 @@ az vm show     --resource-group $RG     --name $VM_NAME     --query "{name:name,
 
 Recommended operator notes:
 
-- Capture the command output in your lab log.
-- Record any prerequisites unique to your region, vault, or security policy.
-- If the feature depends on another Azure service, confirm that dependency before continuing.
+- Record whether `zone` is populated or empty so you know whether this build is already zonal.
+- Note which next step would provide redundancy for this workload: a second zonal VM, an availability set, or a VM scale set.
+- Capture any regional constraints for load balancer, zone support, or quota before you expand the design.
 
 ### Step 4: Validate the scenario end to end
 
-Run both control-plane and workload validation so the result is useful during a real incident or audit.
+Run both control-plane and workload validation so you can compare this single-instance baseline with any later highly available deployment.
 
 ```bash
-az vm get-instance-view     --resource-group $RG     --name $VM_NAME     --output json
+az vm get-instance-view \
+    --resource-group $RG \
+    --name $VM_NAME \
+    --output json
 
-az monitor activity-log list     --resource-group $RG     --offset 2h     --output table
+az monitor activity-log list \
+    --resource-group $RG \
+    --offset 2h \
+    --output table
 ```
 
 | Command | Purpose |
@@ -156,9 +186,9 @@ az monitor activity-log list     --resource-group $RG     --offset 2h     --outp
 
 ### Step 5: Optional operational hardening
 
-- Review whether the lab design should also use accelerated networking or proximity placement groups.
-- Review whether JIT access, ASGs, and backup retention should be part of the same deployment workflow.
-- Review whether Reserved Instances, Spot, or auto-shutdown affect the scenario economics.
+- Review whether the resilient design should use a second zonal VM, an availability set, or a VM scale set.
+- Review whether a Standard Load Balancer is required to prove the final production pattern.
+- Review whether backup, patching, and alerting need to be updated when you add more instances.
 
 ## Validation Steps
 
@@ -172,11 +202,19 @@ Use the following validation checklist before marking the lab complete:
 ## Cleanup Instructions
 
 ```bash
-az vm delete     --resource-group $RG     --name $VM_NAME     --yes
+az vm delete \
+    --resource-group $RG \
+    --name $VM_NAME \
+    --yes
 
-az network nic delete     --resource-group $RG     --name "${VM_NAME}VMNic"
+az network nic delete \
+    --resource-group $RG \
+    --name "${VM_NAME}VMNic"
 
-az group delete     --name $RG     --yes     --no-wait
+az group delete \
+    --name $RG \
+    --yes \
+    --no-wait
 ```
 
 | Command | Purpose |

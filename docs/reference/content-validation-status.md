@@ -25,16 +25,15 @@ This page tracks `content_validation` metadata for **in-scope factual-claim docu
 | Metric | Count |
 |---|---:|
 | In-scope factual-claim documents | 47 |
-| ✅ Verified | 37 |
-| ⚠️ Pending review | 10 |
+| ✅ Verified | 47 |
+| ⚠️ Pending review | 0 |
 | ➖ Unverified | 0 |
 | ❓ No metadata | 0 |
 
 <!-- diagram-id: content-validation-status-pie -->
 ```mermaid
 pie title In-Scope Document Validation Status
-    "Verified" : 37
-    "Pending Review" : 10
+    "Verified" : 47
 ```
 
 ## By Section
@@ -56,16 +55,16 @@ pie title In-Scope Document Validation Status
 
 | Document | Has Sources | Status | Claims | Last Reviewed |
 |---|---|---|---|---|
-| [Backup And Dr Best Practices](../best-practices/backup-and-dr-best-practices.md) | ✅ | ⚠️ Pending Review | 3/3 | 2026-07-25 |
-| [Common Anti Patterns](../best-practices/common-anti-patterns.md) | ✅ | ⚠️ Pending Review | 3/3 | 2026-07-25 |
-| [Cost Optimization Best Practices](../best-practices/cost-optimization-best-practices.md) | ✅ | ⚠️ Pending Review | 3/3 | 2026-07-25 |
-| [Disk And Storage Best Practices](../best-practices/disk-and-storage-best-practices.md) | ✅ | ⚠️ Pending Review | 3/3 | 2026-07-25 |
-| [Monitoring Best Practices](../best-practices/monitoring-best-practices.md) | ✅ | ⚠️ Pending Review | 3/3 | 2026-07-25 |
-| [Networking Best Practices](../best-practices/networking-best-practices.md) | ✅ | ⚠️ Pending Review | 3/3 | 2026-07-25 |
-| [Patching And Maintenance Best Practices](../best-practices/patching-and-maintenance-best-practices.md) | ✅ | ⚠️ Pending Review | 3/3 | 2026-07-25 |
-| [Production Baseline](../best-practices/production-baseline.md) | ✅ | ⚠️ Pending Review | 3/3 | 2026-07-25 |
-| [Security Best Practices](../best-practices/security-best-practices.md) | ✅ | ⚠️ Pending Review | 3/3 | 2026-07-25 |
-| [Sizing And Image Selection](../best-practices/sizing-and-image-selection.md) | ✅ | ⚠️ Pending Review | 3/3 | 2026-07-25 |
+| [Backup And Dr Best Practices](../best-practices/backup-and-dr-best-practices.md) | ❌ | ✅ Verified | 3/3 | 2026-07-25 |
+| [Common Anti Patterns](../best-practices/common-anti-patterns.md) | ❌ | ✅ Verified | 3/3 | 2026-07-25 |
+| [Cost Optimization Best Practices](../best-practices/cost-optimization-best-practices.md) | ❌ | ✅ Verified | 3/3 | 2026-07-25 |
+| [Disk And Storage Best Practices](../best-practices/disk-and-storage-best-practices.md) | ❌ | ✅ Verified | 3/3 | 2026-07-25 |
+| [Monitoring Best Practices](../best-practices/monitoring-best-practices.md) | ❌ | ✅ Verified | 3/3 | 2026-07-25 |
+| [Networking Best Practices](../best-practices/networking-best-practices.md) | ❌ | ✅ Verified | 3/3 | 2026-07-25 |
+| [Patching And Maintenance Best Practices](../best-practices/patching-and-maintenance-best-practices.md) | ❌ | ✅ Verified | 3/3 | 2026-07-25 |
+| [Production Baseline](../best-practices/production-baseline.md) | ❌ | ✅ Verified | 3/3 | 2026-07-25 |
+| [Security Best Practices](../best-practices/security-best-practices.md) | ❌ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Sizing And Image Selection](../best-practices/sizing-and-image-selection.md) | ❌ | ✅ Verified | 3/3 | 2026-07-25 |
 
 ### Operations
 
