@@ -61,9 +61,18 @@ graph TD
 ### Step 1: Create the resource group and network baseline
 
 ```bash
-az group create     --name $RG     --location $LOCATION     --output json
+az group create \
+    --name $RG \
+    --location $LOCATION \
+    --output json
 
-az network vnet create     --resource-group $RG     --name $VNET_NAME     --address-prefixes 10.40.0.0/16     --subnet-name $SUBNET_NAME     --subnet-prefixes 10.40.1.0/24     --output json
+az network vnet create \
+    --resource-group $RG \
+    --name $VNET_NAME \
+    --address-prefixes 10.40.0.0/16 \
+    --subnet-name $SUBNET_NAME \
+    --subnet-prefixes 10.40.1.0/24 \
+    --output json
 ```
 
 | Command | Purpose |
@@ -71,7 +80,7 @@ az network vnet create     --resource-group $RG     --name $VNET_NAME     --addr
 | `az group create` | Create the resource group for the lab. |
 | `--name` | Name of the resource group to create. |
 | `--location` | Azure region for the resource group. |
-| `--output` | Output format for the response (JSON here). |
+| `--output` | Output format for the response (table here). |
 | `az network vnet create` | Create the virtual network and its initial subnet. |
 | `--resource-group` | Resource group that will contain the virtual network. |
 | `--name` | Name of the virtual network to create. |
@@ -88,7 +97,18 @@ Expected outcome:
 ### Step 2: Deploy the base VM
 
 ```bash
-az vm create     --resource-group $RG     --name $VM_NAME     --image Ubuntu2204     --size Standard_D4s_v5     --admin-username azureuser     --generate-ssh-keys     --vnet-name $VNET_NAME     --subnet $SUBNET_NAME     --public-ip-sku Standard     --storage-sku Premium_LRS     --output json
+az vm create \
+    --resource-group $RG \
+    --name $VM_NAME \
+    --image Ubuntu2204 \
+    --size Standard_D4s_v5 \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --vnet-name $VNET_NAME \
+    --subnet $SUBNET_NAME \
+    --public-ip-sku Standard \
+    --storage-sku Premium_LRS \
+    --output json
 ```
 
 | Command | Purpose |
@@ -111,36 +131,44 @@ Expected outcome:
 - The VM deploys with Premium SSD-backed storage and a predictable network baseline.
 - You have enough CPU, memory, and NIC capability to test the scenario without using a tiny burstable SKU.
 
-### Step 3: Apply the lab-specific configuration
+### Step 3: Capture the extension target state before bootstrap
 
-Use this step to apply the feature under test and document why it matters for production.
+Before you test Custom Script Extension, confirm that the VM does not already have conflicting extension state and record the clean target you expect your bootstrap to modify.
 
 ```bash
-az vm show     --resource-group $RG     --name $VM_NAME     --query "{name:name,vmSize:hardwareProfile.vmSize,zone:zones,storageProfile:storageProfile.osDisk.managedDisk.storageAccountType}"     --output json
+az vm extension list \
+    --resource-group $RG \
+    --vm-name $VM_NAME \
+    --output table
 ```
 
 | Command | Purpose |
 | --- | --- |
-| `az vm show` | Retrieve the current configuration of the virtual machine. |
+| `az vm extension list` | List the VM extensions currently installed on the virtual machine. |
 | `--resource-group` | Resource group that contains the virtual machine. |
-| `--name` | Name of the virtual machine to inspect. |
-| `--query` | JMESPath expression selecting name, size, zone, and OS-disk storage type. |
+| `--vm-name` | Name of the virtual machine whose extensions you want to inspect. |
 | `--output` | Output format for the response (JSON here). |
 
 Recommended operator notes:
 
-- Capture the command output in your lab log.
-- Record any prerequisites unique to your region, vault, or security policy.
-- If the feature depends on another Azure service, confirm that dependency before continuing.
+- Record whether any extension is already present so you can distinguish bootstrap issues from preexisting extension drift.
+- Note package repository, storage, and outbound connectivity dependencies required by the script.
+- Record how the script proves idempotency so reruns do not become a hidden production risk.
 
 ### Step 4: Validate the scenario end to end
 
-Run both control-plane and workload validation so the result is useful during a real incident or audit.
+Run both control-plane and workload validation so you can compare extension deployment results with a known-good VM baseline.
 
 ```bash
-az vm get-instance-view     --resource-group $RG     --name $VM_NAME     --output json
+az vm get-instance-view \
+    --resource-group $RG \
+    --name $VM_NAME \
+    --output json
 
-az monitor activity-log list     --resource-group $RG     --offset 2h     --output table
+az monitor activity-log list \
+    --resource-group $RG \
+    --offset 2h \
+    --output table
 ```
 
 | Command | Purpose |
@@ -156,9 +184,9 @@ az monitor activity-log list     --resource-group $RG     --offset 2h     --outp
 
 ### Step 5: Optional operational hardening
 
-- Review whether the lab design should also use accelerated networking or proximity placement groups.
-- Review whether JIT access, ASGs, and backup retention should be part of the same deployment workflow.
-- Review whether Reserved Instances, Spot, or auto-shutdown affect the scenario economics.
+- Review whether the bootstrap should move to cloud-init, image baking, or a configuration-management tool after the lab.
+- Review whether extension retries, logging, and rollback behavior are sufficient for production rollout.
+- Review whether script secrets or storage dependencies need a safer delivery path.
 
 ## Validation Steps
 
@@ -172,11 +200,19 @@ Use the following validation checklist before marking the lab complete:
 ## Cleanup Instructions
 
 ```bash
-az vm delete     --resource-group $RG     --name $VM_NAME     --yes
+az vm delete \
+    --resource-group $RG \
+    --name $VM_NAME \
+    --yes
 
-az network nic delete     --resource-group $RG     --name "${VM_NAME}VMNic"
+az network nic delete \
+    --resource-group $RG \
+    --name "${VM_NAME}VMNic"
 
-az group delete     --name $RG     --yes     --no-wait
+az group delete \
+    --name $RG \
+    --yes \
+    --no-wait
 ```
 
 | Command | Purpose |
