@@ -1,71 +1,134 @@
 ---
+description: Runbook for attaching new managed disks, resizing existing data disks, and validating guest visibility after Azure disk changes.
 content_sources:
   diagrams:
     - id: operations-manage-disks-disk-management-workflow
       type: flowchart
       source: mslearn-adapted
-      description: Disk Management Workflow
+      description: Managed disk attach and expansion flow
       based_on:
         - https://learn.microsoft.com/en-us/azure/virtual-machines/windows/attach-managed-disk-portal
         - https://learn.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks
-        - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-change-performance
-        - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-enable-host-based-encryption-portal
 content_validation:
   status: verified
   last_reviewed: '2026-07-25'
   reviewer: agent
   core_claims:
-    - claim: Managed disks can be attached to Azure virtual machines as data disks.
+    - claim: Azure virtual machines can have managed data disks attached after deployment.
       source: https://learn.microsoft.com/en-us/azure/virtual-machines/windows/attach-managed-disk-portal
       verified: true
-    - claim: You can change the performance tier of a managed disk when the disk type supports performance tiers.
-      source: https://learn.microsoft.com/en-us/azure/virtual-machines/disks-change-performance
+    - claim: Azure supports expanding Linux VM OS disks and data disks, and many managed data disk expansions can be done without deallocating the VM.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks
       verified: true
 ---
+
 # Manage Disks
 
-Managing disks in Azure allows you to expand storage capacity or improve performance throughput. These operations can often be performed on running VMs with minimal disruption.
+This runbook covers the two most common day-2 storage tasks on a VM: attaching a new managed data disk and expanding an existing disk so the guest operating system can use more space.
 
-## Disk Operation Matrix
+## Prerequisites
 
-| Operation | Downtime Required | CLI Command Example |
-| :--- | :--- | :--- |
-| **Attach Data Disk** | No | `az vm disk attach` |
-| **Detach Data Disk** | Recommended | `az vm disk detach` |
-| **Expand Size** | Usually no (online resize supported for most managed disks) | `az disk update --size-gb 1024` |
-| **Change Tier** | Yes (Stop/Deallocate) | `az disk update --sku Premium_LRS` |
+- Azure CLI installed and authenticated.
+- Contributor or higher rights for the VM and managed disks.
+- A Linux VM already running so you can validate device visibility after the platform change.
+- A mount plan that tells you whether the disk is new storage or a capacity increase for an existing filesystem.
 
-## Disk Management Workflow
+## When to Use
+
+- Application data needs its own managed disk.
+- A data volume is nearing full capacity and must be expanded.
+- You need to confirm that Azure-side disk changes are visible inside the guest before handing the VM back to an application team.
+
+## Procedure
+
+### Attach and grow storage intentionally
 
 <!-- diagram-id: operations-manage-disks-disk-management-workflow -->
 ```mermaid
-graph TD
-    A[Identify Disk Need] --> B{Operation Type}
-    B -->|New Storage| C[Attach Managed Disk]
-    B -->|More Space| D[Resize Disk Online or Deallocate]
-    B -->|Better Perf| E[Stop VM/Deallocate]
-    D --> F[Resize in Portal/CLI]
-    E --> G[Update SKU: Std to Prem]
-    F --> H[Extend File System in OS]
-    C --> H
-    H --> I[Operation Complete]
+flowchart TD
+    A[Create managed disk] --> B[Attach disk to VM]
+    B --> C[Resize disk if needed]
+    C --> D[Rescan from guest]
+    D --> E[Expand partition and filesystem]
+    E --> F[Confirm new capacity]
 ```
 
-!!! warning
-    Decreasing the size of an Azure disk is NOT supported. You must create a new smaller disk and migrate data.
+```bash
+export RG="rg-vm-storage"
+export VM_NAME="vm-db-01"
+export DISK_NAME="disk-db-data-01"
 
-!!! note
-    Enable Encryption at Host to encrypt temp disk and disk caches.
+az disk create --resource-group "$RG" --name "$DISK_NAME" --size-gb 128 --sku Premium_LRS
+
+az vm disk attach --resource-group "$RG" --vm-name "$VM_NAME" --name "$DISK_NAME"
+
+az disk update --resource-group "$RG" --name "$DISK_NAME" --size-gb 256
+
+az vm run-command invoke --resource-group "$RG" --name "$VM_NAME" --command-id RunShellScript --scripts "sudo lsblk; echo 1 | sudo tee /sys/class/block/sdc/device/rescan; sudo lsblk"
+
+az disk show --resource-group "$RG" --name "$DISK_NAME" --query "{disk:name,sizeGb:diskSizeGb,sku:sku.name,state:diskState}" --output yaml
+```
+| Command | Purpose |
+| --- | --- |
+| `az disk create` | Creates the managed data disk. |
+| `--resource-group` | Places the disk in the correct resource group. |
+| `--name` | Sets the managed disk name. |
+| `--size-gb` | Sets the initial disk capacity. |
+| `--sku` | Selects the managed disk performance tier. |
+| `az vm disk attach` | Attaches the disk to the VM without rebuilding the machine. |
+| `--vm-name` | Selects the VM that receives the disk. |
+| `az disk update` | Expands the managed disk capacity in Azure. |
+| `az vm run-command invoke` | Runs guest commands to detect the resized block device from the platform side. |
+| `--command-id` | Uses the built-in shell runner on the VM agent. |
+| `--scripts` | Supplies the rescan and verification commands that run inside the guest. |
+| `az disk show` | Confirms the Azure disk object reports the new size and attachment state. |
+| `--query` | Limits the response to operationally useful disk properties. |
+| `--output` | Formats the disk confirmation as YAML. |
+
+Operational notes:
+
+- Replace `/sys/class/block/sdc/device/rescan` with the correct device path if your disk enumerates differently.
+- For a new filesystem, create the partition and mount point after the disk appears.
+- For an existing ext4 or XFS filesystem, expand the partition and then run the matching filesystem tool (`resize2fs` or `xfs_growfs`) inside the guest.
+
+Example output:
+
+```yaml
+disk: disk-db-data-01
+sizeGb: 256
+sku: Premium_LRS
+state: Attached
+```
+
+## Verification
+
+Verify both Azure attachment state and the VM storage profile.
+
+```bash
+az vm show --resource-group "$RG" --name "$VM_NAME" --query "storageProfile.dataDisks[].{name:name,lun:lun,caching:caching,createOption:createOption}" --output table
+```
+| Command | Purpose |
+| --- | --- |
+| `az vm show` | Reads the VM storage profile after the change. |
+| `--query` | Extracts the attached data disks with their LUNs and caching modes. |
+| `--output` | Displays the storage profile as a table for quick review. |
+
+The verification is complete when the disk appears in the VM storage profile with the expected LUN and the guest rescan step shows the device.
+
+## Rollback / Troubleshooting
+
+- If the disk is attached in Azure but missing in the guest, rerun the rescan and verify the Azure VM agent is healthy.
+- If the resize succeeds in Azure but the filesystem does not grow, stop and check the partition layout before forcing `growpart` or `resize2fs`.
+- If you attached the wrong disk, detach it with `az vm disk detach --resource-group "$RG" --vm-name "$VM_NAME" --name "$DISK_NAME"` before the application writes data.
+- If you need a recovery point before invasive filesystem work, create a snapshot of the disk first and continue with [Snapshots and Images](snapshots-and-images.md).
 
 ## See Also
 
-- [Managed Disk Types](../reference/managed-disk-types.md)
+- [Resize and Redeploy](resize-and-redeploy.md)
 - [Snapshots and Images](snapshots-and-images.md)
 - [Disk and Storage Best Practices](../best-practices/disk-and-storage-best-practices.md)
 
 ## Sources
 
-- [Attach a data disk to a Windows VM](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/attach-managed-disk-portal)
+- [Attach a managed data disk to a Windows VM](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/attach-managed-disk-portal)
 - [Expand virtual hard disks on a Linux VM](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks)
-- [Change the tier of a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-change-performance)
-- [Enable host-based encryption for disks](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-enable-host-based-encryption-portal)
