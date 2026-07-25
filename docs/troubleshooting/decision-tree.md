@@ -1,17 +1,26 @@
 ---
 content_sources:
   diagrams:
-  - id: troubleshooting-decision-tree-symptom-routing
-    type: flowchart
-    source: self-generated
-    description: Symptom routing
-    based_on:
-    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/troubleshooting/
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    - id: troubleshooting-decision-tree-symptom-routing
+      type: flowchart
+      source: self-generated
+      description: Symptom routing
+      based_on:
+        - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/troubleshooting/
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Microsoft Learn maintains a troubleshooting hub for Azure Virtual Machines that groups common issue categories and scenarios.
+      source: https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
+      verified: true
+    - claim: The Azure portal includes built-in troubleshooting experiences for Azure virtual machines.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/troubleshooting/
+      verified: true
 ---
-
 # Troubleshooting Decision Tree
 
 Use this page to route an observed VM symptom to the most relevant first-response checklist and canonical playbook.

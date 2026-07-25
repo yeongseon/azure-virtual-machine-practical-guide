@@ -1,16 +1,29 @@
 ---
 content_sources:
   diagrams:
-  - id: operations-vmss-basics-autoscale-architecture
-    type: flowchart
-    source: mslearn-adapted
-    description: Autoscale Architecture
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview
-    - https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes
-    - https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
+    - id: operations-vmss-basics-autoscale-architecture
+      type: flowchart
+      source: mslearn-adapted
+      description: Autoscale Architecture
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview
+        - https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes
+        - https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Virtual Machine Scale Sets let you create and manage a group of load-balanced virtual machines.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview
+      verified: true
+    - claim: Virtual Machine Scale Sets supports Uniform and Flexible orchestration modes.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes
+      verified: true
+    - claim: Autoscale can automatically add or remove scale set instances based on resource usage or schedules.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
+      verified: true
 ---
-
 # VMSS Basics
 
 Virtual Machine Scale Sets (VMSS) allow you to create and manage a group of load-balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule.

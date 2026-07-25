@@ -1,16 +1,26 @@
 ---
 content_sources:
   diagrams:
-  - id: operations-resize-and-redeploy-operation-decision-tree
-    type: flowchart
-    source: mslearn-adapted
-    description: Operation Decision Tree
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/resize-vm
-    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/windows/redeploy-to-new-node-windows
-    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/linux/redeploy-to-new-node-linux
+    - id: operations-resize-and-redeploy-operation-decision-tree
+      type: flowchart
+      source: mslearn-adapted
+      description: Operation Decision Tree
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/resize-vm
+        - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/windows/redeploy-to-new-node-windows
+        - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/linux/redeploy-to-new-node-linux
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Resizing a virtual machine changes its size when the target size is available for the deployment.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/resize-vm
+      verified: true
+    - claim: Redeploy moves a virtual machine to a new Azure node and can help recover from host-side issues.
+      source: https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/linux/redeploy-to-new-node-linux
+      verified: true
 ---
-
 # Resize and Redeploy
 
 Resizing and redeploying allow you to resolve performance bottlenecks or host-level issues. Both operations trigger a VM reboot but serve different operational purposes.

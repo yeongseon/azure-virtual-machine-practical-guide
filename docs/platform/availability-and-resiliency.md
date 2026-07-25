@@ -1,16 +1,26 @@
 ---
 content_sources:
   diagrams:
-  - id: platform-availability-and-resiliency-availability-zone-vs-availability-set-architecture
-    type: flowchart
-    source: mslearn-adapted
-    description: Availability Zone vs Availability Set Architecture
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/availability
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview
-    - https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview
+    - id: platform-availability-and-resiliency-availability-zone-vs-availability-set-architecture
+      type: flowchart
+      source: mslearn-adapted
+      description: Availability Zone vs Availability Set Architecture
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/availability
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview
+        - https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Availability zones are physically separate locations within an Azure region.
+      source: https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview
+      verified: true
+    - claim: Availability sets distribute virtual machines across fault domains and update domains within a datacenter.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview
+      verified: true
 ---
-
 # Availability and Resiliency
 
 To ensure high availability, Azure provides various tools and strategies to mitigate failures, ranging from hardware faults to entire datacenter outages.

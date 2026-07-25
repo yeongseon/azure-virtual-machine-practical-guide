@@ -1,16 +1,26 @@
 ---
 content_sources:
   diagrams:
-  - id: operations-snapshots-and-images-golden-image-workflow
-    type: flowchart
-    source: mslearn-adapted
-    description: Golden Image Workflow
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/windows/snapshot-copy-managed-disk
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/azure-compute-gallery
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource
+    - id: operations-snapshots-and-images-golden-image-workflow
+      type: flowchart
+      source: mslearn-adapted
+      description: Golden Image Workflow
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/windows/snapshot-copy-managed-disk
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/azure-compute-gallery
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: A snapshot is a full, read-only copy of a managed disk.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/windows/snapshot-copy-managed-disk
+      verified: true
+    - claim: Azure Compute Gallery helps you share and manage VM images at scale.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/azure-compute-gallery
+      verified: true
 ---
-
 # Snapshots and Images
 
 Capturing snapshots and managed images enables backup and rapid deployment workflows. Azure Compute Gallery provides a scalable way to share images across subscriptions.

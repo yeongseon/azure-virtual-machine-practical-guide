@@ -1,16 +1,15 @@
 ---
 content_sources:
   diagrams:
-  - id: operations-index-operations-lifecycle
-    type: flowchart
-    source: self-generated
-    description: Operations Lifecycle
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
-    - https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-vm
-    - https://learn.microsoft.com/en-us/azure/update-manager/overview
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    - id: operations-index-operations-lifecycle
+      type: flowchart
+      source: self-generated
+      description: Operations Lifecycle
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
+        - https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-vm
+        - https://learn.microsoft.com/en-us/azure/update-manager/overview
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
 ---
 
 # Operations

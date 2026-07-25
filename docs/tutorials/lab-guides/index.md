@@ -1,14 +1,13 @@
 ---
 content_sources:
   diagrams:
-  - id: tutorials-lab-guides-index-lab-guides
-    type: flowchart
-    source: self-generated
-    description: Lab Guides
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    - id: tutorials-lab-guides-index-lab-guides
+      type: flowchart
+      source: self-generated
+      description: Lab Guides
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
 ---
 
 # Lab Guides

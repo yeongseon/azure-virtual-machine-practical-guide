@@ -1,16 +1,16 @@
 ---
 content_sources:
   diagrams:
-  - id: reference-availability-options-availability-options
-    type: flowchart
-    source: mslearn-adapted
-    description: Availability Options
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/availability
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview
-    - https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview
-    - https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview
-    - https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-overview
+    - id: reference-availability-options-availability-options
+      type: flowchart
+      source: mslearn-adapted
+      description: Availability Options
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/availability
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview
+        - https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview
+        - https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview
+        - https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-overview
 ---
 
 # Availability Options

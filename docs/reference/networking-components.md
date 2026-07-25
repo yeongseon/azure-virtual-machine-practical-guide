@@ -1,18 +1,18 @@
 ---
 content_sources:
   diagrams:
-  - id: reference-networking-components-networking-components
-    type: flowchart
-    source: mslearn-adapted
-    description: Networking Components
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview
-    - https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview
-    - https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-overview
-    - https://learn.microsoft.com/en-us/azure/bastion/bastion-overview
-    - https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways
-    - https://learn.microsoft.com/en-us/azure/private-link/private-link-overview
-    - https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses
+    - id: reference-networking-components-networking-components
+      type: flowchart
+      source: mslearn-adapted
+      description: Networking Components
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview
+        - https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview
+        - https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-overview
+        - https://learn.microsoft.com/en-us/azure/bastion/bastion-overview
+        - https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways
+        - https://learn.microsoft.com/en-us/azure/private-link/private-link-overview
+        - https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses
 ---
 
 # Networking Components

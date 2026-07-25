@@ -1,18 +1,27 @@
 ---
 content_sources:
   diagrams:
-  - id: troubleshooting-playbooks-connectivity-cannot-rdp-or-ssh-troubleshooting-decision-flow
-    type: flowchart
-    source: self-generated
-    description: Troubleshooting decision flow
-    based_on:
-    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection
-    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection
-    - https://learn.microsoft.com/en-us/azure/bastion/bastion-overview
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    - id: troubleshooting-playbooks-connectivity-cannot-rdp-or-ssh-troubleshooting-decision-flow
+      type: flowchart
+      source: self-generated
+      description: Troubleshooting decision flow
+      based_on:
+        - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection
+        - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection
+        - https://learn.microsoft.com/en-us/azure/bastion/bastion-overview
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Troubleshooting RDP connections to an Azure VM includes checking NSGs, guest firewall settings, and the RDP service state.
+      source: https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection
+      verified: true
+    - claim: Azure Bastion provides secure RDP and SSH connectivity to Azure virtual machines.
+      source: https://learn.microsoft.com/en-us/azure/bastion/bastion-overview
+      verified: true
 ---
-
 # Cannot RDP or SSH
 
 ## 1. Summary

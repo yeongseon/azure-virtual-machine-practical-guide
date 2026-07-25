@@ -1,18 +1,27 @@
 ---
 content_sources:
   diagrams:
-  - id: troubleshooting-playbooks-performance-disk-performance-issues-troubleshooting-decision-flow
-    type: flowchart
-    source: self-generated
-    description: Troubleshooting decision flow
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types
-    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-performance-bottlenecks-linux
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    - id: troubleshooting-playbooks-performance-disk-performance-issues-troubleshooting-decision-flow
+      type: flowchart
+      source: self-generated
+      description: Troubleshooting decision flow
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types
+        - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-performance-bottlenecks-linux
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Virtual machine disk performance is constrained by both VM-level limits and disk-level limits.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance
+      verified: true
+    - claim: Managed disk types have different performance characteristics and are selected based on workload needs.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types
+      verified: true
 ---
-
 # Disk Performance Issues
 
 !!! note "Playbook consolidation"

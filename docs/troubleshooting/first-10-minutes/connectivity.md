@@ -1,18 +1,27 @@
 ---
 content_sources:
   diagrams:
-  - id: troubleshooting-first-10-minutes-connectivity-initial-response-flow
-    type: flowchart
-    source: self-generated
-    description: Initial response flow
-    based_on:
-    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection
-    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection
-    - https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    - id: troubleshooting-first-10-minutes-connectivity-initial-response-flow
+      type: flowchart
+      source: self-generated
+      description: Initial response flow
+      based_on:
+        - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection
+        - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection
+        - https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Troubleshooting RDP connections to an Azure VM includes checking NSGs, guest firewall settings, and the RDP service state.
+      source: https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection
+      verified: true
+    - claim: Azure Network Watcher provides monitoring and diagnostics tools for Azure networking scenarios.
+      source: https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview
+      verified: true
 ---
-
 # Connectivity Checklist
 
 Use this checklist during the first 10 minutes of incidents where RDP, SSH, DNS, routes, or extension operations fail.

@@ -1,18 +1,27 @@
 ---
 content_sources:
   diagrams:
-  - id: troubleshooting-playbooks-boot-disk-boot-diagnostics-and-serial-console-troubleshooting-decision-flow
-    type: flowchart
-    source: self-generated
-    description: Troubleshooting decision flow
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics
-    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/serial-console-windows
-    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/serial-console-linux
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    - id: troubleshooting-playbooks-boot-disk-boot-diagnostics-and-serial-console-troubleshooting-decision-flow
+      type: flowchart
+      source: self-generated
+      description: Troubleshooting decision flow
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics
+        - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/serial-console-windows
+        - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/serial-console-linux
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Boot diagnostics captures serial log output and screenshots during VM boot.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics
+      verified: true
+    - claim: Azure Serial Console provides a text-based troubleshooting channel for supported Windows and Linux virtual machines.
+      source: https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/serial-console-windows
+      verified: true
 ---
-
 # Boot Diagnostics and Serial Console
 
 ## 1. Summary

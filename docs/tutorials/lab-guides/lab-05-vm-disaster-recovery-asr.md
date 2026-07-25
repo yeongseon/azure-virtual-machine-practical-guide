@@ -1,17 +1,23 @@
 ---
 content_sources:
   diagrams:
-  - id: tutorials-lab-guides-lab-05-vm-disaster-recovery-asr-architecture-diagram
-    type: flowchart
-    source: mslearn-adapted
-    description: Architecture Diagram
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/
-    - https://learn.microsoft.com/en-us/cli/azure/vm
-    - https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction
-    - https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-enable-replication
+    - id: tutorials-lab-guides-lab-05-vm-disaster-recovery-asr-architecture-diagram
+      type: flowchart
+      source: mslearn-adapted
+      description: Architecture Diagram
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/
+        - https://learn.microsoft.com/en-us/cli/azure/vm
+        - https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction
+        - https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-enable-replication
+validation:
+  az_cli:
+    last_tested:
+    result: not_tested
+  bicep:
+    last_tested:
+    result: not_tested
 ---
-
 # Lab 05: VM Disaster Recovery with Azure Site Recovery
 
 Configure Azure Site Recovery for a critical VM, run a test failover, and document the validation artifacts needed for a real DR event.

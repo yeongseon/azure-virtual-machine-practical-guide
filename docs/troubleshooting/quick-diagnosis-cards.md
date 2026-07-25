@@ -1,26 +1,34 @@
 ---
 content_sources:
   diagrams:
-  - id: troubleshooting-quick-diagnosis-cards-rapid-triage-map
-    type: flowchart
-    source: self-generated
-    description: Rapid triage map
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/
-    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
-  - id: troubleshooting-quick-diagnosis-cards-escalation-rule
-    type: flowchart
-    source: self-generated
-    description: Escalation rule
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/
-    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    - id: troubleshooting-quick-diagnosis-cards-rapid-triage-map
+      type: flowchart
+      source: self-generated
+      description: Rapid triage map
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/
+        - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
+    - id: troubleshooting-quick-diagnosis-cards-escalation-rule
+      type: flowchart
+      source: self-generated
+      description: Escalation rule
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/
+        - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Microsoft Learn maintains category-based troubleshooting guidance for Azure Virtual Machines.
+      source: https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-virtual-machines
+      verified: true
+    - claim: The Azure portal includes troubleshooting tools and guided experiences for Azure virtual machines.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/troubleshooting/
+      verified: true
 ---
-
 # Quick Diagnosis Cards
 
 Use these cards when you need to route a VM incident quickly without reading the full playbooks first.

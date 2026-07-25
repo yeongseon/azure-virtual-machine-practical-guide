@@ -4,4 +4,5 @@ mkdocs-macros-plugin
 mkdocs-redirects>=1.2.1
 pymdown-extensions
 PyYAML
+ruamel.yaml
 azure-guide-capture-toolkit @ git+https://github.com/yeongseon/azure-guide-capture-toolkit@v0.1.0

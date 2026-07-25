@@ -1,17 +1,26 @@
 ---
 content_sources:
   diagrams:
-  - id: troubleshooting-first-10-minutes-performance-initial-response-flow
-    type: flowchart
-    source: self-generated
-    description: Initial response flow
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-virtual-machine
-    - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-performance-bottlenecks-linux
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    - id: troubleshooting-first-10-minutes-performance-initial-response-flow
+      type: flowchart
+      source: self-generated
+      description: Initial response flow
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-virtual-machine
+        - https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-performance-bottlenecks-linux
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Azure Monitor can monitor the health and performance of virtual machines.
+      source: https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-virtual-machine
+      verified: true
+    - claim: Virtual machine performance bottlenecks commonly involve CPU, memory, disk, or network resources.
+      source: https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-performance-bottlenecks-linux
+      verified: true
 ---
-
 # Performance Checklist
 
 Use this checklist when a VM is slow, saturated, intermittently timing out, or showing resource pressure.

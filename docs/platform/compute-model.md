@@ -1,15 +1,25 @@
 ---
 content_sources:
   diagrams:
-  - id: platform-compute-model-naming-convention
-    type: flowchart
-    source: mslearn-adapted
-    description: Naming Convention
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview
+    - id: platform-compute-model-naming-convention
+      type: flowchart
+      source: mslearn-adapted
+      description: Naming Convention
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Azure virtual machine sizes are organized into families such as general purpose, compute optimized, and memory optimized.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/sizes
+      verified: true
+    - claim: Azure Compute Unit (ACU) provides a relative measure of compute performance for comparing Azure VM sizes.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview
+      verified: true
 ---
-
 # Compute Model
 
 Azure offers diverse VM sizes optimized for different workloads, from general-purpose computing to high-performance GPUs.

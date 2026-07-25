@@ -1,16 +1,26 @@
 ---
 content_sources:
   diagrams:
-  - id: operations-patching-update-management-flow
-    type: flowchart
-    source: mslearn-adapted
-    description: Update Management Flow
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/update-manager/overview
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/automatic-vm-guest-patching
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/maintenance-configurations
+    - id: operations-patching-update-management-flow
+      type: flowchart
+      source: mslearn-adapted
+      description: Update Management Flow
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/update-manager/overview
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/automatic-vm-guest-patching
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/maintenance-configurations
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Azure Update Manager manages and governs operating system updates for Windows and Linux machines.
+      source: https://learn.microsoft.com/en-us/azure/update-manager/overview
+      verified: true
+    - claim: Automatic VM guest patching is available for supported Azure virtual machines.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/automatic-vm-guest-patching
+      verified: true
 ---
-
 # Patching
 
 Azure Update Manager centralizes compliance tracking and deployment of operating system updates. It handles security, critical, and other patch categories across both Linux and Windows environments.

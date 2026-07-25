@@ -1,133 +1,140 @@
 ---
-description: Diagram source metadata policy for the Azure Virtual Machines practical guide, and the CI tooling that keeps that metadata honest today.
+description: In-scope content_validation coverage for the Azure Virtual Machines practical guide, generated from page frontmatter metadata.
 content_sources:
   diagrams:
-  - id: reference-content-validation-status-summary
-    type: pie
-    source: self-generated
-    description: Summary of diagram source declarations as of the snapshot date below.
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/availability
-    - https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview
-    - https://learn.microsoft.com/en-us/azure/reliability/reliability-virtual-machines
-    justification: Manually authored summary of repository diagram-source declarations. Not regenerated from live repo state.
+    - id: content-validation-status-pie
+      type: pie
+      source: self-generated
+      description: Summary of content_validation status across in-scope Azure VM documentation pages.
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/availability
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types
+        - https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview
+      justification: Auto-generated dashboard summarizing declared content_validation metadata.
 ---
 
-# Content Source Validation Status
+# Content Validation Status
 
-This page describes how diagram and content sources are declared in this repository, and what tooling is available today to validate those declarations.
+This page tracks `content_validation` metadata for **in-scope factual-claim documents** under `docs/best-practices/`, `docs/operations/`, `docs/platform/`, `docs/troubleshooting/`. Pages outside this scope — tutorials, start-here, reference, contributing, excluded subpaths (none), and navigation indexes (`docs/best-practices/index.md`, `docs/operations/index.md`, `docs/platform/index.md`, `docs/troubleshooting/first-10-minutes/index.md`, `docs/troubleshooting/index.md`, `docs/troubleshooting/playbooks/index.md`) — are not counted here. See `scripts/lib/content_scope.py` for the executable scope definition.
 
-!!! note "Current state"
-    Diagram-level source metadata (`content_sources.diagrams`) is used across the repository, and the tooling below runs in CI to keep that metadata honest. **Document-level `content_validation` metadata is not yet adopted in this repository** — the schema is documented in [AGENTS.md](https://github.com/yeongseon/azure-virtual-machine-practical-guide/blob/main/AGENTS.md) as an aspirational policy and is tracked as future work. Do not read the absence of `content_validation` blocks as a validation failure; read it as "not yet implemented."
+## Summary
 
-## Diagram Inventory Snapshot
+*Generated: 2026-07-25*
 
-*Snapshot date: 2026-04-10. Manually authored — this table does not update automatically when diagrams are added or reclassified.*
+| Metric | Count |
+|---|---:|
+| In-scope factual-claim documents | 47 |
+| ✅ Verified | 37 |
+| ⚠️ Pending review | 10 |
+| ➖ Unverified | 0 |
+| ❓ No metadata | 0 |
 
-| Content Type | Total | MSLearn Adapted | Self-Generated | No Source |
-|---|---:|---:|---:|---:|
-| Mermaid Diagrams | 90 | 50 | 40 | 0 |
-
-<!-- diagram-id: reference-content-validation-status-summary -->
+<!-- diagram-id: content-validation-status-pie -->
 ```mermaid
-pie title Content Source Status
-    "MSLearn Adapted" : 50
-    "Self-Generated" : 40
+pie title In-Scope Document Validation Status
+    "Verified" : 37
+    "Pending Review" : 10
 ```
 
-A text-sections row was previously shown on this page with placeholder dashes. It has been removed because no text-level `content_validation` metadata is currently enforced or inventoried.
+## By Section
 
-## Source Type Policy
+### Platform
 
-The `content_sources.diagrams[].source` field must be one of the three values below. These are the exact set accepted by `scripts/validate_content_sources.py` today; any other value causes CI to fail.
+| Document | Has Sources | Status | Claims | Last Reviewed |
+|---|---|---|---|---|
+| [Availability And Resiliency](../platform/availability-and-resiliency.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Backup And Recovery Basics](../platform/backup-and-recovery-basics.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Compute Model](../platform/compute-model.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Disks And Storage](../platform/disks-and-storage.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [How Azure Vm Works](../platform/how-azure-vm-works.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Identity And Access](../platform/identity-and-access.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Networking Basics](../platform/networking-basics.md) | ✅ | ✅ Verified | 3/3 | 2026-07-25 |
+| [Vm Lifecycle](../platform/vm-lifecycle.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
 
-| Type | Description | Additional requirement |
-|---|---|---|
-| `mslearn` | Content directly from Microsoft Learn | `mslearn_url` OR a non-empty `based_on` list |
-| `mslearn-adapted` | Content adapted or synthesized from Microsoft Learn | `mslearn_url` OR a non-empty `based_on` list |
-| `self-generated` | Original content created for this guide | `justification` field |
+### Best Practices
 
-!!! note "Broader source vocabulary in AGENTS.md"
-    [AGENTS.md](https://github.com/yeongseon/azure-virtual-machine-practical-guide/blob/main/AGENTS.md) also references `community` and `unknown` source categories as part of the aspirational content-validation policy. Those values are **not** currently accepted by the validator on any Mermaid page in this repository; they belong to the same "not yet implemented" bucket as document-level `content_validation` metadata.
+| Document | Has Sources | Status | Claims | Last Reviewed |
+|---|---|---|---|---|
+| [Backup And Dr Best Practices](../best-practices/backup-and-dr-best-practices.md) | ✅ | ⚠️ Pending Review | 3/3 | 2026-07-25 |
+| [Common Anti Patterns](../best-practices/common-anti-patterns.md) | ✅ | ⚠️ Pending Review | 3/3 | 2026-07-25 |
+| [Cost Optimization Best Practices](../best-practices/cost-optimization-best-practices.md) | ✅ | ⚠️ Pending Review | 3/3 | 2026-07-25 |
+| [Disk And Storage Best Practices](../best-practices/disk-and-storage-best-practices.md) | ✅ | ⚠️ Pending Review | 3/3 | 2026-07-25 |
+| [Monitoring Best Practices](../best-practices/monitoring-best-practices.md) | ✅ | ⚠️ Pending Review | 3/3 | 2026-07-25 |
+| [Networking Best Practices](../best-practices/networking-best-practices.md) | ✅ | ⚠️ Pending Review | 3/3 | 2026-07-25 |
+| [Patching And Maintenance Best Practices](../best-practices/patching-and-maintenance-best-practices.md) | ✅ | ⚠️ Pending Review | 3/3 | 2026-07-25 |
+| [Production Baseline](../best-practices/production-baseline.md) | ✅ | ⚠️ Pending Review | 3/3 | 2026-07-25 |
+| [Security Best Practices](../best-practices/security-best-practices.md) | ✅ | ⚠️ Pending Review | 3/3 | 2026-07-25 |
+| [Sizing And Image Selection](../best-practices/sizing-and-image-selection.md) | ✅ | ⚠️ Pending Review | 3/3 | 2026-07-25 |
 
-## How Diagram Sources Are Declared
+### Operations
 
-### Step 1: Add `content_sources` to the document frontmatter
+| Document | Has Sources | Status | Claims | Last Reviewed |
+|---|---|---|---|---|
+| [Backup Restore](../operations/backup-restore.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Connect To Vm](../operations/connect-to-vm.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Create And Configure Vm](../operations/create-and-configure-vm.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Manage Disks](../operations/manage-disks.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Monitoring And Alerting](../operations/monitoring-and-alerting.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Patching](../operations/patching.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Resize And Redeploy](../operations/resize-and-redeploy.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Snapshots And Images](../operations/snapshots-and-images.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Vmss Basics](../operations/vmss-basics.md) | ✅ | ✅ Verified | 3/3 | 2026-07-25 |
+
+### Troubleshooting
+
+| Document | Has Sources | Status | Claims | Last Reviewed |
+|---|---|---|---|---|
+| [Architecture Overview](../troubleshooting/architecture-overview.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Decision Tree](../troubleshooting/decision-tree.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Evidence Map](../troubleshooting/evidence-map.md) | ✅ | ✅ Verified | 3/3 | 2026-07-25 |
+| [Boot](../troubleshooting/first-10-minutes/boot.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Connectivity](../troubleshooting/first-10-minutes/connectivity.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Performance](../troubleshooting/first-10-minutes/performance.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Mental Model](../troubleshooting/mental-model.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Backup Failures](../troubleshooting/playbooks/boot-disk/backup-failures.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Boot Diagnostics And Serial Console](../troubleshooting/playbooks/boot-disk/boot-diagnostics-and-serial-console.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Vm Wont Start](../troubleshooting/playbooks/boot-disk/vm-wont-start.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Cannot Rdp Or Ssh](../troubleshooting/playbooks/connectivity/cannot-rdp-or-ssh.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Dns And Connectivity Issues](../troubleshooting/playbooks/connectivity/dns-and-connectivity-issues.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Extension Failures](../troubleshooting/playbooks/connectivity/extension-failures.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Network Connectivity Issues](../troubleshooting/playbooks/network-connectivity-issues.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Disk Performance Issues](../troubleshooting/playbooks/performance/disk-performance-issues.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [High Cpu Memory Disk](../troubleshooting/playbooks/performance/high-cpu-memory-disk.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Slow Performance](../troubleshooting/playbooks/performance/slow-performance.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Rdp Ssh Connection Failures](../troubleshooting/playbooks/rdp-ssh-connection-failures.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Vm Boot Failures](../troubleshooting/playbooks/vm-boot-failures.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+| [Quick Diagnosis Cards](../troubleshooting/quick-diagnosis-cards.md) | ✅ | ✅ Verified | 2/2 | 2026-07-25 |
+
+## Validation Status
+
+| Status | Description |
+|---|---|
+| `verified` | All listed core claims were checked against Microsoft Learn sources. |
+| `pending_review` | The page has metadata, but one or more claims still need verification. |
+| `unverified` | The page carries metadata, but no claims have been verified yet. |
+
+## How to Add Validation
+
+Add a `content_validation` block only to in-scope factual-claim pages.
 
 ```yaml
 ---
-content_sources:
-  diagrams:
-    - id: architecture
-      type: flowchart
-      source: mslearn-adapted
-      based_on:
-        - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
----
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "Azure Virtual Machines supports multiple size families optimized for different workload classes."
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/sizes
+      verified: true
 ```
 
-### Step 2: Mark each Mermaid block with its `diagram-id`
-
-```markdown
-<!-- diagram-id: architecture -->
-​```mermaid
-flowchart TD
-    A --> B
-​```
-```
-
-### Step 3: Run the diagram source validator
-
-```bash
-python3 scripts/validate_content_sources.py
-```
-
-This is the same validator that runs in the `Validate Content Sources` CI workflow.
-
-## Tooling Available in This Repository
-
-The following scripts run against the repository today. There is no dashboard-generator script in this repository, so this page is maintained manually rather than being regenerated.
-
-| Script | Purpose | Where it runs |
-|---|---|---|
-| `scripts/validate_content_sources.py` | Enforces that every Mermaid block has a `diagram-id` HTML comment and a matching `content_sources.diagrams[]` entry with a valid `source` value. | **Blocking** PR check (`Validate Content Sources`) |
-| `scripts/validate_mermaid_format.py` | Enforces Mermaid orientation rules and formatting conventions. | **Blocking** PR check (same workflow) |
-| `scripts/validate_mermaid_syntax.py` | Parses each Mermaid block to catch syntax errors before build. | **Blocking** PR check (same workflow) |
-| `scripts/validate_mslearn_urls.py` | Checks that Microsoft Learn URLs cited in `content_sources` are reachable. | **Reporting only:** runs on push to `main` with `continue-on-error`, not a blocking PR gate |
-| `scripts/generate_validation_status.py` | Regenerates `docs/reference/validation-status.md` — the **tutorial** validation dashboard, not this page. | Manual invocation by contributors |
-
-There is intentionally no `scripts/generate_content_validation_status.py` in this repository. Earlier revisions of this page referenced one, which was misleading; this page is authored by hand.
-
-## Validation Rules Enforced Today
-
-!!! danger "Enforced in CI"
-    1. Every Mermaid block must have a `diagram-id` HTML comment.
-    2. Every declared `diagram-id` must have a matching `content_sources.diagrams[]` entry.
-    3. `mslearn-adapted` and `mslearn` diagrams must have either an `mslearn_url` field or a **non-empty** `based_on` list. The validator does **not** currently verify that every `based_on` URL points to `learn.microsoft.com`; that is a repository convention, not an enforced rule.
-    4. `self-generated` diagrams must include a `justification` field.
-    5. Mermaid syntax must parse successfully.
-
-## Official Microsoft Learn References
-
-Use these official sources when declaring diagram provenance:
-
-| Topic | Microsoft Learn URL |
-|---|---|
-| Azure Virtual Machines Overview | <https://learn.microsoft.com/en-us/azure/virtual-machines/> |
-| VM Sizes | <https://learn.microsoft.com/en-us/azure/virtual-machines/sizes> |
-| VM Networking | <https://learn.microsoft.com/en-us/azure/virtual-network/> |
-| VM Storage | <https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types> |
-| VM Backup | <https://learn.microsoft.com/en-us/azure/backup/> |
-| VM Security | <https://learn.microsoft.com/en-us/azure/security/fundamentals/virtual-machines-overview> |
+Claims containing the marker `primary source basis` are rejected because they are metadata about the page rather than factual Azure behavior.
 
 ## See Also
 
 - [Tutorial Validation Status](validation-status.md)
-- [Reference Index](index.md)
+- [VM Size Families](vm-size-families.md)
+- [Availability Options](availability-options.md)
 
-## Sources
-
-- <https://learn.microsoft.com/en-us/azure/virtual-machines/>

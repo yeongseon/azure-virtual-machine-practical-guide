@@ -1,16 +1,26 @@
 ---
 content_sources:
   diagrams:
-  - id: operations-backup-restore-backup-workflow
-    type: flowchart
-    source: mslearn-adapted
-    description: Backup Workflow
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction
-    - https://learn.microsoft.com/en-us/azure/backup/backup-azure-arm-restore-vms
-    - https://learn.microsoft.com/en-us/azure/backup/backup-azure-restore-files-from-vm
+    - id: operations-backup-restore-backup-workflow
+      type: flowchart
+      source: mslearn-adapted
+      description: Backup Workflow
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction
+        - https://learn.microsoft.com/en-us/azure/backup/backup-azure-arm-restore-vms
+        - https://learn.microsoft.com/en-us/azure/backup/backup-azure-restore-files-from-vm
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Azure Backup can back up Azure virtual machines.
+      source: https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction
+      verified: true
+    - claim: Azure Backup supports file-level recovery for Azure virtual machine backups.
+      source: https://learn.microsoft.com/en-us/azure/backup/backup-azure-restore-files-from-vm
+      verified: true
 ---
-
 # Backup and Restore
 
 Azure Backup provides a secure, reliable way to protect your Virtual Machines from data loss and corruption. It uses Recovery Services vaults to store recovery points and manage backup policies.

@@ -1,17 +1,27 @@
 ---
 content_sources:
   diagrams:
-  - id: operations-create-and-configure-vm-deployment-workflow
-    type: flowchart
-    source: mslearn-adapted
-    description: Deployment Workflow
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-cli
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks
+    - id: operations-create-and-configure-vm-deployment-workflow
+      type: flowchart
+      source: mslearn-adapted
+      description: Deployment Workflow
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-cli
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Azure CLI can create a Linux virtual machine with az vm create from a marketplace image.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-cli
+      verified: true
+    - claim: Ephemeral OS disks store the OS disk on local virtual machine storage instead of remote Azure Storage.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks
+      verified: true
 ---
-
 # Create and Configure VM
 
 Azure virtual machines (VMs) provide on-demand, high-scale, secure, and virtualized computing resources. You can deploy VMs using various methods depending on your automation and management needs.

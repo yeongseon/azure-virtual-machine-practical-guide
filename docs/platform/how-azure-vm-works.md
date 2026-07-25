@@ -1,15 +1,25 @@
 ---
 content_sources:
   diagrams:
-  - id: platform-how-azure-vm-works-virtualization-architecture
-    type: flowchart
-    source: mslearn-adapted
-    description: Virtualization Architecture
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/availability
+    - id: platform-how-azure-vm-works-virtualization-architecture
+      type: flowchart
+      source: mslearn-adapted
+      description: Virtualization Architecture
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/overview
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/availability
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Azure Virtual Machines provides scalable, on-demand compute resources in Azure.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/overview
+      verified: true
+    - claim: Availability sets distribute virtual machines across fault domains and update domains to improve availability.
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/availability
+      verified: true
 ---
-
 # How Azure VM Works
 
 Azure Virtual Machines run on physical hardware managed by Microsoft, abstracted through a virtualization layer called a hypervisor.

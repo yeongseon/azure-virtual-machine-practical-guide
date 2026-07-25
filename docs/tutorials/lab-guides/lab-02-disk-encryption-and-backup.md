@@ -1,17 +1,23 @@
 ---
 content_sources:
   diagrams:
-  - id: tutorials-lab-guides-lab-02-disk-encryption-and-backup-architecture-diagram
-    type: flowchart
-    source: mslearn-adapted
-    description: Architecture Diagram
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/
-    - https://learn.microsoft.com/en-us/cli/azure/vm
-    - https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction
-    - https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-enable-replication
+    - id: tutorials-lab-guides-lab-02-disk-encryption-and-backup-architecture-diagram
+      type: flowchart
+      source: mslearn-adapted
+      description: Architecture Diagram
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/
+        - https://learn.microsoft.com/en-us/cli/azure/vm
+        - https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction
+        - https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-enable-replication
+validation:
+  az_cli:
+    last_tested:
+    result: not_tested
+  bicep:
+    last_tested:
+    result: not_tested
 ---
-
 # Lab 02: Disk Encryption and Backup
 
 Apply disk encryption controls, enable backup protection, and validate restore-readiness for a protected VM.

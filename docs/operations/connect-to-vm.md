@@ -1,16 +1,26 @@
 ---
 content_sources:
   diagrams:
-  - id: operations-connect-to-vm-connection-path-architecture
-    type: flowchart
-    source: mslearn-adapted
-    description: Connection Path Architecture
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/windows/connect-logon
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys
-    - https://learn.microsoft.com/en-us/azure/bastion/bastion-connect-vm-rdp
+    - id: operations-connect-to-vm-connection-path-architecture
+      type: flowchart
+      source: mslearn-adapted
+      description: Connection Path Architecture
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/windows/connect-logon
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys
+        - https://learn.microsoft.com/en-us/azure/bastion/bastion-connect-vm-rdp
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Windows virtual machines in Azure are commonly accessed with Remote Desktop Protocol (RDP).
+      source: https://learn.microsoft.com/en-us/azure/virtual-machines/windows/connect-logon
+      verified: true
+    - claim: Azure Bastion lets you connect to a virtual machine over RDP or SSH through the Azure portal without exposing a public IP on the VM.
+      source: https://learn.microsoft.com/en-us/azure/bastion/bastion-connect-vm-rdp
+      verified: true
 ---
-
 # Connect to VM
 
 Connecting to Azure virtual machines requires specific protocols depending on the operating system and security requirements. Use Azure Bastion for the most secure, browser-based access without public IP addresses.

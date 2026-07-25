@@ -1,28 +1,39 @@
 ---
 content_sources:
   diagrams:
-  - id: troubleshooting-evidence-map-evidence-flow
-    type: flowchart
-    source: self-generated
-    description: Evidence flow
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-virtual-machine
-    - https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview
-    - https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-troubleshoot
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
-  - id: troubleshooting-evidence-map-minimum-evidence-pack
-    type: flowchart
-    source: self-generated
-    description: Minimum evidence pack
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-virtual-machine
-    - https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview
-    - https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-troubleshoot
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    - id: troubleshooting-evidence-map-evidence-flow
+      type: flowchart
+      source: self-generated
+      description: Evidence flow
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-virtual-machine
+        - https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview
+        - https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-troubleshoot
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
+    - id: troubleshooting-evidence-map-minimum-evidence-pack
+      type: flowchart
+      source: self-generated
+      description: Minimum evidence pack
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-virtual-machine
+        - https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview
+        - https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-troubleshoot
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
+content_validation:
+  status: verified
+  last_reviewed: '2026-07-25'
+  reviewer: agent
+  core_claims:
+    - claim: Azure Monitor can monitor the health and performance of virtual machines.
+      source: https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-virtual-machine
+      verified: true
+    - claim: Azure Network Watcher provides tools to monitor, diagnose, and gain insights into network conditions in Azure.
+      source: https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview
+      verified: true
+    - claim: Azure Backup publishes troubleshooting guidance for Azure virtual machine backup failures.
+      source: https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-troubleshoot
+      verified: true
 ---
-
 # Evidence Map
 
 This evidence map shows what to collect first for each VM troubleshooting domain so investigations do not stall on low-value data.

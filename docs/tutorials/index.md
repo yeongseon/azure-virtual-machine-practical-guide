@@ -1,14 +1,13 @@
 ---
 content_sources:
   diagrams:
-  - id: tutorials-index-what-you-will-find-here
-    type: flowchart
-    source: self-generated
-    description: What you will find here
-    based_on:
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/
-    justification: Synthesized for this guide from the referenced Microsoft Learn
-      documentation.
+    - id: tutorials-index-what-you-will-find-here
+      type: flowchart
+      source: self-generated
+      description: What you will find here
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/virtual-machines/
+      justification: Synthesized for this guide from the referenced Microsoft Learn documentation.
 ---
 
 # Tutorials
