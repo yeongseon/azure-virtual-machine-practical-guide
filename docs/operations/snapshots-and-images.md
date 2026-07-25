@@ -81,7 +81,10 @@ az sig image-version create --resource-group "$RG" --gallery-name "$GALLERY_NAME
 | Command | Purpose |
 | --- | --- |
 | `az vm show` | Resolves the OS disk ID from the template VM. |
+| `--resource-group` | Selects the resource group that contains the template VM and image artifacts. |
+| `--name` | Selects the specific VM, snapshot, or managed image resource for each command in the flow. |
 | `--query` | Extracts only the managed OS disk identifier. |
+| `--output` | Emits the disk ID as plain text for reuse in later commands. |
 | `az snapshot create` | Creates a read-only point-in-time snapshot of the OS disk. |
 | `--source` | Points the snapshot at the managed disk to protect. |
 | `--sku` | Chooses the snapshot storage tier. |
@@ -90,6 +93,7 @@ az sig image-version create --resource-group "$RG" --gallery-name "$GALLERY_NAME
 | `az image create` | Creates a managed image from the generalized VM. |
 | `az sig create` | Creates the Azure Compute Gallery container. |
 | `--gallery-name` | Sets the gallery name. |
+| `--location` | Selects the Azure region that hosts the gallery. |
 | `az sig image-definition create` | Creates the image definition that groups all future versions. |
 | `--gallery-image-definition` | Names the image definition. |
 | `--publisher` | Sets the publisher metadata shown to consumers. |
@@ -129,10 +133,14 @@ az sig image-version show --resource-group "$RG" --gallery-name "$GALLERY_NAME" 
 | Command | Purpose |
 | --- | --- |
 | `az snapshot show` | Confirms the snapshot is present and provisioned. |
+| `--resource-group` | Selects the resource group that contains the snapshot and gallery resources. |
+| `--name` | Selects the snapshot to inspect. |
 | `az sig image-version show` | Confirms the gallery image version exists and shows target-region replication metadata. |
 | `--gallery-name` | Selects the right gallery. |
 | `--gallery-image-definition` | Selects the right image family. |
 | `--gallery-image-version` | Selects the exact published version. |
+| `--query` | Returns only the snapshot and replication fields needed for validation. |
+| `--output` | Formats the verification results as YAML. |
 
 Do not delete the source snapshot until the gallery version is fully usable and you have tested at least one deployment from it.
 

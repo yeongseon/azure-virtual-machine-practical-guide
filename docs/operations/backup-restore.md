@@ -88,6 +88,8 @@ az backup restore restore-disks --resource-group "$VAULT_RG" --vault-name "$VAUL
 | `--backup-management-type` | Declares that this is an Azure IaaS VM backup item. |
 | `--retain-until` | Sets the temporary retention date for the ad hoc recovery point. |
 | `az backup recoverypoint list` | Lists recovery points so you can select the exact restore target. |
+| `--query` | Returns only the newest recovery point name from the recovery point list. |
+| `--output` | Emits the recovery point name as plain text for reuse in the restore command. |
 | `az backup restore restore-disks` | Restores the VM disks from the selected recovery point. |
 | `--rp-name` | Specifies the recovery point to restore. |
 | `--storage-account` | Provides the staging storage account used during disk restore. |
@@ -114,6 +116,8 @@ az backup job list --resource-group "$VAULT_RG" --vault-name "$VAULT_NAME" --que
 | Command | Purpose |
 | --- | --- |
 | `az backup job list` | Lists recent backup and restore jobs for the vault. |
+| `--resource-group` | Targets the resource group that contains the Recovery Services vault. |
+| `--vault-name` | Selects the Recovery Services vault whose jobs you want to inspect. |
 | `--query` | Returns the most recent operations with status and start time. |
 | `--output` | Shows job health in a compact table. |
 

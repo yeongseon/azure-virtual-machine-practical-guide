@@ -122,6 +122,8 @@ az vm show --resource-group "$RG" --name "$VM_NAME" --query "{provisioning:provi
 | Command | Purpose |
 | --- | --- |
 | `az vm show` | Reads the final VM model after the operation. |
+| `--resource-group` | Selects the resource group that contains the VM. |
+| `--name` | Selects the VM to verify after the change. |
 | `--query` | Returns only the provisioning state and size for the acceptance check. |
 | `--output` | Emits a compact YAML result. |
 

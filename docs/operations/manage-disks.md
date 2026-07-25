@@ -110,6 +110,8 @@ az vm show --resource-group "$RG" --name "$VM_NAME" --query "storageProfile.data
 | Command | Purpose |
 | --- | --- |
 | `az vm show` | Reads the VM storage profile after the change. |
+| `--resource-group` | Selects the resource group that contains the VM. |
+| `--name` | Selects the VM whose storage profile you are verifying. |
 | `--query` | Extracts the attached data disks with their LUNs and caching modes. |
 | `--output` | Displays the storage profile as a table for quick review. |
 

@@ -123,6 +123,7 @@ az network nic show-effective-nsg --ids "$NIC_ID" --query "[].effectiveSecurityR
 | Command | Purpose |
 | --- | --- |
 | `az vm nic list` | Retrieves the primary NIC attached to the VM. |
+| `--resource-group` | Limits the NIC lookup to the VM resource group. |
 | `--vm-name` | Ties the NIC lookup to the target VM. |
 | `az network nic show-effective-nsg` | Shows the effective security rules after subnet and NIC rule evaluation. |
 | `--ids` | Uses the resolved NIC resource ID directly. |

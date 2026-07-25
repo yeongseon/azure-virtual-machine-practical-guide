@@ -69,12 +69,16 @@ az monitor metrics alert create --resource-group "$RG" --name "$ALERT_NAME" --sc
 | Command | Purpose |
 | --- | --- |
 | `az vm show` | Resolves the VM resource ID used by Azure Monitor commands. |
+| `--resource-group` | Selects the resource group that contains the VM. |
+| `--name` | Selects the VM whose telemetry you are onboarding. |
 | `--query` | Extracts only the resource ID. |
+| `--output` | Emits the VM resource ID as plain text for reuse in later commands. |
 | `az monitor metrics list` | Reviews recent platform metric samples before setting a threshold. |
 | `--resource` | Points the metric query at the VM. |
 | `--metric` | Requests CPU percentage. |
 | `--interval` | Limits the sample to the last 30 minutes. |
 | `--aggregation` | Uses average CPU for alert-tuning context. |
+| `--query` | Returns only the latest timestamped metric samples. |
 | `az monitor action-group create` | Creates the notification target for alerts. |
 | `--short-name` | Sets the compact name used by notifications. |
 | `--action` | Adds an email receiver to the action group. |

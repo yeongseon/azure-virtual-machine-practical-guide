@@ -130,8 +130,11 @@ az vm nic list --resource-group "$RG" --vm-name "$VM_NAME" --query "[].{nic:id,p
 | Command | Purpose |
 | --- | --- |
 | `az vm show` | Verifies that control-plane provisioning succeeded. |
+| `--resource-group` | Selects the resource group that contains the VM. |
+| `--name` | Selects the VM to verify. |
 | `--query` | Returns only the provisioning state and VM identifier. |
 | `az vm nic list` | Confirms the VM NIC exists and is attached to the expected private IP configuration. |
+| `--resource-group` | Uses the same resource group when listing the VM NICs. |
 | `--vm-name` | Targets the VM whose NIC inventory you need. |
 | `--output` | Renders the NIC verification as a table. |
 

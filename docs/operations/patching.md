@@ -110,6 +110,8 @@ az vm get-instance-view --resource-group "$RG" --name "$VM_NAME" --query "instan
 | Command | Purpose |
 | --- | --- |
 | `az vm assess-patches` | Reassesses the machine after installation. |
+| `--resource-group` | Selects the resource group that contains the VM. |
+| `--name` | Selects the VM to reassess. |
 | `az vm get-instance-view` | Reads the latest patch summary from the instance view. |
 | `--query` | Returns only the available patch counters. |
 | `--output` | Formats the compliance summary as YAML. |
