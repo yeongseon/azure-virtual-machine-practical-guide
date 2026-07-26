@@ -34,7 +34,7 @@ The substrate under `labs/extension-failure/` makes that separation explicit:
 - `main.bicep` provisions a Linux VM with `provisionVMAgent: true`.
 - The `Microsoft.Compute/virtualMachines/extensions` resource uses `Microsoft.Azure.Extensions/CustomScript`.
 - The default `extensionCommandToExecute` writes `/tmp/extension-failure-marker.txt` and then exits with status `42`.
-- `scripts/reproduce.sh` captures the extension instance view and recent activity-log entries into `labs/extension-failure/evidence/`.
+- `scripts/reproduce.sh` captures the baseline `az vm extension show` payload plus recent activity-log entries into `labs/extension-failure/evidence/`.
 
 <!-- diagram-id: extension-failures-lab-flow -->
 ```mermaid
@@ -104,7 +104,7 @@ bash labs/extension-failure/scripts/reproduce.sh
 ```
 | Command | Purpose |
 | --- | --- |
-| `bash labs/extension-failure/scripts/reproduce.sh` | Capture the live extension instance view and recent activity-log entries into `labs/extension-failure/evidence/`. |
+| `bash labs/extension-failure/scripts/reproduce.sh` | Capture the live baseline extension payload and recent activity-log entries into `labs/extension-failure/evidence/`. |
 
 The script writes these real artifacts during a live run:
 
@@ -147,13 +147,13 @@ This authoring PR documents the experiment structure only. No live Azure deploym
 
 - `main.bicep` provisions a Linux VM, enables the VM agent, and attaches a `Microsoft.Azure.Extensions/CustomScript` extension.
 - The default command is `bash -c "echo intentional-extension-failure > /tmp/extension-failure-marker.txt; exit 42"`.
-- `scripts/reproduce.sh` captures `az vm extension show` output and recent extension-scoped activity-log entries.
+- `scripts/reproduce.sh` captures baseline `az vm extension show` output and recent extension-scoped activity-log entries.
 - `scripts/cleanup.sh` deletes the resource group with `az group delete --name "$RG" --yes --no-wait`.
 
 ### Pre-fix live evidence to confirm during the first real run [Not Proven]
 
 - `az-vm-extension-show.json` should show the extension in `Failed` state.
-- The extension status payload should contain a script-execution failure rather than a VM boot failure.
+- The lab's documented `az vm extension show --instance-view` verification command should expose `instanceView.statuses` with a script-execution failure rather than a VM boot failure.
 - `activity-log.txt` should show the extension resource write as failed during the reproduction window.
 
 ### Post-fix falsification target [Not Proven]
@@ -173,6 +173,7 @@ az vm extension show \
     --resource-group "$RG" \
     --vm-name "$VM_NAME" \
     --name "$EXTENSION_NAME" \
+    --instance-view \
     --query "{provisioningState:provisioningState,statuses:instanceView.statuses[].displayStatus,messages:instanceView.statuses[].message}" \
     --output json
 ```
@@ -182,6 +183,7 @@ az vm extension show \
 | `--resource-group` | Scope the query to the lab resource group. |
 | `--vm-name` | Target the lab virtual machine. |
 | `--name` | Target the failing or recovered extension resource. |
+| `--instance-view` | Request the guest-reported instance-view block so `instanceView.statuses` is populated for pass/fail evidence. |
 | `--query` | Reduce the payload to the fields that distinguish failure from recovery. |
 | `--output` | Return machine-readable JSON for evidence capture. |
 
