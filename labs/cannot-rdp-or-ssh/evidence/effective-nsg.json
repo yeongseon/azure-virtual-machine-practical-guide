@@ -1,0 +1,5 @@
+{
+  "status": "PENDING LIVE CAPTURE",
+  "note": "This placeholder will be replaced by real az network nic list-effective-nsg output during a live Azure reproduction run.",
+  "do_not_commit": "Do not replace this file with fabricated JSON, fabricated rule names, fabricated resource IDs, or fabricated timestamps."
+}

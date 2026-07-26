@@ -1,5 +1,5 @@
 ---
-description: Azure Virtual Machines troubleshooting lab guides hub — planned reproducible experiments, lab methodology, and the first scaffolded lab candidate.
+description: Azure Virtual Machines troubleshooting lab guides hub — planned reproducible experiments, lab methodology, and the current scaffolded lab catalog.
 ---
 
 # Lab Guides
@@ -35,15 +35,17 @@ Within that structure, each lab is expected to cover the full troubleshooting me
 
 | Planned lab | Paired playbook | Status | Notes |
 |---|---|---|---|
-| Extension Failures | [Extension Failures](../playbooks/connectivity/extension-failures.md) | Scaffolded | First candidate for a reproducible lab based on VM agent health, outbound connectivity, OS support, and extension payload troubleshooting. |
+| Extension Failures | [Extension Failures](../playbooks/connectivity/extension-failures.md) | Scaffolded | Reproduces a deterministic Custom Script extension failure and falsifies it with a successful redeploy. |
+| Cannot RDP or SSH | [Cannot RDP or SSH](../playbooks/connectivity/cannot-rdp-or-ssh.md) | Scaffolded | Reproduces a deterministic admin-path connectivity failure where an NSG deny rule blocks inbound TCP 22 even though the VM remains healthy. |
 
 ## Why this is a scaffold
 
-This page intentionally stops at the hub and starter shape. The first full troubleshooting lab will be authored separately so the initial lab can be reviewed as a focused, evidence-rich experiment instead of a placeholder.
+This page intentionally stays focused on the hub and lab shape. Individual troubleshooting labs are authored separately so each experiment can be reviewed as a focused, evidence-rich document instead of a placeholder bundle.
 
 ## See Also
 
 - [Troubleshooting](../index.md)
 - [Playbooks](../playbooks/index.md)
+- [Cannot RDP or SSH](../playbooks/connectivity/cannot-rdp-or-ssh.md)
 - [Extension Failures](../playbooks/connectivity/extension-failures.md)
 - [Tutorial Lab Guides](../../tutorials/lab-guides/index.md)
