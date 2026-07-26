@@ -146,7 +146,9 @@ nav:
   - troubleshooting/decision-tree.md
   - troubleshooting/mental-model.md
   - troubleshooting/evidence-map.md
-  - Lab Guides: troubleshooting/lab-guides/index.md
+  - Lab Guides:
+    - troubleshooting/lab-guides/index.md
+    - troubleshooting/lab-guides/extension-failures.md
   - First 10 Minutes:
     - troubleshooting/first-10-minutes/index.md
     - troubleshooting/first-10-minutes/connectivity.md
