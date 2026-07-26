@@ -1,0 +1,3 @@
+# PENDING LIVE CAPTURE
+# This placeholder will be replaced by a real client-side TCP 22 connection transcript from `bash labs/cannot-rdp-or-ssh/scripts/reproduce.sh` during a live Azure reproduction run.
+# Do not replace this file with fabricated output, fabricated IP addresses, fabricated timestamps, or fabricated success/failure text.
