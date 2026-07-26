@@ -80,7 +80,7 @@ az deployment group create \
     --resource-group "$RG" \
     --template-file labs/cannot-rdp-or-ssh/main.bicep \
     --parameters @labs/cannot-rdp-or-ssh/parameters.json \
-    --parameters location="$LOCATION" vmName="$VM_NAME" managementSourcePrefix="$SOURCE_CIDR"
+    --parameters location="$LOCATION" vmName="$VM_NAME" managementSourcePrefix="$SOURCE_CIDR" adminPassword="<temporary-lab-password>"
 ```
 | Command | Purpose |
 | --- | --- |
@@ -91,6 +91,8 @@ az deployment group create \
 | `--resource-group` | Target the resource group that receives the deployment. |
 | `--template-file` | Point Azure CLI at `labs/cannot-rdp-or-ssh/main.bicep`. |
 | `--parameters` | Supply the parameter file and override the location, VM name, and management source prefix used by the scoped allow rule. |
+
+Replace the RFC 5737 example `SOURCE_CIDR` with your current public source CIDR before the post-fix redeploy. Otherwise the scoped allow rule can stay correct syntactically but still not match your real client IP.
 
 Expected result: the VM resource is created successfully, but inbound SSH remains unreachable because `blockAdminPort` stays `true` and the higher-priority deny rule blocks TCP 22.
 
@@ -118,7 +120,7 @@ az deployment group create \
     --resource-group "$RG" \
     --template-file labs/cannot-rdp-or-ssh/main.bicep \
     --parameters @labs/cannot-rdp-or-ssh/parameters.json \
-    --parameters location="$LOCATION" vmName="$VM_NAME" managementSourcePrefix="$SOURCE_CIDR" blockAdminPort=false
+    --parameters location="$LOCATION" vmName="$VM_NAME" managementSourcePrefix="$SOURCE_CIDR" adminPassword="<temporary-lab-password>" blockAdminPort=false
 ```
 | Command | Purpose |
 | --- | --- |

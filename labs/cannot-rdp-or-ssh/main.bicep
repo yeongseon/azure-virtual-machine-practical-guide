@@ -32,7 +32,7 @@ param adminUsername string = 'azureuser'
 
 @secure()
 @description('Linux administrator password. Use a temporary lab-only secret when deploying.')
-param adminPassword string = '<temporary-lab-password>'
+param adminPassword string
 
 @description('Marketplace image publisher.')
 param imagePublisher string = 'Canonical'

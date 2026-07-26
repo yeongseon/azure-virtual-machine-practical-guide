@@ -29,7 +29,7 @@ export SOURCE_CIDR="198.51.100.10/32"
 
 ```bash
 az group create --name "$RG" --location "$LOCATION"
-az deployment group create --resource-group "$RG" --template-file labs/cannot-rdp-or-ssh/main.bicep --parameters @labs/cannot-rdp-or-ssh/parameters.json --parameters location="$LOCATION" vmName="$VM_NAME" managementSourcePrefix="$SOURCE_CIDR"
+az deployment group create --resource-group "$RG" --template-file labs/cannot-rdp-or-ssh/main.bicep --parameters @labs/cannot-rdp-or-ssh/parameters.json --parameters location="$LOCATION" vmName="$VM_NAME" managementSourcePrefix="$SOURCE_CIDR" adminPassword="<temporary-lab-password>"
 ```
 | Command | Purpose |
 | --- | --- |
@@ -40,6 +40,8 @@ az deployment group create --resource-group "$RG" --template-file labs/cannot-rd
 | `--resource-group` | Target the resource group that will receive the deployment. |
 | `--template-file` | Point Azure CLI at `labs/cannot-rdp-or-ssh/main.bicep`. |
 | `--parameters` | Supply the parameter file plus explicit overrides for location, VM name, and the scoped management source prefix. |
+
+Replace the RFC 5737 example `SOURCE_CIDR` with your current public source CIDR before the post-fix redeploy. Otherwise the scoped allow rule will not match your real client IP.
 
 Expected result: the deployment reaches a successful terminal state for the VM, but inbound TCP 22 remains blocked by the intentional NSG deny rule.
 
