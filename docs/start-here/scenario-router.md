@@ -118,3 +118,9 @@ Some situations straddle two phases — the design choice you make while plannin
 - [VM vs Other Compute](vm-vs-other-compute.md) — service selection vs App Service, Container Apps, AKS, Functions
 - [Decision Tree](../troubleshooting/decision-tree.md) — symptom-first troubleshooting router
 - [Evidence Map](../troubleshooting/evidence-map.md) — evidence-collection index
+
+## Sources
+
+- [Azure Virtual Machines documentation](https://learn.microsoft.com/en-us/azure/virtual-machines/)
+- [Azure Virtual Machines overview](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)
+- [Sizes for virtual machines in Azure](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes)
