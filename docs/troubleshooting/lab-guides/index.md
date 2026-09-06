@@ -49,3 +49,8 @@ This page intentionally stays focused on the hub and lab shape. Individual troub
 - [Cannot RDP or SSH](../playbooks/connectivity/cannot-rdp-or-ssh.md)
 - [Extension Failures](../playbooks/connectivity/extension-failures.md)
 - [Tutorial Lab Guides](../../tutorials/lab-guides/index.md)
+
+## Sources
+
+- [Azure Virtual Machines documentation](https://learn.microsoft.com/en-us/azure/virtual-machines/)
+- [Troubleshoot Azure VM extensions](https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/troubleshoot)

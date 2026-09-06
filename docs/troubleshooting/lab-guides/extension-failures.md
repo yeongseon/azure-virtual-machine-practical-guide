@@ -43,7 +43,7 @@ flowchart TD
     B --> C[Custom Script extension runs command]
     C --> D[Command writes marker file then exits 42]
     D --> E[Extension provisioningState becomes Failed]
-    E --> F[reproduce.sh captures az vm extension show JSON]
+    E --> F[reproduce.sh captures extension show JSON]
     E --> G[reproduce.sh captures activity-log table]
     G --> H[Redeploy extension with exit 0 command]
     F --> H
