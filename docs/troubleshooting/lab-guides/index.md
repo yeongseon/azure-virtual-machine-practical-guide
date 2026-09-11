@@ -1,10 +1,28 @@
 ---
+content_sources:
+  diagrams:
+    - id: lab-hub-lifecycle
+      type: flowchart
+      source: self-generated
+      justification: Lifecycle overview of the canonical lab shape documented on this hub page.
 description: Azure Virtual Machines troubleshooting lab guides hub — planned reproducible experiments, lab methodology, and the current scaffolded lab catalog.
 ---
 
 # Lab Guides
 
 These troubleshooting labs turn VM failure scenarios into reproducible experiments. Use this hub to find upcoming labs, understand the lab methodology, and see how each lab pairs with an existing troubleshooting playbook.
+
+The lab lifecycle every guide in this hub follows:
+
+<!-- diagram-id: lab-hub-lifecycle -->
+```mermaid
+flowchart LR
+    A["Pick a failure to reproduce"] --> B["Trigger the fault in a lab subscription"]
+    B --> C["Capture evidence: metrics, logs, portal state"]
+    C --> D["Diagnose against the matching playbook"]
+    D --> E["Fix and verify recovery"]
+    E --> F["Record the evidence chain in the lab guide"]
+```
 
 ## What belongs here
 
