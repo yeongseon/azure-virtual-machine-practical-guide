@@ -1,4 +1,10 @@
 ---
+content_sources:
+  diagrams:
+    - id: bp-patching-and-maintenance-overview
+      type: flowchart
+      source: self-generated
+      justification: Overview map of this page's own recommended practices and validation checklist.
 description: Azure VM patching and maintenance guidance for Update Manager, automatic guest patching, maintenance windows, and safer monthly change execution.
 content_validation:
   status: verified
@@ -19,6 +25,27 @@ content_validation:
 # Patching and Maintenance Best Practices
 
 Patching Azure VMs is an availability and evidence problem, not just a compliance checkbox.
+
+This page's baseline at a glance — the recommended practices and the validation gate:
+
+<!-- diagram-id: bp-patching-and-maintenance-overview -->
+```mermaid
+flowchart TD
+    T["Patching and Maintenance Best Practices"]
+    P1["Decide who orchestrates patching"]
+    T --> P1
+    P2["Design maintenance as a production change event"]
+    T --> P2
+    P3["Validate image support and orchestration fit"]
+    T --> P3
+    P4["Link to platform and operations detail"]
+    T --> P4
+    V["Validation Checklist"]
+    P1 --> V
+    P2 --> V
+    P3 --> V
+    P4 --> V
+```
 
 ## Why This Matters
 

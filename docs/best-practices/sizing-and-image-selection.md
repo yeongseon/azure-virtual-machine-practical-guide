@@ -1,4 +1,10 @@
 ---
+content_sources:
+  diagrams:
+    - id: bp-sizing-and-image-selection-overview
+      type: flowchart
+      source: self-generated
+      justification: Overview map of this page's own recommended practices and validation checklist.
 description: Azure VM sizing and image selection guidance for choosing the right family, avoiding burst-credit surprises, and governing Marketplace or custom images.
 content_validation:
   status: verified
@@ -19,6 +25,27 @@ content_validation:
 # Sizing and Image Selection
 
 Choose VM size and image together. A good SKU on the wrong image, or a good image on the wrong SKU, still creates avoidable operations debt.
+
+This page's baseline at a glance — the recommended practices and the validation gate:
+
+<!-- diagram-id: bp-sizing-and-image-selection-overview -->
+```mermaid
+flowchart TD
+    T["Sizing and Image Selection"]
+    P1["Size by workload shape, not by habit"]
+    T --> P1
+    P2["Separate pilot sizing from long-term commitments"]
+    T --> P2
+    P3["Govern image provenance"]
+    T --> P3
+    P4["Use platform docs for series mechanics"]
+    T --> P4
+    V["Validation Checklist"]
+    P1 --> V
+    P2 --> V
+    P3 --> V
+    P4 --> V
+```
 
 ## Why This Matters
 

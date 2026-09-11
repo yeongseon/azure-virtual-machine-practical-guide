@@ -1,4 +1,10 @@
 ---
+content_sources:
+  diagrams:
+    - id: bp-production-baseline-overview
+      type: flowchart
+      source: self-generated
+      justification: Overview map of this page's own recommended practices and validation checklist.
 description: "Shared production baseline for Azure VMs: sizing evidence, private administration, storage layout, monitoring coverage, backup proof, and governance controls."
 content_validation:
   status: verified
@@ -19,6 +25,30 @@ content_validation:
 # Production Baseline
 
 Use this page for the controls that should exist on almost every production Azure VM before workload-specific tuning starts.
+
+This page's baseline at a glance — the recommended practices and the validation gate:
+
+<!-- diagram-id: bp-production-baseline-overview -->
+```mermaid
+flowchart TD
+    T["Production Baseline"]
+    P1["Standardize the minimum production envelope"]
+    T --> P1
+    P2["Keep the administration path private by default"]
+    T --> P2
+    P3["Separate storage, observability, and recovery concerns"]
+    T --> P3
+    P4["Baseline governance for every VM"]
+    T --> P4
+    P5["Use topic pages for deeper review"]
+    T --> P5
+    V["Validation Checklist"]
+    P1 --> V
+    P2 --> V
+    P3 --> V
+    P4 --> V
+    P5 --> V
+```
 
 ## Why This Matters
 

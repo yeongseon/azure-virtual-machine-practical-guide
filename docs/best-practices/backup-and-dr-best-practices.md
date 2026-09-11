@@ -1,4 +1,10 @@
 ---
+content_sources:
+  diagrams:
+    - id: bp-backup-and-dr-overview
+      type: flowchart
+      source: self-generated
+      justification: Overview map of this page's own recommended practices and validation checklist.
 description: Azure VM backup and disaster recovery guidance for restore proof, consistency choices, and separating backup coverage from failover readiness.
 content_validation:
   status: verified
@@ -19,6 +25,24 @@ content_validation:
 # Backup and DR Best Practices
 
 Backup protects recoverability of data and VM state. Disaster recovery protects service continuity during larger failures. Treat them as related but different controls.
+
+This page's baseline at a glance — the recommended practices and the validation gate:
+
+<!-- diagram-id: bp-backup-and-dr-overview -->
+```mermaid
+flowchart TD
+    T["Backup and DR Best Practices"]
+    P1["Prove backup, do not just configure it"]
+    T --> P1
+    P2["Separate backup objectives from regional failover objectives"]
+    T --> P2
+    P3["Match consistency expectations to workload reality"]
+    T --> P3
+    V["Validation Checklist"]
+    P1 --> V
+    P2 --> V
+    P3 --> V
+```
 
 ## Why This Matters
 

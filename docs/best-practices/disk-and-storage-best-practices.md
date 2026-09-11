@@ -1,4 +1,10 @@
 ---
+content_sources:
+  diagrams:
+    - id: bp-disk-and-storage-overview
+      type: flowchart
+      source: self-generated
+      justification: Overview map of this page's own recommended practices and validation checklist.
 description: Azure VM disk and storage guidance for throughput limits, caching choices, disk tier selection, and layout decisions that prevent storage bottlenecks.
 content_validation:
   status: verified
@@ -19,6 +25,27 @@ content_validation:
 # Disk and Storage Best Practices
 
 Disk design for Azure VMs is a throughput and layout problem, not just a disk SKU problem.
+
+This page's baseline at a glance — the recommended practices and the validation gate:
+
+<!-- diagram-id: bp-disk-and-storage-overview -->
+```mermaid
+flowchart TD
+    T["Disk and Storage Best Practices"]
+    P1["Review VM limits before choosing disk tiers"]
+    T --> P1
+    P2["Use caching intentionally"]
+    T --> P2
+    P3["Separate roles in disk layout"]
+    T --> P3
+    P4["Use platform detail for storage mechanics"]
+    T --> P4
+    V["Validation Checklist"]
+    P1 --> V
+    P2 --> V
+    P3 --> V
+    P4 --> V
+```
 
 ## Why This Matters
 
