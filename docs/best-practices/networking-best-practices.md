@@ -1,4 +1,10 @@
 ---
+content_sources:
+  diagrams:
+    - id: bp-networking-overview
+      type: flowchart
+      source: self-generated
+      justification: Overview map of this page's own recommended practices and validation checklist.
 description: Azure VM networking guidance for private administration, accelerated networking, latency-aware placement, and safer connectivity boundaries.
 content_validation:
   status: verified
@@ -19,6 +25,27 @@ content_validation:
 # Networking Best Practices
 
 Networking decisions define who can reach the VM, how traffic behaves under load, and how hard it will be to prove root cause during connectivity incidents.
+
+This page's baseline at a glance — the recommended practices and the validation gate:
+
+<!-- diagram-id: bp-networking-overview -->
+```mermaid
+flowchart TD
+    T["Networking Best Practices"]
+    P1["Keep administration private by default"]
+    T --> P1
+    P2["Use Accelerated Networking deliberately"]
+    T --> P2
+    P3["Design for failure domains and latency together"]
+    T --> P3
+    P4["Link to platform detail instead of duplicating it"]
+    T --> P4
+    V["Validation Checklist"]
+    P1 --> V
+    P2 --> V
+    P3 --> V
+    P4 --> V
+```
 
 ## Why This Matters
 

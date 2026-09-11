@@ -1,4 +1,10 @@
 ---
+content_sources:
+  diagrams:
+    - id: bp-common-anti-patterns-overview
+      type: flowchart
+      source: self-generated
+      justification: Overview map of this page's own recommended practices and validation checklist.
 description: "Common Azure VM anti-patterns that create repeated incidents: public management paths, unsupported patching assumptions, storage bottlenecks, and unproven recovery."
 content_validation:
   status: verified
@@ -19,6 +25,21 @@ content_validation:
 # Common Anti-Patterns
 
 Use this page as a review-board shortcut. If one of these patterns appears, stop and reopen the design before scaling it out.
+
+This page's baseline at a glance — the recommended practices and the validation gate:
+
+<!-- diagram-id: bp-common-anti-patterns-overview -->
+```mermaid
+flowchart TD
+    T["Common Anti-Patterns"]
+    P1["Reject these patterns early"]
+    T --> P1
+    P2["Use the topic pages as remediation paths"]
+    T --> P2
+    V["Validation Checklist"]
+    P1 --> V
+    P2 --> V
+```
 
 ## Why This Matters
 

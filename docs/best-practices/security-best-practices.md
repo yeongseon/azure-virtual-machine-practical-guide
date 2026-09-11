@@ -1,4 +1,10 @@
 ---
+content_sources:
+  diagrams:
+    - id: bp-security-overview
+      type: flowchart
+      source: self-generated
+      justification: Overview map of this page's own recommended practices and validation checklist.
 description: Azure VM security guidance for reducing management-port exposure, using just-in-time access, and keeping privileged administration on a safer path.
 content_validation:
   status: verified
@@ -16,6 +22,24 @@ content_validation:
 # Security Best Practices
 
 For Azure VMs, strong security starts with the management path. If administration is exposed or poorly controlled, other hardening steps become much less valuable.
+
+This page's baseline at a glance — the recommended practices and the validation gate:
+
+<!-- diagram-id: bp-security-overview -->
+```mermaid
+flowchart TD
+    T["Security Best Practices"]
+    P1["Reduce the standing attack surface"]
+    T --> P1
+    P2["Use JIT for exception-based access"]
+    T --> P2
+    P3["Separate platform security detail from review guidance"]
+    T --> P3
+    V["Validation Checklist"]
+    P1 --> V
+    P2 --> V
+    P3 --> V
+```
 
 ## Why This Matters
 

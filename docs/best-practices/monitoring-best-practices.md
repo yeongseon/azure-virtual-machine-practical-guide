@@ -1,4 +1,10 @@
 ---
+content_sources:
+  diagrams:
+    - id: bp-monitoring-overview
+      type: flowchart
+      source: self-generated
+      justification: Overview map of this page's own recommended practices and validation checklist.
 description: Azure VM monitoring guidance for combining host and guest evidence, using Azure Monitor Agent, and building alerts that help during real incidents.
 content_validation:
   status: verified
@@ -19,6 +25,24 @@ content_validation:
 # Monitoring Best Practices
 
 Useful VM monitoring answers two questions fast: what changed, and is the problem on the host, in the guest, or in the workload running inside it?
+
+This page's baseline at a glance — the recommended practices and the validation gate:
+
+<!-- diagram-id: bp-monitoring-overview -->
+```mermaid
+flowchart TD
+    T["Monitoring Best Practices"]
+    P1["Build a layered evidence model"]
+    T --> P1
+    P2["Use VM insights as an onboarding accelerator"]
+    T --> P2
+    P3["Alert on evidence that changes decisions"]
+    T --> P3
+    V["Validation Checklist"]
+    P1 --> V
+    P2 --> V
+    P3 --> V
+```
 
 ## Why This Matters
 

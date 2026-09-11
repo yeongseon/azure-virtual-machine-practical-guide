@@ -1,4 +1,10 @@
 ---
+content_sources:
+  diagrams:
+    - id: bp-cost-optimization-overview
+      type: flowchart
+      source: self-generated
+      justification: Overview map of this page's own recommended practices and validation checklist.
 description: Azure VM cost optimization guidance for rightsizing first, choosing savings plans or reservations carefully, and using auto-shutdown only where operations allow it.
 content_validation:
   status: verified
@@ -19,6 +25,24 @@ content_validation:
 # Cost Optimization Best Practices
 
 The safest way to lower Azure VM spend is to remove waste without damaging performance, patchability, or recovery objectives.
+
+This page's baseline at a glance — the recommended practices and the validation gate:
+
+<!-- diagram-id: bp-cost-optimization-overview -->
+```mermaid
+flowchart TD
+    T["Cost Optimization Best Practices"]
+    P1["Rightsize before committing"]
+    T --> P1
+    P2["Choose the commitment model that matches volatility"]
+    T --> P2
+    P3["Use scheduling and shutdown controls carefully"]
+    T --> P3
+    V["Validation Checklist"]
+    P1 --> V
+    P2 --> V
+    P3 --> V
+```
 
 ## Why This Matters
 
